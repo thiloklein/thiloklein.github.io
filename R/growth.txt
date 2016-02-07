@@ -1,0 +1,26 @@
+country,empgrow,GDPgrow
+Australia,1.68,3.04
+Austria,0.65,2.55
+Belgium,0.34,2.16
+Canada,1.17,2.03
+Denmark,0.02,2.02
+Finland,-1.06,1.78
+France,0.28,2.08
+Germany,0.08,2.71
+Greece,0.87,2.08
+Iceland,-0.13,1.54
+Ireland,2.16,6.4
+Italy,-0.3,1.68
+Japan,1.06,2.81
+Korea,2.57,7.73
+Luxembourg,3.02,5.64
+Netherlands,1.88,2.86
+New Zealand,0.91,2.01
+Norway,0.36,2.98
+Portugal,0.33,2.79
+Spain,0.89,2.6
+Sweden,-0.94,1.17
+Switzerland,0.79,1.15
+Turkey,2.02,4.18
+United Kingdom,0.66,1.97
+United States,1.53,2.46

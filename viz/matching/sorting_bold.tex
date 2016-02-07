@@ -1,0 +1,169 @@
+%\documentclass[t,compress,handout]{beamer}
+\documentclass[compress,t]{beamer}
+%\useoutertheme{infolines}
+%\usetheme[secheader]{Boadilla}
+\usepackage[latin1]{inputenc}
+\def\supertiny{ \font\supertinyfont = cmr10 at 4pt \relax \supertinyfont} 
+\usepackage{time}       % date and time
+\setbeamertemplate{navigation symbols}{} 
+%\usepackage{eurosym}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,calc,decorations.text,plotmarks,topaths,mindmap}
+\usepackage{bbding}
+\definecolor{shade}{HTML}{D4D7FE}	%light blue shade
+\usepackage{natbib}
+\usepackage{amssymb}
+\usepackage{rotating}
+\usepackage{cancel}
+ \usepackage{savesym}
+ \usepackage{amsmath}
+ \savesymbol{Cross}
+ \usepackage{marvosym}
+ \restoresymbol{TXF}{Cross}
+\usepackage{ragged2e} 
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage{ragged2e}
+
+%\usepackage[papersize={12.8cm,12.8cm}]{geometry}
+\usepackage{geometry}
+\geometry{paperwidth=90mm,paperheight=90mm}
+
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{graphicx}
+\usepackage{animate}
+
+\usepackage{hyperref}
+\usepackage{verbatim}
+%\usepackage{simpsons}
+%\beamertemplateshadingbackground{black!35}{black!50}
+%\beamertemplateshadingbackground{white!10}{white!10}
+%\usepackage{beamerthemesplit}
+%\usetheme{Frankfurt}
+\usefonttheme{serif}
+\useinnertheme{rounded}
+%\useoutertheme{sidebar}
+\usecolortheme{beaver}
+%\usecolortheme{beetle}
+\definecolor{darkblue}{rgb}{0,0,0.7}
+
+\DeclareMathOperator*{\Max}{max}
+
+%\setbeamertemplate{footline}[page number]
+%%%\beamertemplatetransparentcovereddynamic
+%\setbeamercolor{block title}{fg=darkblue,bg=white}
+%\setbeamercolor{block body}{bg=white}
+%\useoutertheme{infolines} 
+
+\usepackage{pifont}
+\newcommand\circledx[1][red]{%
+\textcolor{#1}{\textcircled{\normalcolor\ding{55}}}%
+}
+\newcommand\circledcheck[1][red]{%
+\textcolor{#1}{\textcircled{\normalcolor\ding{51}}}%
+}
+
+
+\begin{document}
+
+
+
+\frame{
+%	\frametitle{Sorting bias in endogeneous groups} %\hyperlink{forth}{}
+%\begin{block}{{\small Figure 1: Decomposition of direct effect and sorting bias}}
+
+\vspace{-0.6cm}
+
+\begin{figure}[hbtp!]
+\hspace*{-1.2cm}
+%\begin{tikzpicture}[domain=0:4, scale=1.65, line width=0.5mm, font=\bf\sffamily] %
+\begin{tikzpicture}[domain=0:4, scale=1.65, line width=0.5mm, font=\bf] %
+%axis
+	\draw[->] (-0.2,0) -- (4.5,0) node[below right] {X};
+	\draw[->] (0,-.2) -- (0,4.2) node[above left] {R};
+%legend 1
+	\begin{scope}[shift={(0.85,3.55)}] 
+	\draw[yshift=1.2\baselineskip] (0,0) -- 
+		plot[mark=square*, mark options={fill=white}] (0.15,0) -- (0.3,0)
+		node[right]{random assignment};
+	\end{scope}
+%ticks (y-axis)
+\draw (1pt, 1) -- (-3pt,1) node[anchor=east] {3.3}; 
+\draw (1pt, 2) -- (-3pt,2) node[anchor=east] {3.4}; 
+\draw (1pt, 3) -- (-3pt,3) node[anchor=east] {3.5}; 
+%ticks (x-axis)
+\draw (1, 1pt) -- (1,-3pt) node[anchor=north] {.06}; 
+\draw (5/3, 1pt) -- (5/3,-3pt) node[anchor=north] {}; 
+\draw (2, 1pt) -- (2,-3pt) node[anchor=north] {.09}; 
+\draw (3, 1pt) -- (3,-3pt) node[anchor=north] {.12}; 
+%points
+\pause
+	\draw plot[mark=square*, mark options={fill=white}] (2,2) node[below right]{BC};
+	\draw plot[mark=square*, mark options={fill=white}] (5/3,2) node[above left]{AD};
+%points 2
+\pause
+	\draw plot[mark=square*, mark options={fill=white}] (1,3) node[left]{AC};
+	\draw plot[mark=square*, mark options={fill=white}] (3,1) node[right]{BD};
+%points 3
+\pause
+	\draw plot[mark=square*, mark options={fill=white}] (3,3) node[right]{AB};
+	\draw plot[mark=square*, mark options={fill=white}] (1,1) node[left]{CD};
+%lines
+\pause
+	\draw[dashed,color=black] plot (\x, 2); 
+%lines 2
+\pause
+	\draw[dashed,color=black] plot (0.5,3.5) -- (4,0);
+%lines 3
+\pause
+	\draw[dashed,color=black] plot (0,0) -- (3.5,3.5); 
+\pause
+% estimate unbiased
+%text along path 2
+  \draw[decorate, decoration={text along path, text={${ \ \ \beta_1}$=$0{\circledcheck[cyan]}$}}] (0,2.1) -- (1,2.1);
+	\draw[color=black] plot (\x, 2); 
+\pause
+% legend 2
+  \begin{scope}[shift={(0.85,3.55)}] 
+	\draw[yshift=0.6\baselineskip, color=darkred] (0,0) -- 
+		plot[mark=x] (0.15,0) -- (0.3,0)
+		node[right, color=darkred]{systematic matching};
+  \end{scope}
+  \pause
+  %points 2
+	\draw[color=darkred] plot[mark=x] (1,1);
+	\draw[color=darkred] plot[color=darkred,mark=x] (3,3);
+  \pause
+  % estimate biased
+\draw[color=darkred] plot (0,0) -- (3.5,3.5); 
+%text along path 2
+	\draw[decorate, decoration={text along path, text={${ \ \ \hat \beta_1}$=${\frac{10}{3}\circledx[darkred] \ \ \ \ }$}}] (2,2.15) -- (3,3.15);
+\pause
+%arrows
+	\draw [dotted] (3.25,2) arc (0:360:1.25cm);
+	\draw [->, color=darkred] (0.75, 2) arc (180:220:1.25cm);
+	\draw [->, color=darkred] (3.25, 2) arc (0:40:1.25cm);
+\pause
+\pause
+\pause
+%braces
+% \draw plot (4.12,2) node[right]{ \shortstack{ expected outcome under\\[-0.25ex] a) random assignment\\[-0.25ex] \ \ b) matching on $\eta_{ij}$ only} };
+\end{tikzpicture}
+\end{figure}
+
+%\end{block}
+}
+
+% convert -verbose -delay 200 -loop 0 -density 600 sorting.pdf sorting.gif
+% pdftk sorting.pdf cat 15 output sorting2.pdf
+% convert -density 600 sorting2.pdf sorting.jpg
+
+
+
+\end{document}

@@ -1,0 +1,13581 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/topojson.v1.min.js' type='text/javascript'></script>
+    <script src='http://datamaps.github.io/scripts/datamaps.all.min.js' type='text/javascript'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js' type='text/javascript'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 700px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body ng-app ng-controller='rChartsCtrl'>
+    
+    
+      <div class='container'>
+        <input id='slider' type='range' min=2006 max=2013 ng-model='year' width=200>
+        <span ng-bind='year'></span>
+        <div id='chart_1' class='rChart datamaps'></div>  
+      </div>
+      <script>
+        function rChartsCtrl($scope){
+          $scope.year = 2013;
+          $scope.$watch('year', function(newYear){
+            mapchart_1.updateChoropleth(chartParams.newData[newYear]);
+          })
+        }
+      </script>    
+    <script id='popup-template' type='text/x-handlebars-template'>
+    
+</script>
+<script>
+  var chartParams = {
+ "dom": "chart_1",
+"width":    700,
+"height":    400,
+"scope": "world",
+"fills": {
+ "NA": "lightgrey",
+"<0.1m USD": "#FFFFB2",
+"<0.5m": "#FECC5C",
+"<2m": "#FD8D3C",
+"<10m": "#F03B20",
+">10m": "#BD0026",
+"defaultFill": "lightgrey" 
+},
+"data": {
+ "2006": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2006,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2006,
+"fillKey": ">10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2006,
+"fillKey": ">10m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2006,
+"fillKey": "<0.5m" 
+} 
+},
+"2007": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2007,
+"fillKey": "<2m" 
+} 
+},
+"2008": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2008,
+"fillKey": "<0.5m" 
+} 
+},
+"2009": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2009,
+"fillKey": ">10m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2009,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2009,
+"fillKey": ">10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2009,
+"fillKey": "<2m" 
+} 
+},
+"2010": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2010,
+"fillKey": "<2m" 
+} 
+},
+"2011": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2011,
+"fillKey": "<2m" 
+} 
+},
+"2012": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2012,
+"fillKey": ">10m" 
+} 
+},
+"2013": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2013,
+"fillKey": "<10m" 
+} 
+} 
+},
+"legend": true,
+"labels": false,
+"bodyattrs": "ng-app ng-controller='rChartsCtrl'",
+"newData": {
+ "2006": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2006,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2006,
+"fillKey": ">10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2006,
+"fillKey": ">10m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2006,
+"fillKey": "<0.1m USD" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2006,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2006,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2006,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2006,
+"fillKey": "<2m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2006,
+"fillKey": "<0.5m" 
+} 
+},
+"2007": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2007,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2007,
+"fillKey": ">10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2007,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2007,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2007,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2007,
+"fillKey": "<2m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2007,
+"fillKey": "<2m" 
+} 
+},
+"2008": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2008,
+"fillKey": ">10m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2008,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2008,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2008,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2008,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2008,
+"fillKey": "<0.5m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2008,
+"fillKey": "<0.5m" 
+} 
+},
+"2009": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2009,
+"fillKey": ">10m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2009,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2009,
+"fillKey": ">10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2009,
+"fillKey": "<2m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2009,
+"fillKey": "<0.5m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2009,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2009,
+"fillKey": "<0.1m USD" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2009,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2009,
+"fillKey": "<2m" 
+} 
+},
+"2010": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2010,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2010,
+"fillKey": ">10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2010,
+"fillKey": "<0.5m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2010,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2010,
+"fillKey": "<2m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2010,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2010,
+"fillKey": "<2m" 
+} 
+},
+"2011": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2011,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2011,
+"fillKey": ">10m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2011,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2011,
+"fillKey": "<0.1m USD" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2011,
+"fillKey": "<2m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2011,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2011,
+"fillKey": "<2m" 
+} 
+},
+"2012": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2012,
+"fillKey": "<2m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2012,
+"fillKey": "<10m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2012,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2012,
+"fillKey": "<0.1m USD" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2012,
+"fillKey": ">10m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2012,
+"fillKey": "<0.5m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2012,
+"fillKey": ">10m" 
+} 
+},
+"2013": {
+ "AFG": {
+ "State": "AFG",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"AGO": {
+ "State": "AGO",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"ALB": {
+ "State": "ALB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ARE": {
+ "State": "ARE",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ARG": {
+ "State": "ARG",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ARM": {
+ "State": "ARM",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"ATG": {
+ "State": "ATG",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"AZE": {
+ "State": "AZE",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BDI": {
+ "State": "BDI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"BEN": {
+ "State": "BEN",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"BFA": {
+ "State": "BFA",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"BGD": {
+ "State": "BGD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"BGR": {
+ "State": "BGR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BHS": {
+ "State": "BHS",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BIH": {
+ "State": "BIH",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"BLR": {
+ "State": "BLR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BLZ": {
+ "State": "BLZ",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"BMU": {
+ "State": "BMU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BOL": {
+ "State": "BOL",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"BRA": {
+ "State": "BRA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BRB": {
+ "State": "BRB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BRN": {
+ "State": "BRN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"BTN": {
+ "State": "BTN",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"BWA": {
+ "State": "BWA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"CAF": {
+ "State": "CAF",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"CHL": {
+ "State": "CHL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CHN": {
+ "State": "CHN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CIV": {
+ "State": "CIV",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"CMR": {
+ "State": "CMR",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"COD": {
+ "State": "COD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"COG": {
+ "State": "COG",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"COK": {
+ "State": "COK",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"COL": {
+ "State": "COL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"COM": {
+ "State": "COM",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"CPV": {
+ "State": "CPV",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"CRI": {
+ "State": "CRI",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CUB": {
+ "State": "CUB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"CYP": {
+ "State": "CYP",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"DJI": {
+ "State": "DJI",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"DMA": {
+ "State": "DMA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"DOM": {
+ "State": "DOM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"DZA": {
+ "State": "DZA",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"ECU": {
+ "State": "ECU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"EGY": {
+ "State": "EGY",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"ERI": {
+ "State": "ERI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"ETH": {
+ "State": "ETH",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"FJI": {
+ "State": "FJI",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"FSM": {
+ "State": "FSM",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GAB": {
+ "State": "GAB",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GEO": {
+ "State": "GEO",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"GHA": {
+ "State": "GHA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"GIN": {
+ "State": "GIN",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"GMB": {
+ "State": "GMB",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"GNB": {
+ "State": "GNB",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GNQ": {
+ "State": "GNQ",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"GRC": {
+ "State": "GRC",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"GRD": {
+ "State": "GRD",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"GTM": {
+ "State": "GTM",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"GUY": {
+ "State": "GUY",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"HND": {
+ "State": "HND",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"HRV": {
+ "State": "HRV",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"HTI": {
+ "State": "HTI",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"HUN": {
+ "State": "HUN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"IDN": {
+ "State": "IDN",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"IND": {
+ "State": "IND",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"IRN": {
+ "State": "IRN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"IRQ": {
+ "State": "IRQ",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"JAM": {
+ "State": "JAM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"JOR": {
+ "State": "JOR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KAZ": {
+ "State": "KAZ",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KEN": {
+ "State": "KEN",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"KGZ": {
+ "State": "KGZ",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"KHM": {
+ "State": "KHM",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"KIR": {
+ "State": "KIR",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"KNA": {
+ "State": "KNA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KOR": {
+ "State": "KOR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KSV": {
+ "State": "KSV",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"KWT": {
+ "State": "KWT",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"LAO": {
+ "State": "LAO",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"LBN": {
+ "State": "LBN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"LBR": {
+ "State": "LBR",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"LBY": {
+ "State": "LBY",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"LCA": {
+ "State": "LCA",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"LKA": {
+ "State": "LKA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"LSO": {
+ "State": "LSO",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"LTU": {
+ "State": "LTU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MAR": {
+ "State": "MAR",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"MDA": {
+ "State": "MDA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MDG": {
+ "State": "MDG",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MDV": {
+ "State": "MDV",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"MEX": {
+ "State": "MEX",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MHL": {
+ "State": "MHL",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"MKD": {
+ "State": "MKD",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MLI": {
+ "State": "MLI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"MLT": {
+ "State": "MLT",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MMR": {
+ "State": "MMR",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"MNE": {
+ "State": "MNE",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"MNG": {
+ "State": "MNG",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"MOZ": {
+ "State": "MOZ",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"MRT": {
+ "State": "MRT",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MUS": {
+ "State": "MUS",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"MWI": {
+ "State": "MWI",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"MYS": {
+ "State": "MYS",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"NAM": {
+ "State": "NAM",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"NCL": {
+ "State": "NCL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"NER": {
+ "State": "NER",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"NGA": {
+ "State": "NGA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"NIC": {
+ "State": "NIC",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"NPL": {
+ "State": "NPL",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"OMN": {
+ "State": "OMN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PAK": {
+ "State": "PAK",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"PAN": {
+ "State": "PAN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PER": {
+ "State": "PER",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PHL": {
+ "State": "PHL",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"PLW": {
+ "State": "PLW",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PNG": {
+ "State": "PNG",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"POL": {
+ "State": "POL",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PRK": {
+ "State": "PRK",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"PRY": {
+ "State": "PRY",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"QAT": {
+ "State": "QAT",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"ROM": {
+ "State": "ROM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"RUS": {
+ "State": "RUS",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"RWA": {
+ "State": "RWA",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SAU": {
+ "State": "SAU",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SDN": {
+ "State": "SDN",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SEN": {
+ "State": "SEN",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SGP": {
+ "State": "SGP",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SHN": {
+ "State": "SHN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SLB": {
+ "State": "SLB",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"SLE": {
+ "State": "SLE",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"SLV": {
+ "State": "SLV",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"SOM": {
+ "State": "SOM",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"SRB": {
+ "State": "SRB",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SSD": {
+ "State": "SSD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"STP": {
+ "State": "STP",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"SUR": {
+ "State": "SUR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"SWZ": {
+ "State": "SWZ",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"SYC": {
+ "State": "SYC",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"SYR": {
+ "State": "SYR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TCA": {
+ "State": "TCA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TCD": {
+ "State": "TCD",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"TGO": {
+ "State": "TGO",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"THA": {
+ "State": "THA",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TJK": {
+ "State": "TJK",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TKL": {
+ "State": "TKL",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TKM": {
+ "State": "TKM",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TLS": {
+ "State": "TLS",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TON": {
+ "State": "TON",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TTO": {
+ "State": "TTO",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TUN": {
+ "State": "TUN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TUR": {
+ "State": "TUR",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"TUV": {
+ "State": "TUV",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"TZA": {
+ "State": "TZA",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"UGA": {
+ "State": "UGA",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"UKR": {
+ "State": "UKR",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"URY": {
+ "State": "URY",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"UZB": {
+ "State": "UZB",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"VCT": {
+ "State": "VCT",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"VEN": {
+ "State": "VEN",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"VNM": {
+ "State": "VNM",
+"Year":   2013,
+"fillKey": "<2m" 
+},
+"VUT": {
+ "State": "VUT",
+"Year":   2013,
+"fillKey": "<0.1m USD" 
+},
+"WBG": {
+ "State": "WBG",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"WLF": {
+ "State": "WLF",
+"Year":   2013,
+"fillKey": "NA" 
+},
+"WSM": {
+ "State": "WSM",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"YEM": {
+ "State": "YEM",
+"Year":   2013,
+"fillKey": ">10m" 
+},
+"ZAF": {
+ "State": "ZAF",
+"Year":   2013,
+"fillKey": "<0.5m" 
+},
+"ZMB": {
+ "State": "ZMB",
+"Year":   2013,
+"fillKey": "<10m" 
+},
+"ZWE": {
+ "State": "ZWE",
+"Year":   2013,
+"fillKey": "<10m" 
+} 
+} 
+},
+"id": "chart_1" 
+}
+  chartParams.element = document.getElementById('chart_1')
+  
+  
+  var mapchart_1 = new Datamap(chartParams);
+  
+  
+    
+  // draw a bubble map if specified
+  if (chartParams.bubbles) {
+    var bubbles = chartParams.bubbles
+    mapchart_1.bubbles(bubbles)
+  }
+  
+  if (chartParams.labels){
+    mapchart_1.labels()
+  }
+  
+  if (chartParams.legend){
+    mapchart_1.legend()
+  }
+  
+  setProjection = function( element, options ) {
+    var projection, path;
+ 
+      projection = d3.geo.albersUsa()
+        .scale(element.offsetWidth)
+        .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+ 
+    path = d3.geo.path()
+      .projection( projection );
+ 
+    return {path: path, projection: projection};
+  }
+</script>
+
+<style>
+.datamaps {
+  position: relative;
+}
+</style>
+    
+    <script></script>    
+  </body>
+</html>

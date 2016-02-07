@@ -1,0 +1,46 @@
+Country,Currency,PriceofBigMac,ExchRateperUSD
+United States,Dollar,3.57,
+Argentina,Peso,11.5,3.81
+Australia,Dollar,4.34,1.29
+Brazil,Real,8.03,2
+Britain,Pound,2.29,0.62
+Canada,Dollar,3.89,1.16
+Chile,Peso,1750,549
+China,Yuan,12.5,6.83
+Colombia,Peso,7000,2096
+Costa Rica,Colones,2000,583
+Czech Republic,Koruna,67.92,18.7
+Denmark,Krona,29.5,5.34
+Egypt,Pound,13,5.58
+Estonia,Kroon,32,11.2
+Euro Area,Euro,3.31,0.72
+Hong Kong,Dollar,13.3,7.75
+Hungary,Forint,720,199
+Iceland,Kronur,640,128
+Indonesia,Rupiah,20900,10200
+Israel,Shekel,15,3.97
+Japan,Yen,320,92.6
+Latvia,Lats,1.55,0.5
+Lithuania,Litas,7.1,2.48
+Malaysia,Ringgit,6.77,3.6
+Mexico,Peso,33,13.8
+New Zealand,Dollar,4.9,1.59
+Norway,Kroner,40,6.51
+Pakistan,Rupee,190,82.6
+Peru,New Sol,8.056,3.03
+Philippines,Peso,99.39,48.4
+Poland,Zloty,7.6,3.16
+Russia,Ruble,67,32.8
+Saudi Arabia,Riyal,11,3.75
+Singapore,Dollar,4.22,1.46
+South Africa,Rand,17.95,8.28
+South Korea,Won,3400,1315
+Sri Lanka,Rupee,210,115
+Sweden,Krona,39,7.9
+Switzerland,Franc,6.5,1.09
+Taiwan,Dollar,75,33.2
+Thailand,Baht,64.49,34.2
+Turkey,Lira,5.65,1.55
+Ukraine,Hryvnia,14,7.66
+United Arab Emirates,Dirhams,10,3.67
+Uruguay,Peso,61,23.2
