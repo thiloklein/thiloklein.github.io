@@ -13,7 +13,7 @@ published: true
 
 ***
 
-###<a name="games"></a> Game Theory
+### <a name="games"></a> Game Theory
 
 ##### 2014/2015
 
@@ -52,6 +52,23 @@ published: true
 ***
 
 ### <a name="econometrics"></a>Econometrics
+
+##### 2014/2015
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Building R packages (Replication Workshop, Cambridge)</TD>
+<TD VALIGN="TOP">Slides </TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
 
 ##### 2013/2014
 
@@ -154,7 +171,7 @@ published: true
 
 ***
 
-###<a name="finance"></a> Finance
+### <a name="finance"></a> Finance
 
 ##### 2013/2014
 
@@ -192,7 +209,7 @@ published: true
 
 ***
 
-###<a name="r"></a> R
+### <a name="r"></a> Data Viz
 
 ##### 2015/2016
 
@@ -223,19 +240,3 @@ published: true
 </TR>
 </TABLE>
 
-##### 2014/2015
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Building R packages (Replication Workshop, Cambridge)</TD>
-<TD VALIGN="TOP">Slides </TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>

@@ -58,7 +58,7 @@ navbar_list:
     link: /teaching/index.html#econometrics
   - name: Finance
     link: /teaching/index.html#finance
-  - name: R
+  - name: Data Viz
     link: /teaching/index.html#r
 - name: CV
   link: /research/cv_ThiloKLEIN.pdf
