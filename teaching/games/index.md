@@ -34,78 +34,80 @@ This course has been designed to introduce students to the intricacies and backg
 
 #### Course material
 
-<TABLE WIDTH=100%> 
-<TR>
-<TH align="left" WIDTH=15%> Time </TH>
-<TH align="left" WIDTH=40%>Topics  </TH>
-<TH align="left" WIDTH=10%>Textbook </TH>
-<TH align="left" WIDTH=35%>Games </TH>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Monday 26/01/15</TD></TR>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://www.training.cam.ac.uk/jsss/venue/824385" rel="external">Alison Richard Building, Room 119</a></TD></TR>
+<TABLE WIDTH="100%"> 
+<TR>
+<TH align="left" WIDTH="15%"> Time </TH>
+<TH align="left" WIDTH="40%">Topics  </TH>
+<TH align="left" WIDTH="10%">Textbook </TH>
+<TH align="left" WIDTH="35%">Games </TH>
+</TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Monday 26/01/15</TD></TR>
+
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://www.training.cam.ac.uk/jsss/venue/824385" rel="external">Alison Richard Building, Room 119</a></TD></TR>
 <TR>
 <TD >14:00-15:00</TD><TD ><b>Briefing session</b>: Intro to Game Theory; Info on course syllabus and student group projects. [<a href="/teaching/games/docs/briefing.pdf">Slides</a>, <a href="/teaching/games/docs/gg.csv">Data</a>, <a href="/teaching/games/docs/gg.R">R-Script</a>]<!----></TD><TD >--</TD><TD ><a href="http://veconlab.econ.virginia.edu/gg/gg.php" rel="external">Link to www-experiment</a><!--Link to www-experiment (tba)--></TD>
 </TR>
 
 <TR><TD colspan="4" ><br></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Friday 30/01/15, <b>Registration closes</b>: Register online <a href="http://www.training.cam.ac.uk/event/1197051" rel="external">here</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Friday 30/01/15, <b>Registration closes</b>: Register online <a href="http://www.training.cam.ac.uk/event/1197051" rel="external">here</a></TD></TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Tuesday 03/02/15, <b>Pre-course survey closes</b>: Submit your preferences over group project topics in groups (of two or three) or individually <a href="GameTheorySurvey.html">here</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 03/02/15, <b>Pre-course survey closes</b>: Submit your preferences over group project topics in groups (of two or three) or individually <a href="GameTheorySurvey.html">here</a></TD></TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Tuesday 03/03/15, <b>Submission deadline</b> for research proposals from student groups.</TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 03/03/15, <b>Submission deadline</b> for research proposals from student groups.</TD></TR>
 
 <TR><TD colspan="4" ><br></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Monday 16/03/15</TD></TR>
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Monday 16/03/15</TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TR >
 <TD >09:00-11:00</TD><TD ><b>Introduction</b>: Players and strategies; Rationality and pay-off functions; Information sets; Normal and extensive form representations; Examples of canonical games [Slides]</TD><TD >Ch. 1-2</TD><TD >--</TD>
 </TR>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TR >
 <TD >11:15-13:15</TD><TD >Group project presentations: Bargaining games</TD><TD >--</TD><TD ><b>Games:</b> <a href="http://en.wikipedia.org/wiki/Ultimatum_game" rel="external">ultimatum game</a>; <a href="http://en.wikipedia.org/wiki/Dictator_game" rel="external">dictator game</a>; <a href="http://link.springer.com/article/10.1007/s10683-012-9319-7" rel="external">yes-no game</a><br>
 <b>Tools:</b> <a href="http://veconlab.econ.virginia.edu/bg/bg.php" rel="external">bargaining games</a></TD>
 </TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Tuesday 17/03/15</TD></TR>
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 17/03/15</TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TR >
 <TD >08:50-10:50</TD><TD ><b>Solution concepts in static games</b>: Strict and weak dominance; Nash equilibria; Mixed strategies; Application: Provision of public goods [Slides]
 </TD><TD >Ch. 2-4</TD><TD >--</TD>
 </TR>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/57470" rel="external">Judge Business School, Computer Lab</a></TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/57470" rel="external">Judge Business School, Computer Lab</a></TD></TR>
 <TR >
 <TD >11:15-12:55</TD><TD >Experimental Game Theory I [<a href="/teaching/games/docs/lecture1.pdf">Slides</a>]</TD><TD >--</TD><TD ><a href="http://veconlab.econ.virginia.edu/login.htm" rel="external">Link to www-experiment</a><!--(tba)--></TD>
 </TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Wednesday 18/03/15</TD></TR>
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Wednesday 18/03/15</TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TD >09:00-11:00</TD><TD ><b>Dynamic extensive form games</b>: Games and subgames; Extensive form games, backward induction; Subgame perfect Nash equilibria; Application: Wage-setting game [Slides]
 </TD><TD >Ch. 5-6</TD><TD >--</TD>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TD >11:15-13:15</TD><TD >Group project presentations: Canonical games</TD><TD >--</TD><TD ><b>Games:</b> coordination game (e.g. <a href="http://en.wikipedia.org/wiki/Stag_hunt" rel="external">stag hunt</a>, <a href="http://en.wikipedia.org/wiki/Battle_of_the_sexes_%28game_theory%29" rel="external">battle of the sexes</a>, etc.); <a href="http://en.wikipedia.org/wiki/Hawk-dove_game" rel="external">hawk-dove game</a>; <a href="http://en.wikipedia.org/wiki/Prisoner%27s_dilemma" rel="external">prisoner's dilemma</a>; <a href="http://en.wikipedia.org/wiki/Trust_game#Trust_game" rel="external">trust game</a><br>
 <b>Tools:</b> <a href="http://veconlab.econ.virginia.edu/mg2/mg2.php" rel="external">2x2 matrix games</a>; <a href="http://veconlab.econ.virginia.edu/tg/tg.php" rel="external">trust game</a></TD>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Thursday 19/03/15</TD></TR>
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Thursday 19/03/15</TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TR >
 <TD >08:50-10:50</TD><TD ><b>Repeated games</b>: Finitely repeated games without discounting; Infinitely repeated games with discounting; Trigger strategies and the Folk theorem; Application: Chainstore paradox
 </TD><TD >Ch. 14-15</TD><TD >--</TD>
 </TR>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/57470" rel="external">Judge Business School, Computer Lab</a></TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/57470" rel="external">Judge Business School, Computer Lab</a></TD></TR>
 <TR >
 <TD >11:15-12:55</TD><TD >Experimental Game Theory II [<a href="/teaching/games/docs/lecture1.pdf">Slides</a>]<!--: Market entry game--></TD><TD >--</TD><TD ><a href="http://veconlab.econ.virginia.edu/login.htm" rel="external">Link to www-experiment</a></TD>
 </TR>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TR >
 <TD >14:00-16:00</TD><TD >Group project presentations: Dynamic and repeated games</TD><TD >--</TD><TD ><b>Games:</b> <a href="http://en.wikipedia.org/wiki/Dollar_auction" rel="external">dollar auction</a> (dynamic game); <a href="http://en.wikipedia.org/wiki/Matching_pennies" rel="external">matching pennies</a> (mixed strat.); <a href="http://en.wikipedia.org/wiki/Iterated_prisoner%27s_dilemma#The_iterated_prisoners.27_dilemma" rel="external">iterated prisoner's dilemma</a><br>
 <b>Tools:</b> <a href="http://veconlab.econ.virginia.edu/mg2/mg2.php" rel="external">2x2 matrix games</a>; <a href="http://veconlab.econ.virginia.edu/cpg/cpg.php" rel="external">centipede game</a>
@@ -113,20 +115,20 @@ This course has been designed to introduce students to the intricacies and backg
 </TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Friday 20/03/15</TD></TR>
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Friday 20/03/15</TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/1184042" rel="external">Alison Richard Building, Room S1</a></TD></TR>
 <TR >
 <TD >08:50-10:50</TD><TD ><b>Games of incomplete information</b>: Typology and expectation formation; Bayes-Nash equilibrium; Application: Adverse selection
 </TD><TD >Ch. 9-10</TD><TD >--</TD>
 </TR>
 
-<TR bgcolor=f8f8f8><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/57470" rel="external">Judge Business School, Computer Lab</a></TD></TR>
+<TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://training.csx.cam.ac.uk/venue/57470" rel="external">Judge Business School, Computer Lab</a></TD></TR>
 <TR >
 <TD >11:15-12:55</TD><TD >Experimental Game Theory III [<a href="/teaching/games/docs/lecture1.pdf">Slides</a>]<!--: The market for lemons--></TD><TD >--</TD><TD ><a href="http://veconlab.econ.virginia.edu/login.htm" rel="external">Link to www-experiment</a></TD>
 </TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor=#e8e8e8><TD colspan="4" >Tuesday 21/04/15, 12 noon, <b>Submission deadline</b> for essays.</TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 21/04/15, 12 noon, <b>Submission deadline</b> for essays.</TD></TR>
 </TABLE>
 
 ***

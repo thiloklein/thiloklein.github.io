@@ -16,14 +16,14 @@ This is an advanced course in econometrics, designed for the [Cambridge Master o
 
 #### Course material
 
-<TABLE WIDTH=100%> 
+<TABLE WIDTH="100%"> 
 <TR>
-<TH align="center" WIDTH=10%> Week </TH>
-<TH align="left" WIDTH=30%>Lectures  </TH>
-<TH align="center" WIDTH=10%>Exercises </TH>
-<TH align="left" WIDTH=50%>Lab sessions </TH>
+<TH align="center" WIDTH="10%"> Week </TH>
+<TH align="left" WIDTH="30%">Lectures  </TH>
+<TH align="center" WIDTH="10%">Exercises </TH>
+<TH align="left" WIDTH="50%">Lab sessions </TH>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">1</TD>
 <TD>Distributed lag model [Slides, <a href="/teaching/econometrics2/docs/Lec1.R">R-script</a>]</TD>
 <TD align="center"><a href="/teaching/econometrics2/docs/Quiz1Qs.pdf">Sheet 1</a></TD>
@@ -35,7 +35,7 @@ This is an advanced course in econometrics, designed for the [Cambridge Master o
 <TD align="center"><a href="/teaching/econometrics2/docs/Quiz2Qs.pdf">Sheet 2</a></TD>
 <TD>ADL models [<a href="/teaching/econometrics2/docs/MFinLabSessionLent1.pdf">Handout</a>, <a href="/teaching/econometrics2/docs/CompLabSessionLent1.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">3</TD>
 <TD>ARIMA models [Slides, <a href="/teaching/econometrics2/docs/Lec3.R">R-Script</a>, <a href="/teaching/econometrics2/docs/Lec3_simulations.R">Simulations</a>]</TD>
 <TD align="center"><a href="/teaching/econometrics2/docs/Quiz3Qs.pdf">Sheet 3</a></TD>

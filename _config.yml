@@ -6,7 +6,7 @@ destination: ./_site
 plugins_dir: ./_plugins
 lsi: true
 highlighter: rouge
-markdown: rdiscount
+markdown: kramdown
 exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'vender']
 gems: [jekyll-paginate]
 

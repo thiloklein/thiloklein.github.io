@@ -26,12 +26,12 @@ The primary objective of the lab is the exact replication of published results. 
 
 #### Course material
 
-<TABLE WIDTH=100%> 
+<TABLE WIDTH="100%"> 
 <TR>
-<TH align="left" WIDTH=10%> Presenters </TH>
-<TH align="left" WIDTH=45%>Papers  </TH>
+<TH align="left" WIDTH="10%"> Presenters </TH>
+<TH align="left" WIDTH="45%">Papers  </TH>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD >Jarrod Vassallo </TD>
 <TD >Bertrand, Karlan, Mullainathan, Shafir and Zinman (2010). What's Advertising Content Worth? Evidence from a Consumer Credit Marketing Field Experiment. <i>Quarterly Journal of Economics</i>, 125(1):263-305. [<a href="http://karlan.yale.edu/p/AdContentWorth_mar09Final.pdf">Paper</a>; <a href="http://karlan.yale.edu/p/AdContentWorth_WebAppend_jan09.pdf">Web appendix</a>; <a href="http://karlan.yale.edu/p/AdContentWorth_data_public.zip" rel="external">Data</a>]
 </TD>
@@ -40,7 +40,7 @@ The primary objective of the lab is the exact replication of published results. 
 <TD >Magda Hassan </TD>
 <TD >de Mel, McKenzie and Woodruff (2008). Returns to Capital in Microenterprises: Evidence from a Field Experiment. <i>Quarterly Journal of Economics</i>, 123(4):1329-1372. [<a href="http://www2.warwick.ac.uk/fac/soc/economics/staff/academic/woodruff/data/slms_data/qje_returns.pdf">Paper</a>; <a href="http://www2.warwick.ac.uk/fac/soc/economics/staff/academic/woodruff/data/slms_data/" rel="external">Data</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD >Christoph Weiss </TD>
 <TD >Scholtens and Dam (2007). Banking on the Equator. Are Banks that Adopted the Equator Principles Different from Non-Adopters? <i>World Development</i>, 35(8):1307-1328.</TD>
 </TR>
@@ -48,7 +48,7 @@ The primary objective of the lab is the exact replication of published results. 
 <TD >Elaine Oon </TD>
 <TD >Dastidar (2009). International corporate diversification and performance: Does firm self-selection matter? <i>Journal of International Business Studies</i>, 40:71-85.</TD> 
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD >Thilo Klein </TD>
 <TD >Ahlin and Townsend (2007). Using Repayment Data to Test Across Models of Joint Liability Lending. <i>The Economic Journal</i>, 117(517):F11-F51. [<a href="http://robertmtownsend.net/sites/default/files/files/papers/published/RepaymentData2007.pdf">Paper</a>; <a href="http://hdl.handle.net/1902.1/10676" rel="external">Data</a>]</TD> 
 </TR>

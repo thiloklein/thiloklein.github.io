@@ -17,15 +17,15 @@ This course in econometrics is designed for the Cambridge [MPhil in Finance](htt
 
 #### Course material
 
-<TABLE WIDTH=100%> 
+<TABLE WIDTH="100%"> 
 <TR>
-<TH align="center" WIDTH=10%> Week </TH>
-<TH align="left" WIDTH=40%>Lectures  </TH>
-<TH align="center" WIDTH=10%>Textbook  </TH>
-<TH align="center" WIDTH=10%>Exercises </TH>
-<TH align="left" WIDTH=30%>Lab sessions </TH>
+<TH align="center" WIDTH="10%"> Week </TH>
+<TH align="left" WIDTH="40%">Lectures  </TH>
+<TH align="center" WIDTH="10%">Textbook  </TH>
+<TH align="center" WIDTH="10%">Exercises </TH>
+<TH align="left" WIDTH="30%">Lab sessions </TH>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">1</TD>
 <TD >Data and probability [<a href="/teaching/quant1/docs/lecture1.pdf">Slides</a>], Stock Market Experiment [<a href="/teaching/quant1/docs/sme.png">Results</a>, <a href="/teaching/quant1/docs/sme.csv">Data</a>]</TD>
 <TD align="center">--</TD>
@@ -39,7 +39,7 @@ This course in econometrics is designed for the Cambridge [MPhil in Finance](htt
 <TD align="center"><a href="/teaching/quant1/docs/Quiz1Qs.pdf">Sheet 1</a></TD>
 <TD >General Introduction to R; Descriptive Statistics [<a href="/teaching/quant1/docs/MPhilLabSession1.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession1.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">3</TD>
 <TD >Normal distribution, estimators, sampling distributions of estimators, tests of hypotheses [<a href="/teaching/quant1/docs/lecture3.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture3.R">R-Script</a>]</TD>
 <TD align="center">--</TD>
@@ -53,7 +53,7 @@ This course in econometrics is designed for the Cambridge [MPhil in Finance](htt
 </TD>
 <TD >Linear Regression in R; Good Practice Guide [<a href="/teaching/quant1/docs/MPhilLabSession2.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession2.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">5</TD>
 <TD >Gauss-Markov Theorem, Precision of OLS estimators, Multiple regression models, Multicollinearity, F-tests for goodness of fit [<a href="/teaching/quant1/docs/lecture5.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture5.R">R-Script</a>]</TD>
 <TD align="center">Ch. 3-4</TD>
@@ -67,7 +67,7 @@ This course in econometrics is designed for the Cambridge [MPhil in Finance](htt
 <TD align="center"><a href="/teaching/quant1/docs/Quiz5Qs.pdf">Sheet 5</a></TD>
 <TD >Model Selection; Inference; Dummy Variables [<a href="/teaching/quant1/docs/MPhilLabSession3.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession3.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">7</TD>
 <TD >Specification errors and consequences [<a href="/teaching/quant1/docs/lecture7.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture7.R">R-Script</a>]</TD>
 <TD align="center">Ch. 8-9</TD>

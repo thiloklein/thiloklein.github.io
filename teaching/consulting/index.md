@@ -46,33 +46,34 @@ To arrange an appointment, please follow the three simple steps below.
 
 Have a look at our profiles to make sure that your (proposed) research and your consultant are a good fit.
 
-<TABLE WIDTH=100%> 
-<TR bgcolor=#f0f0f0>
-<TD VALIGN=center WIDTH=5% align=center><img src="images/despo.jpg" Border="0"> </TD>
-<TD VALIGN=center WIDTH=15%>Despo Malikkidou<br>despo@empiricslab.org</TD>
-<TD WIDTH=80% VALIGN=center>Topics: tail risk in emerging and developed countries, power laws in economics and finance, financial econometrics, econometrics of high frequency data; <p> Methods: time series analysis, tail index estimation methods, regression analysis.</TD>
+<TABLE WIDTH="100%"> 
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="CENTER" WIDTH="5%"><img src="images/despo.jpg" Border="0"> </TD>
+<TD VALIGN="center" WIDTH="15%">Despo Malikkidou<br>despo@empiricslab.org</TD>
+<TD VALIGN="center" WIDTH="80%">Topics: tail risk in emerging and developed countries, power laws in economics and finance, financial econometrics, econometrics of high frequency data; <br> Methods: time series analysis, tail index estimation methods, regression analysis.</TD>
 </TR>
 <TR>
-<TD VALIGN=center align=center><img src="images/jerry.jpg" Border="0"></TD>
-<TD VALIGN=center>Jerry He<br>jerry@empiricslab.org</TD>
-<TD VALIGN=center>Topics: R&D alliance choices, contingent contracts (royalties, milestone payments); <p> Methods: instrumental variables, sequential bargaining models, propensity score matching, gibbs sampling methods. </TD>
+<TD VALIGN="center"><img src="images/jerry.jpg" Border="0"></TD>
+<TD VALIGN="center">Jerry He<br>jerry@empiricslab.org</TD>
+<TD VALIGN="center">Topics: R&D alliance choices, contingent contracts (royalties, milestone payments); <br> Methods: instrumental variables, sequential bargaining models, propensity score matching, gibbs sampling methods. </TD>
 </TR>
-<TR bgcolor=#f0f0f0>
-<TD VALIGN=center align=center><img src="images/michael.jpg" Border="0"></TD>
-<TD VALIGN=center>Michael Freeman<br>michael@empiricslab.org</TD>
-<TD VALIGN=center>Topics: inventory management, retail analytics, forecasting, e-commerce, customer intelligence; <p> Methods: statistical inference, computer simulation, stochastic methods, time series analysis. </TD>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="center"><img src="images/michael.jpg" Border="0"></TD>
+<TD VALIGN="center">Michael Freeman<br>michael@empiricslab.org</TD>
+<TD VALIGN="center">Topics: inventory management, retail analytics, forecasting, e-commerce, customer intelligence; <br> Methods: statistical inference, computer simulation, stochastic methods, time series analysis. </TD>
 </TR>
 <TR>
-<TD VALIGN=center align=center><img src="images/thilo.jpg" Border="0"></TD>
-<TD VALIGN=center>Thilo Klein<br>thilo@empiricslab.org</TD>
-<TD VALIGN=center>Topics: development finance and insurance, health economics, matching markets; <p> Methods: experiments, discrete choice models, sample selection models, instrumental variable techniques, panel models, social network analyis. </TD>
+<TD VALIGN="center"><img src="images/thilo.jpg" Border="0"></TD>
+<TD VALIGN="center">Thilo Klein<br>thilo@empiricslab.org</TD>
+<TD VALIGN="center">Topics: development finance and insurance, health economics, matching markets; <br> Methods: experiments, discrete choice models, sample selection models, instrumental variable techniques, panel models, social network analyis. </TD>
 </TR>
-<TR bgcolor=#f0f0f0>
-<TD VALIGN=center align=center><img src="images/blaine.jpg" Border="0"></TD>
-<TD VALIGN=center>Blaine Landis<br>blaine@empiricslab.org</TD>
-<TD VALIGN=center>Topics: personality and social psychology, social networks, psychometrics; <p> Methods: regression analysis, factor analysis, structural equation modeling, meta-analysis, social network analysis, dyadic data analysis (Dave Kenny's Social Relations Model).</TD>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="center"><img src="images/blaine.jpg" Border="0"></TD>
+<TD VALIGN="center">Blaine Landis<br>blaine@empiricslab.org</TD>
+<TD VALIGN="center">Topics: personality and social psychology, social networks, psychometrics; <br> Methods: regression analysis, factor analysis, structural equation modeling, meta-analysis, social network analysis, dyadic data analysis (Dave Kenny's Social Relations Model).</TD>
 </TR>
 </TABLE>
+
 
 ##### 2. Register
 
@@ -107,3 +108,8 @@ If you haven't seen us yet, tell us about your research problem -- we are excite
 - **initiate student-industry collaborations**: If you want your data analysed by a graduate student as part of a dissertation or consulting project, please send us a short proposal, comprising (a) an outline of the questions to be answered, (b) a sample dataset or a description of the data, and (c) a tentative timeframe for the project. We will make sure that your proposal is shared with a pool of suitable candidates. Here is a collection of the school's Student Consultancy Projects.
 
 To get involved, please send an email to [contact@empiricslab.org](mailto:contact@empiricslab.org).
+
+
+
+
+

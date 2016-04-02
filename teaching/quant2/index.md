@@ -17,14 +17,14 @@ This advanced course in econometrics is designed for the Cambridge [MPhil in Fin
 
 #### Course material
 
-<TABLE WIDTH=100%> 
+<TABLE WIDTH="100%"> 
 <TR>
-<TH align="center" WIDTH=10%> Week </TH>
-<TH align="left" WIDTH=40%>Lectures  </TH>
-<TH align="center" WIDTH=10%>Exercises </TH>
-<TH align="left" WIDTH=40%>Lab sessions </TH>
+<TH align="center" WIDTH="10%"> Week </TH>
+<TH align="left" WIDTH="40%">Lectures  </TH>
+<TH align="center" WIDTH="10%">Exercises </TH>
+<TH align="left" WIDTH="40%">Lab sessions </TH>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">1</TD>
 <TD >Distributed lag model [Slides, <a href="/teaching/quant2/docs/Lec1.R">R-script</a>]</TD>
 <TD align="center"><a href="/teaching/quant2/docs/Quiz1Qs.pdf">Sheet 1</a></TD>
@@ -36,7 +36,7 @@ This advanced course in econometrics is designed for the Cambridge [MPhil in Fin
 <TD align="center"><a href="/teaching/quant2/docs/Quiz2Qs.pdf">Sheet 2</a></TD>
 <TD >Unit Root Test and ADL Models [<a href="/teaching/quant2/docs/MPhilLabSessionLent1.pdf">Handout</a>, <a href="/teaching/quant2/docs/LabSessionLent1.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">3</TD>
 <TD >Introduction to time series: ARIMA models [Slides, R-Script]</TD>
 <TD align="center"><a href="/teaching/quant2/docs/Quiz3Qs.pdf">Sheet 3</a></TD>
@@ -48,7 +48,7 @@ This advanced course in econometrics is designed for the Cambridge [MPhil in Fin
 <TD align="center"><a href="/teaching/quant2/docs/Quiz4Qs.pdf">Sheet 4</a></TD>
 <TD >ARIMA, ARCH and GARCH Models [<a href="/teaching/quant2/docs/MPhilLabSessionLent2.pdf">Handout</a>, <a href="/teaching/quant2/docs/LabSessionLent2.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">5</TD>
 <TD >Endogeneity and IV [Slides, <a href="/teaching/quant2/docs/Lec5.R">R-Script</a>]</TD>
 <TD align="center"><a href="/teaching/quant2/docs/Quiz5Qs.pdf">Sheet 5</a></TD>
@@ -60,7 +60,7 @@ This advanced course in econometrics is designed for the Cambridge [MPhil in Fin
 <TD align="center"><a href="/teaching/quant2/docs/Quiz6Qs.pdf">Sheet 6</a></TD>
 <TD >Endogeneity, IV and SEM [<a href="/teaching/quant2/docs/MPhilLabSessionLent3.pdf">Handout</a>, <a href="/teaching/quant2/docs/LabSessionLent3.R">R-Script</a>]</TD>
 </TR>
-<TR bgcolor=#f0f0f0>
+<TR bgcolor="#f0f0f0">
 <TD align="center">7</TD>
 <TD >Limited dependent variables [Slides, <a href="/teaching/quant2/docs/Lec7_logit.R">R-Script</a>, <a href="/teaching/quant2/docs/Lec7_tobitSimulation.R">Simulation</a>]</TD>
 <TD align="center"><a href="/teaching/quant2/docs/Quiz7Qs.pdf">Sheet 7</a></TD>
