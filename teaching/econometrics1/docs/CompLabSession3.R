@@ -4,7 +4,7 @@
 # Lab Session 3: Generalized Least Squares
 
 # Required libraries: VGAM, zoo, timeDate, tseries
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 # and homoskedastic-only standard errors for equation: price ~ lotsize + sqrft + bdrms.
 # Discuss any important difference with the usual homoskedasticity-only standard errors.
 
- house <- read.csv("http://thiloklein.de/R/hprice1", header=T)
+ house <- read.csv("http://klein.uk/R/hprice1", header=T)
  str(house)
 
  lm1a <- lm(price ~ lotsize + sqrft + bdrms, data=house)
@@ -56,7 +56,7 @@
 
 
 # --- Ex 2: Heteroskedasticity (2) ----------------
- training <- read.csv("http://thiloklein.de/R/training", header=T)
+ training <- read.csv("http://klein.uk/R/training", header=T)
  str(training)
 
 
@@ -106,7 +106,7 @@
 
 
 # --- Ex 3: Autocorrelation ----------------
- bond <- read.csv("http://thiloklein.de/R/bonds", header=T)
+ bond <- read.csv("http://klein.uk/R/bonds", header=T)
  str(bond)
 
 
@@ -167,7 +167,7 @@
 # --- Ex 4: Non-linearity in variables ----------------
 # --- Ex 4: a) ---
 # Fit a regression model of volume on t (a time trend)
- nyse <- read.csv("http://thiloklein.de/R/nysevolume", header=T)
+ nyse <- read.csv("http://klein.uk/R/nysevolume", header=T)
  str(nyse)
  
  lm4a <- lm(volume ~ t, data=nyse); shccm(lm4a)
@@ -209,7 +209,7 @@
 # Regress changes in AAA bond returns (daaa) on US Treasury Bill interest rates (dus3mt).  
 # Obtain the histogram of the residuals. 
 
- bond <- read.csv("http://thiloklein.de/R/bonds", header=T)
+ bond <- read.csv("http://klein.uk/R/bonds", header=T)
  str(bond)
 
  lm5a <- lm(daaa ~ dus3mt, data=bond); shccm(lm5a)
@@ -236,7 +236,7 @@
 
 
 # --- Ex 6: Outliers ----------------
- crime <- read.csv("http://thiloklein.de/R/crime", header=T)
+ crime <- read.csv("http://klein.uk/R/crime", header=T)
  str(crime)
 
 

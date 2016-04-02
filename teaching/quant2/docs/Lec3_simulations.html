@@ -1,0 +1,192 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="functioncall">setwd</span><span class="keyword">(</span><span class="string">"I:/"</span><span class="keyword">)</span>
+<span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://www.klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+
+<span class="comment">#Generate White Noise, MA1,  AR1 and Random Walk series</span>
+
+<span class="symbol">set.seed</span> <span class="assignement">&lt;-</span> <span class="number">154</span>
+<span class="symbol">wn</span>  <span class="assignement">=</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">500</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span>  <span class="comment"># 500 N(0,1) variates</span>
+
+<span class="symbol">rw</span>  <span class="assignement">=</span> <span class="functioncall">cumsum</span><span class="keyword">(</span><span class="symbol">wn</span><span class="keyword">)</span>
+
+<span class="symbol">ar1</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="number">.9</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="symbol">ma</span>  <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+
+<span class="symbol">wd</span>  <span class="assignement">=</span> <span class="symbol">wn</span> <span class="keyword">+</span><span class="number">.2</span>
+<span class="symbol">rwd</span> <span class="assignement">=</span> <span class="functioncall">cumsum</span><span class="keyword">(</span><span class="symbol">wd</span><span class="keyword">)</span>
+
+<span class="comment">#Plot them</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">wn</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"white noise"</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">rw</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"random walk"</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">AR</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">phi</span>==<span class="keyword">+</span><span class="number">.9</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">ma</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">MA</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">theta</span>==<span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="comment">#plot.ts(rwd, main="random walk with drift")</span>
+
+
+<span class="comment">#White noise</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">wn</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"white noise"</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">wn</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">wn</span><span class="keyword">)</span>
+
+<span class="comment">#install.packages("ccgarch")</span>
+<span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">ccgarch</span><span class="keyword">)</span>
+<span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="argument">x</span> <span class="argument">=</span> <span class="symbol">wn</span><span class="keyword">,</span> <span class="argument">lags</span> <span class="argument">=</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="argument">from</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">to</span><span class="argument">=</span><span class="number">15</span><span class="keyword">,</span> <span class="argument">by</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+<span class="comment">#AR1</span>
+<span class="symbol">ar1</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="number">.9</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">AR</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">phi</span>==<span class="keyword">+</span><span class="number">.9</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">)</span>
+<span class="comment">#ljung.box.test.1(x = c(ar1), lags = seq(from=1, to=15, by=1) )</span>
+
+
+<span class="comment">#AR2</span>
+<span class="symbol">ar2</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">.6</span><span class="keyword">,</span><span class="number">.2</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">ar2</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">AR</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">phi</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span>==<span class="number">.9</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">phi</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>==<span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">ar2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">ar2</span><span class="keyword">)</span>
+<span class="comment">#ljung.box.test.1(x = c(ar2), lags = seq(from=1, to=15, by=1) )</span>
+
+<span class="comment">#MA1</span>
+<span class="symbol">ma1</span>  <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">ma1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">MA</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">theta</span>==<span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">ma1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">ma1</span><span class="keyword">)</span>
+<span class="comment">#ljung.box.test.1(x = c(ma1), lags = seq(from=1, to=15, by=1) )</span>
+
+
+<span class="comment">#MA2</span>
+<span class="symbol">ma2</span>  <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">.9</span><span class="keyword">,</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">ma2</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">MA</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">theta</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span>==<span class="number">.9</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">theta</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>==<span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">ma2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">ma2</span><span class="keyword">)</span>
+<span class="comment">#ljung.box.test.1(x = c(ma2), lags = seq(from=1, to=15, by=1) )</span>
+
+<span class="comment">#RW</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">rw</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"random walk"</span><span class="keyword">)</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">rw</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="symbol">RW</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">rw</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">rw</span><span class="keyword">)</span>
+<span class="comment">#ljung.box.test.1(x = c(rw), lags = seq(from=1, to=15, by=1) )</span>
+
+<span class="symbol">rw.d1</span> <span class="assignement">&lt;-</span> <span class="functioncall">diff</span><span class="keyword">(</span><span class="symbol">rw</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">differences</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">rw.d1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="symbol">RW</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">rw.d1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">rw.d1</span><span class="keyword">)</span>
+<span class="comment">#ljung.box.test.1(x = c(rw.d1), lags = seq(from=1, to=15, by=1) )</span>
+
+
+<span class="comment">#ARMA11</span>
+<span class="symbol">arma11</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="number">.9</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="keyword">-</span><span class="number">.5</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfcol</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot.ts</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="keyword">(</span><span class="functioncall">expression</span><span class="keyword">(</span><span class="functioncall">ARIMA</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">phi</span>==<span class="number">.9</span><span class="keyword">~</span><span class="keyword">~</span><span class="keyword">~</span><span class="symbol">theta</span>==<span class="keyword">-</span><span class="number">.5</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">)</span>
+
+<span class="comment"># ADF test</span>
+<span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+<span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">tseries</span><span class="keyword">)</span>
+
+<span class="symbol">w</span>   <span class="assignement">=</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">500</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span>
+<span class="symbol">rw</span>  <span class="assignement">=</span> <span class="functioncall">cumsum</span><span class="keyword">(</span><span class="symbol">w</span><span class="keyword">)</span>
+<span class="functioncall">adf.test.1</span><span class="keyword">(</span><span class="argument">x</span><span class="argument">=</span><span class="symbol">rw</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+    <span class="comment"># x    = a numeric vector or time series</span>
+    <span class="comment"># k    = the lag order to calculate the test statistic with default: trunc((length(x)- 1)^(1/3))</span>
+    <span class="comment"># In addition, we have</span>
+    <span class="comment"># int   = logical, a constant is included if int=T</span>
+    <span class="comment"># trend = logical, a trend variable is included if trend=T</span>
+<span class="comment">#summary( adf.test.2(rw, int=T, trend=T, k=0) )</span>
+
+<span class="symbol">ar1</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="number">.9</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">adf.test.1</span><span class="keyword">(</span><span class="argument">x</span><span class="argument">=</span><span class="symbol">ar1</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+<span class="comment">#summary( adf.test.2(ar1, int=T, trend=T, k=0) )</span>
+
+<span class="symbol">ar1</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="number">.9</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="symbol">ar1mod</span><span class="assignement">&lt;-</span><span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">,</span> <span class="argument">order</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="comment">#??coeftest</span>
+<span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+<span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">ar1mod</span><span class="keyword">)</span>
+<span class="comment">#install.packages("ccgarch")</span>
+<span class="comment">#library(ccgarch)</span>
+<span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="argument">x</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">ar1mod</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lags</span> <span class="argument">=</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="argument">from</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">to</span><span class="argument">=</span><span class="number">15</span><span class="keyword">,</span> <span class="argument">by</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">)</span>
+<span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">ar1mod</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">ar1mod</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+
+<span class="symbol">ar2</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">.9</span><span class="keyword">,</span><span class="keyword">-</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">ar2</span><span class="keyword">,</span> <span class="argument">order</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="symbol">ma1</span>  <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">ma1</span><span class="keyword">,</span> <span class="argument">order</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="symbol">ma2</span>  <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">.9</span><span class="keyword">,</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">ma2</span><span class="keyword">,</span> <span class="argument">order</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="symbol">arma11</span> <span class="assignement">=</span> <span class="functioncall">arima.sim</span><span class="keyword">(</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ar</span><span class="argument">=</span><span class="number">.9</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="keyword">-</span><span class="number">.5</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">n</span><span class="argument">=</span><span class="number">500</span><span class="keyword">)</span>
+<span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">,</span> <span class="argument">order</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

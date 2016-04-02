@@ -1,10 +1,10 @@
 # Lecure 7: Binary dependent variable models
 
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
 
 # --- Ex 1: Logit model -----------------------------
 
- eaef <- read.csv("http://thiloklein.de/R/Lent/eaef21.csv", header=T)
+ eaef <- read.csv("http://klein.uk/R/Lent/eaef21.csv", header=T)
  str(eaef)
  attach(eaef)
 

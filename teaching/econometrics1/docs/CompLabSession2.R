@@ -4,7 +4,7 @@
 # Lab Session 2: Model Selection; Inference; Non-linear Models
 
 # Required libraries: car
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
 
 
 # --- [load shccm function:] ---
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
 
  summary(lm.hom)		# similar results under homoscedasticity
  shccm(lm.hom) 
@@ -47,7 +47,7 @@
 
 
 # --- Ex 1: Confidence intervals of regression coefficients ----------------
- oilprice1 <- read.csv("http://thiloklein.de/R/oilprice1",header=T,sep=",")
+ oilprice1 <- read.csv("http://klein.uk/R/oilprice1",header=T,sep=",")
  str(oilprice1)
 
  plot(price ~ api, data=oilprice1)
@@ -117,7 +117,7 @@
 # --- Ex 4: a) ---
 # Run the previous regression. Interpret the coefficients for GDP and price of gasoline.
 
- gas <- read.csv("http://thiloklein.de/R/gasoline", header=T)
+ gas <- read.csv("http://klein.uk/R/gasoline", header=T)
  str(gas)
  lm4 <- lm(log(gasoline) ~ log(gdp) + log(price), data=gas); summary(lm4)
 
@@ -135,7 +135,7 @@
 # --- Ex 5: a) ---
 # Load usmetal.txt with read.table
 
- metal <- read.table("http://thiloklein.de/R/usmetal.txt", header=T)
+ metal <- read.table("http://klein.uk/R/usmetal.txt", header=T)
  str(metal)
 
 
@@ -187,7 +187,7 @@
  
 
 # --- Ex 6: Bank wages ----------------
- bank <- read.csv("http://thiloklein.de/R/bank", header=T)
+ bank <- read.csv("http://klein.uk/R/bank", header=T)
  str(bank)
 
 

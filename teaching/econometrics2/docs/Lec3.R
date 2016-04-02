@@ -8,7 +8,7 @@
 # -------------------------------------------------------------------
 
 
- data <- read.csv("http://thiloklein.de/R/Lent/ARIMA_class_exercise.csv")
+ data <- read.csv("http://klein.uk/R/Lent/ARIMA_class_exercise.csv")
  str(data)
  names(data) <- "series"
  attach(data)
@@ -21,7 +21,7 @@
  acf(series); pacf(series)
 
  # ADF test
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
 
  library(tseries)
  adf.test(series, k=0)

@@ -3,7 +3,7 @@
 
 # Required libraries: --
   rm(list=ls())
-  # source("http://thiloklein.de/R/myfunctions.R")
+  # source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 

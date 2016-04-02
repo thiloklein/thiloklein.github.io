@@ -1,0 +1,770 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># MPO1-A Advanced Quantitative Research Methods</span>
+<span class="comment"># Thilo Klein</span>
+<span class="comment"># Lab Session 3: Endogeneity, IV and SEM</span>
+
+<span class="comment"># Libraries: lmtest, sandwich, AER, systemfit</span>
+  <span class="functioncall">setwd</span><span class="keyword">(</span><span class="string">"C:/Dokumente und Einstellungen/Thilo/Desktop/Lab_SessionsLT/Data"</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+<span class="comment"># --- Ex 1: IV regression, Sargan and Hausman test (1) -----------------------------</span>
+ <span class="symbol">bond</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/bonds.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: c)  ---</span>
+
+ <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">paneldate</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt</span><span class="keyword">[</span><span class="keyword">-</span><span class="number">600</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_1</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt</span><span class="keyword">[</span><span class="keyword">-</span><span class="number">600</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt</span><span class="keyword">[</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">599</span><span class="keyword">,</span> <span class="keyword">-</span><span class="number">600</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">paneldate</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_1</span><span class="keyword">,</span> <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span><span class="keyword">)</span>
+
+ <span class="comment">## checking instrument relevance:</span>
+ <span class="symbol">lm1c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">dus3mt</span> <span class="keyword">~</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1c</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: e)  ---</span>
+<span class="comment"># 2SLS</span>
+
+ <span class="comment">## convenience functions: HC0 and HC1 covariances</span>
+ <span class="symbol">hc0</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"HC0"</span><span class="keyword">)</span>
+ <span class="symbol">hc1</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"HC1"</span><span class="keyword">)</span>
+
+ <span class="symbol">lm1e.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">dus3mt</span> <span class="keyword">~</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">sandwich</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm1e.1</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm1e.1</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"dus3mt_1=0"</span><span class="keyword">,</span><span class="string">"dus3mt_2=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="symbol">lm1e.2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">daaa</span> <span class="keyword">~</span> <span class="symbol">lm1e.1</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">[</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span><span class="keyword">)</span>==<span class="number">FALSE</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm1e.2</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">AER</span><span class="keyword">)</span>
+ <span class="comment"># help("StockWatson2007", package="AER")</span>
+ <span class="comment"># help("Greene2003")</span>
+ <span class="comment"># help("Baltagi2002") </span>
+ <span class="comment"># help("CameronTrivedi1998")</span>
+ <span class="comment"># help("Franses1998")</span>
+ <span class="comment"># ?ivreg</span>
+ <span class="symbol">lm1e.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">daaa</span> <span class="keyword">~</span> <span class="symbol">dus3mt</span> <span class="keyword">|</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm1e.iv</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>    <span class="comment"># errors are different for iv and manual 2SLS!</span>
+ <span class="comment"># compare to OLS estimates:</span>
+ <span class="symbol">lm1e.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">daaa</span> <span class="keyword">~</span> <span class="symbol">dus3mt</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm1e.ols</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: f)  ---</span>
+<span class="comment"># Sargan test for overidentifying restrictions (validity of instruments)</span>
+
+ <span class="comment">## Sargan test from Stock and Watson (2007)</span>
+ <span class="symbol">lm1f</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm1e.iv</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">[</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span><span class="keyword">)</span>==<span class="number">FALSE</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">lm1f.or</span> <span class="assignement">&lt;-</span> <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm1f</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"(Intercept)=0"</span><span class="keyword">,</span> <span class="string">"dus3mt_1=0"</span><span class="keyword">,</span> <span class="string">"dus3mt_2=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">test</span><span class="argument">=</span><span class="string">"Chisq"</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment">## WARNING: df (and hence p-value) invalid above.</span>
+ <span class="comment">## correct df: no. instruments - no. endogenous variables</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span><span class="argument">=</span><span class="symbol">lm1f.or</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">]</span><span class="keyword">,</span> <span class="symbol">lm1e.iv</span><span class="keyword">$</span><span class="symbol">df.res</span> <span class="keyword">-</span> <span class="symbol">lm1f</span><span class="keyword">$</span><span class="symbol">df.res</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+ <span class="comment">## Sargan test from handout, Lab Session 3</span>
+ <span class="comment">## Step 2. Auxiliary regression:</span>
+ <span class="symbol">lm.aux</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm1e.iv</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">[</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span><span class="keyword">)</span>==<span class="number">FALSE</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">R2</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="symbol">R2</span>
+ <span class="comment"># LM is chi.sqr_{m-k} m = no. instruments = 3; k = no. regressors = 2</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="number">2</span> <span class="keyword">-</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: g)  ---</span>
+<span class="comment"># Hausman tests for exogeneity of regressors</span>
+
+ <span class="comment">## Hausman test from Baltagi (2002)</span>
+ <span class="symbol">cf_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">lm1e.iv</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">lm1e.ols</span><span class="keyword">)</span>
+ <span class="symbol">vc_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">vcov</span><span class="keyword">(</span><span class="symbol">lm1e.iv</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">vcov</span><span class="keyword">(</span><span class="symbol">lm1e.ols</span><span class="keyword">)</span>
+ <span class="symbol">x2_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.vector</span><span class="keyword">(</span><span class="functioncall">t</span><span class="keyword">(</span><span class="symbol">cf_diff</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="functioncall">solve</span><span class="keyword">(</span><span class="symbol">vc_diff</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="symbol">cf_diff</span><span class="keyword">)</span>
+ <span class="comment"># is Chi^2 with degrees of freedom (df) = rank of matrix vc_diff</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">x2_diff</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+ <span class="comment">## Durbin-Wu-Hausman test from handout, Lab Session 3</span>
+ <span class="comment">## Step 1.</span>
+ <span class="symbol">dwh1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">daaa</span> <span class="keyword">~</span> <span class="symbol">dus3mt</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span>
+ <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="symbol">dwh1</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="comment">## Step 2.</span>
+ <span class="symbol">dwh2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">dus3mt</span> <span class="keyword">~</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span>
+ <span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">v</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="symbol">dwh2</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+ <span class="comment">## Step 3.</span>
+ <span class="symbol">dwh3</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">e</span> <span class="keyword">~</span> <span class="symbol">dus3mt</span> <span class="keyword">+</span> <span class="symbol">v</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">)</span>
+ <span class="comment">## Lagrange Multiplier Statistic:</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="comment"># is Chi^2_{k-k0} with  </span>
+ <span class="comment"># k = no. regressors = 2; </span>
+ <span class="comment"># k0 = no. regressors potentially endogenous = 1.</span>
+ <span class="comment"># H0: All regressors are exogenous. p-value of the LM statistic:</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+
+ <span class="comment">## http://www.lsw.wiso.uni-erlangen.de/studium/grundstudium/07ss/statistik2/uebung/11_code.R</span>
+ <span class="symbol">lm1g</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">dus3mt</span> <span class="keyword">~</span> <span class="symbol">dus3mt_1</span> <span class="keyword">+</span> <span class="symbol">dus3mt_2</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">daaa</span> <span class="keyword">~</span> <span class="symbol">dus3mt</span> <span class="keyword">+</span> <span class="symbol">lm1g</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">[</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span><span class="keyword">)</span>==<span class="number">FALSE</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">daaa</span> <span class="keyword">~</span> <span class="symbol">dus3mt</span> <span class="keyword">+</span> <span class="symbol">lm1g</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bond</span><span class="keyword">[</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">bond</span><span class="keyword">$</span><span class="symbol">dus3mt_2</span><span class="keyword">)</span>==<span class="number">FALSE</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+<span class="comment"># What did we do?</span>
+<span class="comment"># 1. Made price exogenous by creating a new price variable. This variable is formed by </span>
+<span class="comment"># regressing all the exogenous variables on price, and taking the fitted value as the new </span>
+<span class="comment"># variable. The individual exogenous variables (as well as the new fitted value) are called </span>
+<span class="comment"># instrumental variables, or instruments. Since the new variable is created from exogenous </span>
+<span class="comment"># variables, it should not be correlated with the disturbance term, and can be considered </span>
+<span class="comment"># exogenous.</span>
+<span class="comment"># 2. Ran a regression for the demand function in which you included the residual left over when </span>
+<span class="comment"># you created the new (exogenous) price variable. The Hausman test is simple: look at the </span>
+<span class="comment"># t-statistic on the residual's coefficient. Your null hypothesis is that there is no </span>
+<span class="comment"># endogeneity. If the t-statistic is high enough, you can reject the null hypothesis.</span>
+
+
+
+
+<span class="comment"># --- Ex 2: IV regression, Sargan and Hausman test (2) -----------------------------</span>
+ <span class="symbol">mroz</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/mroz.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 2: a)  ---</span>
+<span class="comment"># Graph a histogram for wage and lwage, and comment on the shape of the distribution.</span>
+
+ <span class="functioncall">table</span><span class="keyword">(</span><span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">hours</span><span class="keyword">&gt;</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># There are a total of 753 women in the sample of which 428 work.</span>
+ <span class="comment"># Note that log-wages are missing for those women that don't work.</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">wage</span><span class="keyword">)</span>
+ <span class="comment"># The distribution of wages is clearly skewed to the right, a large tail of high </span>
+ <span class="comment"># wages, with a maximum of $25. Remember: the mean is $4.18.</span>
+
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">lwage</span><span class="keyword">)</span>
+ <span class="comment"># The distribution of log wages is more symmetric. Wages are often lognormally</span>
+ <span class="comment"># distributed, which means that log wages are normally distributed. These are</span>
+ <span class="comment"># typical patterns for wages.</span>
+
+
+<span class="comment"># --- Ex 2: b)  ---</span>
+<span class="comment"># For the remainder of this exercise, retain only the women that work in the data set.</span>
+
+ <span class="symbol">mroz.w</span> <span class="assignement">&lt;-</span> <span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">,</span> <span class="symbol">hours</span><span class="keyword">&gt;</span><span class="number">0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: c)  ---</span>
+<span class="comment"># Estimate the model: lwage ~ educ + exper + I(exper^2). How would you interpret </span>
+<span class="comment"># the coefficients? Does estimated values make sense? Which kind of problems may </span>
+<span class="comment"># these present?</span>
+
+ <span class="symbol">lm2c.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2c.ols</span><span class="keyword">)</span>
+ <span class="comment"># The OLS coeffient on educ suggests an 11% return. The average return to log</span>
+ <span class="comment"># wages of an extra year of experience is given by 0.042-(0.0008*2)*exper = 0.021 </span>
+ <span class="comment"># at the mean of exper (=13.03), or a 2.5% increase in wages for an additional year </span>
+ <span class="comment"># of experience at that level.</span>
+
+ <span class="comment"># Omitted ability is probably biasing the results upwards. Ability is correlated</span>
+ <span class="comment"># with education but it is not in the regression (then is in the error term). Then </span>
+ <span class="comment"># educ is correlated with the error term. In other words educ is endogenous.</span>
+
+
+<span class="comment"># --- Ex 2: d)  ---</span>
+<span class="comment"># Estimate the model by manual 2SLS (do not use ivreg yet), using fatheduc and </span>
+<span class="comment"># motheduc as instruments for educ. How do the results differ from those obtained </span>
+<span class="comment"># with educ?</span>
+
+ <span class="comment">## 1st stage regression:</span>
+ <span class="symbol">lm2d.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">educ</span> <span class="keyword">~</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="comment"># fatheduc and motheduc both explain educ, the reduced form coefficients are significant</span>
+ <span class="comment">## 2nd stage:</span>
+ <span class="comment"># lm2d.1$fitted acts as an instrumental variable for educ.</span>
+ <span class="symbol">lm2d.2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">lm2d.1</span><span class="keyword">$</span><span class="symbol">fitted</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="comment"># There is a reduction in the return to education to 6%. This was expected if the</span>
+ <span class="comment"># effect was to collect the bias created by the omitted variable ability, as the </span>
+ <span class="comment"># bias with the OLS regression should be positive. Of course, other IVs could</span>
+ <span class="comment"># have delivered different estimations of the rate of return. If this were the</span>
+ <span class="comment"># case other explanations should be presented. These could be, for instance, that </span>
+ <span class="comment"># IV captures some error in measurement or others.</span>
+
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2d.2</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># compare to 2SLS to OLS:</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2c.ols</span><span class="keyword">,</span><span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: e)  ---</span>
+<span class="comment"># Do fatheduc and motheduc explain educ? Are these good instruments?</span>
+
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2d.1</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: f)  ---</span>
+<span class="comment"># A problem with 2SLS is that the standard errors in the second stage are wrong. </span>
+<span class="comment"># The correct standard errors are provided by the ivreg command in R. </span>
+<span class="comment"># Comment on the differences.</span>
+
+ <span class="symbol">lm2f.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+        <span class="keyword">|</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>    <span class="comment"># errors are different for ivreg and manual 2SLS!</span>
+ <span class="comment"># compare to manual 2SLS estimates and OLS:</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2d.2</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2c.ols</span><span class="keyword">,</span><span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># There are only very minor changes in the standard errors.</span>
+ <span class="comment"># Note that the se for educ is quite a bit larger than the OLS one.</span>
+
+
+<span class="comment"># --- Ex 2: g)  ---</span>
+<span class="comment"># Perform the test for overidentifying restrictions, i.e.: whether the instruments </span>
+<span class="comment"># are uncorrelated with u.</span>
+
+ <span class="comment"># Sargan test from Stock and Watson (2007)</span>
+ <span class="symbol">lm2g.or</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="symbol">lm2g.or.test</span> <span class="assignement">&lt;-</span> <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm2g.or</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"fatheduc=0"</span><span class="keyword">,</span> <span class="string">"motheduc=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">test</span><span class="argument">=</span><span class="string">"Chisq"</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment">## WARNING: df (and hence p-value) invalid above.</span>
+ <span class="comment">## correct df: # instruments - # endogenous variables</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span><span class="argument">=</span><span class="symbol">lm2g.or.test</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="symbol">lm2f.iv</span><span class="keyword">$</span><span class="symbol">df.res</span> <span class="keyword">-</span> <span class="symbol">lm2g.or</span><span class="keyword">$</span><span class="symbol">df.res</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment">## Sargan test from handout, Lab Session 3</span>
+ <span class="comment">## Step 2. Auxiliary regression:</span>
+ <span class="symbol">lm.aux</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="symbol">R2</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="symbol">R2</span>
+ <span class="comment"># LM is chi.sqr_{m-k} m = no. instruments = 5; k = no. regressors = 4</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="number">5</span><span class="keyword">-</span><span class="number">4</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment"># The p-values are 0.5088 and 0.5386 respectively. We don't reject that the </span>
+ <span class="comment"># instruments are valid in that they are not correlated with the errors.</span>
+
+
+<span class="comment"># --- Ex 2: h)  ---</span>
+<span class="comment"># Test for endogeneity of educ.</span>
+
+ <span class="comment">## Durbin-Wu-Hausman test from handout, Lab Session 3</span>
+ <span class="comment">## Step 1. Create OLS residuals. Already done! </span>
+ <span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="symbol">lm2c.ols</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="comment">## Step 2. Regress every endogenous regressor (in this case only educ) </span>
+ <span class="comment">## on z (constant, fatheduc, motheduc, exper, expersq) and obtain residuals. Done!</span>
+ <span class="symbol">v</span> <span class="assignement">&lt;-</span> <span class="symbol">lm2h.1</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="comment">## Step 3.</span>
+ <span class="symbol">dwh3</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">e</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">v</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">)</span>
+ <span class="comment">## Lagrange Multiplier Statistic:</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="comment"># is Chi^2_{k-k0} with  </span>
+ <span class="comment"># k = no. regressors = 2; </span>
+ <span class="comment"># k0 = no. regressors potentially endogenous = 1.</span>
+ <span class="comment"># H0: All regressors are exogenous. p-value of the LM statistic:</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment">## Or:</span>
+ <span class="symbol">lm2h.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">educ</span> <span class="keyword">~</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="symbol">lm2h.2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="symbol">lm2h.1</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2h.2</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># The coefficient on lm2h.i$res is not significant at 10%, and so endogeneity </span>
+ <span class="comment"># is debatable.</span>
+
+ <span class="comment">## Hausman test for exogeneity of regressors:</span>
+ <span class="symbol">dwh.test</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">model.iv</span><span class="keyword">,</span> <span class="formalargs">model.ols</span><span class="keyword">)</span><span class="keyword">{</span>
+         <span class="symbol">cf_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">model.iv</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">model.ols</span><span class="keyword">)</span>
+         <span class="symbol">vc_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">model.iv</span><span class="keyword">,</span> <span class="string">"HC0"</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">model.ols</span><span class="keyword">,</span> <span class="string">"HC0"</span><span class="keyword">)</span>
+         <span class="symbol">x2_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.vector</span><span class="keyword">(</span><span class="functioncall">t</span><span class="keyword">(</span><span class="symbol">cf_diff</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="functioncall">solve</span><span class="keyword">(</span><span class="symbol">vc_diff</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="symbol">cf_diff</span><span class="keyword">)</span>
+         <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">x2_diff</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="functioncall">dim</span><span class="keyword">(</span><span class="symbol">vc_diff</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="symbol">F</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+ <span class="comment"># execute dwh.test-function:</span>
+ <span class="functioncall">dwh.test</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">,</span> <span class="symbol">lm2c.ols</span><span class="keyword">)</span>
+
+ <span class="comment"># As they were designed the DWH test (p-value 0.09) and the Hausman test (0.16)</span>
+ <span class="comment"># do not reject the hypothesis of exogeneity at 5%. Note, however, that also </span>
+ <span class="comment"># exper and expersq could be potentially endogenous. Other instruments should be </span>
+ <span class="comment"># added, should we consider them as such.</span>
+
+
+
+
+<span class="comment"># --- Ex 3:  -----------------------------</span>
+
+ <span class="symbol">crime</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/crime.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">crime</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 3: a)  ---</span>
+<span class="comment"># Observe the data. Regress crime on a constant and police. Give a possible </span>
+<span class="comment"># explanation of the estimated positive effect. </span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">crime</span> <span class="keyword">~</span> <span class="symbol">police</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">crime</span><span class="keyword">)</span>
+ <span class="symbol">lm3a.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">crime</span> <span class="keyword">~</span> <span class="symbol">police</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">crime</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm3a.ols</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm3a.ols</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: d)  ---</span>
+<span class="comment"># Use the data to estimate coefficients by instrumental variables, using z (and a </span>
+<span class="comment"># constant) as instruments. Check that the result of c) holds true. Provide an </span>
+<span class="comment"># interpretation of the resulting estimate.</span>
+
+ <span class="symbol">lm3e.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">crime</span> <span class="keyword">~</span> <span class="symbol">police</span> <span class="keyword">|</span> <span class="symbol">election</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">crime</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3e.iv</span><span class="keyword">)</span>
+
+ <span class="comment"># Applying property in c)</span>
+ <span class="symbol">y1</span> <span class="assignement">&lt;-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">crime</span><span class="keyword">[</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">election</span>==<span class="number">1</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">x1</span> <span class="assignement">&lt;-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">police</span><span class="keyword">[</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">election</span>==<span class="number">1</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">y0</span> <span class="assignement">&lt;-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">crime</span><span class="keyword">[</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">election</span>==<span class="number">0</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">x0</span> <span class="assignement">&lt;-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">police</span><span class="keyword">[</span><span class="symbol">crime</span><span class="keyword">$</span><span class="symbol">election</span>==<span class="number">0</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">b.iv</span> <span class="assignement">&lt;-</span> <span class="keyword">(</span><span class="symbol">y1</span><span class="keyword">-</span><span class="symbol">y0</span><span class="keyword">)</span><span class="keyword">/</span><span class="keyword">(</span><span class="symbol">x1</span><span class="keyword">-</span><span class="symbol">x0</span><span class="keyword">)</span>
+
+ <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"IV estimation through formula for dummy IVs:"</span><span class="keyword">,</span> <span class="symbol">b.iv</span><span class="keyword">)</span>
+ <span class="comment"># now the sign is as expected!</span>
+
+
+<span class="comment"># --- Ex 3: e)  ---</span>
+<span class="comment"># Perform the Hausman test on the exogeneity of the variable x.</span>
+
+ <span class="functioncall">dwh.test</span><span class="keyword">(</span><span class="symbol">lm3e.iv</span><span class="keyword">,</span> <span class="symbol">lm3a.ols</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm3e.iv</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="argument">legend</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"OLS"</span><span class="keyword">,</span><span class="string">"2SLS"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">fill</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"red"</span><span class="keyword">,</span><span class="string">"blue"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 4:  -----------------------------</span>
+ <span class="symbol">bw</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/brwght.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">bw</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 4: a)  ---</span>
+<span class="comment"># Estimate using OLS.</span>
+
+ <span class="symbol">lm4.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lbwght</span> <span class="keyword">~</span> <span class="symbol">packs</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bw</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm4.ols</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 4: d)  ---</span>
+<span class="comment"># Estimate by IV using cigprice as an instrument.</span>
+
+ <span class="symbol">lm4.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">lbwght</span> <span class="keyword">~</span> <span class="symbol">packs</span> <span class="keyword">|</span> <span class="symbol">cigprice</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bw</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm4.iv</span><span class="keyword">)</span>
+
+ <span class="symbol">lm4.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">packs</span> <span class="keyword">~</span> <span class="symbol">cigprice</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bw</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm4.1</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Simultaneous equation models (SEM) ---</span>
+<span class="comment"># --- Ex 5:  -----------------------------</span>
+<span class="comment"># --- Ex 5: c) ---</span>
+<span class="comment"># Simulate n=100 observations from this model with a=0, b=0.5 (therefore the </span>
+<span class="comment"># multiplier is equal to 2), the perturbations are distributed as standard normals, </span>
+<span class="comment"># G is distributed normal with mean 10 and variance 1.  Applying the formula above: </span>
+<span class="comment"># plim(b) = 0.5 + 0.5/3 = 0.67, and the multiplier would be around 3. Note that </span>
+<span class="comment"># estimating the consumption equation by OLS would overestimate the real multiplier, </span>
+<span class="comment"># which is 2. (Try again with a sample of 50 and 10000 and note the differences with </span>
+<span class="comment"># the predicted values).</span>
+
+ <span class="symbol">epsilon1</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">epsilon2</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">g</span> <span class="assignement">&lt;-</span> <span class="number">10</span> <span class="keyword">+</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+
+ <span class="symbol">d</span> <span class="assignement">&lt;-</span> <span class="keyword">(</span><span class="number">1</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="number">0.5</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">g</span> <span class="keyword">+</span> <span class="keyword">(</span><span class="symbol">epsilon1</span> <span class="keyword">+</span> <span class="symbol">epsilon2</span><span class="keyword">)</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="number">0.5</span><span class="keyword">)</span>
+ <span class="comment"># d was created using the reduced form.</span>
+ <span class="symbol">c</span> <span class="assignement">&lt;-</span> <span class="number">0.5</span><span class="keyword">*</span><span class="symbol">d</span> <span class="keyword">+</span> <span class="symbol">epsilon1</span>
+
+ <span class="symbol">lm5c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">c</span> <span class="keyword">~</span> <span class="symbol">d</span><span class="keyword">)</span>
+ <span class="symbol">beta</span> <span class="assignement">&lt;-</span> <span class="symbol">lm5c</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>
+ <span class="symbol">multiplier</span> <span class="assignement">&lt;-</span> <span class="number">1</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="symbol">beta</span><span class="keyword">)</span>
+ <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"The multiplier estimated with OLS is equal to"</span><span class="keyword">,</span> <span class="symbol">multiplier</span><span class="keyword">)</span>
+ <span class="comment"># spot on!</span>
+
+
+<span class="comment"># --- Ex 5: d) ---</span>
+<span class="comment"># Apply instrumental variables to obtain better estimators. Report the value for </span>
+<span class="comment"># the multiplier estimated.</span>
+
+ <span class="comment"># As g is exogenous and we need two instruments, we use g and a constant as instruments.</span>
+ <span class="symbol">sim</span> <span class="assignement">&lt;-</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="argument">c</span><span class="argument">=</span><span class="symbol">c</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="symbol">d</span><span class="keyword">,</span> <span class="argument">g</span><span class="argument">=</span><span class="symbol">g</span><span class="keyword">)</span>
+ <span class="symbol">lm5d</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">c</span> <span class="keyword">~</span> <span class="symbol">d</span> <span class="keyword">|</span> <span class="symbol">g</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">sim</span><span class="keyword">)</span>
+ <span class="symbol">beta</span> <span class="assignement">&lt;-</span> <span class="symbol">lm5d</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>
+ <span class="symbol">multiplier</span> <span class="assignement">&lt;-</span> <span class="number">1</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="symbol">beta</span><span class="keyword">)</span>
+ <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"The multiplier estimated with IV is equal to"</span><span class="keyword">,</span> <span class="symbol">multiplier</span><span class="keyword">)</span>
+ <span class="comment"># spot on!</span>
+
+
+
+
+<span class="comment"># --- Ex 6:  -----------------------------</span>
+ <span class="symbol">orange</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/oranges.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">orange</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 6: a) ---</span>
+<span class="comment"># Estimate the price equation using OLS. Test the null hypothesis that </span>
+<span class="comment"># price elasticity = -1.</span>
+
+ <span class="symbol">lm6a.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logpt</span> <span class="keyword">~</span> <span class="symbol">logqt</span> <span class="keyword">+</span> <span class="symbol">logrit</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm6a.ols</span><span class="keyword">,</span> <span class="string">"logqt = -1"</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># The p-value for the F-statistic is equal to 0.04, therefore the null is</span>
+ <span class="comment"># rejected at 5%-level.</span>
+
+
+<span class="comment"># --- Ex 6: b) ---</span>
+<span class="comment"># Estimate the price equation also by IV, using log(ACt) and log(APt) as </span>
+<span class="comment"># instruments for log(Q). Test again the null hypothesis of unit price elasticity.</span>
+
+ <span class="symbol">lm6b.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">logpt</span> <span class="keyword">~</span> <span class="symbol">logqt</span> <span class="keyword">+</span> <span class="symbol">logrit</span> <span class="keyword">|</span> <span class="symbol">logac</span> <span class="keyword">+</span> <span class="symbol">logap</span> <span class="keyword">+</span> <span class="symbol">logrit</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm6b.iv</span><span class="keyword">,</span> <span class="string">"logqt = -1"</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># The p-value for the F-statistic is now equal to 0.002, therefore the null is</span>
+ <span class="comment"># rejected at 1% level of significance.</span>
+
+
+<span class="comment"># --- Ex 6: c) ---</span>
+<span class="comment"># Perform the Hausman test for the exogeneity of log(Qt) in the price equation.</span>
+
+ <span class="functioncall">dwh.test</span><span class="keyword">(</span><span class="symbol">lm6b.iv</span><span class="keyword">,</span> <span class="symbol">lm6a.ols</span><span class="keyword">)</span>
+
+ <span class="comment"># by yourself:</span>
+ <span class="comment"># Step 1.</span>
+ <span class="symbol">lm6c.i</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logpt</span> <span class="keyword">~</span> <span class="symbol">logqt</span> <span class="keyword">+</span> <span class="symbol">logrit</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="symbol">ehat</span> <span class="assignement">&lt;-</span> <span class="symbol">lm6c.i</span><span class="keyword">$</span><span class="symbol">res</span>
+
+ <span class="comment"># Step 2.</span>
+ <span class="symbol">lm6c.ii</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logqt</span> <span class="keyword">~</span> <span class="symbol">logrit</span> <span class="keyword">+</span> <span class="symbol">logac</span> <span class="keyword">+</span> <span class="symbol">logap</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="symbol">vhat</span> <span class="assignement">&lt;-</span> <span class="symbol">lm6c.ii</span><span class="keyword">$</span><span class="symbol">res</span>
+
+ <span class="comment"># Step 3.</span>
+ <span class="symbol">lm6c.iii</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">ehat</span> <span class="keyword">~</span> <span class="symbol">logqt</span> <span class="keyword">+</span> <span class="symbol">logrit</span> <span class="keyword">+</span> <span class="symbol">vhat</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">dim</span><span class="keyword">(</span><span class="functioncall">model.matrix</span><span class="keyword">(</span><span class="symbol">lm6c.iii</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm6c.ii</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.sq</span>
+
+ <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"LM statistic is ="</span><span class="keyword">,</span> <span class="symbol">LM</span><span class="keyword">)</span>
+ <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"p-value of the LM statistic ="</span><span class="keyword">,</span> <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+ <span class="comment"># The results are not clear. With DWH test, we reject exogeneity at a 1% level</span>
+ <span class="comment"># with Hausman test we do not reject. </span>
+
+
+<span class="comment"># --- Ex 6: d) ---</span>
+<span class="comment"># Investigate the quality of the instruments, that is, whether they are </span>
+<span class="comment"># sufficiently correlated with log(Q_t) and uncorreated with the price shocks e_t </span>
+<span class="comment"># (take the IV residuals as estimates of the shocks).</span>
+
+ <span class="symbol">lm6d</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logqt</span> <span class="keyword">~</span> <span class="symbol">logrit</span> <span class="keyword">+</span> <span class="symbol">logac</span> <span class="keyword">+</span> <span class="symbol">logap</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm6d</span><span class="keyword">)</span>
+ <span class="comment"># The R2 is .93 proof of a good correlation between endogenous variable and</span>
+ <span class="comment"># instruments. Only past advertisements are insignificant.</span>
+
+ <span class="comment"># To test for the exogeneity of the instruments we apply a Sargan test.</span>
+ <span class="symbol">lm6d.or</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm6b.iv</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">logac</span> <span class="keyword">+</span> <span class="symbol">logap</span> <span class="keyword">+</span> <span class="symbol">logrit</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="symbol">lm6d.or.test</span> <span class="assignement">&lt;-</span> <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm6d.or</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"logac=0"</span><span class="keyword">,</span> <span class="string">"logap=0"</span><span class="keyword">,</span> <span class="string">"logrit"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">test</span><span class="argument">=</span><span class="string">"Chisq"</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment">## WARNING: df (and hence p-value) invalid above.</span>
+ <span class="comment">## correct df: # instruments - # endogenous variables</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span><span class="argument">=</span><span class="symbol">lm6d.or.test</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="symbol">lm6b.iv</span><span class="keyword">$</span><span class="symbol">df.res</span> <span class="keyword">-</span> <span class="symbol">lm6d.or</span><span class="keyword">$</span><span class="symbol">df.res</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment"># Therefore the hypothesis of instruments being exogenous is rejected. One</span>
+ <span class="comment"># possible explication is that there is some simultaneous determination of </span>
+ <span class="comment"># quantities and advertisement expenditures (example: high prices raising proffits </span>
+ <span class="comment"># and then advertisement and quantities supplied.</span>
+
+<span class="comment"># --- Ex 6: e) ---</span>
+<span class="comment"># Answer questions b), c) and d) also for the n=45 observations obtained by </span>
+<span class="comment"># excluding the data over the period 1942-6.</span>
+
+ <span class="comment"># Left for the student, the conclusions are in line with what we observed so far.</span>
+
+
+<span class="comment"># --- Ex 6: f) ---</span>
+<span class="comment"># Is the demand equation identified? Estimate this equation by OLS, and motivate </span>
+<span class="comment"># your choice.</span>
+
+ <span class="comment"># to answer this question we apply the order condition: k - k1 &gt;= m1</span>
+
+ <span class="comment"># where</span>
+ <span class="comment"># k = total number of exogenous variables in the model;</span>
+ <span class="comment"># k1 = total number of exogenous variables in the first equation;</span>
+ <span class="comment"># m1 = number of endogenous variables in the same equation.</span>
+
+ <span class="comment"># k = 2: the constant and the variable log(RI).</span>
+ <span class="comment"># When we analyse the demand equation: the exogenous variables are the same, so 2 </span>
+ <span class="comment"># again.</span>
+ <span class="comment"># m1 = 1: log(Q). The order condition is not satisfied: 0&lt;1. Then the demand</span>
+ <span class="comment"># equation is not identified.</span>
+
+ <span class="comment"># The estimation by OLS was already discussed in parts a, b, c. The equation 1</span>
+ <span class="comment"># cannot be estimated as part of a</span>
+ <span class="comment"># model as the SEM designed for parts f and g.</span>
+
+
+<span class="comment"># --- Ex 6: g) ---</span>
+<span class="comment"># Is the supply equation identified? Estimate this equation by a method that you </span>
+<span class="comment"># find most appropriate, and motivate your choice.</span>
+
+<span class="comment"># The order condition is now satisfied. k = 2; k2 = 1; m2 = 1. Now: k - k2 = 1 = m2</span>
+<span class="comment"># the reason to be satisfied is that it satisfies the exlcusion condition, as</span>
+<span class="comment"># log(RI) is excluded.</span>
+
+<span class="comment"># to estimate it within the scope of this model we should apply two-stage</span>
+<span class="comment"># least squares using the constant and log(RI) as instrumets.</span>
+
+ <span class="symbol">lm6g.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">logpt</span> <span class="keyword">~</span> <span class="symbol">logqt</span> <span class="keyword">|</span> <span class="symbol">logrit</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">orange</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm6g.iv</span><span class="keyword">)</span>
+
+ <span class="comment"># The slope is now negative, contrary to what it should have been expected,</span>
+ <span class="comment"># and insignificant. So estimations in part c) (with more IVs) seem to be the </span>
+ <span class="comment"># best estimations for this model.</span>
+
+
+
+
+<span class="comment"># --- Ex 7:  -----------------------------</span>
+ <span class="symbol">smoke</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/smoke.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">smoke</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 7: d) ---</span>
+<span class="comment"># Estimate the income equation by OLS and discuss the estimate of beta_1.</span>
+
+ <span class="symbol">lm7d</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lincome</span> <span class="keyword">~</span> <span class="symbol">cigs</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">agesq</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">smoke</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm7d</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 7: e) ---</span>
+<span class="comment"># Estimate the reduced form for cigs. (Recall that this entails regressing cigs </span>
+<span class="comment"># on all exogenous variables.) Are log(cigpric) and restaurn significant in the </span>
+<span class="comment"># reduced form?</span>
+
+ <span class="symbol">lm7e</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">cigs</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">agesq</span> <span class="keyword">+</span> <span class="symbol">lcigpric</span> <span class="keyword">+</span> <span class="symbol">restaurn</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">smoke</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm7e</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm7e</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"lcigpric=0"</span><span class="keyword">,</span> <span class="string">"restaurn=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 7: f) ---</span>
+<span class="comment"># Now, estimate the income equation by 2SLS. Discuss how the estimate of beta_1</span>
+<span class="comment"># compares with the OLS estimates.</span>
+
+ <span class="symbol">lm7f.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">lincome</span> <span class="keyword">~</span> <span class="symbol">cigs</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">agesq</span>
+        <span class="keyword">|</span> <span class="symbol">lcigpric</span> <span class="keyword">+</span> <span class="symbol">restaurn</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">agesq</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">smoke</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm7f.iv</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 8:  -----------------------------</span>
+ <span class="symbol">open</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/openness.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">open</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 8: a) ---</span>
+<span class="comment"># To confirm the last assertion, estimate the reduced form for open. Is the first </span>
+<span class="comment"># equation identified? Estimate it using a constant and log(land) as IVs (2SLS).</span>
+
+ <span class="symbol">lm8a.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">open</span> <span class="keyword">~</span> <span class="symbol">lpcinc</span> <span class="keyword">+</span> <span class="symbol">lland</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8a.ols</span><span class="keyword">)</span>
+ <span class="symbol">lm8a.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">inf</span> <span class="keyword">~</span> <span class="symbol">open</span> <span class="keyword">+</span> <span class="symbol">lpcinc</span> <span class="keyword">|</span> <span class="symbol">lland</span> <span class="keyword">+</span> <span class="symbol">lpcinc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8a.iv</span><span class="keyword">)</span>
+
+ <span class="comment"># Note that the coefficient on open is statistically significant and economically </span>
+ <span class="comment"># important, and the sign of alpha1 negative, as expected.</span>
+
+
+<span class="comment"># --- Ex 8: b) ---</span>
+<span class="comment"># Because log(pcinc) is insignificant in both estimations so far [CHECK THIS], </span>
+<span class="comment"># drop it from the analysis. Estimate by OLS and IV without log(pcinc). Do any </span>
+<span class="comment"># important conclusions change?</span>
+
+ <span class="symbol">lm8b.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">inf</span> <span class="keyword">~</span> <span class="symbol">open</span> <span class="keyword">|</span> <span class="symbol">lland</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8b.iv</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 8: c) ---</span>
+<span class="comment"># Still leaving log(pcinc) out of the analysis, is land or log(land) a better </span>
+<span class="comment"># instrument for open? (Hint: regress open on each of these separately and jointly).</span>
+
+ <span class="symbol">lm8c.i</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">open</span> <span class="keyword">~</span> <span class="symbol">land</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8c.i</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="symbol">lm8c.ii</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">open</span> <span class="keyword">~</span> <span class="symbol">lland</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8c.ii</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="symbol">lm8c.iii</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">open</span> <span class="keyword">~</span> <span class="symbol">land</span> <span class="keyword">+</span> <span class="symbol">lland</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8c.iii</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 8: d) ---</span>
+<span class="comment"># Add the dummy variable oil (indicative of the country being an oil-producer) to </span>
+<span class="comment"># the original equation in a and treat it as exogenous. Estimate the equation by IV. </span>
+<span class="comment"># Does being an oil producer have a ceteris paribus effect on inflation?</span>
+
+ <span class="symbol">lm8d.iv</span> <span class="assignement">&lt;-</span><span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">inf</span> <span class="keyword">~</span> <span class="symbol">open</span> <span class="keyword">+</span> <span class="symbol">lpcinc</span> <span class="keyword">+</span> <span class="symbol">oil</span> <span class="keyword">|</span> <span class="symbol">lland</span> <span class="keyword">+</span> <span class="symbol">lpcinc</span> <span class="keyword">+</span> <span class="symbol">oil</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">open</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm8d.iv</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 9:  -----------------------------</span>
+ <span class="symbol">cement</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/cement.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">cement</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 9: a) ---</span>
+
+ <span class="symbol">cement</span><span class="keyword">$</span><span class="symbol">month</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">cement</span><span class="keyword">$</span><span class="symbol">month</span><span class="keyword">)</span>
+ <span class="symbol">lm9a</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">gprc</span> <span class="keyword">~</span> <span class="symbol">gcem</span> <span class="keyword">+</span> <span class="symbol">gprcpet</span> <span class="keyword">+</span> <span class="symbol">month</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">cement</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm9a</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 9: b) ---</span>
+
+ <span class="symbol">lm9b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">gcem</span> <span class="keyword">~</span> <span class="symbol">gdefs</span> <span class="keyword">+</span> <span class="symbol">gprcpet</span> <span class="keyword">+</span> <span class="symbol">month</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">cement</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 9: c) ---</span>
+
+ <span class="symbol">lm9c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">gcem</span> <span class="keyword">~</span> <span class="symbol">gres</span> <span class="keyword">+</span> <span class="symbol">gnon</span> <span class="keyword">+</span> <span class="symbol">gprcpet</span> <span class="keyword">+</span> <span class="symbol">month</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">cement</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 9: d) ---</span>
+
+ <span class="symbol">lm9d.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">gprc</span> <span class="keyword">~</span> <span class="symbol">gcem</span> <span class="keyword">+</span> <span class="symbol">gprcpet</span> <span class="keyword">+</span> <span class="symbol">month</span> <span class="keyword">|</span> <span class="symbol">gprcpet</span> <span class="keyword">+</span> <span class="symbol">month</span> <span class="keyword">+</span> <span class="symbol">gres</span> <span class="keyword">+</span> <span class="symbol">gnon</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">cement</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 10:  -----------------------------</span>
+ <span class="symbol">fish</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/fish.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 10: c) ---</span>
+ <span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">mon</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Mon"</span><span class="keyword">,</span>
+                        <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">tues</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Tue"</span><span class="keyword">,</span>
+                        <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">wed</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Wed"</span><span class="keyword">,</span>
+                        <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">thurs</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Thu"</span><span class="keyword">,</span><span class="string">"Fri"</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span><span class="keyword">)</span>
+ <span class="functioncall">levels</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span><span class="keyword">)</span>
+
+ <span class="symbol">lm10c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lavgprc</span> <span class="keyword">~</span> <span class="symbol">weekday</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10c</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm10c</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"wave2=0"</span><span class="keyword">,</span><span class="string">"wave3=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 10: d) ---</span>
+<span class="comment"># Now, estimate the demand equation by 2SLS. What is the 95% confidence interval for the </span>
+<span class="comment"># price elasticity of demand? Is the estimated elasticity reasonable?</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">systemfit</span><span class="keyword">)</span>
+ <span class="keyword">?</span><span class="symbol">systemfit</span>
+
+ <span class="comment">## Specify the system</span>
+ <span class="symbol">eqDemand</span> <span class="assignement">&lt;-</span> <span class="symbol">ltotqty</span> <span class="keyword">~</span> <span class="symbol">lavgprc</span> <span class="keyword">+</span> <span class="symbol">weekday</span>
+ <span class="symbol">eqSupply</span> <span class="assignement">&lt;-</span> <span class="symbol">lavgprc</span> <span class="keyword">~</span> <span class="symbol">ltotqty</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span>
+ <span class="symbol">system</span> <span class="assignement">&lt;-</span> <span class="functioncall">list</span><span class="keyword">(</span> <span class="argument">demand</span> <span class="argument">=</span> <span class="symbol">eqDemand</span><span class="keyword">,</span> <span class="argument">supply</span> <span class="argument">=</span> <span class="symbol">eqSupply</span> <span class="keyword">)</span>
+ <span class="symbol">inst</span> <span class="assignement">&lt;-</span> <span class="keyword">~</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span> <span class="keyword">+</span> <span class="symbol">weekday</span>
+
+ <span class="comment">## OLS estimation</span>
+ <span class="symbol">lm10d.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">systemfit</span><span class="keyword">(</span><span class="symbol">system</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.ols</span><span class="keyword">)</span>
+
+ <span class="comment">## 2SLS estimation</span>
+ <span class="symbol">lm10d.sem</span> <span class="assignement">&lt;-</span> <span class="functioncall">systemfit</span><span class="keyword">(</span><span class="symbol">system</span><span class="keyword">,</span> <span class="string">"2SLS"</span><span class="keyword">,</span> <span class="argument">inst</span><span class="argument">=</span><span class="symbol">inst</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.sem</span><span class="keyword">)</span>
+
+ <span class="comment">## (Same results for demand equation with ivreg)</span>
+ <span class="symbol">lm10d.ols2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">ltotqty</span> <span class="keyword">~</span> <span class="symbol">lavgprc</span> <span class="keyword">+</span> <span class="symbol">weekday</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="symbol">lm10d.iv2</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">ltotqty</span> <span class="keyword">~</span> <span class="symbol">lavgprc</span> <span class="keyword">+</span> <span class="symbol">weekday</span> <span class="keyword">|</span> <span class="symbol">weekday</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+
+ <span class="comment">## (2SLS estimation with different instruments in each equation)</span>
+ <span class="symbol">lm10d.sem</span><span class="keyword">$</span><span class="symbol">eq</span><span class="keyword">[[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">]</span><span class="keyword">;</span> <span class="symbol">lm10d.sem</span><span class="keyword">$</span><span class="symbol">eq</span><span class="keyword">[[</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">]</span>
+ <span class="symbol">inst1</span> <span class="assignement">&lt;-</span> <span class="keyword">~</span> <span class="symbol">weekday</span>
+ <span class="symbol">inst2</span> <span class="assignement">&lt;-</span> <span class="keyword">~</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span>
+ <span class="symbol">instlist</span> <span class="assignement">&lt;-</span> <span class="functioncall">list</span><span class="keyword">(</span> <span class="symbol">inst1</span><span class="keyword">,</span> <span class="symbol">inst2</span> <span class="keyword">)</span>
+
+ <span class="symbol">lm10d.sem2</span> <span class="assignement">&lt;-</span> <span class="functioncall">systemfit</span><span class="keyword">(</span><span class="symbol">system</span><span class="keyword">,</span> <span class="string">"2SLS"</span><span class="keyword">,</span> <span class="argument">inst</span><span class="argument">=</span><span class="symbol">instlist</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.sem2</span><span class="keyword">)</span>
+
+ <span class="comment"># Note this is another way to estimate 2sls. Should we not have given the 2sls</span>
+ <span class="comment"># option R would have estimated employing 3sls, this model first estimates a 2sls, </span>
+ <span class="comment"># then with the correlation between perturbations ACROSS equations it estimates</span>
+ <span class="comment"># the covariance matrix of the perturbations across equations, which is used in a</span>
+ <span class="comment"># third step to estimate the parameters.</span>
+
+ <span class="comment">## 3SLS estimation</span>
+ <span class="symbol">lm10d.3sls</span> <span class="assignement">&lt;-</span> <span class="functioncall">systemfit</span><span class="keyword">(</span> <span class="symbol">system</span><span class="keyword">,</span> <span class="string">"3SLS"</span><span class="keyword">,</span> <span class="argument">inst</span> <span class="argument">=</span> <span class="symbol">inst</span><span class="keyword">,</span> <span class="argument">data</span> <span class="argument">=</span> <span class="symbol">fish</span><span class="keyword">,</span> <span class="argument">method3sls</span> <span class="argument">=</span> <span class="string">"GMM"</span> <span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.3sls</span><span class="keyword">)</span>
+ <span class="functioncall">hausman.systemfit</span><span class="keyword">(</span><span class="symbol">lm10d.sem</span><span class="keyword">,</span> <span class="symbol">lm10d.3sls</span><span class="keyword">)</span>
+ <span class="comment"># no significant difference between 2SLS and 3SLS.</span>
+
+ <span class="comment"># In general, the results are more efficient, but it has two flaws: 1. it relies on all</span>
+ <span class="comment"># equations being well modeled. errors in modelling any of them will affect estimations  </span>
+ <span class="comment"># in all the rest of the equations (2sls is free from this problem);</span>
+ <span class="comment"># 2. it relies in big datasets. as it has to estimate a large number of covariances.</span>
+
+
+<span class="comment"># --- Digression: What about HC-standard errors?  ---</span>
+<span class="comment"># based on Wooldridge (2002) "Econometric analysis of cross section and panel data", </span>
+<span class="comment"># Chapter 5, page 100, formula 5.34</span>
+
+ <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+ <span class="functioncall">shccm.sysf</span><span class="keyword">(</span><span class="symbol">lm10d.sem</span><span class="keyword">)</span>
+ <span class="functioncall">shccm.sysf</span><span class="keyword">(</span><span class="symbol">lm10d.3sls</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 10: e) ---</span>
+
+ <span class="symbol">lm10e</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lavgprc</span> <span class="keyword">~</span> <span class="symbol">weekday</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10e</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm10e</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"weekdayMon=0"</span><span class="keyword">,</span><span class="string">"weekdayTue=0"</span><span class="keyword">,</span><span class="string">"weekdayWed=0"</span><span class="keyword">,</span><span class="string">"weekdayThu=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc1</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+ <span class="functioncall">save.image</span><span class="keyword">(</span><span class="string">"EndOfSession.RData"</span><span class="keyword">)</span>
+ <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"yes"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

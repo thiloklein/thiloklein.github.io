@@ -3,7 +3,7 @@
 
 # Required libraries: sfsmisc, car, stats
   rm(list=ls())
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -12,7 +12,7 @@
 
 ## --- Confidence intervals, prediction intervals, Outliers, Influential observations ---
 
- data = read.csv("http://thiloklein.de/R/wineandwealth.csv")
+ data = read.csv("http://klein.uk/R/wineandwealth.csv")
  str(data)
  attach(data)
  data

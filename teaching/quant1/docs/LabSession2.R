@@ -4,7 +4,7 @@
 # Lab Session 2: Linear Regression in R; Good Practice Guide
 
 # Required libraries: .
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -22,7 +22,7 @@
 # Review the contents and regress employment growth on GDP growth. Provide an 
 # interpretation of the results.
 
- growth <- read.csv("http://thiloklein.de/R/growth",header=T,sep=",")
+ growth <- read.csv("http://klein.uk/R/growth",header=T,sep=",")
  str(growth)
  lm2 <- lm(empgrow ~ GDPgrow, data=growth); summary(lm2)
 
@@ -54,7 +54,7 @@
 
 
 # --- Ex 3: The linear model with quadratic terms --------------------------------
- house <- read.csv("http://thiloklein.de/R/housing",header=T,sep=",")
+ house <- read.csv("http://klein.uk/R/housing",header=T,sep=",")
  str(house)
 
 
@@ -77,7 +77,7 @@
 
 # --- Ex 4: Extrapolation and accuracy of least least squares --------------------------------
 
- eaef <- read.csv("http://thiloklein.de/R/eaef",header=T,sep=",")
+ eaef <- read.csv("http://klein.uk/R/eaef",header=T,sep=",")
  str(eaef)
 
  lm4 <- lm(weight ~ height, data=eaef)
@@ -102,7 +102,7 @@
 
 # --- Ex 6: Multiple linear regression --------------------------------
 
- hprice1 <- read.csv("http://thiloklein.de/R/hprice1",header=T,sep=",")
+ hprice1 <- read.csv("http://klein.uk/R/hprice1",header=T,sep=",")
  str(hprice1)
 
  lm6 <- lm(price ~ sqrft + bdrms, data=hprice1)
@@ -113,7 +113,7 @@
 
 # --- Ex 7: Confidence intervals of regression coefficients (1) --------------------------------
 
- oilprice1 <- read.csv("http://thiloklein.de/R/oilprice1",header=T,sep=",")
+ oilprice1 <- read.csv("http://klein.uk/R/oilprice1",header=T,sep=",")
  str(oilprice1)
 
  plot(price ~ api, data=oilprice1)

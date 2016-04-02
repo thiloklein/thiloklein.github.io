@@ -10,7 +10,7 @@ published: true
 
 ## FAQ II
 
-This FAQ for [Quantitative Methods II](/teaching/quant2/) and [Econometrics II](/teaching/econometrics2/) is a compilation of questions and answers that where posted on the course forum in previous years. For more comprehensive FAQs on R and statistics, see [http://ats.ucla.edu](http://ats.ucla.edu) and [http://cran.r-project.org](http://cran.r-project.org). 
+This FAQ for [Quantitative Methods II](/teaching/quant2/index.html) and [Econometrics II](/teaching/econometrics2/index.html) is a compilation of questions and answers that where posted on the course forum in previous years. For more comprehensive FAQs on R and statistics, see [http://ats.ucla.edu](http://ats.ucla.edu) and [http://cran.r-project.org](http://cran.r-project.org). 
 
 ***
 
@@ -91,7 +91,7 @@ This FAQ for [Quantitative Methods II](/teaching/quant2/) and [Econometrics II](
 
 `adf.test.1()` and `adf.test.2()` are convenience functions that I wrote. `adf.test.2()` gives the adf test specification. If you apply the `summary()` command, p-values would be wrong because they are based on the t-distribution! To obtain the correct p-value based on the Dickey-Fuller distribution use the `adf.test.1()` function. The sole difference between the latter and R's standard adf test function is that it allows to specify whether to include an intercept and/or a trend variable.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -155,7 +155,7 @@ sapply(data, function(x) x[seq(1,8,4)])
 
 For a detailed treatment of the apply-functions, see the [UCLA site](http://www.ats.ucla.edu/stat/r/library/advanced_function_r.htm).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -163,7 +163,7 @@ For a detailed treatment of the apply-functions, see the [UCLA site](http://www.
 
 It is simply more convenient to use the `dynlm` function because it allows for a more flexible model specification. `dynlm` and `lm` will both give the same estimates.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -171,7 +171,7 @@ It is simply more convenient to use the `dynlm` function because it allows for a
 
 Have a look at the help files for the `arma` and `arima` functions? If you want to estimate a model without intercept, the options are `include.intercept=FALSE` (for arma) and `include.mean=FALSE` (for arima).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -190,7 +190,7 @@ s.e.  0.0809   0.1049    0    0  0.0980     0.0032
 
 The structure should get clearer now. You can see that setting an NA allows the corresponding coefficient to be estimated, and 0 forces the coefficient to be zero. What needs getting used to is the order of the terms in the fixed option. First, we have the ar1 term (here: NA), then four ma terms (here: NA, 0, 0, NA) and finally the intercept (here: NA).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -224,7 +224,7 @@ acf(LPPI.d1, xlim=c(0.25,5.5)); pacf(LPPI.d1)
 
 ![acf1.png]({{site.baseurl}}/teaching/faq/images/acf1.png)
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -232,7 +232,7 @@ acf(LPPI.d1, xlim=c(0.25,5.5)); pacf(LPPI.d1)
 
 I am also still searching for this one... please share with me in case you come across the p-values for acf/pacf functions in R. For now you can either use the Ljung-Box-test for (joint) inference, or Barlett's approximation as follows. "In large samples the sample autocorrelation coefficients are normally distributed with zero mean and variance equal to one over the sample size" (Gujarati, 'Basic Econometrics', 4th edition, page 812). A 95% confidence interval for any autocorrelation coefficient, rho_k, is then given by rho_k +/- 1.96*(sqrt(1/n)), where n is the sample size.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -240,7 +240,7 @@ I am also still searching for this one... please share with me in case you come 
 
 To force the coef of the first ARCH term to be zero, simply use the command `fixed.pars=list(alpha1=0)` in the model specification.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -248,7 +248,7 @@ To force the coef of the first ARCH term to be zero, simply use the command `fix
 
 You can force `auto.arima` to ignore seasonal differencing using the following arguments: `D=0`, `max.P=0`, `max.Q=0`
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -283,7 +283,7 @@ lines(L, col="blue", lty="dashed")
 
 This example is taken from [here](http://www.stat.pitt.edu/stoffer/tsa3/R_toot.htm).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -299,7 +299,7 @@ When working with arima models, consider "Issue 1: When is the intercept the mea
 
 Fortunately, replacing `"intercept"` by `"mean"` in the arima model output fixes Issue 1. On Issue 2, if the mean is zero you can ignore the issue and proceed. If not use the `xreg` option or simply difference the series using `diff()` instead.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -307,7 +307,7 @@ Fortunately, replacing `"intercept"` by `"mean"` in the arima model output fixes
 
 You know that the log difference gives the growth rate, g, so to obtain a one step ahead forecast from y_t to y_t+1, you could just do y_t * (1 + g_t+1). To obtain forecast errors (MSE, MAE, ..) and the like you can still use g directly.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -351,7 +351,7 @@ sort(dates2)
 [1] "2000-01-08" "2000-01-09" "2000-01-10" "2000-01-11"
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -424,7 +424,7 @@ data2$new <- lapply(data2$new, function(x) ifelse(x==0,1,0)); data2
 
 This is an ad-hoc solution but you may be able to generalize it to other problems. Another application would be the demeaning of variables for fixed effects estimation.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -436,7 +436,7 @@ The function `fitted()` does not seem to work for panel models. In this case, yo
 yourmodel$model[[1]] - yourmodel$residuals
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -444,7 +444,7 @@ yourmodel$model[[1]] - yourmodel$residuals
 
 You will find an answer to your question in the plm package manual [here](http://cran.r-project.org/web/packages/plm/vignettes/plm.pdf). "idiosyncratic" error is the classical error term and "individual" error the random effect (page 2). "share" gives the respective percentage contribution to total variation.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -456,7 +456,7 @@ You will find an answer to your question in the plm package manual [here](http:/
 
 If this is the case for any of the lab exercises, try to reinstall the rgarch package on your machine or use the Judge computer lab for garch modelling. Simply follow the three simple steps (explained on my website) to install rgarch in the lab (R version 2.11). If the algorithm does not converge for a model in your workbook, choose a simpler specification (more parsimonious / less parameters).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -468,7 +468,7 @@ You need to source my convenience functions by tying:
 source("http://klein.uk/R/myfunctions.R")
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -476,7 +476,7 @@ source("http://klein.uk/R/myfunctions.R")
 
 If you get this error message (and your chosen start date is definitely not after the end date of the series) you have defined the date format incorrectly. To see how to get this right, check [How can I read date formats in R?](#b12).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -484,7 +484,7 @@ If you get this error message (and your chosen start date is definitely not afte
 
 You don't have to worry about that warning message. It is just telling you that there is a constant variable in the dataset which therefore is not useful in a regression. I assume, that you created a subset that only contains a factor x with only one level. In this case, the variable x is per definition equal for all observations (and collinear with the intercept!). R just notifies you that this variable is not useful and drops it, even if you don't use it in the regression model.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -496,7 +496,7 @@ You don't have to worry about that warning message. It is just telling you that 
 
 The nature of the trend component in time series cannot be established visually. The ADF test procedure starts with the most general model, allowing for intercept, trend and difference stationarity. If you reject unit root in this general model, then you can estimate a model for the series with intercept and trend terms and use standard OLS procedures/ t-test to check if there is a signficant trend, which needs taking out. The ADF nests both.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -504,7 +504,7 @@ The nature of the trend component in time series cannot be established visually.
 
 Take the extreme case where ACF is zero for every lag. You would then safely conclude that the series is stationary.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -512,7 +512,7 @@ Take the extreme case where ACF is zero for every lag. You would then safely con
 
 The lags are included to get rid of serial autocorrelation. Use `adf.test.2()` function to obtain residuals from the adf test regression and do the Ljung-Box-test. Increase the number of lags (`k` argument in `adf.test.1` function) to get rid of the autocorrelation. It does make sense to include only the significant lags. In extremely nasty cases you could use the `stepAIC` function to determine which lags are required.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -520,7 +520,7 @@ The lags are included to get rid of serial autocorrelation. Use `adf.test.2()` f
 
 The number of lags is somewhat arbitrarily chosen, but it makes sense to choose it larger than 4 if we have quarterly data, larger than 12 for monthly data, etc.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -528,7 +528,7 @@ The number of lags is somewhat arbitrarily chosen, but it makes sense to choose 
 
 There are probably three advantages of taking logs when working with time series data. First, you reduce problems of extreme observations and non-normality. Remember that time series data is usually leptokurtic. Second, growth rates are a convenient measure and facilitate interpretation of your results. Third, logging could help in bringing a variable closer to stationarity.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -536,7 +536,7 @@ There are probably three advantages of taking logs when working with time series
 
 The test statistic gives you the joint significance up to the mentioned lag. So, if say, test statistic for lag 7 is significant, all the lags until that lag (first 7 lags) are jointly significant.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -544,7 +544,7 @@ The test statistic gives you the joint significance up to the mentioned lag. So,
 
 The `auto.arima()` function will give you the model with the lowest AIC, for example. However, there are other criteria that determine whether a model is appropriate, e.g. residual autocorrelation etc.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -552,7 +552,7 @@ The `auto.arima()` function will give you the model with the lowest AIC, for exa
 
 This is the simple t-test that is reported in the regression summary command `summary()`. You could specify the regression using `adf.test.2()` and then obtain the simple `summary()`.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -566,7 +566,7 @@ AIC = -2*LogLikelihood + 2*npar or AIC = n*log(RSS) + 2*npar
 
 When the residual sum of squares is below 1, the term log(RSS) is negative. Dependent on the values of n and npar the AIC may be positive or negative. The interpretation of the AIC measure still remains the same.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -586,7 +586,7 @@ sgarch.fit@fit$residuals
 
 Please use those for your analysis (this was corrected in the R-scripts for the lectures but not for some of the exercises in the lab).
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -594,7 +594,7 @@ Please use those for your analysis (this was corrected in the R-scripts for the 
 
 Yes, to determine your starting parameters for the garch model you can only inspect acf/pacf.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -602,7 +602,7 @@ Yes, to determine your starting parameters for the garch model you can only insp
 
 There are possibly good reasons to select your model based on coefficient significance. EViews, for example, uses a heuristic threshold rule based on significance levels. AIC and BIC have at least some theoretical foundation. In the end all you can do is to choose a selection criterion and stick to it for consistency.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -624,7 +624,7 @@ seq(1,10,1)
 
 1 to 10, etc.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -632,7 +632,7 @@ seq(1,10,1)
 
 The Ljung-Box-test may fail to reject the null despite significant autocorrelation at an individual lag because it tests for joint significance of autocorrelation up to a specific lag. I would use the Ljung-Box-test and ignore the significant correlation in the acf. A possible justification: Looking at individual significance tests means that you are testing multiple hypotheses at 5% level and would expect to reject one in twenty tests by pure chance.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -640,7 +640,7 @@ The Ljung-Box-test may fail to reject the null despite significant autocorrelati
 
 It does not make much sense to use too long a forecast horizon because forecasts revert to the long term mean fairly quickly.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -648,7 +648,7 @@ It does not make much sense to use too long a forecast horizon because forecasts
 
 Box-Jenkins procedure is recommended. If the model fails diagnostic tests try to improve it or (if its not possible with the methods we learned) comment on the shortcomings.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -676,7 +676,7 @@ All ARIMA models are invertible. So we don't need to check this condition for th
 
 Source: "Invertibility and Stationarity conditions of ARIMA models" (Sanchez, UCLA)
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -684,7 +684,7 @@ Source: "Invertibility and Stationarity conditions of ARIMA models" (Sanchez, UC
 
 There may be small differences between R's arma and arima estimates. This is due to different optimization methods underlying the two functions. The arima function from the stats package uses Maximum Likelihood Estimation (MLE) whereas the arma function uses an OLS estimator (see the help files for the functions). For linear regression the estimates are exactly the same and I suppose for our time series models they are asymptotically equivalent. Please choose any of the two functions.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -692,7 +692,7 @@ There may be small differences between R's arma and arima estimates. This is due
 
 Remember that the simple ARMA model assumes that there are no ARCH effects. This is often unrealistic. Modelling mean and variance equation simultaneously (`ugrachfit` function) will therefore often lead to more accurate (and hence different) models/results. You should first find an optimal mean equation (arma), and use the squared residuals `arma$res^2` to determine the ARCH-structure. Second, estimate mean and variance model simultaneously (ugrachfit) and change your mean/variance specifications (using ugarchfit) to obtain a model with a good fit that satisfies the model assumptions.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -706,7 +706,7 @@ glm2b$coef[2] * dnorm(mean(M%*%coef(glm2b)))
 
 gives the marginal effect (of the average respondent) based on the derivative of the link function with respect to the independent variable (see lecture notes: think chain rule!). This approach makes sense for continuous variables. For dummy variables, the second command is appropriate. It gives the difference in estimated probabilities for white and non-white respondents.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -714,7 +714,7 @@ gives the marginal effect (of the average respondent) based on the derivative of
 
 Yes, exactly. If you don't have overidentifying restrictions you can't test for validity of your instrument (Sargan test). In this case you should try to find a second instrument.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -722,7 +722,7 @@ Yes, exactly. If you don't have overidentifying restrictions you can't test for 
 
 I'd recommend the Lagrange Multiplier Sargan test from the handout because it does not depend on the normality assumption of the errors.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -730,7 +730,7 @@ I'd recommend the Lagrange Multiplier Sargan test from the handout because it do
 
 There are several possibilities. You may try fixed effects by year plus quarterly dummies, for example.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -746,11 +746,11 @@ Of course, there will be questions that come up only after the lecture. Here are
 
 - First, try to find an answer individually and, if necessary, refer to the literature. Try to work independently -- this is the aim of your studies.
 - Of course, no one is born a master, and you may have several questions that you can't find an answer to. Questions related to lectures and workshops can simply be posted on the forum. Other students, the teaching associates, and I can then comment on them. You will notice that it is not easy to formulate questions and answers clearly. The forum gives you the opportunity to gain more routine in the formulation of scientific concepts. In addition, you are certainly not the only person who would like a response. Only if you ask your question in public, can we all benefit from questions and answers.
-- Finally, there are questions that have nothing to do with the lecture, but with econometrics, and that won't let you sleep at night. In this case, please email me a brief description of what you've done to find a solution, and why your attempts have so far failed. I will then try to give you a hint or point you to resources. Also, consider booking an appointment at the School's [Empirics Lab](/teaching/consulting/), or at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
+- Finally, there are questions that have nothing to do with the lecture, but with econometrics, and that won't let you sleep at night. In this case, please email me a brief description of what you've done to find a solution, and why your attempts have so far failed. I will then try to give you a hint or point you to resources. Also, consider booking an appointment at the School's [Empirics Lab](/teaching/consulting/index.html), or at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
 
 I try my best to help you, and sometimes it would be easier -- in the short term -- to explain a connection, instead of showing you how to find an answer yourself -- in the long term, however, you will learn more in the latter approach.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -764,7 +764,7 @@ This applies equally to the teaching associates. Again, it works best to ask que
 
 This leaves office hours with all the more time for questions that are unrelated to assignments (such as your individual research projects, individual difficulties in your studies, ...). Send me an email and we will arrange an appointment in the next few days.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -776,15 +776,15 @@ I can always write you a reference letter for a scholarship, a PhD programme, et
 - I can only write a reference letter once your workbooks for the course have been graded. If you need an early reference, one option for me is to consider your performance in the weekly contest and issue your letter at the end of Michaelmas term.
 - If you can check off the above points, please send me your letter of motivation / cover letter, your research proposal, as well as an overview of your grades (transcript of records from CamSIS) if available. Please send these documents in pdf, postscript, text, or odt format (not in a microsoft .doc or .docx format). I will have a look at your documents and we will arrange an interview.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
 #####<a name="e4"></a> Can you supervise my M.Phil. dissertation?
 
-No. You should find a [faculty member](http://www.jbs.cam.ac.uk/research/faculty/index.html) who is interested in supervising your research. If you are not sure which scholar to approach with your research proposal, I can probably help you with that. That being said, I am more than happy to discuss the empirical aspects of your dissertation at any stage of your research. To do so, please go to [Empirics Lab](/teaching/consulting/) to arrange an appointment, or stop by at the university's Statistics Clinic.
+No. You should find a [faculty member](http://www.jbs.cam.ac.uk/research/faculty/index.html) who is interested in supervising your research. If you are not sure which scholar to approach with your research proposal, I can probably help you with that. That being said, I am more than happy to discuss the empirical aspects of your dissertation at any stage of your research. To do so, please go to [Empirics Lab](/teaching/consulting/index.html) to arrange an appointment, or stop by at the university's Statistics Clinic.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -792,7 +792,7 @@ No. You should find a [faculty member](http://www.jbs.cam.ac.uk/research/faculty
 
 In this case, please give me an advance notice. Many things are a lot easier for you to notice (font too small, micro distorted, presentation too fast / too slow ...). For me it is very frustrating to read about problems -- which I could have fixed in the first term week -- only in the end of term evaluation. Please notify me directly in class or just after class, send me an email, or give vent to your anger in the forum. As long as you give no feedback, I have to assume that you are very happy (o:
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -800,7 +800,7 @@ In this case, please give me an advance notice. Many things are a lot easier for
 
 If you like something particularly well, I am of course happy to hear it (o:
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)
 
 ***
 
@@ -815,4 +815,4 @@ Short answer: No. Simply choose the modules that suit your learning style best.
 
 It is not my goal that you work more for this course than for other, equally important courses. The components are simply supposed to help you organize your learning process adapted to you needs.
 
-[Back to top](/teaching/faq/faq2)
+[Back to top](index.html)

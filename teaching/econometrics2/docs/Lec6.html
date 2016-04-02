@@ -1,0 +1,183 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># MPO1-A Advanced Quantitative Research Methods</span>
+<span class="comment"># Lec 6: SEM</span>
+
+<span class="comment"># Libraries: lmtest, sandwich, AER, systemfit</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Ex 10:  -----------------------------</span>
+ <span class="symbol">fish</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/fish.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 10: c) ---</span>
+ <span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">mon</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Mon"</span><span class="keyword">,</span>
+                        <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">tues</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Tue"</span><span class="keyword">,</span>
+                        <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">wed</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Wed"</span><span class="keyword">,</span>
+                        <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">thurs</span>==<span class="number">1</span><span class="keyword">,</span><span class="string">"Thu"</span><span class="keyword">,</span><span class="string">"Fri"</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span><span class="keyword">)</span>
+ <span class="functioncall">levels</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">$</span><span class="symbol">weekday</span><span class="keyword">)</span>
+
+<span class="functioncall">head</span><span class="keyword">(</span><span class="symbol">fish</span><span class="keyword">)</span>
+
+<span class="comment"># Assume that the demand equation can be written in equilibrium for each period as:</span>
+<span class="comment"># log(totqty_t) = const + alpha_1 log(avgprice) + week day dummy effects + error  </span>
+<span class="comment"># Demand is allowed to differ across days  of the week. </span>
+<span class="comment"># Price variable is endogenous. </span>
+<span class="comment"># Q: What additional information </span>
+<span class="comment"># do we need to consistently estimate the demand-equation parameters?</span>
+
+<span class="comment"># To estimate the demand equations, need at least one exogenous variable that </span>
+<span class="comment"># appears in the supply equation (equation for price = marginal cost).</span>
+
+<span class="comment"># If we are to estimate the equation for price, and the variables we have are</span>
+<span class="comment"># wave2t and wave3t - measures of ocean wave heights over past few days, </span>
+<span class="comment"># Q: what assumptions are needed to use wave2 and wave3 as IVs for price </span>
+<span class="comment"># in the demand equation?</span>
+
+<span class="comment"># Two assumptions:  </span>
+<span class="comment"># That wave2t and wave3t can be properly excluded from the demand equation.  </span>
+<span class="comment"># Arguable, as wave heights are determined partly by weather, </span>
+<span class="comment"># and demand at a local fish  market could depend on weather. </span>
+<span class="comment"># Second assumption is that at least one of them appears in the supply equation.</span>
+
+<span class="comment"># Check are the two variables are jointly significant in the </span>
+<span class="comment"># reduced form for log(avgprc_t)</span>
+
+ <span class="symbol">lm10c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lavgprc</span> <span class="keyword">~</span> <span class="symbol">weekday</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="comment">#summary(lm10c) </span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10c</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm10c</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"wave2=0"</span><span class="keyword">,</span><span class="string">"wave3=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+<span class="comment"># The variables wave2t and wave3t are jointly significant.</span>
+
+<span class="comment"># --- Ex 10: d) ---</span>
+<span class="comment"># Now, estimate the demand equation by 2SLS. What is the 95% confidence interval for the </span>
+<span class="comment"># price elasticity of demand? Is the estimated elasticity reasonable?</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">systemfit</span><span class="keyword">)</span>
+ <span class="comment">#?systemfit</span>
+
+ <span class="comment">## Specify the system</span>
+ <span class="symbol">eqDemand</span> <span class="assignement">&lt;-</span> <span class="symbol">ltotqty</span> <span class="keyword">~</span> <span class="symbol">lavgprc</span> <span class="keyword">+</span> <span class="symbol">weekday</span>
+ <span class="symbol">eqSupply</span> <span class="assignement">&lt;-</span> <span class="symbol">lavgprc</span> <span class="keyword">~</span> <span class="symbol">ltotqty</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span>
+ <span class="symbol">system</span> <span class="assignement">&lt;-</span> <span class="functioncall">list</span><span class="keyword">(</span> <span class="argument">demand</span> <span class="argument">=</span> <span class="symbol">eqDemand</span><span class="keyword">,</span> <span class="argument">supply</span> <span class="argument">=</span> <span class="symbol">eqSupply</span> <span class="keyword">)</span>
+ <span class="symbol">inst</span> <span class="assignement">&lt;-</span> <span class="keyword">~</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span> <span class="keyword">+</span> <span class="symbol">weekday</span>
+
+ <span class="comment">## 2SLS estimation</span>
+ <span class="symbol">lm10d.sem</span> <span class="assignement">&lt;-</span> <span class="functioncall">systemfit</span><span class="keyword">(</span><span class="symbol">system</span><span class="keyword">,</span> <span class="string">"2SLS"</span><span class="keyword">,</span> <span class="argument">inst</span><span class="argument">=</span><span class="symbol">inst</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.sem</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm10d.sem</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"demand_weekdayMon=0"</span><span class="keyword">,</span><span class="string">"demand_weekdayTue=0"</span><span class="keyword">,</span><span class="string">"demand_weekdayWed=0"</span><span class="keyword">,</span><span class="string">"demand_weekdayThu=0"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment">## OLS estimation</span>
+ <span class="symbol">lm10d.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">systemfit</span><span class="keyword">(</span><span class="symbol">system</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.ols</span><span class="keyword">)</span>
+
+<span class="comment">#The point estimate of demand elasticity  -0.82:  </span>
+<span class="comment">#a 10 percent increase in price reduces  quantity demanded by about 8.2%.</span>
+
+<span class="comment">#Given the supply equation evidently depends on the wave variables, </span>
+<span class="comment">#what assumptions would we need to make in order to estimate </span>
+<span class="comment">#the price elasticity of supply?</span>
+
+<span class="comment">#have to assume that the day-of-the-week dummies do NOT appear in the supply equation, </span>
+<span class="comment">#AND they do appear in the demand  equation.  </span>
+<span class="comment">#saw earlier that there are day-of-the-week effects in the demand function.</span>
+<span class="comment">#So, in the reduced form equation for log(avgprc) </span>
+
+<span class="comment">#Q: are the day-of-the-week dummies jointly significant? </span>
+<span class="comment"># --- Ex 10: e) ---</span>
+ <span class="symbol">lm10e</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lavgprc</span> <span class="keyword">~</span> <span class="symbol">weekday</span> <span class="keyword">+</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10e</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm10e</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"weekdayMon=0"</span><span class="keyword">,</span><span class="string">"weekdayTue=0"</span><span class="keyword">,</span><span class="string">"weekdayWed=0"</span><span class="keyword">,</span><span class="string">"weekdayThu=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc1</span><span class="keyword">)</span>
+
+<span class="comment">#Conclusion about being able to estimate the supply elasticity?</span>
+<span class="comment">#In the estimation of the reduced form for log(avgprct) variables </span>
+<span class="comment">#mon, tues, wed, and thurs are jointly insignificant  </span>
+<span class="comment">#Need to examine the demand function (do these variables appear?} </span>
+
+<span class="symbol">lm10d.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">ltotqty</span> <span class="keyword">~</span> <span class="symbol">lavgprc</span> <span class="keyword">+</span> <span class="symbol">weekday</span> <span class="keyword">|</span> <span class="symbol">wave2</span> <span class="keyword">+</span> <span class="symbol">wave3</span> <span class="keyword">+</span> <span class="symbol">weekday</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fish</span><span class="keyword">)</span>
+<span class="symbol">lm10d.iv</span>
+<span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm10d.iv</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+<span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm10d.iv</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"weekdayMon=0"</span><span class="keyword">,</span><span class="string">"weekdayTue=0"</span><span class="keyword">,</span><span class="string">"weekdayWed=0"</span><span class="keyword">,</span><span class="string">"weekdayThu=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc1</span><span class="keyword">)</span>
+
+<span class="comment">#The joint test rejects the null that mon, tues, wed, and thurs are jointly insignificant in the demand function</span>
+<span class="comment"># so supply is identified</span>
+
+
+<span class="comment"># --- based on paper: ---</span>
+<span class="comment"># Testing for Imperfect Competition at the Fulton Fish Market </span>
+<span class="comment"># in Rand Journal of Economics, 1995, 26, 75-92.</span>
+</pre>
+</body>
+</html>

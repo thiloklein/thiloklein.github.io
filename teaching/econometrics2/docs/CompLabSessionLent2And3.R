@@ -7,7 +7,7 @@
 # http://cran.r-project.org/web/views/TimeSeries.html
   rm(list=ls())
   setwd("E:/LabSessions_MPO1A_LT/Data")
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -16,7 +16,7 @@
 
 # --- Ex 1: Estimation of a quarterly ARMA model of the US Producer Price Index (PPI) -----------------------------
 
- quart <- read.csv("http://thiloklein.de/R/Lent/quarterly.csv", h=T)
+ quart <- read.csv("http://klein.uk/R/Lent/quarterly.csv", h=T)
  str(quart)
 
 
@@ -169,7 +169,7 @@
 
  
 # --- Ex 2: ARMA model selection -----------------------------
- aa <- read.csv("http://thiloklein.de/R/Lent/arima.csv", h=T)
+ aa <- read.csv("http://klein.uk/R/Lent/arima.csv", h=T)
  str(aa)
  
  for(i in 4:10){
@@ -329,7 +329,7 @@
  acf(arch4a$res^2); pacf(arch4a$res^2)
 
  # manually install rgarch and dependencies as described on
- # http://thiloklein.de/MPO1A.html
+ # http://klein.uk/MPO1A.html
  library(rgarch)
 
  # Estimate ARCH(4) model with mean equation ARMA(1,(1,4))
@@ -399,7 +399,7 @@
 # Box-Jenkins methodology. Why might someone conclude that the residuals appear 
 # to be white noise?
 
- arch <- read.csv("http://thiloklein.de/R/Lent/arch.csv")
+ arch <- read.csv("http://klein.uk/R/Lent/arch.csv")
  str(arch)
 
  # Box-Jenkins methodology
@@ -451,7 +451,7 @@
 # rate, and the first difference of the three-month Treasury bill rate. The mean equation 
 # has the following form Ret = c + b1*Ret(-1) + b2*Inf(-1) + b3*dtbill(-1) + u.
 
- garch <- read.csv("http://thiloklein.de/R/Lent/garch.csv")
+ garch <- read.csv("http://klein.uk/R/Lent/garch.csv")
  str(garch)
  
  ret <- ts(garch$ret, start=c(1954, 1), freq=12)

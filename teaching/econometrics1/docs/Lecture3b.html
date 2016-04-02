@@ -1,0 +1,262 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 3: Specification errors and consequences</span>
+
+<span class="comment"># Required libraries: lmtest</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Heteroskedasticity / Breusch Pagan test and White test ---</span>
+
+
+<span class="comment"># Generate data</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">107</span><span class="keyword">)</span>
+ <span class="symbol">u</span> <span class="assignement">=</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">30</span><span class="keyword">)</span><span class="keyword">*</span><span class="number">.5</span>
+ <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">runif</span><span class="keyword">(</span><span class="number">30</span><span class="keyword">)</span>
+ <span class="comment"># true model: log(y) = 0 + 1*x + u</span>
+ <span class="symbol">y</span> <span class="assignement">=</span> <span class="functioncall">exp</span><span class="keyword">(</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">u</span> <span class="keyword">)</span>
+
+
+<span class="comment"># Regression and diagnostic scatter plots</span>
+ <span class="symbol">lmLi</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">)</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Scatter of y against x"</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"regression line"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Residuals against x"</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">3.5</span><span class="keyword">,</span><span class="number">3.5</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"mean of residuals (=0)"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">)</span>
+
+
+<span class="comment"># Diagnostic regression of squared residuals on regressors</span>
+ <span class="symbol">lm.dia</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm.dia</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Squared residuals against x"</span><span class="keyword">)</span>
+   <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm.dia</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"diagnostic regression \n of e^2 on x"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Squared residuals against fitted values"</span><span class="keyword">)</span>
+   <span class="functioncall">abline</span><span class="keyword">(</span><span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"diagnostic regression \n of e^2 on y.hat"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+
+
+<span class="comment"># Formal test: Koenker / Breusch-Pagan LM test (recommended)</span>
+
+ <span class="comment"># 1. regress u^2 on a constant and x in an auxiliary regression.</span>
+ <span class="symbol">lm.aux</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+
+ <span class="comment"># 2. obtain regression R-squared and multiply it with the number of observations</span>
+ <span class="symbol">R.sqr</span> <span class="assignement">=</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="symbol">n</span> <span class="assignement">=</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+ <span class="symbol">T</span> <span class="assignement">=</span> <span class="symbol">R.sqr</span> <span class="keyword">*</span> <span class="symbol">n</span>
+
+ <span class="comment"># 3. compare the Lagrange Multiplier (LM) test statistic to the Chi-Sqr distribution with </span>
+ <span class="comment">#    degrees of freedom equal to the number of regressors in the auxiliary regression</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment"># 4. reject null hypothesis of homoskedasticity if p-value smaller than pre-specified size of test</span>
+
+ <span class="comment"># 5. the above procedure is canned in R's bptest function</span>
+ <span class="comment"># install.packages("lmtest")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+ <span class="functioncall">bptest</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">)</span>
+
+
+<span class="comment"># Alternatives to the above test are:</span>
+
+ <span class="comment"># A) Breusch-Pagan test (depreciated because it depends on normality assumption!)</span>
+ <span class="functioncall">bptest</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">,</span> <span class="argument">studentize</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment"># B) White test (also detects non-linear conditional variances but only appropriate </span>
+ <span class="comment">#    in large samples and few regressors!)</span>
+ <span class="functioncall">bptest</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">,</span> <span class="keyword">~</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+<span class="comment"># ALWAYS CHECK BEFORE Heteroskedasticity testing: functional form misspecification?</span>
+
+ <span class="comment"># The data was actually generated using homoskedastic disturbances (see true model above)</span>
+ <span class="comment"># So let us see what happens when we follow the true log-linear model specification</span>
+ <span class="symbol">lmLoLi</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">y</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lmLoLi</span><span class="keyword">)</span>
+
+ <span class="comment"># Run the same visual heteroskedasticity diagnostics as above for the misspecified (linear model) </span>
+ <span class="comment"># and the correct log-linear specification:</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Scatter of y against x"</span><span class="keyword">)</span>
+   <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"linear regression of y on x \n TRUE MODEL: log-linear"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">y</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Scatter of log(y) against x"</span><span class="keyword">)</span>
+   <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lmLoLi</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"log-linear regression of log(y) on x \n TRUE MODEL: log-linear"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Linear model"</span><span class="keyword">)</span>
+   <span class="functioncall">abline</span><span class="keyword">(</span><span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"regression of e^2 on x \n TRUE MODEL: log-linear"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lmLoLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Log-linear model"</span><span class="keyword">)</span>
+   <span class="functioncall">abline</span><span class="keyword">(</span><span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lmLoLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+   <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="string">"regression of e^2 on x \n TRUE MODEL: log-linear"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Linearity / RESET test ---</span>
+
+
+<span class="comment"># NOTE: Linearity tests, such as the RESET test, only test for a very specific </span>
+<span class="comment"># type of misspecification: imposing a linear model on non-linear data. </span>
+<span class="comment"># To see this, let us first simulate two models, y = 20 + x1 + x2 and z = 20 + x1 + x1^2 as follows.</span>
+
+
+<span class="comment"># Generate some random variates terms</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span>
+ <span class="symbol">epsilon</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">omega</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">eta</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+
+<span class="comment"># Generate independent variables</span>
+ <span class="symbol">x1</span> <span class="assignement">&lt;-</span> <span class="number">5</span> <span class="keyword">+</span> <span class="symbol">omega</span> <span class="keyword">+</span> <span class="number">0.3</span><span class="keyword">*</span> <span class="symbol">eta</span>
+ <span class="symbol">x2</span> <span class="assignement">&lt;-</span> <span class="number">10</span> <span class="keyword">+</span> <span class="symbol">omega</span>
+
+<span class="comment"># Generate dependent variables</span>
+ <span class="symbol">y</span> <span class="assignement">&lt;-</span> <span class="number">20</span> <span class="keyword">+</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span> <span class="keyword">+</span> <span class="symbol">epsilon</span>
+ <span class="symbol">z</span> <span class="assignement">&lt;-</span> <span class="number">20</span> <span class="keyword">+</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x1</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">+</span> <span class="symbol">epsilon</span>
+
+
+<span class="comment"># Let us now regress misspecified versions of these true models and see whether RESET test complains.</span>
+
+
+<span class="comment"># --- General model misspecification: Omitted Variable Bias for b1 ---</span>
+
+<span class="comment"># Omitting x2: misspecified model lm1</span>
+ <span class="symbol">lm1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">coef</span>
+
+ <span class="comment"># Diagnostic plots</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"General misspecification"</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+  <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"True model: y = b0 + b1*x1 + b2*x2"</span><span class="keyword">,</span><span class="string">"Estimated: y = b0 + b1*x1"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"white"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span> <span class="keyword">~</span> <span class="symbol">x1</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"Residual plot"</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+<span class="comment"># true model:</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>
+
+<span class="comment"># misspecification NOT indicated by RESET test!</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+ <span class="functioncall">resettest</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Misspecification of functional form ---</span>
+
+<span class="comment"># Omitting quadratic term of x1: misspecified model lm2</span>
+ <span class="symbol">lm2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">z</span> <span class="keyword">~</span> <span class="symbol">x1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">lm2</span><span class="keyword">$</span><span class="symbol">coef</span>
+
+ <span class="comment"># Diagnostic plots</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">z</span><span class="keyword">~</span><span class="symbol">x1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Misspecification of functional form"</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">,</span><span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+  <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"True model: z = b0 + b1*x1 + b2*x1^2"</span><span class="keyword">,</span><span class="string">"Estimated: z = b0 + b1*x1"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"white"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">~</span><span class="symbol">x1</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Residual plot"</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+<span class="comment"># true model</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">z</span> <span class="keyword">~</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">x1</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>
+
+<span class="comment"># misspecification indicated by RESET test</span>
+ <span class="functioncall">resettest</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Normality / Jarque Bera test ---</span>
+
+
+<span class="comment"># Let us apply the Jarque Bera test for the null of Normal disturbance terms of the heteroskedasticity example</span>
+ <span class="comment"># install.packages("tseries")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">tseries</span><span class="keyword">)</span>
+
+ <span class="comment"># Diagnostic plots</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">FALSE</span><span class="keyword">)</span> <span class="comment"># normality assumption not justified in this case!</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">sd</span><span class="argument">=</span><span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">qqnorm</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">qqline</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>
+
+ <span class="comment"># Linear model: Normality is clearly rejected at 1% significance level</span>
+ <span class="functioncall">jarque.bera.test</span><span class="keyword">(</span><span class="symbol">lmLi</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+
+ <span class="comment"># Log-linear model: cannot reject the null :)</span>
+ <span class="functioncall">jarque.bera.test</span><span class="keyword">(</span><span class="symbol">lmLoLi</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+</pre>
+</body>
+</html>

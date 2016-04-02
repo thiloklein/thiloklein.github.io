@@ -1,0 +1,206 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 3: Normal distribution, estimators, sampling distributions of estimators, tests of hypotheses</span>
+
+<span class="comment"># Required libraries: --</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="comment"># source("http://klein.uk/R/myfunctions.R")</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+<span class="comment"># --- Standard normal distribution ---------------------------------</span>
+
+<span class="comment"># Normal distribution: 68-95-99.7 or six sigma rule</span>
+  <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">5</span><span class="keyword">,</span><span class="number">5</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">5</span><span class="keyword">,</span><span class="number">5</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">v</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">3</span><span class="keyword">,</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># What proportion of observations are smaller than 0.83? (p.6)</span>
+  <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="number">0.83</span><span class="keyword">)</span>
+
+<span class="comment"># What proportion of observations are greater than -2.15? (p.7)</span>
+  <span class="number">1</span> <span class="keyword">-</span> <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2.15</span><span class="keyword">)</span>
+
+<span class="comment"># Inverse of SND: F^{-1}(0.03) = ? (p.8)</span>
+  <span class="functioncall">qnorm</span><span class="keyword">(</span><span class="number">0.03</span><span class="keyword">)</span>
+
+<span class="comment"># Inventory example. (p.9ff)</span>
+  <span class="comment"># What is the probability of a stockout?</span>
+  <span class="number">1</span> <span class="keyword">-</span> <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="number">20</span><span class="keyword">,</span> <span class="argument">mean</span><span class="argument">=</span><span class="number">15</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="number">6</span><span class="keyword">)</span>
+  <span class="comment"># If the prob of stockout is to be no more than 5%, what should the reorder point be?</span>
+  <span class="functioncall">qnorm</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="number">0.05</span><span class="keyword">,</span> <span class="argument">mean</span><span class="argument">=</span><span class="number">15</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="number">6</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Asymptotic properties of estimators (pages 23-25) ----------------</span>
+
+  <span class="comment"># Simulate probability distribution of sample mean.</span>
+  <span class="symbol">d</span> <span class="assignement">=</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">n</span><span class="keyword">)</span> <span class="functioncall">density</span><span class="keyword">(</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">10000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">,</span> <span class="argument">mean</span><span class="argument">=</span><span class="number">100</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="number">50</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+  <span class="comment"># Plot probability density of sample mean (sample size 1).</span>
+  <span class="functioncall">plot</span><span class="keyword">(</span> <span class="functioncall">d</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">.08</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Distribution of sample mean"</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+
+  <span class="comment"># Sample size 4, 25, and 100.</span>
+  <span class="functioncall">sapply</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">,</span><span class="number">25</span><span class="keyword">,</span><span class="number">100</span><span class="keyword">)</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">lines</span><span class="keyword">(</span> <span class="functioncall">d</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Simulation: Sample variance, unbiased estimators (pages 27-29) ----</span>
+
+<span class="comment"># --- PART A: Biased vs unbiased estimator for population variance.</span>
+
+<span class="comment"># What's special about n-1 in the equation for the sample standard deviation?</span>
+<span class="comment"># What would happen if we used n instead?</span>
+
+<span class="comment"># Unbiased sample variance with denominator n-1</span>
+  <span class="functioncall">var</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">)</span>
+
+<span class="comment"># Biased sample variance with denominator n</span>
+  <span class="symbol">newvar</span> <span class="assignement">=</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="number">1</span><span class="keyword">/</span><span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="functioncall">sum</span><span class="keyword">(</span> <span class="keyword">(</span><span class="symbol">x</span><span class="keyword">-</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">)</span>
+  <span class="functioncall">newvar</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">)</span>
+
+<span class="comment"># 1,000 Simulations (sample size 10) and mean of biased vs unbiased sample variance</span>
+  <span class="symbol">s2</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">1000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span>
+      <span class="symbol">sample10</span> <span class="assignement">=</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10</span><span class="keyword">,</span><span class="argument">mean</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">sd</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+      <span class="functioncall">c</span><span class="keyword">(</span> <span class="functioncall">var</span><span class="keyword">(</span><span class="symbol">sample10</span><span class="keyword">)</span><span class="keyword">,</span> <span class="functioncall">newvar</span><span class="keyword">(</span><span class="symbol">sample10</span><span class="keyword">)</span> <span class="keyword">)</span>
+    <span class="keyword">}</span>
+  <span class="keyword">)</span>
+  <span class="symbol">s2.unbiased</span> <span class="assignement">=</span> <span class="symbol">s2</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">;</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">s2.unbiased</span><span class="keyword">)</span>
+  <span class="symbol">s2.biased</span> <span class="assignement">=</span> <span class="symbol">s2</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">;</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">s2.biased</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- PART B: Consistency of the biased variance estimator.</span>
+
+<span class="comment"># If the sample size is increased it ceases to matter whether we use n or n-1 in the denominator.</span>
+<span class="comment"># Simulate distribution of biased sample variance for different sample sizes</span>
+  <span class="symbol">d</span> <span class="assignement">=</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">n</span><span class="keyword">)</span> <span class="functioncall">density</span><span class="keyword">(</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">10000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">newvar</span><span class="keyword">(</span><span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">,</span> <span class="argument">mean</span><span class="argument">=</span><span class="number">100</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="number">50</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+  <span class="comment"># Sample size 10</span>
+  <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">d</span><span class="keyword">(</span><span class="number">10</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">.005</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">v</span><span class="argument">=</span><span class="number">50</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+
+  <span class="comment"># Sample sizes 20, 100, and 1000</span>
+  <span class="functioncall">sapply</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">20</span><span class="keyword">,</span><span class="number">100</span><span class="keyword">,</span><span class="number">1000</span><span class="keyword">)</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">d</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+<span class="comment"># In summary, using n gives a biased estimate of the true variance. The smaller the sample size, the greater this discrepancy between the unbiased and biased estimator.</span>
+
+
+
+
+<span class="comment"># --- Simulation: Power of a test (pages 67-69) -------------------------</span>
+
+<span class="comment"># Define hypothesis test function.</span>
+  <span class="symbol">h.test.A</span> <span class="assignement">=</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">n</span><span class="keyword">,</span> <span class="formalargs">mu</span><span class="keyword">)</span><span class="keyword">{</span>
+    <span class="functioncall">sapply</span><span class="keyword">(</span><span class="symbol">mu</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">abs</span><span class="keyword">(</span> <span class="functioncall">mean</span><span class="keyword">(</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">,</span> <span class="argument">mean</span><span class="argument">=</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">&gt;</span> <span class="functioncall">qnorm</span><span class="keyword">(</span><span class="number">0.975</span><span class="keyword">)</span><span class="keyword">/</span><span class="functioncall">sqrt</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">)</span> <span class="keyword">)</span>
+  <span class="keyword">}</span>
+
+  <span class="symbol">h.test.B</span> <span class="assignement">=</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">n</span><span class="keyword">,</span> <span class="formalargs">mu</span><span class="keyword">)</span><span class="keyword">{</span>
+    <span class="functioncall">sapply</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">abs</span><span class="keyword">(</span> <span class="functioncall">mean</span><span class="keyword">(</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">mean</span><span class="argument">=</span><span class="symbol">mu</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">&gt;</span> <span class="functioncall">qnorm</span><span class="keyword">(</span><span class="number">0.975</span><span class="keyword">)</span><span class="keyword">/</span><span class="functioncall">sqrt</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span> <span class="keyword">)</span>
+  <span class="keyword">}</span>
+
+
+<span class="comment"># --- PART A: Power of a test and evidence against H0 -------------------</span>
+
+<span class="comment"># Set values of sample size and population mean.</span>
+  <span class="symbol">n</span> <span class="assignement">=</span> <span class="number">10</span>
+  <span class="symbol">mu</span> <span class="assignement">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span> <span class="number">.05</span><span class="keyword">,</span> <span class="number">.1</span><span class="keyword">,</span> <span class="number">.2</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">)</span>
+<span class="comment"># Run simulation for sample size n=10 and population means of 0, .05, .1, .2, 1, and 2.</span>
+  <span class="symbol">data</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">10000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">h.test</span><span class="keyword">(</span><span class="argument">n</span><span class="argument">=</span><span class="symbol">n</span><span class="keyword">,</span> <span class="argument">mu</span><span class="argument">=</span><span class="symbol">mu</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="comment"># calculate percentage of rejections when null is not true (= power of test).</span>
+  <span class="symbol">rejections</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">6</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">[</span><span class="symbol">x</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">/</span><span class="number">10000</span><span class="keyword">)</span>
+<span class="comment"># To see the test's power, graph the prob of rejecting H0 against the evidence.</span>
+  <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">rejections</span> <span class="keyword">~</span> <span class="symbol">mu</span><span class="keyword">,</span> <span class="argument">ylab</span><span class="argument">=</span><span class="string">"Prob of rejecting H0"</span><span class="keyword">,</span> <span class="argument">xlab</span><span class="argument">=</span><span class="string">"Evidence against H0"</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Power of test"</span><span class="keyword">)</span>
+  <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">lowess</span><span class="keyword">(</span><span class="symbol">rejections</span> <span class="keyword">~</span> <span class="symbol">mu</span><span class="keyword">,</span> <span class="argument">f</span><span class="argument">=</span><span class="number">0.5</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0.05</span><span class="keyword">)</span>  <span class="comment"># horizontal line for size of the test, i.e., Prob(rejecting H0 | H0 true)</span>
+
+
+<span class="comment"># --- PART B: Power of a test and sample size ---------------------------</span>
+
+<span class="comment"># Set values of sample size and population mean.</span>
+  <span class="symbol">n</span> <span class="assignement">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">10</span><span class="keyword">,</span> <span class="number">100</span><span class="keyword">,</span> <span class="number">1000</span><span class="keyword">)</span>
+  <span class="symbol">mu</span> <span class="assignement">=</span> <span class="number">0.2</span>
+<span class="comment"># Run simulation for population mean mu=0.2 and sample size of 10, 100 and 1000. </span>
+  <span class="symbol">data</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">10000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">h.test.B</span><span class="keyword">(</span><span class="argument">n</span><span class="argument">=</span><span class="symbol">n</span><span class="keyword">,</span> <span class="argument">mu</span><span class="argument">=</span><span class="symbol">mu</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="comment"># calculate percentage of rejections when null is not true (= power of test).</span>
+  <span class="symbol">rejections</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">[</span><span class="symbol">x</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">/</span><span class="number">10000</span><span class="keyword">)</span>
+<span class="comment"># To see the test's power, graph the prob of rejecting H0 against the evidence.</span>
+  <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">rejections</span> <span class="keyword">~</span> <span class="symbol">n</span><span class="keyword">,</span> <span class="argument">ylab</span><span class="argument">=</span><span class="string">"Prob of rejecting H0"</span><span class="keyword">,</span> <span class="argument">xlab</span><span class="argument">=</span><span class="string">"Sample size"</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Power of test"</span><span class="keyword">)</span>
+  <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">lowess</span><span class="keyword">(</span><span class="symbol">rejections</span> <span class="keyword">~</span> <span class="symbol">n</span><span class="keyword">,</span> <span class="argument">f</span><span class="argument">=</span><span class="number">0.5</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+  <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"no"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

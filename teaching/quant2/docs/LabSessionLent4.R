@@ -5,7 +5,7 @@
 
 # Libraries: stats, VGAM, sampleSelection, sandwich, plm, Hmisc, corrgram, ellipse
   setwd("C:/Dokumente und Einstellungen/Thilo/Desktop/Lab_SessionsLT/Data")
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 
 # --- Ex 1: Logit model -----------------------------
 
- eaef <- read.csv("http://thiloklein.de/R/Lent/eaef21.csv", header=T)
+ eaef <- read.csv("http://klein.uk/R/Lent/eaef21.csv", header=T)
  str(eaef)
  attach(eaef)
 
@@ -93,7 +93,7 @@
 
 
 # --- Ex 2: Probit model -----------------------------
- loan <- read.csv("http://thiloklein.de/R/Lent/loanapp.csv", header=T)
+ loan <- read.csv("http://klein.uk/R/Lent/loanapp.csv", header=T)
  str(loan)
 
 
@@ -218,7 +218,7 @@
 
 # --- Ex 3: Tobit model -----------------------------
 
- fringe <- read.csv("http://thiloklein.de/R/Lent/FRINGE.csv", header=T)
+ fringe <- read.csv("http://klein.uk/R/Lent/FRINGE.csv", header=T)
  str(fringe)
 
 # --- Ex 3: a) ---
@@ -290,7 +290,7 @@
 
 # --- Ex 3: e) ---
 # Apply the Tobit model from part d) but with peratio, the pension-earnings ratio, as 
-the dependent variable. Does gender or race have an effect on the pension-earnings ratio?
+# the dependent variable. Does gender or race have an effect on the pension-earnings ratio?
 
  vglm3e <- vglm(peratio ~ exper + age + tenure + educ + depends + married + white + male
 	+ union, data=fringe, tobit(Lower=0), trace=TRUE)
@@ -302,7 +302,7 @@ the dependent variable. Does gender or race have an effect on the pension-earnin
 # Greene (2003): example 22.8, page 786
 # Wooldridge (2003): example 17.5, page 590 
 
- mroz <- read.csv("http://thiloklein.de/R/Lent/mroz.csv", header=T)
+ mroz <- read.csv("http://klein.uk/R/Lent/mroz.csv", header=T)
  str(mroz)
 
 # --- Ex 4: a) ---
@@ -357,7 +357,7 @@ the dependent variable. Does gender or race have an effect on the pension-earnin
 ##############
 
 # --- Ex 1: Least Square Dummy Variable estimation, including dummies per time-period -----------------------------
- fert <- read.csv("http://thiloklein.de/R/Lent/FERTIL1.csv", header=T)
+ fert <- read.csv("http://klein.uk/R/Lent/FERTIL1.csv", header=T)
  str(fert)
 
 # --- Ex 1: a) ---
@@ -407,13 +407,13 @@ the dependent variable. Does gender or race have an effect on the pension-earnin
 
 
 # --- Ex 2: Pooled OLS (POLS), difference-equations and fixed effects -----------------------------
- murder <- read.csv("http://thiloklein.de/R/Lent/MURDER.csv", header=T)
+ murder <- read.csv("http://klein.uk/R/Lent/MURDER.csv", header=T)
  str(murder)
 
 
 # --- Ex 2: b) ---
 # Using just years 1990 and 1993, estimate the equation from part a) considering time 
-effects. Do you find any evidence for a deterrent effect?
+# effects. Do you find any evidence for a deterrent effect?
 
  murder$id <- as.factor(murder$id)
  murder$year <- as.factor(murder$year)
@@ -482,7 +482,7 @@ effects. Do you find any evidence for a deterrent effect?
 
 
 # --- Ex 3: Panel Data, Random Effects, Fixed Effects and First Differences -----------------------------
- wage <- read.csv("http://thiloklein.de/R/Lent/wagepan.csv",header=T)
+ wage <- read.csv("http://klein.uk/R/Lent/wagepan.csv",header=T)
  str(wage)
 
  waget <- pdata.frame(wage, c("nr","year"))
@@ -527,10 +527,10 @@ effects. Do you find any evidence for a deterrent effect?
  e_3 <- unlist( by(e, wage$nr, function(x) c(NA, NA, NA, x[-c(6:8)])) )
  e_4 <- unlist( by(e, wage$nr, function(x) c(rep(NA,4), x[-c(5:8)])) )
 
-[1] -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236 -0.06485808 -0.39711911
-[1]          NA -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236 -0.06485808
-[1]          NA          NA -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236
-...
+# [1] -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236 -0.06485808 -0.39711911
+# [1]          NA -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236 -0.06485808
+# [1]          NA          NA -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236
+# ...
 
  C <- cbind(e, e_1, e_2, e_3, e_4)
  library(Hmisc)

@@ -1,0 +1,273 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 3: F-tests for goodness of fit, Non-linearity and Model Transformations, Dummy variables </span>
+
+<span class="comment"># Required libraries: AER, car</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- California school districts once again... ---</span>
+
+ <span class="functioncall">data</span><span class="keyword">(</span><span class="string">"CASchools"</span><span class="keyword">,</span> <span class="argument">package</span> <span class="argument">=</span> <span class="string">"AER"</span><span class="keyword">)</span>
+ <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">stratio</span> <span class="assignement">=</span> <span class="functioncall">with</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="symbol">students</span><span class="keyword">/</span><span class="symbol">teachers</span><span class="keyword">)</span>
+ <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">score</span> <span class="assignement">=</span> <span class="functioncall">with</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="keyword">(</span><span class="symbol">math</span> <span class="keyword">+</span> <span class="symbol">read</span><span class="keyword">)</span><span class="keyword">/</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">)</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"district average income"</span><span class="keyword">)</span>
+
+<span class="comment">## Part A: Linear model</span>
+ <span class="symbol">lm1</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">which</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span>  <span class="comment"># Diagnostic residual plot</span>
+
+
+<span class="comment">## Part B: Quadratic model</span>
+ <span class="symbol">income2</span> <span class="assignement">=</span> <span class="symbol">income</span> <span class="keyword">*</span> <span class="symbol">income</span>
+ <span class="symbol">lm2</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span> <span class="keyword">+</span> <span class="symbol">income2</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span>
+
+ <span class="symbol">or</span> <span class="assignement">=</span> <span class="functioncall">order</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">)</span>   <span class="comment"># calculates a permutation vector. </span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"district average income"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"bottomright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"linear"</span><span class="keyword">,</span> <span class="string">"quadratic"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span>
+  <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">,</span> <span class="argument">which</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">)</span>   <span class="comment"># Dignostic residual plot</span>
+
+<span class="comment"># Are income and income2 jointly significant?</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"income"</span><span class="keyword">,</span><span class="string">"income2"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># Marginal effect of a change of income at income level 50k?</span>
+ <span class="symbol">lm2</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"income"</span><span class="keyword">]</span> <span class="keyword">+</span> <span class="number">2</span> <span class="keyword">*</span> <span class="number">50</span> <span class="keyword">*</span> <span class="symbol">lm2</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"income2"</span><span class="keyword">]</span>
+<span class="comment"># Is marginal effect at income level 50k significantly different from 0?</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">,</span> <span class="string">"income + 100*income2"</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Polynomials ---</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"district average income"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+<span class="comment"># Sequential hypothesis test in the case of polynomial models:</span>
+
+ <span class="symbol">lm2</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span> <span class="keyword">+</span> <span class="symbol">income2</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">fitted</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span>
+
+ <span class="symbol">income3</span> <span class="assignement">=</span> <span class="symbol">income</span> <span class="keyword">*</span> <span class="symbol">income</span> <span class="keyword">*</span> <span class="symbol">income</span>
+ <span class="symbol">lm3</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span> <span class="keyword">+</span> <span class="symbol">income2</span> <span class="keyword">+</span> <span class="symbol">income3</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">fitted</span><span class="keyword">(</span><span class="symbol">lm3</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"green"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm3</span><span class="keyword">)</span>
+
+ <span class="symbol">lmp</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="functioncall">poly</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">,</span> <span class="number">10</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">smooth</span> <span class="assignement">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">income</span> <span class="argument">=</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">5</span><span class="keyword">,</span> <span class="number">70</span><span class="keyword">,</span> <span class="number">0.5</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">smooth</span><span class="keyword">$</span><span class="symbol">income</span><span class="keyword">,</span> <span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">lmp</span><span class="keyword">,</span> <span class="argument">newdata</span> <span class="argument">=</span> <span class="symbol">smooth</span><span class="keyword">)</span><span class="keyword">,</span>
+  <span class="argument">col</span> <span class="argument">=</span> <span class="string">"magenta"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"bottomright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"linear"</span><span class="keyword">,</span> <span class="string">"quadratic"</span><span class="keyword">,</span> <span class="string">"cubic"</span><span class="keyword">,</span>
+  <span class="string">"10th-deg"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="string">"green"</span><span class="keyword">,</span> <span class="string">"magenta"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Digression: Rescale variables to have mean=0 and sd=1 in polynomial models ---</span>
+ <span class="symbol">z</span> <span class="assignement">=</span> <span class="keyword">(</span><span class="symbol">income</span> <span class="keyword">-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">)</span> <span class="keyword">/</span> <span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">lm4</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">z</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">z</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">z</span><span class="keyword">^</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span>    <span class="comment"># equivalent to model lm3, except for using z-scores</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm4</span><span class="keyword">)</span>            <span class="comment"># lower sd and larger t-statistics of the coefs than model lm3!</span>
+ <span class="functioncall">vif</span><span class="keyword">(</span><span class="symbol">lm3</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">vif</span><span class="keyword">(</span><span class="symbol">lm4</span><span class="keyword">)</span>    <span class="comment"># lower vif statistics than model lm3</span>
+
+
+
+
+<span class="comment"># --- Logarithms (see handout) ---</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"district average income"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">fitted</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"bottomright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"linear"</span><span class="keyword">,</span> <span class="string">"quadratic"</span><span class="keyword">,</span> <span class="string">"lin-log"</span><span class="keyword">,</span>
+ <span class="string">"log-lin"</span><span class="keyword">,</span> <span class="string">"log-log"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">,</span>
+ <span class="string">"green"</span><span class="keyword">,</span> <span class="string">"black"</span><span class="keyword">,</span> <span class="string">"orange"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># linear-log model</span>
+<span class="comment"># if X_i changes by 1%, Yi changes by 0.01 * beta_1</span>
+ <span class="symbol">lmLiLo</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">lmLiLo</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">fitted</span><span class="keyword">(</span><span class="symbol">lmLiLo</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"green"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="comment"># marginal effect at median income-level: </span>
+ <span class="symbol">lmLiLo</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">/</span><span class="functioncall">median</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">)</span>
+
+<span class="comment"># log-linear model</span>
+<span class="comment"># a change of X_i by one unit translates into a change of Y_i by beta_1 * 100%</span>
+ <span class="symbol">lmLoLi</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">score</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="symbol">income</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">lmLoLi</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">exp</span><span class="keyword">(</span><span class="functioncall">fitted</span><span class="keyword">(</span><span class="symbol">lmLoLi</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"black"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+
+<span class="comment"># log-log model</span>
+<span class="comment"># beta_1 is the elasticity of Y_i with respect to X_i .</span>
+ <span class="symbol">lmLoLo</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">score</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">lmLoLo</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">income</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">exp</span><span class="keyword">(</span><span class="functioncall">fitted</span><span class="keyword">(</span><span class="symbol">lmLoLo</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">or</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"orange"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Dummy variables and Interactions ---</span>
+
+<span class="comment"># Data on the demand for refrigerators</span>
+ <span class="symbol">fridge</span> <span class="assignement">=</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/fridge2.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">fridge</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">fridge</span><span class="keyword">)</span>
+
+<span class="comment"># Data summaries and linear regression</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"ecost"</span><span class="keyword">,</span> <span class="string">"price"</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">ecost</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Energy cost and refrigerator price"</span><span class="keyword">)</span>
+ <span class="symbol">lm1</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">ecost</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>   <span class="comment"># fitted line plot</span>
+
+<span class="comment"># OVB problem</span>
+ <span class="functioncall">scatterplotMatrix</span><span class="keyword">(</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">cor</span><span class="keyword">(</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">]</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Digression: Graphical Representation of Correlation Matrix (PLOTCORR) ---</span>
+
+ <span class="comment"># install.packages("ellipse")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">ellipse</span><span class="keyword">)</span>
+ <span class="comment"># corC =  cor(data.frame(price, volume, ecost, top, side, bottom))</span>
+ <span class="symbol">corC</span> <span class="assignement">=</span>  <span class="functioncall">cor</span><span class="keyword">(</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">colors</span> <span class="assignement">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"#A50F15"</span><span class="keyword">,</span><span class="string">"#DE2D26"</span><span class="keyword">,</span><span class="string">"#FB6A4A"</span><span class="keyword">,</span><span class="string">"#FCAE91"</span><span class="keyword">,</span><span class="string">"#FEE5D9"</span><span class="keyword">,</span><span class="string">"white"</span><span class="keyword">,</span>
+            <span class="string">"#EFF3FF"</span><span class="keyword">,</span><span class="string">"#BDD7E7"</span><span class="keyword">,</span><span class="string">"#6BAED6"</span><span class="keyword">,</span><span class="string">"#3182BD"</span><span class="keyword">,</span><span class="string">"#08519C"</span><span class="keyword">)</span>
+ <span class="functioncall">plotcorr</span><span class="keyword">(</span><span class="symbol">corC</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="symbol">colors</span><span class="keyword">[</span><span class="number">5</span><span class="keyword">*</span><span class="symbol">corC</span> <span class="keyword">+</span> <span class="number">6</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"lower"</span><span class="keyword">)</span>
+
+<span class="comment"># --- End of Digression ---</span>
+
+
+<span class="comment"># Mitigating OVB. Why can we not expect the following to be a good model?</span>
+ <span class="symbol">lm2</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">vif</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span>
+
+<span class="comment"># What else? Freezer position can matter for price: dummy variables!</span>
+<span class="comment"># What does the data look like?</span>
+ <span class="symbol">freezer</span> <span class="assignement">=</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">freezer</span><span class="keyword">)</span>
+ <span class="functioncall">levels</span><span class="keyword">(</span><span class="symbol">freezer</span><span class="keyword">)</span> <span class="assignement">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"bottom"</span><span class="keyword">,</span><span class="string">"top"</span><span class="keyword">,</span><span class="string">"side"</span><span class="keyword">)</span>
+
+ <span class="comment"># lm(price ~ volume + ecost + top + side + bottom)</span>
+ <span class="symbol">lm3</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span> <span class="keyword">+</span> <span class="symbol">freezer</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm3</span><span class="keyword">)</span>
+
+<span class="comment"># bottom effects (and others, e.g., E[u]!=0) are captured in the intercept</span>
+ <span class="symbol">lm3</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"(Intercept)"</span><span class="keyword">]</span>
+
+<span class="comment"># top intercept</span>
+ <span class="symbol">lm3</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"(Intercept)"</span><span class="keyword">]</span> <span class="keyword">+</span> <span class="symbol">lm3</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"freezertop"</span><span class="keyword">]</span>
+
+<span class="comment"># side intercept</span>
+ <span class="symbol">lm3</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"(Intercept)"</span><span class="keyword">]</span> <span class="keyword">+</span> <span class="symbol">lm3</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="string">"freezerside"</span><span class="keyword">]</span>
+
+<span class="comment"># both differences (from bottom) are signif.</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm3</span><span class="keyword">,</span> <span class="string">"freezerside"</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm3</span><span class="keyword">,</span> <span class="string">"freezertop"</span><span class="keyword">)</span>
+
+<span class="comment"># Is the effect of "top" different from "side"? </span>
+<span class="comment"># -&gt; change the reference category to "side"</span>
+ <span class="symbol">freezer</span> <span class="assignement">=</span> <span class="functioncall">relevel</span><span class="keyword">(</span><span class="symbol">freezer</span><span class="keyword">,</span> <span class="argument">ref</span><span class="argument">=</span><span class="string">"side"</span><span class="keyword">)</span>
+ <span class="symbol">lm4</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span> <span class="keyword">+</span> <span class="symbol">freezer</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm4</span><span class="keyword">)</span>
+
+<span class="comment"># Is it reasonable to assume the slope coefficients are the same for all types </span>
+<span class="comment"># of fridges? See slope dummy variables</span>
+
+ <span class="comment"># 3 separate models for top, bottom and side</span>
+ <span class="symbol">lm.top</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="symbol">freezer</span>==<span class="string">"top"</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.top</span><span class="keyword">)</span>
+ <span class="symbol">lm.bottom</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="symbol">freezer</span>==<span class="string">"bottom"</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.bottom</span><span class="keyword">)</span>
+ <span class="symbol">lm.side</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fridge</span><span class="keyword">[</span><span class="symbol">freezer</span>==<span class="string">"side"</span><span class="keyword">,</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.side</span><span class="keyword">)</span>
+
+ <span class="comment"># slope dummies / interactions</span>
+ <span class="symbol">lm6</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span> <span class="keyword">+</span> <span class="symbol">freezer</span> <span class="keyword">+</span> <span class="symbol">volume</span><span class="keyword">:</span><span class="symbol">freezer</span> <span class="keyword">+</span> <span class="symbol">ecost</span><span class="keyword">:</span><span class="symbol">freezer</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm6</span><span class="keyword">)</span>
+ <span class="functioncall">vif</span><span class="keyword">(</span><span class="symbol">lm6</span><span class="keyword">)</span>
+
+<span class="comment"># Do the slope coefs differ for top, side or bottom?</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm6</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"volume:freezerbottom"</span><span class="keyword">,</span><span class="string">"volume:freezertop"</span><span class="keyword">,</span><span class="string">"ecost:freezerbottom"</span><span class="keyword">,</span><span class="string">"ecost:freezertop"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="functioncall">levels</span><span class="keyword">(</span><span class="symbol">freezer</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">]</span> <span class="assignement">=</span> <span class="string">"topbottom"</span>
+ <span class="symbol">lm6</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">volume</span> <span class="keyword">+</span> <span class="symbol">ecost</span> <span class="keyword">+</span> <span class="symbol">freezer</span> <span class="keyword">+</span> <span class="symbol">volume</span><span class="keyword">:</span><span class="symbol">freezer</span> <span class="keyword">+</span> <span class="symbol">ecost</span><span class="keyword">:</span><span class="symbol">freezer</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm6</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm6</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"volume:freezertopbottom"</span><span class="keyword">,</span> <span class="string">"ecost:freezertopbottom"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+</pre>
+</body>
+</html>

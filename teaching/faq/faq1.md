@@ -10,7 +10,7 @@ published: true
 
 ## FAQ I
 
-This FAQ for [Quantitative Methods I](/teaching/quant1/) and [Econometrics I](/teaching/econometrics1/) is a compilation of questions and answers that where posted on the course forum in previous years. For more comprehensive FAQs on R and statistics, see [http://ats.ucla.edu](http://ats.ucla.edu) and [http://cran.r-project.org](http://cran.r-project.org). 
+This FAQ for [Quantitative Methods I](/teaching/quant1/index.html) and [Econometrics I](/teaching/econometrics1/index.html) is a compilation of questions and answers that where posted on the course forum in previous years. For more comprehensive FAQs on R and statistics, see [http://ats.ucla.edu](http://ats.ucla.edu) and [http://cran.r-project.org](http://cran.r-project.org). 
 
 ***
 
@@ -98,7 +98,7 @@ to remove one of them type
 rm("yourdata.new"); ls()
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -106,7 +106,7 @@ rm("yourdata.new"); ls()
 
 Follow [this](http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/installation-notes.html) tutorial for Mac, Windows, and Linux systems.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -120,7 +120,7 @@ install.packages("AER"); help("StockWatson2007", package = "AER")
 
 The same works for `"Greene2003"`, `"Baltagi2002"`, `"CameronTrivedi1998"`, `"Franses1998"`, and `"WinkelmannBoes2009"`.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -154,7 +154,7 @@ R> shccm
   }
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -181,7 +181,7 @@ For other languages check
 ?setLanguage
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -216,7 +216,7 @@ polygon(cord.x,cord.y,col="grey30", lty=0)
 legend("topleft",legend=c("dark","light"),fill=c("grey30","grey80"),bty="n")
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -234,7 +234,7 @@ and to change it, use
 setwd("C:/...")
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -266,7 +266,7 @@ levels(gender)
 [1] "male"   "female"
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -287,7 +287,7 @@ Dimension
 dim(mydataset)
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -326,7 +326,7 @@ growthrate(x)
 
 Note: the difference in length of the level vector `x` and the growth vector `xg` is taken care of by placing the additional `NA`.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -348,7 +348,7 @@ help(package=foreign)
 
 For example, SPSS can be read using `read.spss`, Stata files using `read.dta`, etc
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -360,7 +360,7 @@ Suppose you want to change the first variable name in your dataset 'yourdata'. J
 names(yourdata)[1] <- "newname"
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -384,7 +384,7 @@ cov(x, y, use="pairwise.complete.obs")
 
 you will receive an error message. Please rule out such problems before you post on the forum.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -411,7 +411,7 @@ detach(mydata)
 
 when you attach a new dataset to work with. I usually forget this and therefore prefer to go for the first option.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -435,7 +435,7 @@ or integer format
 yourdata$yourvariable <- as.integer( as.character( yourdata$yourvariable ) )
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -500,7 +500,7 @@ Now, here is how Excel does things. Its [SKEW function](http://office.microsoft.
 [1] 0.8053631
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -508,7 +508,7 @@ Now, here is how Excel does things. Its [SKEW function](http://office.microsoft.
 
 The non-technical answer is that (at least) two of the variables in your model are collinear. For the technical version check the [next question](#c6).
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -516,7 +516,7 @@ The non-technical answer is that (at least) two of the variables in your model a
 
 Having aliased coefficients in your model means that the square matrix `X'X` (where `X` is your design matrix) is singular, i.e., it has determinant of zero and is non-invertible. This is the classical problem of perfect multicollinearity. The coefficient vector `b_hat=(X'X)^[-1]X'y` can therefore not be estimated. For the model summary, R will drop one variable and return NA as the estimate for it's aliased coefficient. To obtain the vif and other model statistics, drop one of the variables that cause the singularity manually and try the command again.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -524,7 +524,7 @@ Having aliased coefficients in your model means that the square matrix `X'X` (wh
 
 You are using two variables with different length. This usually happens when you work with both level and growth rates or differenced data. See a detailed treatment [here](#b6).
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -602,7 +602,7 @@ Model 2: empgrow ~ GDPgrow
 ...
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -620,7 +620,7 @@ While the BP test tests for the expected value of the squared residuals to be a 
 
 Sources: Wooldridge (2009) Introductory econometrics: a modern approach, pages 271ff; Kleiber and Zeileis (2008) [Applied Econometrics with R](http://www.springerlink.com/content/w38470382115gu30/), pages 101ff.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -628,7 +628,7 @@ Sources: Wooldridge (2009) Introductory econometrics: a modern approach, pages 2
 
 For the simple linear regression one can plot the variables and see how they relate to each other. In multiple regression, you can use residual plots against fitted values (y hat) or independent variables to find suitable variable transformations, the very same way that you would proceed with simple linear regression. This is an iterative process. One way to automate this, although no panacea, is to use step-wise model-selection based on information criteria such as AIC or BIC (covered in Lent Term). Do lookup the `stepAIC()` function from library MASS.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -636,7 +636,7 @@ For the simple linear regression one can plot the variables and see how they rel
 
 Homoskedasticity tests can probably not reject the null because the tests have low power for low sample size. The same problem then carries through to your robust estimates. Note that standard and robust error estimates only converge for large samples.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -715,7 +715,7 @@ data:  lm2
 RESET = 11556.97, df1 = 2, df2 = 9996, p-value < 2.2e-16
 {% endhighlight %}
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -723,7 +723,7 @@ RESET = 11556.97, df1 = 2, df2 = 9996, p-value < 2.2e-16
 
 The first step is to be aware of the problem, i.e., any effects on consistency and efficiency of the estimates? In how far would sample size mitigate problems? What alternative estimation methods are available? You would then want to describe possible model improvements and also estimate these models (given you have the data you need).
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -739,11 +739,11 @@ Of course, there will be questions that come up only after the lecture. Here are
 
 - First, try to find an answer individually and, if necessary, refer to the literature. Try to work independently -- this is the aim of your studies.
 - Of course, no one is born a master, and you may have several questions that you can't find an answer to. Questions related to lectures and workshops can simply be posted on the forum. Other students, the teaching associates, and I can then comment on them. You will notice that it is not easy to formulate questions and answers clearly. The forum gives you the opportunity to gain more routine in the formulation of scientific concepts. In addition, you are certainly not the only person who would like a response. Only if you ask your question in public, can we all benefit from questions and answers.
-- Finally, there are questions that have nothing to do with the lecture, but with econometrics, and that won't let you sleep at night. In this case, please email me a brief description of what you've done to find a solution, and why your attempts have so far failed. I will then try to give you a hint or point you to resources. Also, consider booking an appointment at the School's [Empirics Lab](/teaching/consulting/) or at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
+- Finally, there are questions that have nothing to do with the lecture, but with econometrics, and that won't let you sleep at night. In this case, please email me a brief description of what you've done to find a solution, and why your attempts have so far failed. I will then try to give you a hint or point you to resources. Also, consider booking an appointment at the School's [Empirics Lab](/teaching/consulting/index.html) or at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
 
 I try my best to help you, and sometimes it would be easier -- in the short term -- to explain a connection, instead of showing you how to find an answer yourself -- in the long term, however, you will learn more in the latter approach.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -757,7 +757,7 @@ This applies equally to the teaching associates. Again, it works best to ask que
 
 This leaves office hours with all the more time for questions that are unrelated to assignments (such as your individual research projects, individual difficulties in your studies, ...). Send me an email and we will arrange an appointment in the next few days.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -769,15 +769,15 @@ I can always write you a reference letter for a scholarship, a PhD programme, et
 - I can only write a reference letter once your workbooks for the course have been graded. If you need an early reference, one option for me is to consider your performance in the weekly contest and issue your letter at the end of Michaelmas term.
 - If you can check off the above points, please send me your letter of motivation / cover letter, your research proposal, as well as an overview of your grades (transcript of records from CamSIS) if available. Please send these documents in pdf, postscript, text, or odt format (not in a microsoft .doc or .docx format). I will have a look at your documents and we will arrange an interview.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
 #####<a name="e4"></a> Can you supervise my M.Phil. dissertation?
 
-No. You should find a faculty member who is interested in supervising your research. If you are not sure which scholar to approach with your research proposal, I can probably help you with that. That being said, I am more than happy to discuss the empirical aspects of your dissertation at any stage of your research. To do so, please go to [Empirics Lab](/teaching/consulting/) to arrange an appointment, or stop by at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
+No. You should find a faculty member who is interested in supervising your research. If you are not sure which scholar to approach with your research proposal, I can probably help you with that. That being said, I am more than happy to discuss the empirical aspects of your dissertation at any stage of your research. To do so, please go to [Empirics Lab](/teaching/consulting/index.html) to arrange an appointment, or stop by at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -785,7 +785,7 @@ No. You should find a faculty member who is interested in supervising your resea
 
 In this case, please give me an advance notice. Many things are a lot easier for you to notice (font too small, micro distorted, presentation too fast / too slow ...). For me it is very frustrating to read about problems -- which I could have fixed in the first term week -- only in the end of term evaluation. Please notify me directly in class or just after class, send me an email, or give vent to your anger in the forum. As long as you give no feedback, I have to assume that you are very happy (o:
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -793,7 +793,7 @@ In this case, please give me an advance notice. Many things are a lot easier for
 
 If you like something particularly well, I am of course happy to hear it (o:
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)
 
 ***
 
@@ -808,4 +808,4 @@ Short answer: No. Simply choose the modules that suit your learning style best.
 
 It is not my goal that you work more for this course than for other, equally important courses. The components are simply supposed to help you organize your learning process adapted to your needs.
 
-[Back to top](/teaching/faq/faq1)
+[Back to top](index.html)

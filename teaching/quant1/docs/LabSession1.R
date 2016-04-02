@@ -4,7 +4,7 @@
 # Lab Session 1: General Introduction to R; Descriptive Statistics
 
 # Required libraries: Rcmdr, timeDate
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
 
 
 # --- Ex 2: Load a dataset and save it with a different name ----------------
- dataset2 <- read.csv("http://thiloklein.de/R/dataset", header=T)  # read dataset from .csv file
+ dataset2 <- read.csv("http://klein.uk/R/dataset", header=T)  # read dataset from .csv file
  ls()   							# display active objects in workspace
  save("dataset2", file="dataset2.RData")		# save active object dataset2
  rm(dataset2) 						# clear object dataset2 from workspace
@@ -192,7 +192,7 @@
 
 
 # --- Digression: my function to count NAs per variable ---
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
  showNAs(dataset2)
 
 

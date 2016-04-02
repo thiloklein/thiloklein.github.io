@@ -1,0 +1,151 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 3: Example of an ARIMA model, based on Exercise 7, Enders (2004)</span>
+
+<span class="comment"># Required libraries: tseries, moments, FinTS</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">setwd</span><span class="keyword">(</span><span class="string">"I:/"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+ <span class="symbol">data</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/ARIMA_class_exercise.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+ <span class="functioncall">names</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span> <span class="assignement">&lt;-</span> <span class="string">"series"</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">)</span>
+
+ <span class="comment"># Is the series stationary?</span>
+ <span class="comment"># Plot autocorrelation and partial autocorrelation</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">)</span>
+
+ <span class="comment"># ADF test</span>
+ <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">tseries</span><span class="keyword">)</span>
+ <span class="functioncall">adf.test</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+ <span class="functioncall">adf.test.1</span><span class="keyword">(</span><span class="argument">x</span><span class="argument">=</span><span class="symbol">series</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+    <span class="comment"># x    = a numeric vector or time series</span>
+    <span class="comment"># k    = the lag order to calculate the test statistic with default: trunc((length(x)- 1)^(1/3))</span>
+    <span class="comment"># In addition, we have</span>
+    <span class="comment"># int   = logical, a constant is included if int=T</span>
+    <span class="comment"># trend = logical, a trend variable is included if trend=T</span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">adf.test.2</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="comment"># We reject the null that y1 has a unit root. Stationary process.</span>
+
+
+ <span class="comment"># The PACF  indicate a possible AR(1) process, estimate it.</span>
+ <span class="comment"># (always include a constant)</span>
+ <span class="symbol">ar1</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">)</span>
+
+
+ <span class="comment">## DIAGNOSTIC TEST</span>
+
+ <span class="comment"># 1. Are the inverted AR roots &lt;1? Yes. OK</span>
+
+ <span class="comment"># 2. Verify the there is no autocorrelation of partial autocorrelation left (ACF and PACF)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">na.action</span><span class="argument">=</span><span class="symbol">na.pass</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">na.action</span><span class="argument">=</span><span class="symbol">na.pass</span><span class="keyword">)</span>
+ <span class="comment"># Yes, ok</span>
+
+ <span class="comment"># 3. Are the residuals normal distributed?</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+ <span class="symbol">grid</span> <span class="assignement">&lt;-</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">3</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">,</span><span class="number">.01</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="symbol">grid</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">na.rm</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="symbol">grid</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="comment">#install.packages("moments")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">moments</span><span class="keyword">)</span>
+ <span class="functioncall">jarque.test</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="functioncall">na.omit</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># Probability is greater than 0.05. Note that the null hypothesis is: residuals are normal. We cannot reject the null.</span>
+ <span class="comment"># OK</span>
+
+ <span class="comment"># 4. Is there evidence of conditional heteroskedasticity?</span>
+ <span class="functioncall">install.packages</span><span class="keyword">(</span><span class="string">"FinTS"</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">FinTS</span><span class="keyword">)</span>
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="comment"># No. OK</span>
+
+
+ <span class="comment">## Let us compare this model with an ARMA(1,1)</span>
+
+ <span class="symbol">arma11</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">series</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">)</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma11</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">aic</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">ar1</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">aic</span>
+
+ <span class="comment"># Both criteria indicate that the AR(1) model is better</span>
+ <span class="comment"># (remember the smaller the criterion the better the model)</span>
+</pre>
+</body>
+</html>

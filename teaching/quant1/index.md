@@ -27,59 +27,59 @@ This course in econometrics is designed for the Cambridge [MPhil in Finance](htt
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">1</TD>
-<TD >Data and probability [<a href="/teaching/quant1/docs/lecture1.pdf">Slides</a>], Stock Market Experiment [<a href="/teaching/quant1/docs/sme.png">Results</a>, <a href="/teaching/quant1/docs/sme.csv">Data</a>]</TD>
+<TD >Data and probability [<a href="docs/lecture1.pdf">Slides</a>], Stock Market Experiment [<a href="docs/sme.png">Results</a>, <a href="docs/sme.csv">Data</a>]</TD>
 <TD align="center">--</TD>
 <TD align="center">--</TD>
 <TD >--</TD>
 </TR>
 <TR >
 <TD align="center">2</TD>
-<TD >Random variables and probability distributions [<a href="/teaching/quant1/docs/lecture2.pdf">Slides</a>, <a href="/teaching/quant1/docs/lecture2_notes.pdf">Notes</a>, <a href="/teaching/quant1/docs/Lecture2.R">R-Script</a>]</TD>
+<TD >Random variables and probability distributions [<a href="docs/lecture2.pdf">Slides</a>, <a href="docs/lecture2_notes.pdf">Notes</a>, <a href="docs/Lecture2.html">R-Script</a>]</TD>
 <TD align="center">--</TD>
-<TD align="center"><a href="/teaching/quant1/docs/Quiz1Qs.pdf">Sheet 1</a></TD>
-<TD >General Introduction to R; Descriptive Statistics [<a href="/teaching/quant1/docs/MPhilLabSession1.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession1.R">R-Script</a>]</TD>
+<TD align="center"><a href="docs/Quiz1Qs.pdf">Sheet 1</a></TD>
+<TD >General Introduction to R; Descriptive Statistics [<a href="docs/MPhilLabSession1.pdf">Handout</a>, <a href="docs/LabSession1.html">R-Script</a>]</TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">3</TD>
-<TD >Normal distribution, estimators, sampling distributions of estimators, tests of hypotheses [<a href="/teaching/quant1/docs/lecture3.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture3.R">R-Script</a>]</TD>
+<TD >Normal distribution, estimators, sampling distributions of estimators, tests of hypotheses [<a href="docs/lecture3.pdf">Slides</a>, <a href="docs/Lecture3.html">R-Script</a>]</TD>
 <TD align="center">--</TD>
-<TD align="center"><a href="/teaching/quant1/docs/Quiz2Qs.pdf">Sheet 2</a></TD>
+<TD align="center"><a href="docs/Quiz2Qs.pdf">Sheet 2</a></TD>
 <TD >--</TD>
 </TR>
 <TR >
 <TD align="center">4</TD>
-<TD >t-distribution, simple linear regression, OLS assumptions and properties of OLS estimators [<a href="/teaching/quant1/docs/lecture4.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture4.R">R-Script</a>]</TD>
-<TD align="center">Ch. 2</TD><TD align="center"><a href="/teaching/quant1/docs/Quiz3Qs.pdf">Sheet 3</a>
+<TD >t-distribution, simple linear regression, OLS assumptions and properties of OLS estimators [<a href="docs/lecture4.pdf">Slides</a>, <a href="docs/Lecture4.html">R-Script</a>]</TD>
+<TD align="center">Ch. 2</TD><TD align="center"><a href="docs/Quiz3Qs.pdf">Sheet 3</a>
 </TD>
-<TD >Linear Regression in R; Good Practice Guide [<a href="/teaching/quant1/docs/MPhilLabSession2.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession2.R">R-Script</a>]</TD>
+<TD >Linear Regression in R; Good Practice Guide [<a href="docs/MPhilLabSession2.pdf">Handout</a>, <a href="docs/LabSession2.html">R-Script</a>]</TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">5</TD>
-<TD >Gauss-Markov Theorem, Precision of OLS estimators, Multiple regression models, Multicollinearity, F-tests for goodness of fit [<a href="/teaching/quant1/docs/lecture5.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture5.R">R-Script</a>]</TD>
+<TD >Gauss-Markov Theorem, Precision of OLS estimators, Multiple regression models, Multicollinearity, F-tests for goodness of fit [<a href="docs/lecture5.pdf">Slides</a>, <a href="docs/Lecture5.html">R-Script</a>]</TD>
 <TD align="center">Ch. 3-4</TD>
-<TD align="center"><a href="/teaching/quant1/docs/Quiz4Qs.pdf">Sheet 4</a></TD>
+<TD align="center"><a href="docs/Quiz4Qs.pdf">Sheet 4</a></TD>
 <TD >--</TD>
 </TR>
 <TR >
 <TD align="center">6</TD>
-<TD >F-tests for goodness of fit, Non-linearity and Model Transformations, Dummy variables, Interactions [<a href="/teaching/quant1/docs/lecture6.pdf">Slides</a>, <a href="/teaching/quant1/docs/logmodels.pdf">Log's</a>, <a href="/teaching/quant1/docs/interactions.pdf">Int's</a>, <a href="/teaching/quant1/docs/Lecture6.R">R-Script</a>]</TD>
+<TD >F-tests for goodness of fit, Non-linearity and Model Transformations, Dummy variables, Interactions [<a href="docs/lecture6.pdf">Slides</a>, <a href="docs/logmodels.pdf">Log's</a>, <a href="docs/interactions.pdf">Int's</a>, <a href="docs/Lecture6.html">R-Script</a>]</TD>
 <TD align="center">Ch. 6-7</TD>
-<TD align="center"><a href="/teaching/quant1/docs/Quiz5Qs.pdf">Sheet 5</a></TD>
-<TD >Model Selection; Inference; Dummy Variables [<a href="/teaching/quant1/docs/MPhilLabSession3.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession3.R">R-Script</a>]</TD>
+<TD align="center"><a href="docs/Quiz5Qs.pdf">Sheet 5</a></TD>
+<TD >Model Selection; Inference; Dummy Variables [<a href="docs/MPhilLabSession3.pdf">Handout</a>, <a href="docs/LabSession3.html">R-Script</a>]</TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">7</TD>
-<TD >Specification errors and consequences [<a href="/teaching/quant1/docs/lecture7.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture7.R">R-Script</a>]</TD>
+<TD >Specification errors and consequences [<a href="docs/lecture7.pdf">Slides</a>, <a href="docs/Lecture7.html">R-Script</a>]</TD>
 <TD align="center">Ch. 8-9</TD>
-<TD align="center"><a href="/teaching/quant1/docs/Quiz6Qs.pdf">Sheet 6</a>, <a href="/teaching/quant1/docs/Workbook1.pdf">WB1</a></TD>
+<TD align="center"><a href="docs/Quiz6Qs.pdf">Sheet 6</a>, <a href="docs/Workbook1.pdf">WB1</a></TD>
 <TD >--</TD>
 </TR>
 <TR >
 <TD align="center">8</TD>
-<TD >Tests of regression assumptions, continued: Outliers and Influential observations [<a href="/teaching/quant1/docs/lecture8.pdf">Slides</a>, <a href="/teaching/quant1/docs/Lecture8.R">R-Script</a>]</TD>
+<TD >Tests of regression assumptions, continued: Outliers and Influential observations [<a href="docs/lecture8.pdf">Slides</a>, <a href="docs/Lecture8.html">R-Script</a>]</TD>
 <TD align="center">Ch. 9</TD>
-<TD align="center"><a href="/teaching/quant1/docs/Quiz7Qs.pdf">Sheet 7</a>, <a href="/teaching/quant1/docs/Workbook2.pdf">WB2</a></TD>
-<TD >Generalized Least Squares [<a href="/teaching/quant1/docs/MPhilLabSession4.pdf">Handout</a>, <a href="/teaching/quant1/docs/LabSession4.R">R-Script</a>]</TD>
+<TD align="center"><a href="docs/Quiz7Qs.pdf">Sheet 7</a>, <a href="docs/Workbook2.pdf">WB2</a></TD>
+<TD >Generalized Least Squares [<a href="docs/MPhilLabSession4.pdf">Handout</a>, <a href="docs/LabSession4.html">R-Script</a>]</TD>
 </TR>
 </TABLE>
 
@@ -116,14 +116,14 @@ For the lab sessions we will use the open source software environment R. I think
 
 ##### R installation
 
-- Download and install R from [http://www.r-project.org](http://www.r-project.org):
+- Download and install R from [http://www.html-project.org](http://www.html-project.org):
   - Under Download on left side click: CRAN
   - Choose a local mirror in the UK, e.g., London or Bristol.
   - Choose platform, e.g. Windows
   - Select "base" (Binaries for base distribution (managed by Duncan Murdoch))
   - Click "Download R 2.13.2 for Windows" (39 megabytes) to save and run Setup program: R-2.13.2-win32.exe
-- Documentation for R is provided via the build in help (use, for example, `help.search("t test")` in the console) but also through the [R Homepage](http://www.r-project.org/). Useful are [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf) and the [R Reference Card](http://cran.r-project.org/doc/contrib/Short-refcard.pdf). Other manuals are available on the website.
-- If you are new to R, I recommend working through W.J. Owen's [R tutorial](http://cran.r-project.org/doc/contrib/Owen-TheRGuide.pdf). It is easy to read and tries to explain R with the help of examples from basic statistics.
+- Documentation for R is provided via the build in help (use, for example, `help.search("t test")` in the console) but also through the [R Homepage](http://www.html-project.org/). Useful are [An Introduction to R](http://cran.html-project.org/doc/manuals/R-intro.pdf) and the [R Reference Card](http://cran.html-project.org/doc/contrib/Short-refcard.pdf). Other manuals are available on the website.
+- If you are new to R, I recommend working through W.J. Owen's [R tutorial](http://cran.html-project.org/doc/contrib/Owen-TheRGuide.pdf). It is easy to read and tries to explain R with the help of examples from basic statistics.
 - The R Commander allows an easy start with R using mouse and menu. Install the commander by typing `install.packages("Rcmdr")` and load it in the active workspace `library(Rcmdr)`. You can run the Commander by typing `Commander()` in the console.
 
 ***

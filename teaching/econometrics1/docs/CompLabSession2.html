@@ -1,0 +1,291 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Master in Finance Econometrics Module</span>
+<span class="comment"># Thilo Klein</span>
+<span class="comment"># Lab Session 2: Model Selection; Inference; Non-linear Models</span>
+
+<span class="comment"># Required libraries: car</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Digression: Heteroskedasticity Consistent Covariance Matrix (HCCM) ---</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span> <span class="comment"># this way we will all have the same "random" variables</span>
+ <span class="symbol">x</span> <span class="assignement">&lt;-</span> <span class="functioncall">runif</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="symbol">y.hom</span> <span class="assignement">&lt;-</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">e</span> <span class="comment"># homoscedasticity</span>
+ <span class="symbol">lm.hom</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y.hom</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y.hom</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm.hom</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="symbol">y.het</span> <span class="assignement">&lt;-</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">e</span><span class="keyword">*</span><span class="symbol">x</span>       <span class="comment"># heteroscedasticity</span>
+ <span class="symbol">lm.het</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y.het</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y.het</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="functioncall">vcov</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">)</span>
+ <span class="keyword">?</span><span class="keyword">?</span><span class="symbol">hccm</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">hccm</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"hc0"</span><span class="keyword">)</span>       <span class="comment"># White-adjusted errors are R's default setting</span>
+ <span class="functioncall">hccm</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"hc3"</span><span class="keyword">)</span>       <span class="comment"># heteroscedasticity consistent errors used by Stata</span>
+
+
+<span class="comment"># --- [load shccm function:] ---</span>
+ <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.hom</span><span class="keyword">)</span>                <span class="comment"># similar results under homoscedasticity</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm.hom</span><span class="keyword">)</span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">)</span>                <span class="comment"># different results under heteroscedasticity</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">)</span>
+
+ <span class="functioncall">rm</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="symbol">e</span><span class="keyword">,</span> <span class="symbol">y.hom</span><span class="keyword">,</span> <span class="symbol">y.het</span><span class="keyword">,</span> <span class="symbol">lm.hom</span><span class="keyword">,</span> <span class="symbol">lm.het</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 1: Confidence intervals of regression coefficients ----------------</span>
+ <span class="symbol">oilprice1</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/oilprice1"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span><span class="argument">sep</span><span class="argument">=</span><span class="string">","</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">oilprice1</span><span class="keyword">)</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">api</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">oilprice1</span><span class="keyword">)</span>
+ <span class="symbol">lm1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">api</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">oilprice1</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+
+ <span class="symbol">t</span> <span class="assignement">&lt;-</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">13</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">)</span>              <span class="comment"># quantile of t distribution</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+ <span class="symbol">b</span> <span class="assignement">&lt;-</span> <span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>                       <span class="comment"># coefficient</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">se_b</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span>         <span class="comment"># standard error of coefficient</span>
+
+ <span class="symbol">b</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">se_b</span><span class="keyword">*</span><span class="symbol">t</span>                     <span class="comment"># confidence interval</span>
+
+ <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">rm</span><span class="keyword">(</span><span class="symbol">b</span><span class="keyword">,</span> <span class="symbol">t</span><span class="keyword">,</span> <span class="symbol">se_b</span><span class="keyword">)</span>                   <span class="comment"># remove objects if no longer needed!</span>
+
+ <span class="comment"># or simply use:</span>
+ <span class="functioncall">confint</span><span class="keyword">(</span><span class="argument">object</span><span class="argument">=</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">level</span><span class="argument">=</span><span class="number">0.95</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: Omitted variable bias and highly correlated regressors ---------------- </span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span>
+ <span class="symbol">epsilon</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+ <span class="symbol">omega</span>   <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+ <span class="symbol">eta</span>     <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+ <span class="symbol">zeta</span>    <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+
+ <span class="symbol">x1</span> <span class="assignement">&lt;-</span> <span class="number">5</span> <span class="keyword">+</span> <span class="symbol">omega</span> <span class="keyword">+</span> <span class="number">0.3</span><span class="keyword">*</span> <span class="symbol">eta</span>
+ <span class="symbol">x2</span> <span class="assignement">&lt;-</span> <span class="number">10</span> <span class="keyword">+</span> <span class="symbol">omega</span>
+ <span class="symbol">x3</span> <span class="assignement">&lt;-</span> <span class="number">5</span> <span class="keyword">+</span> <span class="symbol">eta</span>
+ <span class="symbol">y</span>  <span class="assignement">&lt;-</span> <span class="number">20</span> <span class="keyword">+</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span> <span class="keyword">+</span> <span class="symbol">epsilon</span>
+ <span class="symbol">z</span>  <span class="assignement">&lt;-</span> <span class="number">30</span> <span class="keyword">+</span> <span class="symbol">x2</span> <span class="keyword">+</span> <span class="symbol">x3</span> <span class="keyword">+</span> <span class="symbol">zeta</span>
+
+
+<span class="comment"># --- Digression: visual test for normality ---</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="functioncall">runif</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+ <span class="symbol">grid.x</span> <span class="assignement">&lt;-</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">4</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span>
+ <span class="symbol">grid.y</span> <span class="assignement">&lt;-</span> <span class="functioncall">dnorm</span><span class="keyword">(</span><span class="symbol">grid.x</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">grid.x</span><span class="keyword">,</span> <span class="symbol">grid.y</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: b) ---</span>
+ <span class="functioncall">cor</span><span class="keyword">(</span><span class="functioncall">cbind</span><span class="keyword">(</span><span class="symbol">x1</span><span class="keyword">,</span> <span class="symbol">x2</span><span class="keyword">,</span> <span class="symbol">x3</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">lm2b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span>
+ <span class="functioncall">vif</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span>              <span class="comment"># VIF &gt; 10, severe multicollinearity.</span>
+
+
+<span class="comment"># --- Ex 2: c) ---</span>
+ <span class="symbol">lm2c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">z</span> <span class="keyword">~</span> <span class="symbol">x2</span> <span class="keyword">+</span> <span class="symbol">x3</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2c</span><span class="keyword">)</span>
+ <span class="functioncall">vif</span><span class="keyword">(</span><span class="symbol">lm2c</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: d) ---</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>                <span class="comment"># cov(x1,x2)=1 -&gt; OVB for b2; Intercept biased</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">z</span> <span class="keyword">~</span> <span class="symbol">x2</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>                <span class="comment"># true model: z=30+x2+x3 -&gt; Intercept biased</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">z</span> <span class="keyword">~</span> <span class="symbol">x2</span> <span class="keyword">+</span> <span class="symbol">x3</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>
+
+
+
+
+<span class="comment"># --- Ex 4: Hypotheses testing in the Log-log model ----------------</span>
+<span class="comment"># --- Ex 4: a) ---</span>
+<span class="comment"># Run the previous regression. Interpret the coefficients for GDP and price of gasoline.</span>
+
+ <span class="symbol">gas</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/gasoline"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">gas</span><span class="keyword">)</span>
+ <span class="symbol">lm4</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">gasoline</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">gdp</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">price</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">gas</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm4</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 4: b) ---</span>
+<span class="comment"># Is the "income" elasticity equal to one? Test this hypothesis.</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="argument">model</span><span class="argument">=</span><span class="symbol">lm4</span><span class="keyword">,</span> <span class="string">"log(gdp)=1"</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 5: Non-linear models. Production function. Multiple hypotheses. ------------------</span>
+<span class="comment"># --- Ex 5: a) ---</span>
+<span class="comment"># Load usmetal.txt with read.table</span>
+
+ <span class="symbol">metal</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.table</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/usmetal.txt"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">metal</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: b) ---</span>
+<span class="comment"># Generate new variables as logs of the old variables. Inspect the variables. </span>
+<span class="comment"># (summary and graph with histogram and scatter-plot)</span>
+
+ <span class="keyword">for</span><span class="keyword">(</span><span class="symbol">i</span> <span class="keyword">in</span> <span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="symbol">metal</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">+</span><span class="number">3</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">metal</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+ <span class="functioncall">names</span><span class="keyword">(</span><span class="symbol">metal</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">4</span><span class="keyword">:</span><span class="number">6</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"lK"</span><span class="keyword">,</span><span class="string">"lL"</span><span class="keyword">,</span><span class="string">"lY"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">metal</span><span class="keyword">)</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">for</span><span class="keyword">(</span><span class="symbol">i</span> <span class="keyword">in</span> <span class="number">1</span><span class="keyword">:</span><span class="number">6</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="symbol">name</span> <span class="assignement">&lt;-</span> <span class="functioncall">names</span><span class="keyword">(</span><span class="symbol">metal</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">i</span><span class="keyword">]</span>
+   <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">metal</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"Histogram of"</span><span class="keyword">,</span> <span class="symbol">name</span><span class="keyword">)</span> <span class="keyword">,</span> <span class="argument">xlab</span><span class="argument">=</span><span class="symbol">name</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+
+
+<span class="comment"># --- Ex 5: c) ---</span>
+<span class="comment"># Using a double log specification, estimate a production function. (This is the </span>
+<span class="comment"># Cobb-Douglas production function). Comment on the coefficients. </span>
+
+ <span class="symbol">lm5c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lY</span> <span class="keyword">~</span> <span class="symbol">lK</span> <span class="keyword">+</span> <span class="symbol">lL</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">metal</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm5c</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm5c</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: d) ---</span>
+<span class="comment"># Test the hypothesis that the coefficients are equal.</span>
+
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm5c</span><span class="keyword">,</span> <span class="string">"lK=lL"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: e) ---</span>
+<span class="comment"># [Optional] Test the hypothesis of constant returns to scale. </span>
+
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm5c</span><span class="keyword">,</span> <span class="string">"lK + lL = 1"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: f) ---</span>
+<span class="comment"># Impose the CRS-restriction and re-estimate.</span>
+
+ <span class="symbol">lm5f</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lY</span> <span class="keyword">~</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">lL</span> <span class="keyword">-</span> <span class="symbol">lK</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">offset</span><span class="argument">=</span><span class="symbol">lK</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">metal</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm5f</span><span class="keyword">)</span>
+ <span class="functioncall">anova</span><span class="keyword">(</span><span class="symbol">lm5c</span><span class="keyword">,</span> <span class="symbol">lm5f</span><span class="keyword">)</span>
+ <span class="comment"># same test as linearHypothesis for CRS above; models almost equal.</span>
+
+
+
+
+<span class="comment"># --- Ex 6: Bank wages ----------------</span>
+ <span class="symbol">bank</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/bank"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">bank</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 6: i) ---</span>
+<span class="comment"># Regress the log of salaries on a constant, education, the log of the </span>
+<span class="comment"># starting salary, and define a way to capture percentage differences </span>
+<span class="comment"># due to gender and belonging to a minority.</span>
+
+ <span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">logsalbegin</span> <span class="assignement">&lt;-</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">salbegin</span><span class="keyword">)</span>
+ <span class="symbol">lm6i</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logsal</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">logsalbegin</span> <span class="keyword">+</span> <span class="symbol">gender</span> <span class="keyword">+</span> <span class="symbol">minority</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bank</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm6i</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 6: ii) ---</span>
+ <span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">female</span> <span class="assignement">&lt;-</span> <span class="number">1</span> <span class="keyword">-</span> <span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">male</span>
+ <span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">femaleandminority</span> <span class="assignement">&lt;-</span> <span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">female</span> <span class="keyword">*</span> <span class="symbol">bank</span><span class="keyword">$</span><span class="symbol">minority</span>                          <span class="comment"># either this</span>
+ <span class="symbol">lm5ii</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logsal</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">male</span> <span class="keyword">+</span> <span class="symbol">minority</span> <span class="keyword">+</span> <span class="symbol">femaleandminority</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bank</span><span class="keyword">)</span>    <span class="comment"># ..</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logsal</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">male</span> <span class="keyword">+</span> <span class="symbol">minority</span> <span class="keyword">+</span> <span class="symbol">female</span><span class="keyword">:</span><span class="symbol">minority</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bank</span><span class="keyword">)</span>                       <span class="comment"># or that.</span>
+
+
+<span class="comment"># --- Ex 6: iii) ---</span>
+ <span class="symbol">lm6iii</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">logsal</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">female</span> <span class="keyword">+</span> <span class="symbol">minority</span> <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">bank</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm6iii</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm6iii</span><span class="keyword">,</span> <span class="string">"educ = 0.07"</span><span class="keyword">)</span>
+ <span class="functioncall">linearHypothesis</span><span class="keyword">(</span><span class="symbol">lm6iii</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"educ = 0.07"</span><span class="keyword">,</span> <span class="string">"female = minority"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+ <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"no"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># Lecture 7: Tobit model</span>
+
+
+<span class="comment">## 1. Motivation</span>
+<span class="comment"># Censored variables</span>
+<span class="comment"># We call a variable “censored” when we can only observe the latent variable in a</span>
+<span class="comment"># certain range.</span>
+<span class="comment">#     • hours worked (negative amounts can not be observed)</span>
+<span class="comment">#     • income (only when relevant for social incurance)</span>
+<span class="comment">#     • bids in an auction (often only the second highest bid is observed)</span>
+
+
+<span class="comment">## 2. Example</span>
+<span class="comment"># Let us generate a simple censored variable:</span>
+  <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">survival</span><span class="keyword">)</span>
+  <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span>
+  <span class="symbol">n</span> <span class="assignement">=</span> <span class="number">120</span>
+  <span class="symbol">sd</span> <span class="assignement">=</span> <span class="number">2</span>
+  <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="functioncall">runif</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="symbol">y</span> <span class="assignement">=</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">sd</span> <span class="keyword">*</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">)</span>
+  <span class="symbol">ycens</span> <span class="assignement">=</span> <span class="symbol">y</span>
+  <span class="symbol">ycens</span><span class="keyword">[</span><span class="symbol">y</span> &lt;= <span class="number">0</span><span class="keyword">]</span> <span class="assignement">=</span> <span class="number">0</span>
+  <span class="symbol">ycens</span><span class="keyword">[</span><span class="symbol">y</span> <span class="keyword">&gt;=</span> <span class="number">1</span><span class="keyword">]</span> <span class="assignement">=</span> <span class="number">1</span>
+
+<span class="comment"># plot(y ~ x, col="grey")</span>
+<span class="comment"># points(ycens[y &lt;= 0] ~ x[y &lt;= 0], col="red")</span>
+<span class="comment"># points(ycens[y &gt;= 1] ~ x[y &gt;= 1], col="red")</span>
+<span class="comment"># points(ycens[y &gt;= 0 &amp; y &lt;= 1] ~ x[y &gt;= 0 &amp; y &lt;= 1])</span>
+<span class="comment"># abline(a=0, b=1)</span>
+
+<span class="comment"># As with the logit model we can try to use simple OLS to estimate the</span>
+<span class="comment"># relationship:</span>
+  <span class="symbol">olsall</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">olsall</span>
+
+<span class="comment"># This result is not too convincing, perhaps we should only look at the uncensored</span>
+<span class="comment"># observations:</span>
+  <span class="symbol">olsrel</span> <span class="assignement">=</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">subset</span> <span class="argument">=</span> <span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">&gt;</span> <span class="number">0</span> <span class="keyword">&amp;</span> <span class="symbol">ycens</span> <span class="keyword">&lt;</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">olsrel</span>
+
+<span class="comment"># The left part of the following picture shows the true relation as well as the two</span>
+<span class="comment"># estimates:</span>
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span> <span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">a</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">,</span> <span class="argument">b</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">olsall</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">olsrel</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"true"</span><span class="keyword">,</span> <span class="string">"OLS"</span><span class="keyword">,</span> <span class="string">"OLS not censored"</span><span class="keyword">)</span><span class="keyword">,</span>
+    <span class="argument">lty</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span> <span class="argument">=</span> <span class="string">"white"</span><span class="keyword">)</span>
+<span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">-</span> <span class="symbol">x</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"true residuals"</span><span class="keyword">,</span> <span class="argument">ylab</span> <span class="argument">=</span> <span class="string">"ycens-E(y)"</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">)</span>
+<span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">olsall</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="symbol">x</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"true"</span><span class="keyword">,</span> <span class="string">"OLS"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">:</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">:</span><span class="number">2</span><span class="keyword">)</span>
+<span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">olsall</span><span class="keyword">,</span> <span class="argument">which</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"estimated residuals"</span><span class="keyword">)</span>
+
+<span class="comment"># The graph in the middle shows the true residuals, the graph on the right shows</span>
+<span class="comment"># the estimated residuals. While the estimated residuals underestimate the</span>
+<span class="comment"># problem, it is still visible: E(u|X) != 0 for most X.</span>
+
+
+<span class="comment">## 3. Solution</span>
+<span class="comment"># Interval regression</span>
+<span class="comment"># As in the logistic case we use maximum likelihood. The procedure is called</span>
+<span class="comment"># “interval regression” since the dependent variable is an interval.</span>
+<span class="comment">#    • [y, y] — known observation</span>
+<span class="comment">#    • [y, ∞] — observation is larger than y</span>
+<span class="comment">#    • [∞, y] — observation is smaller than y</span>
+<span class="comment">#    • [y1, y2] — observation is between y1 and y2</span>
+
+<span class="comment"># In R we use missings (NA) to indicate ∞.</span>
+  <span class="symbol">ymin</span> <span class="assignement">=</span> <span class="symbol">ycens</span>
+  <span class="symbol">ymax</span> <span class="assignement">=</span> <span class="symbol">ycens</span>
+  <span class="symbol">ymin</span><span class="keyword">[</span><span class="symbol">ycens</span> == <span class="number">0</span><span class="keyword">]</span> <span class="assignement">=</span> <span class="number">NA</span>
+  <span class="symbol">ymax</span><span class="keyword">[</span><span class="symbol">ycens</span> == <span class="number">1</span><span class="keyword">]</span> <span class="assignement">=</span> <span class="number">NA</span>
+  <span class="symbol">intreg</span> <span class="assignement">=</span> <span class="functioncall">survreg</span><span class="keyword">(</span><span class="functioncall">Surv</span><span class="keyword">(</span><span class="symbol">ymin</span><span class="keyword">,</span> <span class="symbol">ymax</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"interval2"</span><span class="keyword">)</span> <span class="keyword">~</span>
+      <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">dist</span> <span class="argument">=</span> <span class="string">"gaussian"</span><span class="keyword">)</span>
+  <span class="symbol">intreg</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">VGAM</span><span class="keyword">)</span>
+ <span class="keyword">?</span><span class="symbol">tobit</span>
+ <span class="symbol">intreg2</span> <span class="assignement">&lt;-</span> <span class="functioncall">vglm</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="functioncall">tobit</span><span class="keyword">(</span><span class="argument">Lower</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">Upper</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">intreg2</span>
+ <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">intreg2</span><span class="keyword">,</span> <span class="argument">matrix</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span>
+
+
+<span class="comment"># The estimated β is not perfect, but much better then the naïve OLS estimates</span>
+<span class="comment"># above. Let us show the esimated regression line in a graph:</span>
+
+<span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">a</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">,</span> <span class="argument">b</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">olsall</span><span class="keyword">,</span> <span class="symbol">olsrel</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">olsrel</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">intreg</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">4</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"green"</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"true"</span><span class="keyword">,</span> <span class="string">"OLS"</span><span class="keyword">,</span> <span class="string">"OLS not censored"</span><span class="keyword">,</span>
+    <span class="string">"interval"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">:</span><span class="number">4</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="string">"red"</span><span class="keyword">,</span>
+    <span class="string">"green"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span> <span class="argument">=</span> <span class="string">"white"</span><span class="keyword">)</span>
+<span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">ycens</span> <span class="keyword">-</span> <span class="symbol">x</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"true residuals"</span><span class="keyword">,</span> <span class="argument">ylab</span> <span class="argument">=</span> <span class="string">"ycens-E(y)"</span><span class="keyword">)</span>
+<span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">)</span>
+<span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">olsall</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="symbol">x</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">intreg</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="symbol">x</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">3</span><span class="keyword">)</span>
+<span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"true"</span><span class="keyword">,</span> <span class="string">"OLS"</span><span class="keyword">,</span> <span class="string">"interval"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">,</span>
+    <span class="argument">lty</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">:</span><span class="number">3</span><span class="keyword">)</span>
+
+<span class="comment"># The graph on the right side of the figure shows again the true residuals, i.e.</span>
+<span class="comment"># y − E(y). We should note two things:</span>
+<span class="comment">#   • The OLS estimate typically underestimates the relationship. Reason: The</span>
+<span class="comment">#     extreme values are missing (censored)</span>
+<span class="comment">#   • The Interval regression can overestimate. It is not necessarily very stable.</span>
+</pre>
+</body>
+</html>

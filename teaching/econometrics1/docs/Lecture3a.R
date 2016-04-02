@@ -3,7 +3,7 @@
 
 # Required libraries: AER, car
   rm(list=ls())
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -120,7 +120,7 @@
 # --- Dummy variables and Interactions ---
 
 # Data on the demand for refrigerators
- fridge = read.csv("http://thiloklein.de/R/fridge2.csv")
+ fridge = read.csv("http://klein.uk/R/fridge2.csv")
  str(fridge)
  attach(fridge)
 

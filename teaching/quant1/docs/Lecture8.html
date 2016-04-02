@@ -1,0 +1,223 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 8: Tests of regression assumptions, continued: Outliers and Influential observations</span>
+
+<span class="comment"># Required libraries: sfsmisc, car, stats</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment">## --- Confidence intervals, prediction intervals, Outliers, Influential observations ---</span>
+
+ <span class="symbol">data</span> <span class="assignement">=</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/wineandwealth.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+ <span class="symbol">data</span>
+
+<span class="comment"># Summary stats</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">[</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">7</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>   <span class="comment"># Income data</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">[</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">8</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>   <span class="comment"># Sales data</span>
+
+<span class="comment"># Simple linear regressions for each product </span>
+ <span class="symbol">lmA</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesA</span> <span class="keyword">~</span> <span class="symbol">IncomeA</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">)</span>
+ <span class="symbol">lmB</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesB</span> <span class="keyword">~</span> <span class="symbol">IncomeB</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lmB</span><span class="keyword">)</span>
+ <span class="symbol">lmC</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesC</span> <span class="keyword">~</span> <span class="symbol">IncomeC</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lmC</span><span class="keyword">)</span>
+ <span class="symbol">lmD</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesD</span> <span class="keyword">~</span> <span class="symbol">IncomeD</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lmD</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Confidence and prediction bands for predicted sales of Almaden, (pp.7) ---</span>
+
+ <span class="comment"># install.packages("sfsmisc")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">sfsmisc</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">SalesA</span> <span class="keyword">~</span> <span class="symbol">IncomeA</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Confidence/prediction bands/intervals for predicted sales of Almaden"</span><span class="keyword">,</span> <span class="argument">xlim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">14</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">)</span>
+
+<span class="comment"># fitted value for income level 15K</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">v</span><span class="argument">=</span><span class="number">15</span><span class="keyword">,</span> <span class="argument">h</span><span class="argument">=</span><span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">*</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+<span class="comment"># confidence bands</span>
+ <span class="functioncall">linesHyperb.lm</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">,</span> <span class="argument">c.prob</span><span class="argument">=</span><span class="number">0.95</span><span class="keyword">,</span> <span class="argument">confidence</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">do.abline</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+
+<span class="comment"># prediction bands</span>
+ <span class="functioncall">linesHyperb.lm</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">,</span> <span class="argument">c.prob</span><span class="argument">=</span><span class="number">0.95</span><span class="keyword">,</span> <span class="argument">confidence</span><span class="argument">=</span><span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"confidence band"</span><span class="keyword">,</span><span class="string">"prediction band"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># confidence/prediction intervals</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">8.692466</span><span class="keyword">,</span> <span class="number">12.31044</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>  <span class="comment"># confidence interval</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">7.170113</span><span class="keyword">,</span> <span class="number">13.8328</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>   <span class="comment"># prediction interval</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"confidence band"</span><span class="keyword">,</span><span class="string">"prediction band"</span><span class="keyword">,</span><span class="string">"confidence interval at 15K income"</span><span class="keyword">,</span><span class="string">"prediction interval at 15K income"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">,</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">bg</span><span class="argument">=</span><span class="string">"white"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- SE of the fitted value for Xi = 15, (p.8) ---</span>
+ <span class="symbol">n</span> <span class="assignement">=</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">IncomeA</span><span class="keyword">)</span>   <span class="comment"># number of obs</span>
+ <span class="symbol">RSE</span> <span class="assignement">=</span> <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">/</span> <span class="keyword">(</span><span class="symbol">n</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>   <span class="comment"># = 1.237 Residual Standard Error from regression summary()</span>
+ <span class="symbol">Xi</span> <span class="assignement">=</span> <span class="number">15</span>
+ <span class="symbol">Xbar</span> <span class="assignement">=</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">IncomeA</span><span class="keyword">)</span>
+ <span class="symbol">varX</span> <span class="assignement">=</span> <span class="functioncall">var</span><span class="keyword">(</span><span class="symbol">IncomeA</span><span class="keyword">)</span>
+ <span class="symbol">s.e.fitted</span> <span class="assignement">=</span> <span class="functioncall">sqrt</span><span class="keyword">(</span>  <span class="symbol">RSE</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">*</span> <span class="keyword">(</span><span class="number">1</span><span class="keyword">/</span><span class="symbol">n</span> <span class="keyword">+</span> <span class="keyword">(</span><span class="keyword">(</span><span class="symbol">Xi</span> <span class="keyword">-</span> <span class="symbol">Xbar</span><span class="keyword">)</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">/</span> <span class="keyword">(</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">varX</span><span class="keyword">)</span><span class="keyword">)</span>  <span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">s.e.fitted</span>   <span class="comment"># formula, slide 8.</span>
+
+
+<span class="comment"># --- conf interval at IncomeA = 15, (p.9) ---</span>
+ <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="argument">IncomeA</span> <span class="argument">=</span> <span class="number">15</span><span class="keyword">)</span>
+ <span class="symbol">conf_a</span> <span class="assignement">=</span> <span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">,</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">se.fit</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">level</span><span class="argument">=</span><span class="number">.95</span><span class="keyword">,</span> <span class="argument">interval</span><span class="argument">=</span><span class="string">"confidence"</span><span class="keyword">)</span>
+ <span class="symbol">conf_a</span>
+
+
+<span class="comment"># --- prediction interval at IncomeA = 15, (p.10) ---</span>
+ <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="argument">IncomeA</span> <span class="argument">=</span> <span class="number">15</span><span class="keyword">)</span>
+ <span class="symbol">pred_a</span> <span class="assignement">=</span> <span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">,</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">se.fit</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">level</span><span class="argument">=</span><span class="number">.95</span><span class="keyword">,</span> <span class="argument">interval</span><span class="argument">=</span><span class="string">"prediction"</span><span class="keyword">)</span>
+ <span class="symbol">pred_a</span>
+
+
+
+
+<span class="comment"># --- Digression: confidence/prediction intervals, the hard way, (pp.9) ---</span>
+<span class="comment"># install.packages("stats")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">stats</span><span class="keyword">)</span>
+ <span class="functioncall">vcov</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">)</span>   <span class="comment"># variance-covariance matrix</span>
+
+<span class="comment"># s.e. of fitted value at income = 15</span>
+ <span class="symbol">s.e.fitted</span> <span class="comment"># from above</span>
+
+<span class="comment"># s.e. of prediction</span>
+ <span class="symbol">s.e.predicted</span> <span class="assignement">=</span> <span class="functioncall">sqrt</span><span class="keyword">(</span>  <span class="symbol">RSE</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">*</span> <span class="keyword">(</span><span class="number">1</span> <span class="keyword">+</span> <span class="number">1</span><span class="keyword">/</span><span class="symbol">n</span> <span class="keyword">+</span> <span class="keyword">(</span><span class="keyword">(</span><span class="symbol">Xi</span> <span class="keyword">-</span> <span class="symbol">Xbar</span><span class="keyword">)</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">/</span> <span class="keyword">(</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">varX</span><span class="keyword">)</span><span class="keyword">)</span>  <span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">s.e.predicted</span>   <span class="comment"># formula, slide 10.</span>
+
+<span class="comment"># Note: only difference between conf and pred is that we add RSE^2, i.e., "RSE^2 * (1 +"</span>
+<span class="comment"># 97.5%-quantile of t-distribution with 9 (=11-2) degrees of freedom</span>
+ <span class="symbol">quantile.t</span> <span class="assignement">=</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">.025</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">9</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">quantile.t</span>
+
+<span class="comment"># confidence interval</span>
+ <span class="functioncall">round</span><span class="keyword">(</span><span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">*</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="keyword">+</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">quantile.t</span><span class="keyword">*</span><span class="symbol">s.e.fitted</span><span class="keyword">,</span> <span class="argument">digits</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>   <span class="comment"># formula, slide 7.</span>
+
+<span class="comment"># prediction interval</span>
+ <span class="functioncall">round</span><span class="keyword">(</span><span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lmA</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">*</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="keyword">+</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">quantile.t</span><span class="keyword">*</span><span class="symbol">s.e.predicted</span><span class="keyword">,</span> <span class="argument">digits</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">)</span>   <span class="comment"># formula, slide 7.</span>
+
+
+
+
+
+<span class="comment"># --- Leverage, the DELACROIX data, (pp.13) ---</span>
+
+<span class="comment"># --- Influential observation, (p.14) ---</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">SalesD</span> <span class="keyword">~</span> <span class="symbol">IncomeD</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="functioncall">min</span><span class="keyword">(</span><span class="symbol">SalesD</span><span class="keyword">)</span><span class="keyword">,</span> <span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">SalesD</span><span class="keyword">)</span><span class="keyword">+</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesD</span> <span class="keyword">~</span> <span class="symbol">IncomeD</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="symbol">at</span> <span class="assignement">=</span> <span class="functioncall">which</span><span class="keyword">(</span><span class="symbol">SalesD</span> == <span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">SalesD</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">at</span>
+ <span class="functioncall">text</span><span class="keyword">(</span><span class="argument">x</span><span class="argument">=</span><span class="symbol">IncomeD</span><span class="keyword">[</span><span class="symbol">at</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">y</span><span class="argument">=</span><span class="symbol">SalesD</span><span class="keyword">[</span><span class="symbol">at</span><span class="keyword">]</span><span class="keyword">,</span> <span class="string">"Influential obs"</span><span class="keyword">,</span> <span class="argument">pos</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+<span class="comment"># --- Leverage, (p.15) ---</span>
+
+ <span class="symbol">hD</span> <span class="assignement">=</span> <span class="functioncall">hat</span><span class="keyword">(</span><span class="functioncall">model.matrix</span><span class="keyword">(</span><span class="symbol">lmD</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">hD</span><span class="keyword">)</span>
+<span class="comment"># Criterion: Is leverage &gt; 2K/n ?</span>
+<span class="comment"># where K/n is the average leverage (Note: sum of leverages add up to the number of parameters, K)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">2</span><span class="keyword">*</span><span class="number">2</span><span class="keyword">/</span><span class="number">11</span><span class="keyword">)</span>
+ <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">hD</span><span class="keyword">)</span>    <span class="comment"># sum(hD) = 2 = number of parameters (intercept + slope coef)</span>
+
+
+
+
+<span class="comment"># --- Outliers, the CASAROSA data, (pp.17) ---</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">SalesC</span> <span class="keyword">~</span> <span class="symbol">IncomeC</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="functioncall">min</span><span class="keyword">(</span><span class="symbol">SalesC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">SalesC</span><span class="keyword">)</span><span class="keyword">+</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesC</span> <span class="keyword">~</span> <span class="symbol">IncomeC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="symbol">at</span> <span class="assignement">&lt;-</span> <span class="functioncall">which</span><span class="keyword">(</span><span class="symbol">SalesC</span> == <span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">SalesC</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">at</span>
+ <span class="functioncall">points</span><span class="keyword">(</span><span class="symbol">SalesC</span><span class="keyword">[</span><span class="symbol">at</span><span class="keyword">]</span> <span class="keyword">~</span> <span class="symbol">IncomeC</span><span class="keyword">[</span><span class="symbol">at</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">text</span><span class="keyword">(</span><span class="argument">x</span> <span class="argument">=</span> <span class="symbol">IncomeC</span><span class="keyword">[</span><span class="symbol">at</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">y</span> <span class="argument">=</span> <span class="symbol">SalesC</span><span class="keyword">[</span><span class="symbol">at</span><span class="keyword">]</span><span class="keyword">,</span> <span class="string">"Outlier"</span><span class="keyword">,</span> <span class="argument">pos</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">SalesC</span><span class="keyword">[</span><span class="keyword">-</span><span class="symbol">at</span><span class="keyword">]</span> <span class="keyword">~</span> <span class="symbol">IncomeC</span><span class="keyword">[</span><span class="keyword">-</span><span class="symbol">at</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="argument">legend</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"with"</span><span class="keyword">,</span><span class="string">"~out"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">fill</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"red"</span><span class="keyword">,</span><span class="string">"blue"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># --- Studentized residuals, (p.20) ---</span>
+
+ <span class="functioncall">sort</span><span class="keyword">(</span><span class="functioncall">rstudent</span><span class="keyword">(</span><span class="symbol">lmC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">decreasing</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span>
+ <span class="functioncall">qt</span><span class="keyword">(</span><span class="number">.025</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">9</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="number">FALSE</span><span class="keyword">)</span>   <span class="comment"># compare to critical t-quantile</span>
+
+
+
+
+<span class="comment"># --- Cook's Distance: combining outlierness and leverage, (pp.22) ---</span>
+
+ <span class="symbol">cookD</span> <span class="assignement">&lt;-</span> <span class="functioncall">cooks.distance</span><span class="keyword">(</span><span class="symbol">lmD</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">cookD</span><span class="keyword">)</span>
+ <span class="functioncall">round</span><span class="keyword">(</span><span class="symbol">cookD</span><span class="keyword">,</span> <span class="number">2</span><span class="keyword">)</span>
+ <span class="comment"># Note: obs 8 in D is NaN (Not a Number). </span>
+ <span class="comment"># Result of improper mathematical expression 0/0.</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+</pre>
+</body>
+</html>

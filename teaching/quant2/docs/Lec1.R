@@ -3,7 +3,7 @@
 
 # Required libraries: tseries, dynlm
   rm(list=ls())
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   setwd("~/Desktop/Cam/MFin Lectures Lent")
   ls()
 # -------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 # --- Ex 2: DL Models. Orange juice price and freezing degree days ----------------------------- 
  
- oj <- read.csv("http://thiloklein.de/R/Lent/oj.csv") 
+ oj <- read.csv("http://klein.uk/R/Lent/oj.csv") 
  str(oj) 
  
  

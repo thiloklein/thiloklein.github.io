@@ -33,31 +33,31 @@ This course is designed for the [Cambridge Master of Finance](http://www.jbs.cam
 </TR>
 <TR>
 <TD align="center">1</TD>
-<TD >Normal distribution, estimators, sampling distributions of estimators, tests of hypotheses [<a href="/teaching/econometrics1/docs/lecture1.pdf">Session 1</a>, <a href="/teaching/econometrics1/docs/lecture2.pdf">Session 2</a>, <a href="/teaching/econometrics1/docs/Lecture1.html">R-script</a>]</TD>
+<TD >Normal distribution, estimators, sampling distributions of estimators, tests of hypotheses [<a href="docs/lecture1.pdf">Session 1</a>, <a href="docs/lecture2.pdf">Session 2</a>, <a href="docs/Lecture1.html">R-script</a>]</TD>
 <TD align="center">--</TD>
-<TD ><a href="/teaching/econometrics1/docs/Quiz1Qs.pdf">Sheet 1</a>, <a href="/teaching/econometrics1/docs/Quiz2Qs.pdf">Sheet 2</a></TD>
-<TD >Descriptive Statistics [<a href="/teaching/econometrics1/docs/MFinLabSession1.pdf">Handout</a>, <a href="/teaching/econometrics1/docs/CompLabSession1.R">R-Script</a>]</TD>
+<TD ><a href="docs/Quiz1Qs.pdf">Sheet 1</a>, <a href="docs/Quiz2Qs.pdf">Sheet 2</a></TD>
+<TD >Descriptive Statistics [<a href="docs/MFinLabSession1.pdf">Handout</a>, <a href="docs/CompLabSession1.html">R-Script</a>]</TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">2</TD>
-<TD >t-distribution, simple linear regression, OLS assumptions and properties, Gauss-Markov Theorem, Multiple regression models, Multicollinearity, F-tests [<a href="/teaching/econometrics1/docs/lecture3.pdf">Session 3</a>, <a href="/teaching/econometrics1/docs/lecture4.pdf">Session 4</a>, R-Scripts <a href="/teaching/econometrics1/docs/Lecture2a.html">part1</a>, <a href="/teaching/econometrics1/docs/Lecture2b.html">part2</a>]</TD>
+<TD >t-distribution, simple linear regression, OLS assumptions and properties, Gauss-Markov Theorem, Multiple regression models, Multicollinearity, F-tests [<a href="docs/lecture3.pdf">Session 3</a>, <a href="docs/lecture4.pdf">Session 4</a>, R-Scripts <a href="docs/Lecture2a.html">part1</a>, <a href="docs/Lecture2b.html">part2</a>]</TD>
 <TD align="center">Ch. 2-4</TD>
-<TD ><a href="/teaching/econometrics1/docs/Quiz3Qs.pdf">Sheet 3</a>, <a href="/teaching/econometrics1/docs/Quiz4Qs.pdf">Sheet 4</a></TD>
-<TD >Linear Regression [<a href="/teaching/econometrics1/docs/MFinLabSession1.pdf">Handout</a>, <a href="/teaching/econometrics1/docs/CompLabSession1.R">R-Script</a>]</TD>
+<TD ><a href="docs/Quiz3Qs.pdf">Sheet 3</a>, <a href="docs/Quiz4Qs.pdf">Sheet 4</a></TD>
+<TD >Linear Regression [<a href="docs/MFinLabSession1.pdf">Handout</a>, <a href="docs/CompLabSession1.html">R-Script</a>]</TD>
 </TR>
 <TR>
 <TD align="center">3</TD>
-<TD >F-tests, Non-linearity and Model Transformations, Dummy variables, Specification errors [<a href="/teaching/econometrics1/docs/lecture5.pdf">Session 5</a>, <a href="/teaching/econometrics1/docs/lecture6.pdf">Session 6</a>, <a href="/teaching/econometrics1/docs/logmodels.pdf">Log's</a>, <a href="/teaching/econometrics1/docs/interactions.pdf">Int's</a>, R-Scripts <a href="/teaching/econometrics1/docs/Lecture3a.html">part1</a>, <a href="/teaching/econometrics1/docs/Lecture3b.html">part2</a>]</TD>
+<TD >F-tests, Non-linearity and Model Transformations, Dummy variables, Specification errors [<a href="docs/lecture5.pdf">Session 5</a>, <a href="docs/lecture6.pdf">Session 6</a>, <a href="docs/logmodels.pdf">Log's</a>, <a href="docs/interactions.pdf">Int's</a>, R-Scripts <a href="docs/Lecture3a.html">part1</a>, <a href="docs/Lecture3b.html">part2</a>]</TD>
 <TD align="center">Ch. 6-7</TD>
-<TD ><a href="/teaching/econometrics1/docs/Quiz5Qs.pdf">Sheet 5</a>, <a href="/teaching/econometrics1/docs/Quiz6Qs.pdf">Sheet 6</a>, <a href="/teaching/econometrics1/docs/Workbook1.pdf">WB1</a></TD>
-<TD >Model Selection; Inference; Non-linear models [<a href="/teaching/econometrics1/docs/MFinLabSession2.pdf">Handout</a>, <a href="/teaching/econometrics1/docs/CompLabSession2.R">R-Script</a>]</TD>
+<TD ><a href="docs/Quiz5Qs.pdf">Sheet 5</a>, <a href="docs/Quiz6Qs.pdf">Sheet 6</a>, <a href="docs/Workbook1.pdf">WB1</a></TD>
+<TD >Model Selection; Inference; Non-linear models [<a href="docs/MFinLabSession2.pdf">Handout</a>, <a href="docs/CompLabSession2.html">R-Script</a>]</TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">4</TD>
-<TD >Tests of regression assumptions, continued: Outliers and Influential observations [<a href="/teaching/econometrics1/docs/lecture7.pdf">Session 7</a>, <a href="/teaching/econometrics1/docs/Lecture4.html">R-script</a>]</TD>
+<TD >Tests of regression assumptions, continued: Outliers and Influential observations [<a href="docs/lecture7.pdf">Session 7</a>, <a href="docs/Lecture4.html">R-script</a>]</TD>
 <TD align="center">Ch. 8-9</TD>
-<TD ><a href="/teaching/econometrics1/docs/Quiz7Qs.pdf">Sheet 7</a>, <a href="/teaching/econometrics1/docs/Assignments/Workbook2.pdf">WB2</a></TD>
-<TD >Generalized Least Squares [<a href="/teaching/econometrics1/docs/MFinLabSession3.pdf">Handout</a>, <a href="/teaching/econometrics1/docs/CompLabSession3.R">R-Script</a>]</TD>
+<TD ><a href="docs/Quiz7Qs.pdf">Sheet 7</a>, <a href="docs/Assignments/Workbook2.pdf">WB2</a></TD>
+<TD >Generalized Least Squares [<a href="docs/MFinLabSession3.pdf">Handout</a>, <a href="docs/CompLabSession3.html">R-Script</a>]</TD>
 </TR>
 </TABLE>
 Note: part of this year's lab material is available at Despo Malikkidou's website.

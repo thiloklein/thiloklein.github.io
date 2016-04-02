@@ -3,7 +3,7 @@
 
 # Required libraries: zoo, lmtest, TSA, rgarch, moments
   rm(list=ls())
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -59,7 +59,7 @@
  # dlsp c ar(1) ar(2) ma(1) ma(2) Arch(9)
 
  # manually install rgarch and dependencies as described on
- # http://thiloklein.de/Econometrics2.html
+ # http://klein.uk/Econometrics2.html
  library(rgarch)
 
  # ?ugarchspec

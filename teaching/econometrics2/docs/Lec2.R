@@ -7,7 +7,7 @@
   ls()
 # -------------------------------------------------------------------
 
- ppp <- read.csv("http://thiloklein.de/R/Lent/RealExchangeRates_US_UK.csv")
+ ppp <- read.csv("http://klein.uk/R/Lent/RealExchangeRates_US_UK.csv")
  names(ppp) <- c("Date","RER")
  str(ppp)
  library(zoo)
@@ -29,7 +29,7 @@
  ?adf.test
 
  # Alternatives:
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
 
  # Augmented Dickey Fuller test (correct p-value)
  adf.test.1(x=ppp$RER, int=T, trend=F)

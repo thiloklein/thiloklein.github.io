@@ -25,27 +25,27 @@ This is an advanced course in econometrics, designed for the [Cambridge Master o
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">1</TD>
-<TD>Distributed lag model [Slides, <a href="/teaching/econometrics2/docs/Lec1.R">R-script</a>]</TD>
-<TD align="center"><a href="/teaching/econometrics2/docs/Quiz1Qs.pdf">Sheet 1</a></TD>
-<TD>Unit root test [<a href="/teaching/econometrics2/docs/MFinLabSessionLent1.pdf">Handout</a>, <a href="/teaching/econometrics2/docs/CompLabSessionLent1.R">R-Script</a>]</TD>
+<TD>Distributed lag model [Slides, <a href="docs/Lec1.html">R-script</a>]</TD>
+<TD align="center"><a href="docs/Quiz1Qs.pdf">Sheet 1</a></TD>
+<TD>Unit root test [<a href="docs/MFinLabSessionLent1.pdf">Handout</a>, <a href="docs/CompLabSessionLent1.html">R-Script</a>]</TD>
 </TR>
 <TR >
 <TD align="center">2</TD>
-<TD>Stationarity testing [Slides, <a href="/teaching/econometrics2/docs/Lec2.R">R-Script</a>]</TD>
-<TD align="center"><a href="/teaching/econometrics2/docs/Quiz2Qs.pdf">Sheet 2</a></TD>
-<TD>ADL models [<a href="/teaching/econometrics2/docs/MFinLabSessionLent1.pdf">Handout</a>, <a href="/teaching/econometrics2/docs/CompLabSessionLent1.R">R-Script</a>]</TD>
+<TD>Stationarity testing [Slides, <a href="docs/Lec2.html">R-Script</a>]</TD>
+<TD align="center"><a href="docs/Quiz2Qs.pdf">Sheet 2</a></TD>
+<TD>ADL models [<a href="docs/MFinLabSessionLent1.pdf">Handout</a>, <a href="docs/CompLabSessionLent1.html">R-Script</a>]</TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">3</TD>
-<TD>ARIMA models [Slides, <a href="/teaching/econometrics2/docs/Lec3.R">R-Script</a>, <a href="/teaching/econometrics2/docs/Lec3_simulations.R">Simulations</a>]</TD>
-<TD align="center"><a href="/teaching/econometrics2/docs/Quiz3Qs.pdf">Sheet 3</a></TD>
-<TD>ARIMA and ARCH Models [<a href="/teaching/econometrics2/docs/MFinLabSessionLent2And3.pdf">Handout</a>, <a href="/teaching/econometrics2/docs/CompLabSessionLent2And3.R">R-Script</a>]</TD>
+<TD>ARIMA models [Slides, <a href="docs/Lec3.html">R-Script</a>, <a href="docs/Lec3_simulations.html">Simulations</a>]</TD>
+<TD align="center"><a href="docs/Quiz3Qs.pdf">Sheet 3</a></TD>
+<TD>ARIMA and ARCH Models [<a href="docs/MFinLabSessionLent2And3.pdf">Handout</a>, <a href="docs/CompLabSessionLent2And3.html">R-Script</a>]</TD>
 </TR>
 <TR >
 <TD align="center">4</TD>
-<TD>ARCH and GARCH mdoels [Slides, <a href="/teaching/econometrics2/docs/Lec4.R">R-Script</a>]</TD>
+<TD>ARCH and GARCH mdoels [Slides, <a href="docs/Lec4.html">R-Script</a>]</TD>
 <TD align="center">--</TD>
-<TD>GARCH Models [<a href="/teaching/econometrics2/docs/MFinLabSessionLent2And3.pdf">Handout</a>, <a href="/teaching/econometrics2/docs/CompLabSessionLent2And3.R">R-Script</a>]</TD>
+<TD>GARCH Models [<a href="docs/MFinLabSessionLent2And3.pdf">Handout</a>, <a href="docs/CompLabSessionLent2And3.html">R-Script</a>]</TD>
 </TR>
 </TABLE>
 
@@ -74,7 +74,7 @@ This is an advanced course in econometrics, designed for the [Cambridge Master o
 
 For the lab sessions we will use the software environment R. We will need the rgarch package to fit various advanced GARCH models. The package is available on the R-forge repository.
 
-If you have at least R versions 2.13 or 2.12 you should be able to install the package using: `install.packages("rgarch")` with option `repos="http://r-forge.r-project.org"`
+If you have at least R versions 2.13 or 2.12 you should be able to install the package using: `install.packages("rgarch")` with option `repos="http://r-forge.html-project.org"`
 
 If you are working in the Judge computer lab, follow three simple steps:
 
@@ -86,7 +86,7 @@ If you are working in the Judge computer lab, follow three simple steps:
 
 ##### Documentation
 
-Good references for the methods covered in this advanced course are Grant Farnsworth's [Econometrics in R](http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf) and the UCLA [Resources to help you learn and use R](http://www.ats.ucla.edu/stat/R/). 
+Good references for the methods covered in this advanced course are Grant Farnsworth's [Econometrics in R](http://cran.html-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf) and the UCLA [Resources to help you learn and use R](http://www.ats.ucla.edu/stat/R/). 
 
 ***
 

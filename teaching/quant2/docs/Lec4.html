@@ -1,0 +1,250 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 4: Modelling volatility of S&amp;P returns</span>
+
+<span class="comment"># Required libraries: zoo, lmtest, TSA, rgarch, moments</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+<span class="comment">## S&amp;p500 1988-2010</span>
+<span class="comment"># When we study stock returns, the main target is to model volatility as stock price may follow a random walk</span>
+ <span class="symbol">sp</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"s&amp;p500 daily.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">sp</span><span class="keyword">)</span>
+
+ <span class="symbol">date</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.Date</span><span class="keyword">(</span><span class="symbol">sp</span><span class="keyword">$</span><span class="symbol">Date</span><span class="keyword">,</span> <span class="argument">format</span><span class="argument">=</span><span class="string">"%d/%m/%Y"</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">zoo</span><span class="keyword">)</span>
+ <span class="symbol">adj</span> <span class="assignement">&lt;-</span> <span class="functioncall">zoo</span><span class="keyword">(</span><span class="symbol">sp</span><span class="keyword">$</span><span class="symbol">Adj</span><span class="keyword">,</span> <span class="functioncall">as.Date</span><span class="keyword">(</span><span class="symbol">date</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">adj</span><span class="keyword">)</span>
+
+ <span class="comment"># As there is an extreme value of volatility in 1987, we select the sample from 1988 to 2010 to</span>
+ <span class="comment"># estimate the Garch model.</span>
+ <span class="symbol">adj88</span> <span class="assignement">&lt;-</span> <span class="functioncall">window</span><span class="keyword">(</span><span class="symbol">adj</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">as.Date</span><span class="keyword">(</span><span class="string">"1988-01-01"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">adj88</span><span class="keyword">)</span>
+
+
+ <span class="comment">## Step 1:</span>
+  <span class="symbol">dlsp</span> <span class="assignement">&lt;-</span> <span class="functioncall">diff</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">adj88</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+ <span class="comment"># Plot dlsp</span>
+  <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">dlsp</span><span class="keyword">)</span>
+ <span class="comment"># Do unit root test</span>
+  <span class="symbol">dlsp.v</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.vector</span><span class="keyword">(</span><span class="symbol">dlsp</span><span class="keyword">)</span>
+  <span class="functioncall">adf.test.1</span><span class="keyword">(</span><span class="symbol">dlsp.v</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+  <span class="comment"># -&gt; DLSP is stationary</span>
+
+
+ <span class="comment">## Step2:</span>
+ <span class="comment"># Fit a mean model and check whether the residuals have arch effects.</span>
+ <span class="comment"># First look at correlogram of DLSP</span>
+  <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">acf</span><span class="keyword">(</span><span class="functioncall">na.omit</span><span class="keyword">(</span><span class="symbol">dlsp.v</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="functioncall">na.omit</span><span class="keyword">(</span><span class="symbol">dlsp.v</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># Fit arma model: dlsp = c ar(1) ar(2) ma(1) ma(2)</span>
+  <span class="symbol">arima202</span> <span class="assignement">&lt;-</span> <span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">dlsp</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+  <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">arima202</span><span class="keyword">)</span>
+ <span class="comment"># Correlogram of standardized residuals</span>
+  <span class="symbol">nNA</span> <span class="assignement">&lt;-</span> <span class="functioncall">which</span><span class="keyword">(</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">arima202</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>==<span class="symbol">F</span><span class="keyword">)</span>
+  <span class="comment"># install.packages("TSA", dependencies=T)</span>
+  <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">TSA</span><span class="keyword">)</span>
+  <span class="functioncall">acf</span><span class="keyword">(</span><span class="functioncall">rstandard</span><span class="keyword">(</span><span class="symbol">arima202</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="functioncall">rstandard</span><span class="keyword">(</span><span class="symbol">arima202</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+  <span class="comment"># -&gt; Still correlations</span>
+ <span class="comment"># Correlogram of sqared standardized residuals</span>
+  <span class="functioncall">acf</span><span class="keyword">(</span><span class="functioncall">rstandard</span><span class="keyword">(</span><span class="symbol">arima202</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="functioncall">rstandard</span><span class="keyword">(</span><span class="symbol">arima202</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+  <span class="comment"># -&gt; Still arch effects</span>
+
+
+ <span class="comment">## Step 3:</span>
+ <span class="comment"># Fit one arch model to clean arch effects, start with the longest lags</span>
+ <span class="comment"># dlsp c ar(1) ar(2) ma(1) ma(2) Arch(9)</span>
+
+ <span class="comment"># manually install rgarch and dependencies as described on</span>
+ <span class="comment"># http://klein.uk/Econometrics2.html</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">rgarch</span><span class="keyword">)</span>
+
+ <span class="comment"># ?ugarchspec</span>
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span>
+   <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">9</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># ?ugarchfit</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">dlsp.v</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="comment"># Correlogram of residuals</span>
+  <span class="symbol">nNA</span> <span class="assignement">&lt;-</span> <span class="functioncall">which</span><span class="keyword">(</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>==<span class="symbol">F</span><span class="keyword">)</span>
+  <span class="symbol">stdresid</span> <span class="assignement">&lt;-</span> <span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">residuals</span><span class="keyword">/</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">sigma</span>
+  <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+  <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="comment"># -&gt; Still correlations</span>
+
+ <span class="comment"># Correlogram of sqared residuals</span>
+  <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+  <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="comment"># -&gt; No arch effects</span>
+
+
+ <span class="comment">## Step 4:</span>
+ <span class="comment"># So we try different models to clean correlations among residuals and arch effects</span>
+ <span class="comment"># and find</span>
+
+ <span class="comment"># dlsp = ar(1) ma(1) ma(12) Garch(2,1)</span>
+
+  <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span>
+    <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+    <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">12</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span>
+    <span class="argument">fixed.pars</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma6</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma7</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma8</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma9</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma10</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma11</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">dlsp</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+  <span class="symbol">sgarch.fit</span>
+
+ <span class="comment"># Has no problem with correlation in standardized residuals.</span>
+ <span class="comment"># And all coefficients are significant.</span>
+  <span class="symbol">nNA</span> <span class="assignement">&lt;-</span> <span class="functioncall">which</span><span class="keyword">(</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>==<span class="symbol">F</span><span class="keyword">)</span>
+  <span class="symbol">stdresid</span> <span class="assignement">&lt;-</span> <span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">residuals</span><span class="keyword">/</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">sigma</span>
+  <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+  <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+ <span class="comment">## Step 5:</span>
+ <span class="comment"># Check normality of standardized residuals and do forecasting</span>
+ <span class="comment"># Huge improvements in distributions in terms of Jarque-Bera statistics</span>
+  <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">moments</span><span class="keyword">)</span>
+  <span class="functioncall">jarque.test</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">)</span>
+ <span class="comment"># This is the original distribution</span>
+  <span class="functioncall">jarque.test</span><span class="keyword">(</span><span class="symbol">dlsp.v</span><span class="keyword">)</span>
+
+ <span class="comment"># Static forecast: see the conditional variance changes</span>
+ <span class="comment">#1</span>
+<span class="keyword">?</span><span class="symbol">ugarchforecast</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">ugarchforecast</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">,</span> <span class="argument">n.ahead</span> <span class="argument">=</span> <span class="number">50</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+ <span class="comment">## Step 6:</span>
+ <span class="comment"># However there may be still arch mean effects and leverage effects.</span>
+ <span class="comment"># So to improve our model, we may try TARCH model, IGARCH model , Garch_mean model,</span>
+ <span class="comment"># EGARCH_mean model.</span>
+
+ <span class="comment"># 1) TARCH model [OPTIONAL]</span>
+ <span class="keyword">?</span><span class="symbol">ugarchspec</span>
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"TGARCH"</span><span class="keyword">,</span>
+   <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">12</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">fixed.pars</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma6</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma7</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma8</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma9</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma10</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma11</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">dlsp.v</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="comment"># 2) IGARCH model [OPTIONAL]</span>
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"iGARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">12</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">fixed.pars</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma6</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma7</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma8</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma9</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma10</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma11</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">dlsp.v</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+ <span class="comment"># has problems with correlation in residuals</span>
+
+ <span class="comment"># 3) EGRACH model [OPTIONAL]</span>
+ <span class="comment"># After many trials to capture the arch mean effects and leverage effects,</span>
+ <span class="comment"># We obtain a good model: dlsp = ar(1) ma(1) ma(12) EGARCH(2,1,1)</span>
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"eGARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">12</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">fixed.pars</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma6</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma7</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma8</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma9</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma10</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma11</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">dlsp.v</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="comment">## Interpretation of coefs!</span>
+ <span class="comment"># The negative news RESID(-1) will increase the conditional volatility (ln(Garch) by 0.092359-0.000866.(-</span>
+ <span class="comment"># c(8)+c(6)). The positive news RESID(-1) will decrease the conditional volatility (ln(Garch) by -0.092359-</span>
+ <span class="comment"># 0.000866.( c(8)+c(6))</span>
+
+ <span class="comment">## 4) Garch in mean [USEFUL]</span>
+  <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span>
+    <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+    <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">12</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">garchInMean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span>
+    <span class="argument">fixed.pars</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma6</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma7</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma8</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma9</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma10</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ma11</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">dlsp</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+  <span class="symbol">sgarch.fit</span>
+ <span class="comment"># Interpretation: There is arch mean effects showing during the volatile periods, the risk premium rises as</span>
+ <span class="comment"># the coefficient of garch is 0.066680 in the mean model. This is a time varying risk premium.</span>
+
+ <span class="comment"># No correlation in standardized residuals:</span>
+  <span class="symbol">nNA</span> <span class="assignement">&lt;-</span> <span class="functioncall">which</span><span class="keyword">(</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>==<span class="symbol">F</span><span class="keyword">)</span>
+  <span class="symbol">stdresid</span> <span class="assignement">&lt;-</span> <span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">residuals</span><span class="keyword">/</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">sigma</span>
+  <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># No arch effects in standardized residuals:</span>
+  <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment"># Improvements in distributions in terms of Jarque-Bera statistics</span>
+  <span class="functioncall">jarque.test</span><span class="keyword">(</span><span class="symbol">stdresid</span><span class="keyword">)</span>
+
+ <span class="comment"># Static forecast: see the conditional variance changes</span>
+ <span class="keyword">?</span><span class="symbol">ugarchforecast</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">ugarchforecast</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">,</span> <span class="argument">n.ahead</span> <span class="argument">=</span> <span class="number">50</span><span class="keyword">)</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

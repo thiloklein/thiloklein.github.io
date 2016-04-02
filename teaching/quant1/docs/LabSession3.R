@@ -4,7 +4,7 @@
 # Lab Session 3: Model Selection; Inference; Dummy Variables
 
 # Required libraries: car, lmtest, zoo, sandwich
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -32,7 +32,7 @@
  hccm(lm.het, type="hc3")	# heteroscedasticity consistent errors used by Stata
 
 # --- [load shccm function:] ---
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
 
  summary(lm.hom)		# similar results under homoscedasticity
  shccm(lm.hom, "hc0") 
@@ -89,7 +89,7 @@
 
 
 # --- Ex 2: Multicollinearity; Variance Inflation Factor ------------------
- salary <- read.table("http://thiloklein.de/R/salary.txt", header=T, sep="	")
+ salary <- read.table("http://klein.uk/R/salary.txt", header=T, sep="	")
  str(salary)
  lm2 <- lm(LOGSAL ~ EDUC + LOGSALBEGIN + GENDER + MINORITY, data=salary)
  shccm(lm2)
@@ -109,7 +109,7 @@
 
 
 # --- Ex 3: The effects of having highly correlated regressors ------------------
- eaef21 <- read.csv("http://thiloklein.de/R/eaef21", header=T)
+ eaef21 <- read.csv("http://klein.uk/R/eaef21", header=T)
  str(eaef21)
  lm3w <- lm( SIBLINGS ~ SM + SF, data = eaef21[eaef21$ETHWHITE==1, ] )
  lm3b <- lm( SIBLINGS ~ SM + SF, data = eaef21[eaef21$ETHBLACK==1, ] )
@@ -152,7 +152,7 @@
 
 
 # --- Ex 5: Bank wages ------------------
- bank <- read.csv("http://thiloklein.de/R/bank", header=T)
+ bank <- read.csv("http://klein.uk/R/bank", header=T)
  str(bank)
 
  bank$logsalbegin <- log(bank$salbegin)
@@ -213,7 +213,7 @@
 
 
 # --- Ex 6: NO2 pollution ------------------
- no2poll <- read.csv("http://thiloklein.de/R/no2pollution", header=T)
+ no2poll <- read.csv("http://klein.uk/R/no2pollution", header=T)
  str(no2poll)
 
  lm6 <- lm(lno2 ~ lcars + temp + tchng23 + wndspd + wnddir + day, data=no2poll); shccm(lm6)
@@ -223,7 +223,7 @@
 
 
 # --- Ex 7: Programming in R ------------------
- data <- read.csv("http://thiloklein.de/R/dataset", header=T)
+ data <- read.csv("http://klein.uk/R/dataset", header=T)
  str(data)
 
  # source("Rprogramming.R")

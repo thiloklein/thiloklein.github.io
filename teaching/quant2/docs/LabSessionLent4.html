@@ -1,0 +1,721 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># MPO1-A Advanced Quantitative Research Methods</span>
+<span class="comment"># Thilo Klein</span>
+<span class="comment"># Lab Session 4: Limited Dependent Variables and Panel Data</span>
+
+<span class="comment"># Libraries: stats, VGAM, sampleSelection, sandwich, plm, Hmisc, corrgram, ellipse</span>
+  <span class="functioncall">setwd</span><span class="keyword">(</span><span class="string">"C:/Dokumente und Einstellungen/Thilo/Desktop/Lab_SessionsLT/Data"</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+<span class="comment">###############################</span>
+<span class="comment"># Limited Dependent Variables #</span>
+<span class="comment">###############################</span>
+
+
+<span class="comment"># --- Ex 1: Logit model -----------------------------</span>
+
+ <span class="symbol">eaef</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/eaef21.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: a) ---</span>
+<span class="comment"># Observe the distribution of ASVABC. ASVABC accounts for the result of an ability test.</span>
+
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: b) ---</span>
+<span class="comment"># Investigate if the probability of a respondent obtaining a bachelor's degree </span>
+<span class="comment"># from a four-year college (BACH=1) is related to the respondent's score on ASVABC,</span>
+<span class="comment"># by estimating a linear model and a logit model.</span>
+
+ <span class="symbol">BACH</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">S</span> <span class="keyword">&gt;</span> <span class="number">12</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span>
+ <span class="symbol">lm1b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1b</span><span class="keyword">)</span>
+
+ <span class="symbol">glm1b</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">logit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: c) ---</span>
+<span class="comment"># Plot the probabilities estimated. </span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm1b</span><span class="keyword">$</span><span class="symbol">fitted</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">fitted</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: d) ---</span>
+<span class="comment"># In order to interpret the logit results, estimate the marginal effects at the mean value </span>
+<span class="comment"># of ASVABC (default) and at values of 40, 55 and 70.</span>
+
+ <span class="symbol">M</span> <span class="assignement">&lt;-</span> <span class="functioncall">model.matrix</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="symbol">F.log</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="number">1</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">1</span> <span class="keyword">+</span> <span class="functioncall">exp</span><span class="keyword">(</span><span class="keyword">-</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+ <span class="symbol">f.log</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="functioncall">F.log</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">*</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="functioncall">F.log</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+
+ <span class="symbol">M</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">40</span><span class="keyword">;</span> <span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">f.log</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment">## Or use R built in logistic function</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">stats</span><span class="keyword">)</span>
+ <span class="symbol">M</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">55</span><span class="keyword">;</span> <span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">dlogis</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment">## Or use the simple outcome equation instead</span>
+ <span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">dlogis</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">70</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: e) ---</span>
+<span class="comment"># Give an interpretation of the OLS regression and explain why OLS is not a satisfactory </span>
+<span class="comment"># estimation method for this kind of model. </span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">lm1e</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1e</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm1e</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">lm1e</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: f) ---</span>
+<span class="comment"># For the logit model, generate the pseudo-R2.</span>
+
+ <span class="symbol">glm1f.null</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">logit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="number">1</span> <span class="keyword">-</span> <span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">/</span><span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">glm1f.null</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span>
+
+
+
+
+<span class="comment"># --- Ex 2: Probit model -----------------------------</span>
+ <span class="symbol">loan</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/loanapp.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">loan</span><span class="keyword">)</span>
+
+
+<span class="comment">#--- Ex 2: a) ---</span>
+<span class="comment"># Find the estimated probability of loan approval for both whites and nonwhites. </span>
+<span class="comment"># How do these compare with the linear probability estimates? </span>
+
+ <span class="symbol">glm2a</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">approve</span> <span class="keyword">~</span> <span class="symbol">white</span><span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">probit</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">loan</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">glm2a</span><span class="keyword">)</span>
+ <span class="comment"># Prob. of loan approval</span>
+ <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">glm2a</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span> <span class="comment"># whites</span>
+ <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">glm2a</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span> <span class="comment"># non-whites</span>
+
+ <span class="symbol">lm2a</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">approve</span> <span class="keyword">~</span> <span class="symbol">white</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">loan</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2a</span><span class="keyword">)</span>
+
+ <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">lm2a</span><span class="keyword">$</span><span class="symbol">coef</span> <span class="comment"># whites</span>
+ <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">lm2a</span><span class="keyword">$</span><span class="symbol">coef</span> <span class="comment"># non-whites</span>
+
+ <span class="comment"># In this case, predicted probabilities form probit and LPM are the cell frequencies</span>
+ <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">loan</span><span class="keyword">$</span><span class="symbol">approve</span><span class="keyword">,</span> <span class="symbol">loan</span><span class="keyword">$</span><span class="symbol">white</span><span class="keyword">,</span> <span class="symbol">mean</span><span class="keyword">)</span>
+
+
+<span class="comment">#--- Ex 2: b) ---</span>
+<span class="comment"># It might be that white people present characteristics which lead to higher approval </span>
+<span class="comment"># of loans.</span>
+
+ <span class="symbol">glm2b</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">approve</span> <span class="keyword">~</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">hrat</span> <span class="keyword">+</span> <span class="symbol">obrat</span> <span class="keyword">+</span> <span class="symbol">loanprc</span> <span class="keyword">+</span> <span class="symbol">unem</span> <span class="keyword">+</span> <span class="symbol">male</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">dep</span>
+                <span class="keyword">+</span> <span class="symbol">sch</span> <span class="keyword">+</span> <span class="symbol">cosign</span> <span class="keyword">+</span> <span class="symbol">chist</span> <span class="keyword">+</span> <span class="symbol">pubrec</span> <span class="keyword">+</span> <span class="symbol">mortlat1</span> <span class="keyword">+</span> <span class="symbol">mortlat2</span> <span class="keyword">+</span> <span class="symbol">vr</span>
+                <span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">probit</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">loan</span><span class="keyword">)</span>
+
+ <span class="comment">## b1. Is there statistically significant evidence of discrimination against nonwhites? </span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span>
+
+
+ <span class="comment">## b2. Is there statistically significant evidence of discrimination against family </span>
+ <span class="comment">## status (married and dep)?</span>
+
+ <span class="comment"># re-run the model without dep and marriage (making sure the sample is the same!)</span>
+ <span class="symbol">glm2b2</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">approve</span> <span class="keyword">~</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">hrat</span> <span class="keyword">+</span> <span class="symbol">obrat</span> <span class="keyword">+</span> <span class="symbol">loanprc</span> <span class="keyword">+</span> <span class="symbol">unem</span> <span class="keyword">+</span> <span class="symbol">male</span>
+                <span class="keyword">+</span> <span class="symbol">sch</span> <span class="keyword">+</span> <span class="symbol">cosign</span> <span class="keyword">+</span> <span class="symbol">chist</span> <span class="keyword">+</span> <span class="symbol">pubrec</span> <span class="keyword">+</span> <span class="symbol">mortlat1</span> <span class="keyword">+</span> <span class="symbol">mortlat2</span> <span class="keyword">+</span> <span class="symbol">vr</span>
+                <span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">probit</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">loan</span><span class="keyword">,</span> <span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">dep</span><span class="keyword">)</span>==<span class="symbol">F</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># generate the LR statistic and obtain the p-value</span>
+ <span class="symbol">D</span> <span class="assignement">&lt;-</span> <span class="number">2</span><span class="keyword">*</span><span class="keyword">(</span> <span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span> <span class="keyword">-</span> <span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">glm2b2</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span> <span class="keyword">)</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span><span class="argument">=</span><span class="symbol">D</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+
+ <span class="comment">## b3. Estimate the same model, now reporting the marginal effects (use the dnorm command).</span>
+ <span class="comment">## How are these effects calculated for continuous and binary independent variables?</span>
+
+<span class="comment"># --- Digression: Graphical model fit ---</span>
+ <span class="symbol">M</span><span class="assignement">&lt;-</span><span class="functioncall">model.matrix</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">x</span><span class="assignement">&lt;-</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">,</span><span class="number">0.01</span><span class="keyword">)</span>
+ <span class="comment"># x&lt;-seq(-10,10,0.01)</span>
+ <span class="symbol">y</span><span class="assignement">&lt;-</span><span class="functioncall">rep</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span><span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">for</span><span class="keyword">(</span><span class="symbol">i</span> <span class="keyword">in</span> <span class="number">1</span><span class="keyword">:</span><span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">{</span>
+        <span class="symbol">M</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">5</span><span class="keyword">]</span><span class="assignement">&lt;-</span><span class="symbol">x</span><span class="keyword">[</span><span class="symbol">i</span><span class="keyword">]</span>
+        <span class="symbol">y</span><span class="keyword">[</span><span class="symbol">i</span><span class="keyword">]</span><span class="assignement">&lt;-</span> <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y</span><span class="keyword">~</span><span class="symbol">x</span><span class="keyword">,</span><span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">,</span><span class="argument">ylab</span><span class="argument">=</span><span class="string">"P(approve=1)"</span><span class="keyword">,</span><span class="argument">xlab</span><span class="argument">=</span><span class="string">"loanprc"</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">points</span><span class="keyword">(</span><span class="functioncall">rep</span><span class="keyword">(</span><span class="number">0.2</span><span class="keyword">,</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">loan</span><span class="keyword">$</span><span class="symbol">loanprc</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="symbol">loan</span><span class="keyword">$</span><span class="symbol">loanprc</span><span class="keyword">,</span> <span class="argument">pch</span><span class="argument">=</span><span class="string">"|"</span><span class="keyword">)</span>
+
+
+ <span class="comment"># marginal effects (continuous variables): dep (number of dependents)</span>
+ <span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">9</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment"># marginal effects (binary variables): white</span>
+ <span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># -&gt; not meaningful</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">M1</span> <span class="assignement">&lt;-</span> <span class="symbol">M0</span> <span class="assignement">&lt;-</span> <span class="symbol">M</span>
+ <span class="symbol">M1</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">1</span><span class="keyword">;</span> <span class="symbol">M0</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">0</span>
+ <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M1</span><span class="keyword">%*%</span><span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M0</span><span class="keyword">%*%</span><span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># -&gt; more meaningful</span>
+
+
+ <span class="comment">## b4. Predict the events giving a success in the outcome as those cases with a </span>
+ <span class="comment">## predicted probability higher than 0.5.</span>
+
+ <span class="symbol">success</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">fitted</span> <span class="keyword">&gt;</span> <span class="number">0.5</span><span class="keyword">,</span> <span class="string">"success"</span><span class="keyword">,</span> <span class="string">"reject"</span><span class="keyword">)</span>
+ <span class="symbol">t</span> <span class="assignement">&lt;-</span> <span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">success</span><span class="keyword">,</span> <span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">model</span><span class="keyword">$</span><span class="symbol">approve</span><span class="keyword">)</span>
+ <span class="symbol">t</span><span class="keyword">/</span><span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">t</span><span class="keyword">)</span>
+
+
+<span class="comment">#--- Ex 2: c) ---</span>
+<span class="comment"># Estimate the model from part b) by logit. Compare the coefficient on white to the </span>
+<span class="comment"># probit estimate. </span>
+
+ <span class="symbol">glm2c.logit</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">approve</span> <span class="keyword">~</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">hrat</span> <span class="keyword">+</span> <span class="symbol">obrat</span> <span class="keyword">+</span> <span class="symbol">loanprc</span> <span class="keyword">+</span> <span class="symbol">unem</span> <span class="keyword">+</span> <span class="symbol">male</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">dep</span>
+                <span class="keyword">+</span> <span class="symbol">sch</span> <span class="keyword">+</span> <span class="symbol">cosign</span> <span class="keyword">+</span> <span class="symbol">chist</span> <span class="keyword">+</span> <span class="symbol">pubrec</span> <span class="keyword">+</span> <span class="symbol">mortlat1</span> <span class="keyword">+</span> <span class="symbol">mortlat2</span> <span class="keyword">+</span> <span class="symbol">vr</span>
+                <span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">logit</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">loan</span><span class="keyword">)</span>
+ <span class="symbol">glm2c.logit</span><span class="keyword">;</span> <span class="symbol">glm2b</span>
+ <span class="symbol">glm2c.logit</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">*</span><span class="number">0.625</span><span class="keyword">;</span>  <span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>
+
+
+<span class="comment">#--- Ex 2: d) ---</span>
+<span class="comment"># Compare the performance for all the models, consider actual and predicted values </span>
+<span class="comment"># for different categories ...</span>
+
+ <span class="comment">## 3 Models:</span>
+ <span class="comment"># - Linear lm2d:</span>
+ <span class="symbol">lm2d</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">approve</span> <span class="keyword">~</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">hrat</span> <span class="keyword">+</span> <span class="symbol">obrat</span> <span class="keyword">+</span> <span class="symbol">loanprc</span> <span class="keyword">+</span> <span class="symbol">unem</span> <span class="keyword">+</span> <span class="symbol">male</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">dep</span>
+                <span class="keyword">+</span> <span class="symbol">sch</span> <span class="keyword">+</span> <span class="symbol">cosign</span> <span class="keyword">+</span> <span class="symbol">chist</span> <span class="keyword">+</span> <span class="symbol">pubrec</span> <span class="keyword">+</span> <span class="symbol">mortlat1</span> <span class="keyword">+</span> <span class="symbol">mortlat2</span> <span class="keyword">+</span> <span class="symbol">vr</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">loan</span><span class="keyword">)</span>
+ <span class="comment"># - Probit glm2b </span>
+ <span class="comment"># - Logit  glm2c.logit</span>
+
+ <span class="symbol">data</span> <span class="assignement">&lt;-</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="argument">mean.approve</span><span class="argument">=</span><span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">model</span><span class="keyword">$</span><span class="symbol">approve</span><span class="keyword">,</span> <span class="argument">mean.app_LPM</span><span class="argument">=</span><span class="symbol">lm2d</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">,</span> <span class="argument">mean.app_probit</span><span class="argument">=</span><span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">,</span> <span class="argument">mean.app_logit</span><span class="argument">=</span><span class="symbol">glm2c.logit</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span>
+ <span class="symbol">INDICES</span> <span class="assignement">&lt;-</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="argument">dependencies</span><span class="argument">=</span><span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">model</span><span class="keyword">$</span><span class="symbol">dep</span><span class="keyword">)</span>
+ <span class="symbol">FUN</span> <span class="assignement">&lt;-</span> <span class="symbol">mean</span>
+ <span class="comment"># the above is not what we want... did not yet get the following to work:</span>
+ <span class="comment"># FUN &lt;- function(x){ mean(ifelse(x&gt;.5,1,0)) }</span>
+ <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">,</span> <span class="symbol">INDICES</span><span class="keyword">,</span> <span class="symbol">FUN</span><span class="keyword">)</span>
+
+ <span class="symbol">obrat.cat</span> <span class="assignement">&lt;-</span> <span class="functioncall">cut</span><span class="keyword">(</span><span class="symbol">glm2b</span><span class="keyword">$</span><span class="symbol">model</span><span class="keyword">$</span><span class="symbol">obrat</span><span class="keyword">,</span> <span class="argument">breaks</span><span class="argument">=</span><span class="functioncall">quantile</span><span class="keyword">(</span><span class="symbol">loan</span><span class="keyword">$</span><span class="symbol">obrat</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment"># complete this exercise in your own time.</span>
+
+
+
+
+<span class="comment"># --- Ex 3: Tobit model -----------------------------</span>
+
+ <span class="symbol">fringe</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/FRINGE.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">fringe</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 3: a) ---</span>
+<span class="comment"># For what percentage of the workers in the sample is pension equal to zero? </span>
+<span class="comment"># What is the range of pension for workers with nonzero pension benefits? </span>
+<span class="comment"># Why is a Tobit model appropriate for modeling pension? </span>
+
+ <span class="symbol">nopension</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">fringe</span><span class="keyword">$</span><span class="symbol">pension</span>==<span class="number">0</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span>
+ <span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">nopension</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">fringe</span><span class="keyword">$</span><span class="symbol">pension</span><span class="keyword">[</span><span class="symbol">nopension</span>==<span class="number">0</span><span class="keyword">]</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: b) ---</span>
+<span class="comment"># Do whites and males have statistically significant higher expected pension benefits?</span>
+
+ <span class="symbol">lm3b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">pension</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">tenure</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">depends</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">male</span>
+        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fringe</span><span class="keyword">)</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">VGAM</span><span class="keyword">)</span>
+ <span class="symbol">vglm3b</span> <span class="assignement">&lt;-</span> <span class="functioncall">vglm</span><span class="keyword">(</span><span class="symbol">pension</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">tenure</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">depends</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">male</span>
+        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fringe</span><span class="keyword">,</span> <span class="functioncall">tobit</span><span class="keyword">(</span><span class="argument">Lower</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">vglm3b</span><span class="keyword">)</span>
+
+ <span class="symbol">vglm3b2</span> <span class="assignement">&lt;-</span> <span class="functioncall">vglm</span><span class="keyword">(</span><span class="symbol">pension</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">tenure</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">depends</span> <span class="keyword">+</span> <span class="symbol">married</span>
+        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fringe</span><span class="keyword">,</span> <span class="functioncall">tobit</span><span class="keyword">(</span><span class="argument">Lower</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span>
+ <span class="comment"># generate the LR statistic and obtain the p-value</span>
+ <span class="symbol">D</span> <span class="assignement">&lt;-</span> <span class="number">2</span><span class="keyword">*</span><span class="keyword">(</span> <span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">vglm3b</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span> <span class="keyword">-</span> <span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">vglm3b2</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span> <span class="keyword">)</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span><span class="argument">=</span><span class="symbol">D</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: c) ---</span>
+<span class="comment"># Estimate the difference in expected pension benefits for a white male and a nonwhite </span>
+<span class="comment"># female, both of whom are 35 years old, single with no dependents, have 16 years of </span>
+<span class="comment"># education, and 10 years of experience. </span>
+
+ <span class="comment"># manual tobit-prediction for white males</span>
+ <span class="symbol">xb</span> <span class="assignement">&lt;-</span> <span class="functioncall">sum</span><span class="keyword">(</span> <span class="symbol">vglm3b</span><span class="keyword">@</span><span class="slot">coefficients</span><span class="keyword">[</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">:</span><span class="number">10</span><span class="keyword">)</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span> <span class="number">10</span><span class="keyword">,</span> <span class="number">35</span><span class="keyword">,</span> <span class="number">10</span><span class="keyword">,</span> <span class="number">16</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">sigma2</span> <span class="assignement">&lt;-</span> <span class="functioncall">exp</span><span class="keyword">(</span><span class="symbol">vglm3b</span><span class="keyword">@</span><span class="slot">coefficients</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="symbol">xb</span><span class="keyword">/</span><span class="symbol">sigma2</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">xb</span> <span class="keyword">+</span> <span class="symbol">sigma2</span><span class="keyword">*</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="symbol">xb</span><span class="keyword">/</span><span class="symbol">sigma2</span><span class="keyword">)</span>
+
+ <span class="comment"># manual tobit-prediction for non-white females</span>
+ <span class="symbol">xb</span> <span class="assignement">&lt;-</span> <span class="functioncall">sum</span><span class="keyword">(</span> <span class="symbol">vglm3b</span><span class="keyword">@</span><span class="slot">coefficients</span><span class="keyword">[</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">:</span><span class="number">10</span><span class="keyword">)</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span> <span class="number">10</span><span class="keyword">,</span> <span class="number">35</span><span class="keyword">,</span> <span class="number">10</span><span class="keyword">,</span> <span class="number">16</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">sigma2</span> <span class="assignement">&lt;-</span> <span class="functioncall">exp</span><span class="keyword">(</span><span class="symbol">vglm3b</span><span class="keyword">@</span><span class="slot">coefficients</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">pnorm</span><span class="keyword">(</span><span class="symbol">xb</span><span class="keyword">/</span><span class="symbol">sigma2</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">xb</span> <span class="keyword">+</span> <span class="symbol">sigma2</span><span class="keyword">*</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="symbol">xb</span><span class="keyword">/</span><span class="symbol">sigma2</span><span class="keyword">)</span>
+
+ <span class="comment"># comparison with linear model:</span>
+ <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lm3b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">8</span><span class="keyword">:</span><span class="number">9</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="comment"># try predict.vglm ???</span>
+ <span class="comment"># fringe.wm &lt;- fringe.nwf &lt;- data.frame(vglm3b@x)[1,]</span>
+
+ <span class="comment"># exper = tenure = 10, age = 35, educ = 16, depends = 0, married = 0, white = 1, and male = 1</span>
+ <span class="comment"># fringe.wm[,2:9] &lt;- c(10, 35, 10, 16, 0, 0, 1, 1)</span>
+ <span class="comment"># p.wm &lt;- predict.vglm(vglm3b, newdata=fringe.wm)</span>
+ <span class="comment"># exp(6.518521)	# = sigma^2</span>
+
+ <span class="comment"># fringe.nwf[,2:9] &lt;- c(10, 35, 10, 16, 0, 0, 0, 0)</span>
+ <span class="comment"># p.nwf &lt;- predict.vglm(vglm3b, newdata=fringe.nwf)</span>
+ <span class="comment"># p.wm[1] - p.nwf[1]</span>
+
+
+<span class="comment"># --- Ex 3: d) ---</span>
+<span class="comment"># Add union to the Tobit model and comment on its significance. </span>
+
+ <span class="symbol">vglm3d</span> <span class="assignement">&lt;-</span> <span class="functioncall">vglm</span><span class="keyword">(</span><span class="symbol">pension</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">tenure</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">depends</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">male</span>
+        <span class="keyword">+</span> <span class="symbol">union</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fringe</span><span class="keyword">,</span> <span class="functioncall">tobit</span><span class="keyword">(</span><span class="argument">Lower</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">vglm3d</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: e) ---</span>
+<span class="comment"># Apply the Tobit model from part d) but with peratio, the pension-earnings ratio, as </span>
+<span class="comment"># the dependent variable. Does gender or race have an effect on the pension-earnings ratio?</span>
+
+ <span class="symbol">vglm3e</span> <span class="assignement">&lt;-</span> <span class="functioncall">vglm</span><span class="keyword">(</span><span class="symbol">peratio</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">tenure</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">depends</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">white</span> <span class="keyword">+</span> <span class="symbol">male</span>
+        <span class="keyword">+</span> <span class="symbol">union</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fringe</span><span class="keyword">,</span> <span class="functioncall">tobit</span><span class="keyword">(</span><span class="argument">Lower</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">vglm3e</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 4: Heckman model (optional) -----------------------------</span>
+<span class="comment"># Greene (2003): example 22.8, page 786</span>
+<span class="comment"># Wooldridge (2003): example 17.5, page 590 </span>
+
+ <span class="symbol">mroz</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/mroz.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 4: a) ---</span>
+<span class="comment"># Using the 428 women who were in the workforce, estimate the return to education by OLS </span>
+
+ <span class="symbol">mroz.w</span> <span class="assignement">&lt;-</span> <span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">,</span> <span class="symbol">inlf</span>==<span class="number">1</span><span class="keyword">)</span>
+ <span class="symbol">lm4a</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">nwifeinc</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">kidslt6</span> <span class="keyword">+</span> <span class="symbol">kidsge6</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm4a</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 4: b) ---</span>
+<span class="comment"># Estimate the return to education by heckit from library sampleSelection, where all exogenous </span>
+<span class="comment"># variables show up in the second-stage regression. </span>
+
+ <span class="comment"># install.packages("sampleSelection")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">sampleSelection</span><span class="keyword">)</span>
+ <span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">lfp</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.logical</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">inlf</span><span class="keyword">)</span>
+ <span class="symbol">heck4b</span> <span class="assignement">&lt;-</span> <span class="functioncall">heckit</span><span class="keyword">(</span><span class="argument">selection</span> <span class="argument">=</span> <span class="symbol">lfp</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">nwifeinc</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">kidslt6</span> <span class="keyword">+</span> <span class="symbol">kidsge6</span>
+                <span class="keyword">,</span> <span class="argument">outcome</span> <span class="argument">=</span> <span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">nwifeinc</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">kidslt6</span> <span class="keyword">+</span> <span class="symbol">kidsge6</span>
+                <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz</span><span class="keyword">,</span> <span class="argument">method</span><span class="argument">=</span><span class="string">"2step"</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">heck4b</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 4: c) ---</span>
+<span class="comment"># Using only the 428 observations for working women, regress lambda_hat on </span>
+<span class="comment"># educ, exper, exper2, nwifeinc, age, kidslt6, and kidsge6. </span>
+<span class="comment"># How big is the R-squared? How does this help explain your findings from part b)?</span>
+
+ <span class="symbol">invMills</span> <span class="assignement">&lt;-</span> <span class="symbol">heck4b</span><span class="keyword">$</span><span class="symbol">invMillsRatio</span>
+ <span class="symbol">lm4c</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">invMills</span><span class="keyword">[</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">inlf</span>==<span class="number">1</span><span class="keyword">]</span>
+                <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">nwifeinc</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">kidslt6</span> <span class="keyword">+</span> <span class="symbol">kidsge6</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm4c</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 4: d) ---</span>
+<span class="comment"># Finally, estimate the return to education by heckit, where restrictions are applied in </span>
+<span class="comment"># the second stage. In other words, the regression is log(wage), on educ, exper, exper2 </span>
+<span class="comment"># and lambda_hat. Calculate lambda_hat considering exper, exper2, nwifeinc, age, kidslt6, </span>
+<span class="comment"># and kidsge6 as explanatories.</span>
+
+ <span class="symbol">heck4d</span> <span class="assignement">&lt;-</span> <span class="functioncall">heckit</span><span class="keyword">(</span><span class="argument">selection</span> <span class="argument">=</span> <span class="symbol">lfp</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">nwifeinc</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">kidslt6</span> <span class="keyword">+</span> <span class="symbol">kidsge6</span>
+                <span class="keyword">,</span> <span class="argument">outcome</span> <span class="argument">=</span> <span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="comment">#+ invMills</span>
+                <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz</span><span class="keyword">,</span> <span class="argument">method</span><span class="argument">=</span><span class="string">"2step"</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">heck4d</span><span class="keyword">)</span>
+
+
+
+
+
+<span class="comment">##############</span>
+<span class="comment"># Panel Data #</span>
+<span class="comment">##############</span>
+
+<span class="comment"># --- Ex 1: Least Square Dummy Variable estimation, including dummies per time-period -----------------------------</span>
+ <span class="symbol">fert</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/FERTIL1.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">fert</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 1: a) ---</span>
+<span class="comment"># After controlling for all other observable factors, what has happened to fertility </span>
+<span class="comment"># rates over time?</span>
+
+ <span class="symbol">fert</span><span class="keyword">$</span><span class="symbol">year</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">fert</span><span class="keyword">$</span><span class="symbol">year</span><span class="keyword">)</span>
+ <span class="symbol">lm1a</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">kids</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">agesq</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">east</span> <span class="keyword">+</span> <span class="symbol">northcen</span> <span class="keyword">+</span> <span class="symbol">west</span> <span class="keyword">+</span> <span class="symbol">farm</span> <span class="keyword">+</span> <span class="symbol">othrural</span>
+        <span class="keyword">+</span> <span class="symbol">town</span> <span class="keyword">+</span> <span class="symbol">smcity</span> <span class="keyword">+</span> <span class="symbol">year</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fert</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1a</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: b) ---</span>
+<span class="comment"># South is the base group. Test whether region of the country at age 16 has an effect </span>
+<span class="comment"># on fertility.</span>
+
+ <span class="symbol">hc0</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"HC0"</span><span class="keyword">)</span>
+ <span class="symbol">hc1</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"HC1"</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">sandwich</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm1a</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"east=0"</span><span class="keyword">,</span><span class="string">"northcen=0"</span><span class="keyword">,</span><span class="string">"west=0"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: c) ---</span>
+<span class="comment"># Test whether other living environment characteristics at 16 have an effect on fertility.</span>
+
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm1a</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"farm"</span><span class="keyword">,</span><span class="string">"othrural"</span><span class="keyword">,</span><span class="string">"town"</span><span class="keyword">,</span><span class="string">"smcity"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 1: d) ---</span>
+<span class="comment"># Heteroskedasticity. Has the variance of error u changed over time?</span>
+
+ <span class="symbol">lm1d</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm1a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">~</span> <span class="symbol">year</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fert</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1d</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm1d</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"year74"</span><span class="keyword">,</span><span class="string">"year76"</span><span class="keyword">,</span><span class="string">"year78"</span><span class="keyword">,</span><span class="string">"year80"</span><span class="keyword">,</span><span class="string">"year82"</span><span class="keyword">,</span><span class="string">"year84"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: e) ---</span>
+<span class="comment"># Add interaction terms y74*educ,...,y84*educ to the model estimated. Explain what </span>
+<span class="comment"># these represent. Are they jointly significant?</span>
+
+ <span class="symbol">lm1e</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">kids</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">age</span> <span class="keyword">+</span> <span class="symbol">agesq</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">east</span> <span class="keyword">+</span> <span class="symbol">northcen</span> <span class="keyword">+</span> <span class="symbol">west</span> <span class="keyword">+</span> <span class="symbol">farm</span> <span class="keyword">+</span> <span class="symbol">othrural</span>
+        <span class="keyword">+</span> <span class="symbol">town</span> <span class="keyword">+</span> <span class="symbol">smcity</span> <span class="keyword">+</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span><span class="keyword">:</span><span class="symbol">year</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">fert</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1e</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">lm1e</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"educ:year74"</span><span class="keyword">,</span><span class="string">"educ:year76"</span><span class="keyword">,</span><span class="string">"educ:year78"</span><span class="keyword">,</span><span class="string">"educ:year80"</span><span class="keyword">,</span><span class="string">"educ:year82"</span>
+        <span class="keyword">,</span><span class="string">"educ:year84"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 2: Pooled OLS (POLS), difference-equations and fixed effects -----------------------------</span>
+ <span class="symbol">murder</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/MURDER.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">murder</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: b) ---</span>
+<span class="comment"># Using just years 1990 and 1993, estimate the equation from part a) considering time </span>
+<span class="comment"># effects. Do you find any evidence for a deterrent effect?</span>
+
+ <span class="symbol">murder</span><span class="keyword">$</span><span class="symbol">id</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">murder</span><span class="keyword">$</span><span class="symbol">id</span><span class="keyword">)</span>
+ <span class="symbol">murder</span><span class="keyword">$</span><span class="symbol">year</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">murder</span><span class="keyword">$</span><span class="symbol">year</span><span class="keyword">)</span>
+ <span class="symbol">murder.y</span> <span class="assignement">&lt;-</span> <span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">murder</span><span class="keyword">,</span> <span class="symbol">d90</span>==<span class="number">1</span> <span class="keyword">|</span> <span class="symbol">d93</span>==<span class="number">1</span><span class="keyword">)</span>
+ <span class="symbol">lm1b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">mrdrte</span> <span class="keyword">~</span> <span class="symbol">d93</span> <span class="keyword">+</span> <span class="symbol">exec</span> <span class="keyword">+</span> <span class="symbol">unem</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">murder.y</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1b</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: c) ---</span>
+<span class="comment"># Now, using 1990 and 1993, estimate the equation by FIXED EFFECTS.</span>
+
+ <span class="comment">## LSDV (Least Squares Dummy Variable estimator)</span>
+ <span class="symbol">lm2c.LSDV</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">mrdrte</span> <span class="keyword">~</span> <span class="symbol">d93</span> <span class="keyword">+</span> <span class="symbol">exec</span> <span class="keyword">+</span> <span class="symbol">unem</span> <span class="keyword">+</span> <span class="symbol">id</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">murder.y</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm2c.LSDV</span><span class="keyword">)</span>
+
+ <span class="comment">## Time-demeaning ("within" estimator)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">plm</span><span class="keyword">)</span>
+ <span class="symbol">plm2c.within</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">mrdrte</span> <span class="keyword">~</span> <span class="symbol">d93</span> <span class="keyword">+</span> <span class="symbol">exec</span> <span class="keyword">+</span> <span class="symbol">unem</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">murder.y</span>
+                        <span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"within"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"id"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">plm1c.within</span><span class="keyword">)</span>
+
+ <span class="comment"># First differencing ("first-differencing" estimator)</span>
+ <span class="symbol">plm2c.fd</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">mrdrte</span> <span class="keyword">~</span> <span class="symbol">d93</span> <span class="keyword">+</span> <span class="symbol">exec</span> <span class="keyword">+</span> <span class="symbol">unem</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">murder.y</span>
+                        <span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"fd"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"id"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">plm2c.fd</span><span class="keyword">)</span>
+
+ <span class="comment">## Note: all models produce exactly the same results! </span>
+ <span class="comment">## (for the "fd" model, the effect of d93 is lost due to differencing)</span>
+
+
+<span class="comment"># --- Ex 2: d) ---</span>
+<span class="comment"># Use the heteroscedasticity-robust standard error for the estimations in part c).</span>
+
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2c.LSDV</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">plm2c.within</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># errors need to be corrected (Farnsworth, p. 20)?</span>
+ <span class="comment"># plm2c.within gives same results for se as STATA.</span>
+
+
+<span class="comment"># --- Ex 2: e) ---</span>
+<span class="comment"># Find the state that has the largest number for the execution variable (exec) in 1993. </span>
+<span class="comment"># How much higher is this value from the next highest value?</span>
+
+ <span class="functioncall">tail</span><span class="keyword">(</span> <span class="symbol">murder</span><span class="keyword">[</span><span class="functioncall">order</span><span class="keyword">(</span><span class="symbol">murder</span><span class="keyword">$</span><span class="symbol">year</span><span class="keyword">,</span> <span class="symbol">murder</span><span class="keyword">$</span><span class="symbol">exec</span><span class="keyword">)</span><span class="keyword">,</span><span class="keyword">]</span> <span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: f) ---</span>
+<span class="comment"># Estimate the equation, dropping Texas from the analysis. Compute the usual and </span>
+<span class="comment"># heteroskedasticity-robust standard errors. What do you find? </span>
+
+ <span class="symbol">plm2f.within</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">mrdrte</span> <span class="keyword">~</span> <span class="symbol">d93</span> <span class="keyword">+</span> <span class="symbol">exec</span> <span class="keyword">+</span> <span class="symbol">unem</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">murder.y</span><span class="keyword">,</span> <span class="symbol">state</span><span class="keyword">!=</span><span class="string">"TX"</span><span class="keyword">)</span>
+                        <span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"within"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"id"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">plm2f.within</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">plm2f.within</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: g) ---</span>
+<span class="comment"># Finally, use all data. Estimate the two-way fixed effects with robust standard </span>
+<span class="comment"># errors and conclude.</span>
+
+ <span class="symbol">plm2g.within</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">mrdrte</span> <span class="keyword">~</span> <span class="symbol">exec</span> <span class="keyword">+</span> <span class="symbol">unem</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">murder</span>
+                        <span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"within"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"twoways"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"id"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">plm2g.within</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">plm2g.within</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 3: Panel Data, Random Effects, Fixed Effects and First Differences -----------------------------</span>
+ <span class="symbol">wage</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/wagepan.csv"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">wage</span><span class="keyword">)</span>
+
+ <span class="symbol">waget</span> <span class="assignement">&lt;-</span> <span class="functioncall">pdata.frame</span><span class="keyword">(</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"nr"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">head</span><span class="keyword">(</span><span class="symbol">waget</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">waget</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: a) ---</span>
+<span class="comment"># Obtain summary statistics for lwage, educ, black, hisp, exper, married and union.</span>
+
+ <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">)</span>
+ <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">year</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.factor</span><span class="keyword">(</span><span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">year</span><span class="keyword">)</span>
+
+ <span class="symbol">wage.sub</span> <span class="assignement">&lt;-</span> <span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="argument">select</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"lwage"</span><span class="keyword">,</span><span class="string">"educ"</span><span class="keyword">,</span><span class="string">"black"</span><span class="keyword">,</span><span class="string">"hisp"</span><span class="keyword">,</span><span class="string">"exper"</span><span class="keyword">,</span><span class="string">"married"</span><span class="keyword">,</span><span class="string">"union"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">for</span><span class="keyword">(</span><span class="symbol">i</span> <span class="keyword">in</span> <span class="number">1</span><span class="keyword">:</span><span class="number">7</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="symbol">m</span> <span class="assignement">&lt;-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">wage.sub</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">)</span>
+   <span class="symbol">s.o</span> <span class="assignement">&lt;-</span> <span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">wage.sub</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">)</span>                                                                      <span class="comment"># overall</span>
+   <span class="symbol">s.b</span> <span class="assignement">&lt;-</span> <span class="functioncall">sd</span><span class="keyword">(</span><span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">wage.sub</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">,</span> <span class="symbol">mean</span><span class="keyword">)</span><span class="keyword">)</span>                                           <span class="comment"># between</span>
+   <span class="symbol">s.w</span> <span class="assignement">&lt;-</span> <span class="functioncall">sd</span><span class="keyword">(</span> <span class="functioncall">unlist</span><span class="keyword">(</span> <span class="functioncall">by</span><span class="keyword">(</span> <span class="symbol">wage.sub</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="symbol">x</span> <span class="keyword">-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">)</span> <span class="keyword">)</span><span class="comment"># within</span>
+   <span class="functioncall">cat</span><span class="keyword">(</span><span class="string">"------------------------------------------ \n"</span><span class="keyword">)</span>
+   <span class="functioncall">cat</span><span class="keyword">(</span><span class="string">"Variable:"</span><span class="keyword">,</span> <span class="functioncall">names</span><span class="keyword">(</span><span class="symbol">wage.sub</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">,</span> <span class="string">"\n"</span><span class="keyword">)</span>
+   <span class="functioncall">print</span><span class="keyword">(</span><span class="functioncall">round</span><span class="keyword">(</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="argument">Mean</span><span class="argument">=</span><span class="symbol">m</span><span class="keyword">,</span> <span class="argument">SE.overall</span><span class="argument">=</span><span class="symbol">s.o</span><span class="keyword">,</span> <span class="argument">SE.between</span><span class="argument">=</span><span class="symbol">s.b</span><span class="keyword">,</span> <span class="argument">SE.within</span><span class="argument">=</span><span class="symbol">s.w</span><span class="keyword">)</span><span class="keyword">,</span> <span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span>
+   <span class="functioncall">cat</span><span class="keyword">(</span><span class="string">"\n"</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+
+
+<span class="comment"># --- Ex 3: b) ---</span>
+<span class="comment"># Estimate a wage equation. Use simple OLS. Comment on the results. In particular, </span>
+<span class="comment"># is this a panel data estimator?</span>
+
+ <span class="symbol">lm3b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">hisp</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">union</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">wage</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm3b</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: c) ---</span>
+<span class="comment"># In order to get an indication whether the errors are correlated over time, we will </span>
+<span class="comment"># look at the correlations of the residuals over time.</span>
+
+ <span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="symbol">lm3b</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="symbol">e_1</span> <span class="assignement">&lt;-</span> <span class="functioncall">unlist</span><span class="keyword">(</span> <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="symbol">x</span><span class="keyword">[</span><span class="keyword">-</span><span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">e_2</span> <span class="assignement">&lt;-</span> <span class="functioncall">unlist</span><span class="keyword">(</span> <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="symbol">x</span><span class="keyword">[</span><span class="keyword">-</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">7</span><span class="keyword">:</span><span class="number">8</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">e_3</span> <span class="assignement">&lt;-</span> <span class="functioncall">unlist</span><span class="keyword">(</span> <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="symbol">x</span><span class="keyword">[</span><span class="keyword">-</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">:</span><span class="number">8</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">e_4</span> <span class="assignement">&lt;-</span> <span class="functioncall">unlist</span><span class="keyword">(</span> <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="functioncall">rep</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">x</span><span class="keyword">[</span><span class="keyword">-</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">5</span><span class="keyword">:</span><span class="number">8</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+<span class="comment"># [1] -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236 -0.06485808 -0.39711911</span>
+<span class="comment"># [1]          NA -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236 -0.06485808</span>
+<span class="comment"># [1]          NA          NA -0.01248641  0.06024635 -0.46856702  0.14015050 -0.48961525  0.20037236</span>
+<span class="comment"># ...</span>
+
+ <span class="symbol">C</span> <span class="assignement">&lt;-</span> <span class="functioncall">cbind</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">,</span> <span class="symbol">e_1</span><span class="keyword">,</span> <span class="symbol">e_2</span><span class="keyword">,</span> <span class="symbol">e_3</span><span class="keyword">,</span> <span class="symbol">e_4</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">Hmisc</span><span class="keyword">)</span>
+ <span class="comment"># cor(C, method="pearson", use="complete")</span>
+ <span class="comment"># cor(C, method="pearson", use="pairwise.complete")</span>
+ <span class="functioncall">rcorr</span><span class="keyword">(</span><span class="symbol">C</span><span class="keyword">)</span>
+
+ <span class="comment">## or simply:</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Digression: Correlation Matrix with significance levels ---</span>
+ <span class="symbol">corstars</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="symbol">x</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.matrix</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+   <span class="symbol">R</span> <span class="assignement">&lt;-</span> <span class="functioncall">rcorr</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r</span>
+   <span class="symbol">p</span> <span class="assignement">&lt;-</span> <span class="functioncall">rcorr</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">P</span>
+   <span class="symbol">mystars</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">p</span> <span class="keyword">&lt;</span> <span class="number">.01</span><span class="keyword">,</span> <span class="string">"***"</span><span class="keyword">,</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">p</span> <span class="keyword">&lt;</span> <span class="number">.05</span><span class="keyword">,</span> <span class="string">"** "</span><span class="keyword">,</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">p</span> <span class="keyword">&lt;</span> <span class="number">.1</span><span class="keyword">,</span> <span class="string">"*  "</span><span class="keyword">,</span> <span class="string">"   "</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+   <span class="symbol">R</span> <span class="assignement">&lt;-</span> <span class="functioncall">format</span><span class="keyword">(</span><span class="functioncall">round</span><span class="keyword">(</span><span class="symbol">R</span><span class="keyword">,</span> <span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span>
+   <span class="symbol">Rnew</span> <span class="assignement">&lt;-</span> <span class="functioncall">matrix</span><span class="keyword">(</span><span class="functioncall">paste</span><span class="keyword">(</span><span class="symbol">R</span><span class="keyword">,</span> <span class="symbol">mystars</span><span class="keyword">,</span> <span class="argument">sep</span><span class="argument">=</span><span class="string">""</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">ncol</span><span class="argument">=</span><span class="functioncall">ncol</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+   <span class="functioncall">rownames</span><span class="keyword">(</span><span class="symbol">Rnew</span><span class="keyword">)</span> <span class="assignement">&lt;-</span> <span class="functioncall">colnames</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+   <span class="functioncall">colnames</span><span class="keyword">(</span><span class="symbol">Rnew</span><span class="keyword">)</span> <span class="assignement">&lt;-</span> <span class="functioncall">colnames</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+   <span class="symbol">Rnew</span><span class="keyword">[</span><span class="functioncall">upper.tri</span><span class="keyword">(</span><span class="symbol">Rnew</span><span class="keyword">,</span><span class="argument">diag</span><span class="argument">=</span><span class="number">TRUE</span><span class="keyword">)</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="string">""</span>
+   <span class="symbol">Rnew</span> <span class="assignement">&lt;-</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">Rnew</span><span class="keyword">)</span><span class="keyword">[</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="keyword">-</span><span class="functioncall">length</span><span class="keyword">(</span><span class="functioncall">colnames</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">]</span>
+   <span class="functioncall">return</span><span class="keyword">(</span><span class="symbol">Rnew</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+<span class="functioncall">corstars</span><span class="keyword">(</span><span class="symbol">C</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Digression: Graphical Representation of Correlation Matrix (CORRGRAM) ---</span>
+ <span class="comment"># install.packages("corrgram")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">corrgram</span><span class="keyword">)</span>
+ <span class="functioncall">corrgram</span><span class="keyword">(</span><span class="symbol">C</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">lower.panel</span><span class="argument">=</span><span class="symbol">panel.ellipse</span><span class="keyword">,</span>
+  <span class="argument">upper.panel</span><span class="argument">=</span><span class="symbol">panel.pts</span><span class="keyword">,</span> <span class="argument">text.panel</span><span class="argument">=</span><span class="symbol">panel.txt</span><span class="keyword">,</span>
+  <span class="argument">diag.panel</span><span class="argument">=</span><span class="symbol">panel.minmax</span><span class="keyword">,</span>
+  <span class="argument">main</span><span class="argument">=</span><span class="string">"Individual Level Part-Worths"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Digression: Graphical Representation of Correlation Matrix (PLOTCORR) ---</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">ellipse</span><span class="keyword">)</span>
+ <span class="symbol">corC</span> <span class="assignement">&lt;-</span> <span class="functioncall">cor</span><span class="keyword">(</span><span class="symbol">C</span><span class="keyword">,</span> <span class="argument">use</span><span class="argument">=</span><span class="string">"complete"</span><span class="keyword">)</span>
+ <span class="symbol">colors</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"#A50F15"</span><span class="keyword">,</span><span class="string">"#DE2D26"</span><span class="keyword">,</span><span class="string">"#FB6A4A"</span><span class="keyword">,</span><span class="string">"#FCAE91"</span><span class="keyword">,</span><span class="string">"#FEE5D9"</span><span class="keyword">,</span><span class="string">"white"</span><span class="keyword">,</span>
+            <span class="string">"#EFF3FF"</span><span class="keyword">,</span><span class="string">"#BDD7E7"</span><span class="keyword">,</span><span class="string">"#6BAED6"</span><span class="keyword">,</span><span class="string">"#3182BD"</span><span class="keyword">,</span><span class="string">"#08519C"</span><span class="keyword">)</span>
+ <span class="functioncall">plotcorr</span><span class="keyword">(</span><span class="symbol">corC</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="symbol">colors</span><span class="keyword">[</span><span class="number">5</span><span class="keyword">*</span><span class="symbol">xc</span> <span class="keyword">+</span> <span class="number">6</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">type</span> <span class="argument">=</span> <span class="string">"lower"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: d) ---</span>
+<span class="comment"># Adjust the standard errors for the correlation of the residuals over time per individual. </span>
+<span class="comment"># Are these standard errors different from the simple OLS ones? </span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3b</span><span class="keyword">)</span>
+ <span class="functioncall">clx</span><span class="keyword">(</span><span class="symbol">lm3b</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="symbol">wage</span><span class="keyword">$</span><span class="symbol">nr</span><span class="keyword">)</span>
+
+ <span class="comment"># Alternatively:</span>
+ <span class="symbol">lm3d.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">hisp</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">union</span>
+                        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"pooling"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"nr"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3d.ols</span><span class="keyword">)</span> <span class="comment"># -&gt; same as coeftest(lm3b)</span>
+ <span class="comment"># Method "arellano" also allows for general heteroskedasticity / serial correlation structure:</span>
+ <span class="comment"># "Panel data econometrics in R: the plm package", page 31.</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3d.ols</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="functioncall">pvcovHC</span><span class="keyword">(</span><span class="symbol">lm3d.ols</span><span class="keyword">,</span> <span class="argument">method</span><span class="argument">=</span><span class="string">"arellano"</span><span class="keyword">)</span><span class="keyword">)</span> <span class="comment"># -&gt; same as clx(lm3b, 1, wage$nr)</span>
+
+
+<span class="comment"># --- Ex 3: e) ---</span>
+<span class="comment"># Estimate the model as in b), allowing for random and fixed unobserved individual effects.</span>
+
+ <span class="comment">## OLS:</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3d.ols</span><span class="keyword">)</span>
+
+ <span class="comment">## Random Effects:</span>
+ <span class="symbol">lm3e.re</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">hisp</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">union</span>
+                        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"random"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"nr"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm3e.re</span><span class="keyword">)</span>
+
+ <span class="comment">## Fixed Effects</span>
+ <span class="symbol">lm3e.fe</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">hisp</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">union</span>
+                        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"within"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"nr"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3e.fe</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: f) ---</span>
+<span class="comment"># What do you conclude from the Hausman-test result? </span>
+
+ <span class="comment"># Hausman test</span>
+ <span class="functioncall">phtest</span><span class="keyword">(</span><span class="symbol">lm3e.fe</span><span class="keyword">,</span> <span class="symbol">lm3e.re</span><span class="keyword">)</span>
+
+ <span class="comment"># Breusch-Pagan Lagrange Multiplier for random effects. Null is no panel effect (i.e. OLS better).</span>
+ <span class="functioncall">plmtest</span><span class="keyword">(</span><span class="symbol">lm3e.ols</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"bp"</span><span class="keyword">)</span>
+ <span class="comment"># we reject the null and conclude that random effects is appropriate</span>
+
+
+<span class="comment"># --- Ex 3: g) ---</span>
+<span class="comment"># Estimate the model in first differences. Check the autocorrelation structure of the </span>
+<span class="comment"># residuals in the first-differenced model.</span>
+
+ <span class="symbol">lm3e.fd</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">hisp</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">union</span>
+                        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"fd"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"nr"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3e.fd</span><span class="keyword">)</span>
+
+ <span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="symbol">lm3e.fd</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: i) ---</span>
+<span class="comment"># Estimate the between estimator. What does this estimator collect?</span>
+
+ <span class="symbol">lm3e.b</span> <span class="assignement">&lt;-</span> <span class="functioncall">plm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">year</span> <span class="keyword">+</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">black</span> <span class="keyword">+</span> <span class="symbol">hisp</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">married</span> <span class="keyword">+</span> <span class="symbol">union</span>
+                        <span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">wage</span><span class="keyword">,</span> <span class="argument">model</span><span class="argument">=</span><span class="string">"between"</span><span class="keyword">,</span> <span class="argument">effect</span><span class="argument">=</span><span class="string">"individual"</span><span class="keyword">,</span> <span class="argument">index</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"nr"</span><span class="keyword">,</span><span class="string">"year"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm3e.b</span><span class="keyword">)</span>
+
+
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+ <span class="functioncall">save.image</span><span class="keyword">(</span><span class="string">"EndOfSession.RData"</span><span class="keyword">)</span>
+ <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"yes"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

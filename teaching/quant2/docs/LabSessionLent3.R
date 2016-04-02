@@ -5,14 +5,14 @@
 
 # Libraries: lmtest, sandwich, AER, systemfit
   setwd("C:/Dokumente und Einstellungen/Thilo/Desktop/Lab_SessionsLT/Data")
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
 
 
 # --- Ex 1: IV regression, Sargan and Hausman test (1) -----------------------------
- bond <- read.csv("http://thiloklein.de/R/Lent/bonds.csv", header=T)
+ bond <- read.csv("http://klein.uk/R/Lent/bonds.csv", header=T)
  str(bond)
 
 
@@ -122,7 +122,7 @@
 
 
 # --- Ex 2: IV regression, Sargan and Hausman test (2) -----------------------------
- mroz <- read.csv("http://thiloklein.de/R/Lent/mroz.csv", header=T)
+ mroz <- read.csv("http://klein.uk/R/Lent/mroz.csv", header=T)
  str(mroz)
 
 # --- Ex 2: a)  ---
@@ -278,7 +278,7 @@
 
 # --- Ex 3:  -----------------------------
 
- crime <- read.csv("http://thiloklein.de/R/Lent/crime.csv", header=T)
+ crime <- read.csv("http://klein.uk/R/Lent/crime.csv", header=T)
  str(crime)
 
 # --- Ex 3: a)  ---
@@ -320,7 +320,7 @@
 
 
 # --- Ex 4:  -----------------------------
- bw <- read.csv("http://thiloklein.de/R/Lent/brwght.csv", header=T)
+ bw <- read.csv("http://klein.uk/R/Lent/brwght.csv", header=T)
  str(bw)
 
 # --- Ex 4: a)  ---
@@ -383,7 +383,7 @@
 
 
 # --- Ex 6:  -----------------------------
- orange <- read.csv("http://thiloklein.de/R/Lent/oranges.csv", header=T)
+ orange <- read.csv("http://klein.uk/R/Lent/oranges.csv", header=T)
  str(orange)
 
 
@@ -505,7 +505,7 @@
 
 
 # --- Ex 7:  -----------------------------
- smoke <- read.csv("http://thiloklein.de/R/Lent/smoke.csv", header=T)
+ smoke <- read.csv("http://klein.uk/R/Lent/smoke.csv", header=T)
  str(smoke)
 
 
@@ -538,7 +538,7 @@
 
 
 # --- Ex 8:  -----------------------------
- open <- read.csv("http://thiloklein.de/R/Lent/openness.csv", header=T)
+ open <- read.csv("http://klein.uk/R/Lent/openness.csv", header=T)
  str(open)
 
 
@@ -581,7 +581,7 @@
 
 
 # --- Ex 9:  -----------------------------
- cement <- read.csv("http://thiloklein.de/R/Lent/cement.csv", header=T)
+ cement <- read.csv("http://klein.uk/R/Lent/cement.csv", header=T)
  str(cement)
 
 
@@ -609,7 +609,7 @@
 
 
 # --- Ex 10:  -----------------------------
- fish <- read.csv("http://thiloklein.de/R/Lent/fish.csv", header=T)
+ fish <- read.csv("http://klein.uk/R/Lent/fish.csv", header=T)
  str(fish)
 
 
@@ -681,7 +681,7 @@
 # based on Wooldridge (2002) "Econometric analysis of cross section and panel data", 
 # Chapter 5, page 100, formula 5.34
 
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
  shccm.sysf(lm10d.sem)
  shccm.sysf(lm10d.3sls)
 

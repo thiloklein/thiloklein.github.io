@@ -1,0 +1,215 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 1: DL models, orange juice example from Stock and Watson, 2007</span>
+
+<span class="comment"># Required libraries: tseries, dynlm</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">setwd</span><span class="keyword">(</span><span class="string">"~/Desktop/Cam/MFin Lectures Lent"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+<span class="comment"># --- Ex 2: DL Models. Orange juice price and freezing degree days ----------------------------- </span>
+
+ <span class="symbol">oj</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/oj.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">names</span><span class="keyword">(</span><span class="symbol">oj</span><span class="keyword">)</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"frz"</span><span class="keyword">,</span><span class="string">"ojfin"</span><span class="keyword">,</span><span class="string">"ojfro"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">oj</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: a) --- </span>
+<span class="comment"># Generate a time series of the % of change in the ojfro, call it cojfro. Plot the data.  </span>
+<span class="comment"># Test for unit roots. </span>
+
+ <span class="comment"># create time series object with ts()</span>
+ <span class="symbol">ojfro</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">oj</span><span class="keyword">$</span><span class="symbol">ojfro</span><span class="keyword">)</span>
+ <span class="symbol">cojfro</span> <span class="assignement">&lt;-</span> <span class="keyword">(</span> <span class="keyword">(</span><span class="symbol">ojfro</span><span class="keyword">/</span><span class="functioncall">lag</span><span class="keyword">(</span><span class="symbol">ojfro</span><span class="keyword">,</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">-</span><span class="number">1</span> <span class="keyword">)</span><span class="keyword">*</span><span class="number">100</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">cojfro</span><span class="keyword">)</span>
+
+ <span class="comment">## Dickey Fuller test: </span>
+ <span class="comment"># Ho: series has a unit root</span>
+ <span class="functioncall">install.packages</span><span class="keyword">(</span><span class="string">"tseries"</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">tseries</span><span class="keyword">)</span>
+ <span class="functioncall">adf.test</span><span class="keyword">(</span><span class="functioncall">na.omit</span><span class="keyword">(</span><span class="symbol">cojfro</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+ <span class="comment"># We reject the hypothesis of a unit root in this time series </span>
+
+
+<span class="comment"># --- Ex 2: b) --- </span>
+<span class="comment"># Estimate a static model, with cojfro as dependant variable and frz as independent  </span>
+<span class="comment"># variable. </span>
+
+ <span class="symbol">frz</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">oj</span><span class="keyword">$</span><span class="symbol">frz</span><span class="keyword">)</span>
+ <span class="comment"># create time series union object with ts.union()</span>
+ <span class="symbol">data2b</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts.union</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="symbol">cojfro</span><span class="keyword">)</span>
+ <span class="symbol">lm2b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="symbol">frz</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">data2b</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">sandwich</span><span class="keyword">)</span>
+ <span class="keyword">?</span><span class="symbol">vcovHC</span>
+ <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="functioncall">diag</span><span class="keyword">(</span><span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"HC0"</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span>
+
+ <span class="keyword">?</span><span class="symbol">vcovHAC</span>
+ <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="functioncall">diag</span><span class="keyword">(</span><span class="functioncall">vcovHAC</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">,</span> <span class="argument">weights</span><span class="argument">=</span><span class="functioncall">weights</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span> <span class="comment">#NeweyWest(lm2b, lag=NULL)</span>
+ <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="functioncall">diag</span><span class="keyword">(</span><span class="functioncall">vcovHAC</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">shaccm</span><span class="keyword">(</span><span class="symbol">lm2b</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: c) --- </span>
+<span class="comment"># Estimate a DL model for this data with cojfro as dependant variable and frz as  </span>
+<span class="comment"># independent variable. </span>
+
+ <span class="comment">## Distributed Lag model </span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">dynlm</span><span class="keyword">)</span>
+ <span class="symbol">dl2c.18</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2c.18</span><span class="keyword">)</span>
+
+ <span class="symbol">con2</span> <span class="assignement">&lt;-</span> <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="functioncall">diag</span><span class="keyword">(</span><span class="functioncall">vcovHAC</span><span class="keyword">(</span><span class="symbol">dl2c.18</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">*</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">)</span>
+ <span class="functioncall">names</span><span class="keyword">(</span><span class="symbol">con2</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"lag"</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="string">""</span><span class="keyword">)</span>
+
+ <span class="comment"># Plot the dynamic multiplier ...</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">dl2c.18</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">.3</span><span class="keyword">,</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">xlab</span><span class="argument">=</span><span class="string">"Lag"</span><span class="keyword">,</span> <span class="argument">ylab</span><span class="argument">=</span><span class="string">"Dynamic Multiplier"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+ <span class="comment"># ... and 95% confidence interval.</span>
+ <span class="symbol">con</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2c.18</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">*</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">dl2c.18</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">+</span><span class="symbol">con</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">dl2c.18</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">-</span><span class="symbol">con</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+ <span class="comment"># ...and 95% confidence interval with HAC errors</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">dl2c.18</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">+</span><span class="symbol">con2</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">dl2c.18</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">-</span><span class="symbol">con2</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span><span class="argument">legend</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"Dynamic multiplier"</span><span class="keyword">,</span><span class="string">"95% confidence band"</span><span class="keyword">,</span><span class="string">"95% confidence band with HAC errors"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">fill</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"green"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">bty</span><span class="argument">=</span><span class="string">"n"</span><span class="keyword">)</span>
+ <span class="comment"># There are many insignificant coefficients, let's simplify the model. </span>
+ <span class="comment"># Sequentially eliminate the insignificant terms. </span>
+
+ <span class="symbol">dl2c.12</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">12</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2c.12</span><span class="keyword">)</span>
+
+ <span class="comment"># Begin now with 7 terms. </span>
+ <span class="symbol">dl2c.7</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">:</span><span class="number">7</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2c.7</span><span class="keyword">)</span>
+
+ <span class="comment"># Simplify the model. </span>
+ <span class="symbol">dl2c.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">:</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2c.1</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: d) --- </span>
+<span class="comment"># Compute the impact and long-run multipliers </span>
+
+ <span class="comment"># The impact multiplier is 0.55 in the DL(12) and 0.51 in the DL(1). The long-run  </span>
+ <span class="comment"># multipliers are 0.56 (0.55+0.15-0.14) and 0.64 (0.51+0.13) respectively. </span>
+
+
+<span class="comment"># --- Ex 2: e) --- </span>
+<span class="comment"># Compute the cumulative multipliers (plot them including confidence intervals). </span>
+
+ <span class="comment"># Take only the DL(18) model, assume that this is the "right model". </span>
+ <span class="comment"># Plot the cumulative dynamic multiplier based on the DL(18) model dl2c.18</span>
+ <span class="symbol">mul</span> <span class="assignement">&lt;-</span> <span class="functioncall">cumsum</span><span class="keyword">(</span><span class="symbol">dl2c.18</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">mul</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">.4</span><span class="keyword">,</span><span class="number">1.6</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">xlab</span><span class="argument">=</span><span class="string">"Lag"</span><span class="keyword">,</span> <span class="argument">ylab</span><span class="argument">=</span><span class="string">"Cumulative dynamic multiplier"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span>
+
+ <span class="comment"># OR use the following equivalent model</span>
+ <span class="symbol">dl2e</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">18</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="functioncall">d</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">:</span><span class="number">17</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2e</span><span class="keyword">)</span>
+ <span class="comment"># to plot the cumulative dynamic multiplier...</span>
+ <span class="symbol">mul</span> <span class="assignement">&lt;-</span> <span class="symbol">dl2e</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">]</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">mul</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="comment"># ... and 95% confidence interval.</span>
+ <span class="symbol">con</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2e</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">*</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">mul</span><span class="keyword">+</span><span class="symbol">con</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">mul</span><span class="keyword">-</span><span class="symbol">con</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+ <span class="symbol">con2</span> <span class="assignement">&lt;-</span> <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="functioncall">diag</span><span class="keyword">(</span><span class="functioncall">vcovHAC</span><span class="keyword">(</span><span class="symbol">dl2e</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">[</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">3</span><span class="keyword">:</span><span class="number">20</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">*</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">mul</span><span class="keyword">+</span><span class="symbol">con2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">:</span><span class="number">18</span><span class="keyword">,</span> <span class="symbol">mul</span><span class="keyword">-</span><span class="symbol">con2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span><span class="argument">legend</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"Cumulative dynamic multiplier"</span><span class="keyword">,</span><span class="string">"95% confidence band"</span><span class="keyword">,</span><span class="string">"95% confidence band with HAC errors"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">fill</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"green"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">bty</span><span class="argument">=</span><span class="string">"n"</span><span class="keyword">)</span>
+
+
+ <span class="comment"># Now take only the DL(1) model, assume that this is the "right model". </span>
+ <span class="comment"># The cumulative multipliers are: 0.51 ("impact") and 0.64 ("long-run"). </span>
+ <span class="comment"># To be able to estimate the standard deviations corresponding to each of these  </span>
+ <span class="comment"># cumulative multipliers, let's estimate the following equivalent model: </span>
+
+ <span class="symbol">dl2e</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">cojfro</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">d</span><span class="keyword">(</span><span class="symbol">frz</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2e</span><span class="keyword">)</span>
+
+ <span class="comment"># Let's plot the cumulative coefficients and coefficients +/- 2 std. error (95% confidence  </span>
+ <span class="comment"># interval). </span>
+
+ <span class="symbol">L.frz</span> <span class="assignement">&lt;-</span> <span class="symbol">dl2e</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>
+ <span class="symbol">d.frz</span> <span class="assignement">&lt;-</span> <span class="symbol">dl2e</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">]</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">d.frz</span><span class="keyword">,</span> <span class="symbol">L.frz</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">.4</span><span class="keyword">,</span><span class="number">.8</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="symbol">se.L.frz</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2e</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span>
+ <span class="symbol">se.d.frz</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dl2e</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">d.frz</span> <span class="keyword">+</span> <span class="number">2</span><span class="keyword">*</span><span class="symbol">se.d.frz</span><span class="keyword">,</span> <span class="symbol">L.frz</span> <span class="keyword">+</span> <span class="number">2</span><span class="keyword">*</span><span class="symbol">se.L.frz</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">d.frz</span> <span class="keyword">-</span> <span class="number">2</span><span class="keyword">*</span><span class="symbol">se.d.frz</span><span class="keyword">,</span> <span class="symbol">L.frz</span> <span class="keyword">-</span> <span class="number">2</span><span class="keyword">*</span><span class="symbol">se.L.frz</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

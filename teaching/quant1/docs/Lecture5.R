@@ -3,7 +3,7 @@
 
 # Required libraries: AER, car
   rm(list=ls())
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -63,7 +63,7 @@
  hccm(lm.het, type="hc0")	# hc0 means White-adjusted errors (R's default setting)
 
 # --- [load shccm function!] SHCCM = Summary with Heteroskedasticity Consistent Covariance Matrix ---
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
 
  summary(lm.hom)		# similar results under homoscedasticity
  shccm(lm.hom) 

@@ -1,6 +1,6 @@
 setwd("I:/")
 ls()
-source("http://www.thiloklein.de/R/myfunctions.R")
+source("http://www.klein.uk/R/myfunctions.R")
 
 #Generate White Noise, MA1,  AR1 and Random Walk series
 
@@ -83,7 +83,7 @@ plot.ts(arma11, main=(expression(ARIMA(1,1,1)~~~phi==.9~~~theta==-.5)))
 acf(arma11); pacf(arma11)
 
 # ADF test
-source("http://thiloklein.de/R/myfunctions.R")
+source("http://klein.uk/R/myfunctions.R")
 library(tseries)
 
 w   = rnorm(500,0,1)

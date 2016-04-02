@@ -1,0 +1,236 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># MPO1-A Advanced Quantitative Research Methods</span>
+<span class="comment"># Lecture 5: Endogeneity and IV</span>
+
+<span class="comment"># Libraries: lmtest, sandwich, AER, systemfit</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+<span class="comment"># --- Ex 2: IV regression, Sargan and Hausman test (2) -----------------------------</span>
+ <span class="symbol">mroz</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/mroz.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 2: a)  ---</span>
+<span class="comment"># Graph a histogram for wage and lwage, and comment on the shape of the distribution.</span>
+
+ <span class="functioncall">table</span><span class="keyword">(</span><span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">hours</span><span class="keyword">&gt;</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># There are a total of 753 women in the sample of which 428 work.</span>
+ <span class="comment"># Note that log-wages are missing for those women that don't work.</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">wage</span><span class="keyword">)</span>
+ <span class="comment"># The distribution of wages is clearly skewed to the right, a large tail of high </span>
+ <span class="comment"># wages, with a maximum of $25. Remember: the mean is $4.18.</span>
+
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">$</span><span class="symbol">lwage</span><span class="keyword">)</span>
+ <span class="comment"># The distribution of log wages is more symmetric. Wages are often lognormally</span>
+ <span class="comment"># distributed, which means that log wages are normally distributed. These are</span>
+ <span class="comment"># typical patterns for wages.</span>
+
+
+<span class="comment"># --- Ex 2: b)  ---</span>
+<span class="comment"># For the remainder of this exercise, retain only the women that work in the data set.</span>
+
+ <span class="symbol">mroz.w</span> <span class="assignement">&lt;-</span> <span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">mroz</span><span class="keyword">,</span> <span class="symbol">hours</span><span class="keyword">&gt;</span><span class="number">0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: c)  ---</span>
+<span class="comment"># Estimate the model: lwage ~ educ + exper + I(exper^2). How would you interpret </span>
+<span class="comment"># the coefficients? Does estimated values make sense? Which kind of problems may </span>
+<span class="comment"># these present?</span>
+
+ <span class="symbol">lm2c.ols</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2c.ols</span><span class="keyword">)</span>
+ <span class="comment"># The OLS coeffient on educ suggests an 11% return. The average return to log</span>
+ <span class="comment"># wages of an extra year of experience is given by 0.042-(0.0008^2)*exper = 0.021 </span>
+ <span class="comment"># at the mean of exper (=13.03), or a 2.5% increase in wages for an additional year </span>
+ <span class="comment"># of experience at that level.</span>
+
+ <span class="comment"># Omitted ability is probably biasing the results upwards. Ability is correlated</span>
+ <span class="comment"># with education but it is not in the regression (then is in the error term). Then </span>
+ <span class="comment"># educ is correlated with the error term. In other words educ is endogenous.</span>
+
+
+<span class="comment"># --- Ex 2: d)  ---</span>
+<span class="comment"># Estimate the model by manual 2SLS (do not use ivreg yet), using fatheduc and </span>
+<span class="comment"># motheduc as instruments for educ. How do the results differ from those obtained </span>
+<span class="comment"># with educ?</span>
+
+ <span class="comment">## 1st stage regression:</span>
+ <span class="symbol">lm2d.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">educ</span> <span class="keyword">~</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="comment">#lm2d.1 &lt;- lm(educ ~ fatheduc + motheduc + exper + I(exper^2), data=mroz.w)</span>
+ <span class="comment"># fatheduc and motheduc both explain educ, the reduced form coefficients are significant</span>
+ <span class="comment">## 2nd stage:</span>
+ <span class="comment"># lm2d.1$fitted acts as an instrumental variable for educ.</span>
+ <span class="symbol">lm2d.2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">lm2d.1</span><span class="keyword">$</span><span class="symbol">fitted</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="comment"># There is a reduction in the return to education to 6%. This was expected if the</span>
+ <span class="comment"># effect was to collect the bias created by the omitted variable ability, as the </span>
+ <span class="comment"># bias with the OLS regression should be positive. Of course, other IVs could</span>
+ <span class="comment"># have delivered different estimations of the rate of return. If this were the</span>
+ <span class="comment"># case other explanations should be presented. These could be, for instance, that </span>
+ <span class="comment"># IV captures some error in measurement or others.</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">lmtest</span><span class="keyword">)</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">sandwich</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2d.2</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># compare to 2SLS to OLS:</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2c.ols</span><span class="keyword">,</span><span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: e)  ---</span>
+<span class="comment"># Do fatheduc and motheduc explain educ? Are these good instruments?</span>
+
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm2d.1</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: f)  ---</span>
+<span class="comment"># A problem with 2SLS is that the standard errors in the second stage are wrong. </span>
+<span class="comment"># The correct standard errors are provided by the ivreg command in R. </span>
+<span class="comment"># Comment on the differences.</span>
+
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">AER</span><span class="keyword">)</span>
+ <span class="symbol">lm2f.iv</span> <span class="assignement">&lt;-</span> <span class="functioncall">ivreg</span><span class="keyword">(</span><span class="symbol">lwage</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+        <span class="keyword">|</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>    <span class="comment"># errors are different for ivreg and manual 2SLS!</span>
+ <span class="comment"># compare to manual 2SLS estimates and OLS:</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2d.2</span><span class="keyword">,</span> <span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">lm2c.ols</span><span class="keyword">,</span><span class="argument">vcov</span><span class="argument">=</span><span class="symbol">hc0</span><span class="keyword">)</span>
+ <span class="comment"># There are only very minor changes in the standard errors.</span>
+ <span class="comment"># Note that the se for educ is quite a bit larger than the OLS one.</span>
+
+
+<span class="comment"># --- Ex 2: g)  ---</span>
+<span class="comment"># Perform the test for overidentifying restrictions, i.e.: whether the instruments </span>
+<span class="comment"># are uncorrelated with u.</span>
+
+ <span class="comment"># Sargan test from Stock and Watson (2007)</span>
+ <span class="comment">#lm2g.or &lt;- lm(lm2f.iv$res ~ exper + I(exper^2) + fatheduc + motheduc, data=mroz.w)</span>
+ <span class="comment">#lm2g.or.test &lt;- linearHypothesis(lm2g.or, c("fatheduc=0", "motheduc=0"), test="Chisq", vcov=hc0)</span>
+ <span class="comment">## WARNING: df (and hence p-value) invalid above.</span>
+ <span class="comment">## correct df: # instruments - # endogenous variables</span>
+ <span class="comment">#pchisq(q=lm2g.or.test[2,3], df = lm2f.iv$df.res - lm2g.or$df.res, lower.tail=F)</span>
+
+ <span class="comment">## Sargan LM test from handout, Lab Session 3</span>
+ <span class="comment">## Step 2. Auxiliary regression:</span>
+ <span class="symbol">lm.aux</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="symbol">R2</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">lm.aux</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="symbol">R2</span>
+ <span class="comment"># LM is chi.sqr_{m-k} m = no. instruments = 5; k = no. regressors = 4</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="number">5</span><span class="keyword">-</span><span class="number">4</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment"># The p-values are 0.5088 and 0.5386 respectively. We don't reject that the </span>
+ <span class="comment"># instruments are valid in that they are not correlated with the errors.</span>
+
+
+<span class="comment"># --- Ex 2: h)  ---</span>
+<span class="comment"># Test for endogeneity of educ.</span>
+
+ <span class="comment">## Durbin-Wu-Hausman test from handout, Lab Session 3</span>
+ <span class="comment">## Step 1. Create OLS residuals. Already done! </span>
+ <span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="symbol">lm2c.ols</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="comment">## Step 2. Regress every endogenous regressor (in this case only educ) </span>
+ <span class="comment">## on z (constant, fatheduc, motheduc, exper, expersq) and obtain residuals. Done!</span>
+ <span class="symbol">lm2h.1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">educ</span> <span class="keyword">~</span> <span class="symbol">fatheduc</span> <span class="keyword">+</span> <span class="symbol">motheduc</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="functioncall">I</span><span class="keyword">(</span><span class="symbol">exper</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span>
+ <span class="symbol">v</span> <span class="assignement">&lt;-</span> <span class="symbol">lm2h.1</span><span class="keyword">$</span><span class="symbol">res</span>
+ <span class="comment">## Step 3.</span>
+ <span class="symbol">dwh3</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">e</span> <span class="keyword">~</span> <span class="symbol">educ</span> <span class="keyword">+</span> <span class="symbol">exper</span> <span class="keyword">+</span> <span class="symbol">expersq</span> <span class="keyword">+</span> <span class="symbol">v</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">mroz.w</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">)</span>
+ <span class="comment">## Lagrange Multiplier Statistic:</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dwh3</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.squared</span>
+ <span class="comment"># is Chi^2_{k-k0} with  </span>
+ <span class="comment"># k = no. regressors = 2; </span>
+ <span class="comment"># k0 = no. regressors potentially endogenous = 1.</span>
+ <span class="comment"># H0: All regressors are exogenous. p-value of the LM statistic:</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="symbol">F</span><span class="keyword">)</span>
+
+ <span class="comment">## Or:</span>
+ <span class="comment">#lm2h.1 &lt;- lm(educ ~ fatheduc + motheduc + exper + I(exper^2), data=mroz.w)</span>
+ <span class="comment">#lm2h.2 &lt;- lm(lwage ~ educ + exper + I(exper^2) + lm2h.1$res, data=mroz.w)</span>
+ <span class="comment">#coeftest(lm2h.2, vcov=hc0)</span>
+ <span class="comment"># The coefficient on lm2h.i$res is not significant at 10%, and so endogeneity </span>
+ <span class="comment"># is debatable.</span>
+
+ <span class="comment">## Hausman test for exogeneity of regressors:</span>
+ <span class="symbol">dwh.test</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">model.iv</span><span class="keyword">,</span> <span class="formalargs">model.ols</span><span class="keyword">)</span><span class="keyword">{</span>
+         <span class="symbol">cf_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">model.iv</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">model.ols</span><span class="keyword">)</span>
+         <span class="symbol">vc_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">model.iv</span><span class="keyword">,</span> <span class="string">"HC0"</span><span class="keyword">)</span> <span class="keyword">-</span> <span class="functioncall">vcovHC</span><span class="keyword">(</span><span class="symbol">model.ols</span><span class="keyword">,</span> <span class="string">"HC0"</span><span class="keyword">)</span>
+         <span class="symbol">x2_diff</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.vector</span><span class="keyword">(</span><span class="functioncall">t</span><span class="keyword">(</span><span class="symbol">cf_diff</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="functioncall">solve</span><span class="keyword">(</span><span class="symbol">vc_diff</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="symbol">cf_diff</span><span class="keyword">)</span>
+         <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="argument">q</span> <span class="argument">=</span> <span class="symbol">x2_diff</span><span class="keyword">,</span> <span class="argument">df</span> <span class="argument">=</span> <span class="functioncall">dim</span><span class="keyword">(</span><span class="symbol">vc_diff</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">lower.tail</span> <span class="argument">=</span> <span class="symbol">F</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+ <span class="comment"># execute dwh.test-function:</span>
+ <span class="functioncall">dwh.test</span><span class="keyword">(</span><span class="symbol">lm2f.iv</span><span class="keyword">,</span> <span class="symbol">lm2c.ols</span><span class="keyword">)</span>
+
+ <span class="comment"># As they were designed the DWH test (p-value 0.09) and the Hausman test (0.16)</span>
+ <span class="comment"># do not reject the hypothesis of exogeneity at 5%. Note, however, that also </span>
+ <span class="comment"># exper and expersq could be potentially endogenous. Other instruments should be </span>
+ <span class="comment"># added, should we consider them as such.</span>
+</pre>
+</body>
+</html>

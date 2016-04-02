@@ -6,7 +6,7 @@
 # Libraries: tseries, dynlm, sandwich, car, AER
   rm(list=ls())
   setwd("~/Desktop/LabSessions_MPO1A_LT/Data")
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -45,7 +45,7 @@
 
 # --- Ex 1: Unit Roots -----------------------------
 
- real <- read.csv("http://thiloklein.de/R/Lent/real.csv", header=T)
+ real <- read.csv("http://klein.uk/R/Lent/real.csv", header=T)
  str(real)
 
 # --- Ex 1: a) ---
@@ -153,7 +153,7 @@
 
 # --- Ex 2: DL Models. Orange juice price and freezing degree days ----------------------------- 
  
- oj <- read.csv("http://thiloklein.de/R/Lent/oj.csv") 
+ oj <- read.csv("http://klein.uk/R/Lent/oj.csv") 
  str(oj) 
 
  # OR:
@@ -276,7 +276,7 @@
 
 # --- Ex 3: ADL model. El niño and fish population -----------------------------
 
- fish <- read.csv("http://thiloklein.de/R/Lent/soi.csv", h=T)
+ fish <- read.csv("http://klein.uk/R/Lent/soi.csv", h=T)
  str(fish)
 
 # --- Ex 3: a) ---

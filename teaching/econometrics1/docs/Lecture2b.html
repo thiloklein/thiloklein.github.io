@@ -1,0 +1,263 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 2: Gauss-Markov Theorem, Precision of OLS estimators, Multiple regression models, Multicollinearity, F-tests for goodness of fit</span>
+
+<span class="comment"># Required libraries: AER, car</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment">## --- The larger V(X), the lower is V(beta), (p.6) ---</span>
+ <span class="comment"># install.packages("AER")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">AER</span><span class="keyword">)</span>
+ <span class="functioncall">data</span><span class="keyword">(</span><span class="string">"CASchools"</span><span class="keyword">)</span>
+ <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">stratio</span> <span class="assignement">&lt;-</span> <span class="functioncall">with</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="symbol">students</span><span class="keyword">/</span><span class="symbol">teachers</span><span class="keyword">)</span>
+ <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">score</span> <span class="assignement">&lt;-</span> <span class="functioncall">with</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="keyword">(</span><span class="symbol">math</span> <span class="keyword">+</span> <span class="symbol">read</span><span class="keyword">)</span><span class="keyword">/</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">)</span>
+
+ <span class="symbol">est1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">est1</span><span class="keyword">)</span>
+
+<span class="comment"># use only those observations where stratio deviates LITTLE from the mean value.</span>
+
+ <span class="symbol">lowVar</span> <span class="assignement">&lt;-</span> <span class="symbol">stratio</span> <span class="keyword">&gt;</span> <span class="functioncall">quantile</span><span class="keyword">(</span><span class="symbol">stratio</span><span class="keyword">,</span> <span class="number">0.25</span><span class="keyword">)</span> <span class="keyword">&amp;</span> <span class="symbol">stratio</span> <span class="keyword">&lt;</span> <span class="functioncall">quantile</span><span class="keyword">(</span><span class="symbol">stratio</span><span class="keyword">,</span> <span class="number">0.75</span><span class="keyword">)</span>
+ <span class="symbol">est2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">,</span> <span class="argument">subset</span> <span class="argument">=</span> <span class="symbol">lowVar</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">est2</span><span class="keyword">)</span>
+
+<span class="comment"># and compare with those where stratio deviates MUCH from the mean value.</span>
+
+ <span class="symbol">est3</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">,</span> <span class="argument">subset</span> <span class="argument">=</span> <span class="symbol">lowVar</span>==<span class="number">FALSE</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">est3</span><span class="keyword">)</span>
+
+<span class="comment"># We observe that standard errors and p-values are larger in the second case.</span>
+<span class="comment"># The next diagram clarifies the problem:</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">)</span>
+ <span class="functioncall">points</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">subset</span> <span class="argument">=</span> <span class="symbol">lowVar</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">est1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">est2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">est3</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span><span class="argument">legend</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"Pooled"</span><span class="keyword">,</span><span class="string">"lowVar"</span><span class="keyword">,</span><span class="string">"highVar"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">lty</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span><span class="argument">col</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"black"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">,</span><span class="string">"blue"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Heteroskedasticity Consistent Covariance Matrix (HCCM), (pp.5-8) ---</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span> <span class="comment"># this way we will all have the same draws from the RV</span>
+ <span class="symbol">x</span> <span class="assignement">&lt;-</span> <span class="functioncall">runif</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">e</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="symbol">y.hom</span> <span class="assignement">&lt;-</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">e</span> <span class="comment"># homoscedasticity</span>
+ <span class="symbol">lm.hom</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y.hom</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y.hom</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm.hom</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="symbol">y.het</span> <span class="assignement">&lt;-</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">e</span><span class="keyword">*</span><span class="symbol">x</span><span class="keyword">^</span><span class="number">2</span>     <span class="comment"># heteroscedasticity</span>
+ <span class="symbol">lm.het</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y.het</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">y.het</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="functioncall">vcov</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">)</span>
+ <span class="comment"># ??hccm</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">hccm</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"hc0"</span><span class="keyword">)</span>       <span class="comment"># hc0 means White-adjusted errors (R's default setting)</span>
+
+<span class="comment"># --- [load shccm function!] SHCCM = Summary with Heteroskedasticity Consistent Covariance Matrix ---</span>
+ <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.hom</span><span class="keyword">)</span>                <span class="comment"># similar results under homoscedasticity</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm.hom</span><span class="keyword">)</span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">)</span>                <span class="comment"># different results under heteroscedasticity</span>
+ <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm.het</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Zero conditional mean assumption, (p.11) ---</span>
+ <span class="functioncall">scatterplot</span><span class="keyword">(</span><span class="symbol">est1</span><span class="keyword">$</span><span class="symbol">resid</span> <span class="keyword">~</span> <span class="symbol">english</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Digression: Linear regression in matrix notation, (p.19) ---</span>
+ <span class="symbol">X</span> <span class="assignement">=</span> <span class="functioncall">cbind</span><span class="keyword">(</span><span class="argument">Intercept</span><span class="argument">=</span><span class="functioncall">rep</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">420</span><span class="keyword">)</span><span class="keyword">,</span> <span class="symbol">stratio</span><span class="keyword">)</span>
+ <span class="functioncall">head</span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">)</span>
+ <span class="symbol">Y</span> <span class="assignement">=</span> <span class="symbol">score</span>
+ <span class="comment"># beta.hat = (X'X)^{-1} X'Y</span>
+ <span class="symbol">beta.hat</span> <span class="assignement">=</span> <span class="functioncall">solve</span><span class="keyword">(</span><span class="functioncall">t</span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">X</span><span class="keyword">)</span> <span class="keyword">%*%</span> <span class="functioncall">t</span><span class="keyword">(</span><span class="symbol">X</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">Y</span>
+ <span class="symbol">beta.hat</span>
+ <span class="comment"># Y.hat = X beta</span>
+ <span class="symbol">X</span><span class="keyword">%*%</span><span class="symbol">beta.hat</span>
+
+
+
+
+<span class="comment"># --- Simulation: Omitted variable bias, (p.19) ---</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span>
+ <span class="symbol">epsilon</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+ <span class="symbol">omega</span>   <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+ <span class="symbol">eta</span>     <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+
+ <span class="symbol">x1</span> <span class="assignement">&lt;-</span> <span class="number">5</span>  <span class="keyword">+</span> <span class="symbol">omega</span>
+ <span class="symbol">x2</span> <span class="assignement">&lt;-</span> <span class="number">10</span> <span class="keyword">+</span> <span class="symbol">omega</span> <span class="keyword">+</span> <span class="number">0.3</span><span class="keyword">*</span> <span class="symbol">eta</span>
+ <span class="symbol">y</span>  <span class="assignement">&lt;-</span> <span class="number">20</span> <span class="keyword">+</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span> <span class="keyword">+</span> <span class="symbol">epsilon</span>
+
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span> <span class="keyword">+</span> <span class="symbol">x2</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>   <span class="comment"># unbiased estimates</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x1</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span>                <span class="comment"># cov(x1,x2)=1 -&gt; OVB for b1; Intercept biased</span>
+
+ <span class="number">1</span><span class="keyword">*</span><span class="functioncall">cov</span><span class="keyword">(</span><span class="symbol">x1</span><span class="keyword">,</span><span class="symbol">x2</span><span class="keyword">)</span><span class="keyword">/</span><span class="functioncall">var</span><span class="keyword">(</span><span class="symbol">x1</span><span class="keyword">)</span>     <span class="comment"># size of the bias.</span>
+
+ <span class="comment"># back to the CASchools dataset</span>
+ <span class="functioncall">cor</span><span class="keyword">(</span><span class="symbol">stratio</span><span class="keyword">,</span> <span class="symbol">english</span><span class="keyword">)</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">)</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span> <span class="keyword">+</span> <span class="symbol">english</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Multicollinearity, (p.24) ---</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">)</span>
+ <span class="keyword">?</span><span class="symbol">CASchools</span>
+ <span class="symbol">FracEnglish</span> <span class="assignement">=</span> <span class="symbol">english</span><span class="keyword">/</span><span class="number">100</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span> <span class="keyword">+</span> <span class="symbol">english</span> <span class="keyword">+</span> <span class="symbol">FracEnglish</span><span class="keyword">)</span>
+
+ <span class="comment"># Simulation</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span>
+ <span class="symbol">perturbedEstimate</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="keyword">{</span>
+   <span class="symbol">FracEnglish</span> <span class="assignement">=</span> <span class="symbol">english</span><span class="keyword">/</span><span class="number">100</span> <span class="keyword">+</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="number">0.0000001</span>
+   <span class="symbol">est</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span> <span class="keyword">+</span> <span class="symbol">english</span> <span class="keyword">+</span> <span class="symbol">FracEnglish</span><span class="keyword">)</span>
+   <span class="functioncall">coef</span><span class="keyword">(</span><span class="symbol">est</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">3</span><span class="keyword">:</span><span class="number">4</span><span class="keyword">]</span>
+ <span class="keyword">}</span>
+ <span class="symbol">estList</span> <span class="assignement">&lt;-</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">100</span><span class="keyword">,</span> <span class="symbol">perturbedEstimate</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="functioncall">t</span><span class="keyword">(</span><span class="symbol">estList</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">main</span> <span class="argument">=</span> <span class="string">"multicollinearity, estimated coefficients"</span><span class="keyword">)</span>
+
+ <span class="comment"># Large coefficients for english are balanced by small coefficients for FracEnglish.</span>
+ <span class="comment"># Essentially, we have estimated:</span>
+ <span class="comment"># score = 686 - 1.1*stratio + (A - 0.65)*english - 100A*(english/100)</span>
+ <span class="comment"># where A is a constant.</span>
+ <span class="comment"># -&gt; coefficients of english and FracEnglish (=english/100) cannot be identified anymore</span>
+
+
+
+
+<span class="comment"># --- F-test, (pp.28) ---</span>
+<span class="comment"># Why not run two t-tests at 5% level instead of the joint F-test?</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">100</span><span class="keyword">)</span>
+ <span class="symbol">N</span> <span class="assignement">&lt;-</span> <span class="number">1000</span>
+ <span class="symbol">p</span> <span class="assignement">&lt;-</span> <span class="number">0.05</span>             <span class="comment"># 5% significance level / size of the test</span>
+ <span class="symbol">qcrit</span> <span class="assignement">&lt;-</span> <span class="keyword">-</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="symbol">p</span><span class="keyword">/</span><span class="number">2</span><span class="keyword">)</span>  <span class="comment"># critical value for two-sided test</span>
+ <span class="symbol">b1</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">N</span><span class="keyword">)</span>
+ <span class="symbol">b2</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">N</span><span class="keyword">)</span>
+ <span class="symbol">reject</span> <span class="assignement">&lt;-</span> <span class="functioncall">abs</span><span class="keyword">(</span><span class="symbol">b1</span><span class="keyword">)</span> <span class="keyword">&gt;</span> <span class="symbol">qcrit</span> <span class="keyword">|</span> <span class="functioncall">abs</span><span class="keyword">(</span><span class="symbol">b2</span><span class="keyword">)</span> <span class="keyword">&gt;</span> <span class="symbol">qcrit</span>   <span class="comment"># two-sided test</span>
+ <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">reject</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="number">100</span>                            <span class="comment"># rejection rate of H0</span>
+
+<span class="comment"># In the example 10.3 % of the values are rejected, not 5%. This is not a</span>
+<span class="comment"># coincidence. The reaosn is that the method gives you too many chances:</span>
+<span class="comment"># If you fail to reject the first t-statistic, you get to try again using the</span>
+<span class="comment"># second.</span>
+
+<span class="comment"># Additionally:</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">b2</span> <span class="keyword">~</span> <span class="symbol">b1</span><span class="keyword">)</span>
+ <span class="functioncall">points</span><span class="keyword">(</span><span class="symbol">b2</span> <span class="keyword">~</span> <span class="symbol">b1</span><span class="keyword">,</span> <span class="argument">subset</span> <span class="argument">=</span> <span class="symbol">reject</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">pch</span> <span class="argument">=</span> <span class="number">7</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">v</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">qcrit</span><span class="keyword">,</span> <span class="keyword">-</span><span class="symbol">qcrit</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">h</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">qcrit</span><span class="keyword">,</span> <span class="keyword">-</span><span class="symbol">qcrit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">data.ellipse</span><span class="keyword">(</span><span class="symbol">b1</span><span class="keyword">,</span> <span class="symbol">b2</span><span class="keyword">,</span> <span class="argument">levels</span> <span class="argument">=</span> <span class="number">1</span> <span class="keyword">-</span> <span class="symbol">p</span><span class="keyword">,</span> <span class="argument">plot.points</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"naive rejection"</span><span class="keyword">,</span> <span class="string">"confidence region"</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">pch</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">7</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># We can see that this naive approach only takes the maximum</span>
+<span class="comment"># deviation of the variables into account. It would be more sensible to exclude all</span>
+<span class="comment"># observations outside of the red circle.</span>
+
+<span class="comment"># The second problem becomes even more annoying, if the random variables are correlated:</span>
+
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">100</span><span class="keyword">)</span>
+ <span class="symbol">b1</span> <span class="assignement">&lt;-</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">N</span><span class="keyword">)</span>
+ <span class="symbol">b2</span> <span class="assignement">&lt;-</span> <span class="number">0.3</span> <span class="keyword">*</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="symbol">N</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="number">0.7</span> <span class="keyword">*</span> <span class="symbol">b1</span>
+ <span class="symbol">reject</span> <span class="assignement">&lt;-</span> <span class="functioncall">abs</span><span class="keyword">(</span><span class="symbol">b1</span><span class="keyword">)</span> <span class="keyword">&gt;</span> <span class="symbol">qcrit</span> <span class="keyword">|</span> <span class="functioncall">abs</span><span class="keyword">(</span><span class="symbol">b2</span><span class="keyword">)</span> <span class="keyword">&gt;</span> <span class="symbol">qcrit</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">b2</span> <span class="keyword">~</span> <span class="symbol">b1</span><span class="keyword">)</span>
+ <span class="functioncall">points</span><span class="keyword">(</span><span class="symbol">b2</span> <span class="keyword">~</span> <span class="symbol">b1</span><span class="keyword">,</span> <span class="argument">subset</span> <span class="argument">=</span> <span class="symbol">reject</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">pch</span> <span class="argument">=</span> <span class="number">7</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">v</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">qcrit</span><span class="keyword">,</span> <span class="keyword">-</span><span class="symbol">qcrit</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">h</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">qcrit</span><span class="keyword">,</span> <span class="keyword">-</span><span class="symbol">qcrit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">data.ellipse</span><span class="keyword">(</span><span class="symbol">b1</span><span class="keyword">,</span> <span class="symbol">b2</span><span class="keyword">,</span> <span class="argument">levels</span> <span class="argument">=</span> <span class="number">1</span> <span class="keyword">-</span> <span class="symbol">p</span><span class="keyword">,</span> <span class="argument">plot.points</span> <span class="argument">=</span> <span class="number">FALSE</span><span class="keyword">)</span>
+ <span class="functioncall">text</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="string">"A"</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"naive rejection"</span><span class="keyword">,</span> <span class="string">"confidence region"</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">pch</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">7</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lty</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment"># For example, "A" in the diagram is clearly outside the confidence interval, but</span>
+<span class="comment"># none of its coordinates are "conspicious".</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+</pre>
+</body>
+</html>

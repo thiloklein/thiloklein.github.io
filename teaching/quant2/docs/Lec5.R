@@ -3,14 +3,14 @@
 # Lecture 5: Endogeneity and IV
 
 # Libraries: lmtest, sandwich, AER, systemfit
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
 
 
 # --- Ex 2: IV regression, Sargan and Hausman test (2) -----------------------------
- mroz <- read.csv("http://thiloklein.de/R/Lent/mroz.csv", header=T)
+ mroz <- read.csv("http://klein.uk/R/Lent/mroz.csv", header=T)
  str(mroz)
 
 # --- Ex 2: a)  ---

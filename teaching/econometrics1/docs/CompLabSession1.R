@@ -4,7 +4,7 @@
 # Lab Session 1: Descriptive Statistics and Linear Regression in R
 
 # Required libraries: Rcmdr, timeDate
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
 
 
 # --- Ex I-2: Load a dataset and save it with a different name ----------------
- eaef2 <- read.csv("http://thiloklein.de/R/eaef", header=T)  # read dataset from .csv file
+ eaef2 <- read.csv("http://klein.uk/R/eaef", header=T)  # read dataset from .csv file
  ls()   						# display active objects in workspace
  save("eaef2", file="eaef2.RData")		# save active object eaef2
  rm(eaef2) 						# clear object eaef2 from workspace
@@ -143,7 +143,7 @@
 # Review the contents and regress employment growth on GDP growth. Provide an 
 # interpretation of the results.
 
- growth <- read.csv("http://thiloklein.de/R/growth",header=T,sep=",")
+ growth <- read.csv("http://klein.uk/R/growth",header=T,sep=",")
  str(growth)
  lm9 <- lm(empgrow ~ GDPgrow, data=growth); summary(lm9)
 
@@ -175,7 +175,7 @@
 
 
 # --- Ex 10: The linear model with quadratic terms ----------------
- house <- read.csv("http://thiloklein.de/R/housing",header=T,sep=",")
+ house <- read.csv("http://klein.uk/R/housing",header=T,sep=",")
  str(house)
 
 
@@ -198,7 +198,7 @@
 
 
 # --- Ex 11: Extrapolation and accuracy of least squares ----------------
- eaef <- read.csv("http://thiloklein.de/R/eaef",header=T,sep=",")
+ eaef <- read.csv("http://klein.uk/R/eaef",header=T,sep=",")
  str(eaef)
 
  lm11 <- lm(weight ~ height, data=eaef)
@@ -221,7 +221,7 @@
 
 
 # --- Ex 13: Multiple linear regression ----------------
- hprice1 <- read.csv("http://thiloklein.de/R/hprice1",header=T,sep=",")
+ hprice1 <- read.csv("http://klein.uk/R/hprice1",header=T,sep=",")
  str(hprice1)
 
  lm13 <- lm(price ~ sqrft + bdrms, data=hprice1)

@@ -1,0 +1,155 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 4: T-distribution, simple linear regression, introduction to multiple regression </span>
+
+<span class="comment"># Required libraries: car</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="comment"># source("http://klein.uk/R/myfunctions.R")</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Critical values for t and Normal distribution as n -&gt; Inf, (p.8) ---</span>
+ <span class="comment"># 97.5% quantile of t-distribution with 10, 20, 30, 60, and 300 degrees of freedom</span>
+ <span class="functioncall">sapply</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">10</span><span class="keyword">,</span><span class="number">20</span><span class="keyword">,</span><span class="number">30</span><span class="keyword">,</span><span class="number">60</span><span class="keyword">,</span><span class="number">300</span><span class="keyword">)</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># 97.5% quantile of Normal distribution</span>
+ <span class="functioncall">qnorm</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- California test scores, Stock and Watson (2007, p.152), (Slides p.21) ---</span>
+ <span class="functioncall">install.packages</span><span class="keyword">(</span><span class="string">"AER"</span><span class="keyword">)</span>
+ <span class="functioncall">help</span><span class="keyword">(</span><span class="string">"StockWatson2007"</span><span class="keyword">,</span> <span class="argument">package</span> <span class="argument">=</span> <span class="string">"AER"</span><span class="keyword">)</span>
+
+<span class="comment">## data and transformations</span>
+ <span class="functioncall">data</span><span class="keyword">(</span><span class="string">"CASchools"</span><span class="keyword">,</span> <span class="argument">package</span> <span class="argument">=</span> <span class="string">"AER"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">)</span>
+ <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">stratio</span> <span class="assignement">&lt;-</span> <span class="functioncall">with</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="symbol">students</span><span class="keyword">/</span><span class="symbol">teachers</span><span class="keyword">)</span>
+ <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">score</span> <span class="assignement">&lt;-</span> <span class="functioncall">with</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="keyword">(</span><span class="symbol">math</span> <span class="keyword">+</span> <span class="symbol">read</span><span class="keyword">)</span><span class="keyword">/</span><span class="number">2</span><span class="keyword">)</span>
+
+<span class="comment">## scatterplot</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">car</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">CASchools</span><span class="keyword">,</span> <span class="argument">xlim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">stratio</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment">## linear model</span>
+ <span class="symbol">lm1</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="symbol">stratio</span><span class="keyword">,</span> <span class="argument">data</span> <span class="argument">=</span> <span class="symbol">CASchools</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"green"</span><span class="keyword">)</span>
+ <span class="comment"># what is the size of the effect in terms of quantiles?</span>
+ <span class="functioncall">quantile</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">stratio</span><span class="keyword">,</span> <span class="argument">probs</span><span class="argument">=</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">quantile</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">score</span><span class="keyword">,</span> <span class="argument">probs</span><span class="argument">=</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+<span class="comment">## Standard Error of the Regression or: Residual standard error, (p.22)</span>
+ <span class="functioncall">sqrt</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">420</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">)</span>
+
+<span class="comment">## Without the model, the best estimate of Y_i is the sample mean, (p.23)</span>
+  <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">score</span><span class="keyword">)</span>
+  <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">score</span> <span class="keyword">~</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">CASchools</span><span class="keyword">)</span>
+
+<span class="comment">## Coefficient of determination or: R^2, (p.24)</span>
+ <span class="symbol">RSS</span> <span class="assignement">&lt;-</span> <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="symbol">ESS</span> <span class="assignement">&lt;-</span> <span class="functioncall">sum</span><span class="keyword">(</span> <span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">fitted</span> <span class="keyword">-</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">^</span><span class="number">2</span> <span class="keyword">)</span>
+ <span class="symbol">TSS</span> <span class="assignement">&lt;-</span> <span class="symbol">RSS</span> <span class="keyword">+</span> <span class="symbol">ESS</span>
+ <span class="symbol">ESS</span><span class="keyword">/</span><span class="symbol">TSS</span>
+
+<span class="comment">## Assumption 1: E(u|X=x)=0, (p.29)</span>
+ <span class="functioncall">scatterplot</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span> <span class="keyword">~</span> <span class="symbol">CASchools</span><span class="keyword">$</span><span class="symbol">stratio</span><span class="keyword">)</span>
+
+<span class="comment">## Include a constant in the regression, (p.31)</span>
+ <span class="symbol">e</span> <span class="assignement">=</span> <span class="number">2</span> <span class="keyword">+</span> <span class="functioncall">rnorm</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">)</span>
+ <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">runif</span><span class="keyword">(</span><span class="number">1000</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">100</span><span class="keyword">)</span>
+ <span class="symbol">y</span> <span class="assignement">=</span> <span class="number">0</span> <span class="keyword">+</span> <span class="symbol">x</span> <span class="keyword">+</span> <span class="symbol">e</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">y</span> <span class="keyword">~</span> <span class="symbol">x</span><span class="keyword">)</span>
+
+<span class="comment">## histrograms and qq-plots, (pp.40)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="number">20</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">FALSE</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">50</span><span class="keyword">,</span><span class="number">50</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">sd</span><span class="argument">=</span><span class="number">18.58</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">50</span><span class="keyword">,</span><span class="number">50</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">qqnorm</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>
+ <span class="functioncall">qqline</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>
+
+<span class="comment">## compare with histograms and qq-plots for a t-distribution (fait tailed!)</span>
+ <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">12</span><span class="keyword">)</span>
+ <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">rt</span><span class="keyword">(</span><span class="number">150</span><span class="keyword">,</span><span class="number">10</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="number">20</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">FALSE</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Histrogram of t-distribution with 10 d.f."</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">6</span><span class="keyword">,</span><span class="number">6</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">sd</span><span class="argument">=</span><span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">6</span><span class="keyword">,</span><span class="number">6</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+ <span class="functioncall">qqnorm</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+ <span class="functioncall">qqline</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+</pre>
+</body>
+</html>

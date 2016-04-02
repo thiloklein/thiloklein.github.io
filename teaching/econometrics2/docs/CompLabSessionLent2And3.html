@@ -1,0 +1,589 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Master in Finance Econometrics II Module</span>
+<span class="comment"># Thilo Klein</span>
+<span class="comment"># Lab Sessions 2&amp;3: ARIMA, ARCH and GARCH Models</span>
+
+<span class="comment"># Libraries: tseries, ccgarch, FinTS, dynlm, forecast, rgarch</span>
+<span class="comment"># http://cran.r-project.org/web/views/TimeSeries.html</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="functioncall">setwd</span><span class="keyword">(</span><span class="string">"E:/LabSessions_MPO1A_LT/Data"</span><span class="keyword">)</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Ex 1: Estimation of a quarterly ARMA model of the US Producer Price Index (PPI) -----------------------------</span>
+
+ <span class="symbol">quart</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/quarterly.csv"</span><span class="keyword">,</span> <span class="argument">h</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">quart</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 1: a) ---</span>
+<span class="comment"># Plot the PPI in level and first difference. Are these sequences stationary?</span>
+
+ <span class="comment">## generate variables</span>
+ <span class="symbol">PPI</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">quart</span><span class="keyword">$</span><span class="symbol">PPI</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1960</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+ <span class="symbol">LPPI</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">PPI</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1960</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+ <span class="symbol">LPPI.d1</span> <span class="assignement">&lt;-</span> <span class="functioncall">diff</span><span class="keyword">(</span><span class="symbol">LPPI</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">differences</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+
+ <span class="comment">## plot series</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">LPPI</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 1: b) ---</span>
+<span class="comment"># Take logs and first difference of PPI (the resulting variable is a measure of what?). </span>
+<span class="comment"># Plot again and compute ACF and PACF and do ADF test. Why is it important to take logs? </span>
+<span class="comment"># Has the variable a unit root?</span>
+
+ <span class="comment"># The autocorrelation and partial autocorrelation decay quickly: it seems to be a </span>
+ <span class="comment"># stationary series:</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">xlim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0.25</span><span class="keyword">,</span><span class="number">5.5</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">)</span> <span class="comment"># get rid of 0 lag autocorrelation in acf</span>
+
+ <span class="comment"># ADF test: without trend!!</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">tseries</span><span class="keyword">)</span>
+ <span class="functioncall">adf.test.1</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="comment"># We reject the null hypothesis: the series is stationary.</span>
+
+ <span class="comment"># test for remaining autocorrelation in the residuals</span>
+ <span class="symbol">lm1</span> <span class="assignement">&lt;-</span> <span class="functioncall">adf.test.2</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">int</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">trend</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">,</span> <span class="argument">k</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>
+ <span class="comment"># install.packages("ccgarch")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">ccgarch</span><span class="keyword">)</span>
+ <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">lm1</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 1: d) ---</span>
+<span class="comment"># Estimate an ARMA(p,q), for the following cases (p,q)=(1,0),  (2,0), (1,1),  (1,(1,4)), (2,1), </span>
+<span class="comment"># (1,(0,4)). For each of these models report SSR, AIC and Q(5), Q(10) and Q(15). Which is </span>
+<span class="comment"># the best model? Diagnostic tests: Normality, no autocorrelation, no ARCH terms?</span>
+
+ <span class="comment"># --- best model: ---</span>
+ <span class="symbol">arma1d</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ar</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span> <span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">)</span>
+ <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">na.rm</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span> <span class="comment"># SSR</span>
+
+ <span class="comment"># --- other models: ---</span>
+ <span class="symbol">arma1da</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1da</span><span class="keyword">)</span>
+ <span class="symbol">nNA</span> <span class="assignement">&lt;-</span> <span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>==<span class="symbol">F</span>
+ <span class="functioncall">ljung.box.test</span><span class="keyword">(</span><span class="symbol">arma1da</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="symbol">arma1db</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1db</span><span class="keyword">)</span>
+ <span class="functioncall">ljung.box.test</span><span class="keyword">(</span><span class="symbol">arma1db</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="symbol">arma1dc</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1dc</span><span class="keyword">)</span>
+ <span class="functioncall">ljung.box.test</span><span class="keyword">(</span><span class="symbol">arma1dc</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="symbol">arma1dd</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1dd</span><span class="keyword">)</span>
+ <span class="functioncall">ljung.box.test</span><span class="keyword">(</span><span class="symbol">arma1dd</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="symbol">arma1de</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ar</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1de</span><span class="keyword">)</span>
+ <span class="functioncall">ljung.box.test</span><span class="keyword">(</span><span class="symbol">arma1de</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="symbol">arma1df</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ar</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma1df</span><span class="keyword">)</span>
+ <span class="functioncall">ljung.box.test</span><span class="keyword">(</span><span class="symbol">arma1df</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+
+
+ <span class="comment"># --- Diagnostic tests: ---</span>
+
+ <span class="comment">## Autocorrelation: Ljung-Box statistic</span>
+ <span class="comment"># Is there any evidence of autocorrelation up to lag 5, 10 and 15? No, there isnâ€™t!</span>
+
+ <span class="symbol">nNA</span> <span class="assignement">&lt;-</span> <span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>==<span class="symbol">F</span>
+ <span class="functioncall">ljung.box.test.1</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">,</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">15</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="comment">## Normality: Jarque-Bera test for the null of normality</span>
+ <span class="comment"># There is evidence of non-normality. We reject the null hypothesis of normal distributed </span>
+ <span class="comment"># residuals. We should improve our model!</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">,</span> <span class="argument">breaks</span><span class="argument">=</span><span class="number">20</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+ <span class="symbol">grid.x</span> <span class="assignement">&lt;-</span> <span class="functioncall">seq</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">.05</span><span class="keyword">,</span><span class="number">.05</span><span class="keyword">,</span><span class="number">.001</span><span class="keyword">)</span>
+ <span class="symbol">grid.y</span> <span class="assignement">&lt;-</span> <span class="functioncall">dnorm</span><span class="keyword">(</span><span class="symbol">grid.x</span><span class="keyword">,</span> <span class="argument">sd</span><span class="argument">=</span><span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">,</span> <span class="argument">na.rm</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="symbol">grid.x</span><span class="keyword">,</span> <span class="symbol">grid.y</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">jarque.bera.test</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">[</span><span class="symbol">nNA</span><span class="keyword">]</span><span class="keyword">)</span>
+
+ <span class="comment">## ARCH terms: ARCH LM test</span>
+ <span class="comment"># We reject the hypothesis of no autocorrelation of the squared residuals: </span>
+ <span class="comment"># install.packages("FinTS")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">FinTS</span><span class="keyword">)</span>
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+
+ <span class="comment"># What did we just do? ARCH test manually:</span>
+ <span class="symbol">u.sqr</span> <span class="assignement">&lt;-</span> <span class="symbol">arma1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">^</span><span class="number">2</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">dynlm</span><span class="keyword">)</span>
+ <span class="symbol">arch1d</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">u.sqr</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arch1d</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">arch1d</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"L(u.sqr, 1)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 2)"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment"># Or alternatively: ARCH LM test manually:</span>
+ <span class="comment"># Obs*R^2 is distributed chi-squared with 2 degrees of freedom</span>
+ <span class="symbol">n</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">arch1d</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+ <span class="symbol">R2</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arch1d</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.sq</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="symbol">n</span> <span class="keyword">*</span> <span class="symbol">R2</span><span class="keyword">;</span> <span class="symbol">LM</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 1: e) ---</span>
+<span class="comment"># Estimate the ARMA models (p,q)=(1,1) and (1,(1,4)) over the period 1960.1-1989.3. Obtain </span>
+<span class="comment"># the one-step-ahead forecast and the one-step-ahead forecast error.</span>
+
+ <span class="symbol">LPPI.d1.w</span> <span class="assignement">&lt;-</span> <span class="functioncall">window</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1960</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">end</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1989</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">LPPI.d1</span>
+
+ <span class="symbol">arma1e.11</span> <span class="assignement">&lt;-</span> <span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">LPPI.d1.w</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">arma1e.11</span>
+
+ <span class="symbol">arma1e.114</span> <span class="assignement">&lt;-</span> <span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">LPPI.d1.w</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">fixed</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">arma1e.114</span>
+
+ <span class="comment"># prediction from ARMA(1,1)</span>
+ <span class="symbol">arma11.pred</span> <span class="assignement">&lt;-</span> <span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">arma1e.11</span><span class="keyword">,</span> <span class="argument">n.ahead</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">arma11.pred</span>
+ <span class="comment"># prediction from ARMA(1,(1,4))</span>
+ <span class="symbol">arma114.pred</span> <span class="assignement">&lt;-</span> <span class="functioncall">predict</span><span class="keyword">(</span><span class="symbol">arma1e.114</span><span class="keyword">,</span> <span class="argument">n.ahead</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">arma114.pred</span>
+
+ <span class="comment"># Actual observation is closer to ARMA(1,(1,4))</span>
+ <span class="symbol">obs</span> <span class="assignement">&lt;-</span> <span class="functioncall">window</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1989</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1989</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">obs</span>
+
+ <span class="comment">## Forecast accuracy</span>
+ <span class="comment"># Mean Square Error (MSE)</span>
+ <span class="keyword">(</span><span class="symbol">obs</span> <span class="keyword">-</span> <span class="symbol">arma11.pred</span><span class="keyword">$</span><span class="symbol">pred</span><span class="keyword">)</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">;</span> <span class="keyword">(</span><span class="symbol">obs</span> <span class="keyword">-</span> <span class="symbol">arma114.pred</span><span class="keyword">$</span><span class="symbol">pred</span><span class="keyword">)</span><span class="keyword">^</span><span class="number">2</span>
+ <span class="comment"># Mean Absolute Error (MAE)</span>
+ <span class="functioncall">abs</span><span class="keyword">(</span><span class="symbol">obs</span> <span class="keyword">-</span> <span class="symbol">arma11.pred</span><span class="keyword">$</span><span class="symbol">pred</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">abs</span><span class="keyword">(</span><span class="symbol">obs</span> <span class="keyword">-</span> <span class="symbol">arma114.pred</span><span class="keyword">$</span><span class="symbol">pred</span><span class="keyword">)</span>
+ <span class="comment"># Mean Absolute Percentage Error (MAPE)</span>
+ <span class="functioncall">abs</span><span class="keyword">(</span><span class="keyword">(</span><span class="symbol">obs</span> <span class="keyword">-</span> <span class="symbol">arma11.pred</span><span class="keyword">$</span><span class="symbol">pred</span><span class="keyword">)</span><span class="keyword">/</span><span class="symbol">obs</span><span class="keyword">)</span><span class="keyword">*</span><span class="number">100</span><span class="keyword">;</span> <span class="functioncall">abs</span><span class="keyword">(</span><span class="keyword">(</span><span class="symbol">obs</span> <span class="keyword">-</span> <span class="symbol">arma114.pred</span><span class="keyword">$</span><span class="symbol">pred</span><span class="keyword">)</span><span class="keyword">/</span><span class="symbol">obs</span><span class="keyword">)</span><span class="keyword">*</span><span class="number">100</span>
+
+
+
+
+
+<span class="comment"># --- Ex 2: ARMA model selection -----------------------------</span>
+ <span class="symbol">aa</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/arima.csv"</span><span class="keyword">,</span> <span class="argument">h</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">)</span>
+
+ <span class="keyword">for</span><span class="keyword">(</span><span class="symbol">i</span> <span class="keyword">in</span> <span class="number">4</span><span class="keyword">:</span><span class="number">10</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="symbol">aa</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">[</span><span class="keyword">,</span><span class="symbol">i</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="number">1801</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+
+ <span class="comment">## Box-Jenkins Procedure</span>
+
+ <span class="comment"># 1. Is the time series stationary?</span>
+   <span class="comment"># i) plot the data</span>
+
+   <span class="comment"># ii) compute ACF and PACF</span>
+
+   <span class="comment"># iii) perform ADF tests</span>
+
+
+ <span class="comment"># 2. AR, MA, or ARMA?</span>
+
+   <span class="comment"># Plot ACF and PACF</span>
+
+
+ <span class="comment"># 3. Estimate the model, defining p and q</span>
+ <span class="comment"># (guided by PACF and ACF)</span>
+
+
+ <span class="comment"># 4. Verify that the ACF and PACF of residuals do not show</span>
+ <span class="comment"># significant spikes after estimation</span>
+
+
+ <span class="comment"># 5. If there are two or more competing models, use AIC or SIBC to decide</span>
+ <span class="comment"># which is better. The lower AIC and/or SBIC the better the model</span>
+
+ <span class="comment"># 6. In the final specification all parameters must be significant,</span>
+ <span class="comment"># and residuals wel behaved:</span>
+
+   <span class="comment"># No autocorrelation?</span>
+
+   <span class="comment"># No heteroskedasticity?</span>
+
+   <span class="comment"># Normal distribution?</span>
+
+
+
+ <span class="comment"># --- automatic model seection based on aic criterion ---</span>
+ <span class="comment"># install.packages("forecast")</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">forecast</span><span class="keyword">)</span>
+ <span class="comment"># ?auto.arima</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y1</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y2</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y3</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y4</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y5</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y6</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span> <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">aa</span><span class="keyword">$</span><span class="symbol">Y7</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">d</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span> <span class="argument">ic</span><span class="argument">=</span><span class="string">"aic"</span><span class="keyword">)</span> <span class="keyword">)</span>
+
+
+
+
+
+<span class="comment"># --- Ex 3: Seasonality and ARIMA modeling -----------------------------</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">quart</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 3: a) ---</span>
+<span class="comment"># Plot the M1NSA in level and first difference. Are these sequences stationary?</span>
+
+ <span class="symbol">M1NSA</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">quart</span><span class="keyword">$</span><span class="symbol">M1NSA</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1960</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+ <span class="symbol">M1NSA.d1</span> <span class="assignement">&lt;-</span> <span class="functioncall">diff</span><span class="keyword">(</span><span class="symbol">M1NSA</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">M1NSA</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">M1NSA.d1</span><span class="keyword">)</span>
+
+ <span class="functioncall">adf.test</span><span class="keyword">(</span><span class="symbol">M1NSA</span><span class="keyword">)</span>
+ <span class="functioncall">adf.test</span><span class="keyword">(</span><span class="symbol">M1NSA.d1</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: b) ---</span>
+<span class="comment"># Take logs and first difference of MINSA (the resulting variable is a measure of money </span>
+<span class="comment"># growth). Plot again and compute ACF and PACF. What happens at lags 4, 8, 12, etc?</span>
+
+ <span class="symbol">LM1NSA</span> <span class="assignement">&lt;-</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">M1NSA</span><span class="keyword">)</span>
+ <span class="symbol">LM1NSA.d1</span> <span class="assignement">&lt;-</span> <span class="functioncall">diff</span><span class="keyword">(</span><span class="symbol">LM1NSA</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">LM1NSA</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: c) ---</span>
+<span class="comment"># Take a seasonal difference (over the first differenced series) and compute again ACF and </span>
+<span class="comment"># PACF, what can you observe now? </span>
+
+ <span class="symbol">LM1NSA.d1.d4</span> <span class="assignement">&lt;-</span> <span class="functioncall">diff</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1.d4</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1.d4</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: d) ---</span>
+<span class="comment"># What kind of model suggests the ACF and PACF? </span>
+
+ <span class="symbol">arma3d</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1.d4</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ar</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma3d</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: e) ---</span>
+<span class="comment"># Estimate a SARIMA(1,1,0)(0,1,1) and a SARIMA(0,1,1)(0,1,1). What is the best model? </span>
+
+ <span class="comment">## SARIMA(1,1,0)(0,1,1), AIC: -1465.47</span>
+ <span class="symbol">arima3e</span> <span class="assignement">&lt;-</span> <span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1.d4</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">seasonal</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">period</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arima3e</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">arima3e</span><span class="keyword">)</span>
+
+ <span class="comment">## SARIMA(0,1,1)(0,1,1), AIC: -1478.93</span>
+ <span class="symbol">arima3e2</span> <span class="assignement">&lt;-</span> <span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1.d4</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">seasonal</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">period</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arima3e2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">coeftest</span><span class="keyword">(</span><span class="symbol">arima3e2</span><span class="keyword">)</span>
+
+ <span class="comment">## The second model is the better one, but:</span>
+ <span class="functioncall">auto.arima</span><span class="keyword">(</span><span class="symbol">LM1NSA.d1.d4</span><span class="keyword">,</span> <span class="argument">trace</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+
+
+
+
+
+<span class="comment"># --- Ex 4: GARCH model of US PPI -----------------------------</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">quart</span><span class="keyword">)</span>
+
+
+
+<span class="comment"># --- Ex 4: a) ---</span>
+<span class="comment"># Formally test for ARCH errors (using the residuals from the ARIMA model).</span>
+
+ <span class="symbol">arma4a</span> <span class="assignement">&lt;-</span> <span class="functioncall">arma</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">,</span> <span class="argument">lag</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ar</span><span class="argument">=</span><span class="number">1</span><span class="keyword">,</span><span class="argument">ma</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arma4a</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">arma4a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span>
+
+ <span class="comment">## ARCH terms: ARCH LM test with H0: No autocorrelation in RESID^2 up to order 4</span>
+ <span class="comment"># We reject the hypothesis of no autocorrelation of the squared residuals: </span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">FinTS</span><span class="keyword">)</span>
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">arma4a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+
+ <span class="comment"># ARCH test manually:</span>
+ <span class="symbol">u.sqr</span> <span class="assignement">&lt;-</span> <span class="symbol">arma4a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">^</span><span class="number">2</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">dynlm</span><span class="keyword">)</span>
+ <span class="symbol">arch4a</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">u.sqr</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arch4a</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">arch4a</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"L(u.sqr, 1)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 2)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 3)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 4)"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment"># ARCH LM test manually:</span>
+ <span class="comment"># Obs*R^2 is distributed chi-squared with 4 degrees of freedom</span>
+ <span class="symbol">LM</span> <span class="assignement">&lt;-</span> <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">arch4a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">)</span> <span class="keyword">*</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arch4a</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">r.sq</span>
+ <span class="functioncall">pchisq</span><span class="keyword">(</span><span class="symbol">LM</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">4</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+ <span class="comment"># We reject the null. Then proceed to estimate an ARCH model for the variance.</span>
+
+
+
+<span class="comment"># --- Ex 4: b) ---</span>
+<span class="comment"># Use the ACF and PACF of the squared residuals as an indication of the order of the GARCH </span>
+<span class="comment"># process. How many ARCH terms seem to be needed? Estimate the model. </span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">arch4a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">arch4a</span><span class="keyword">$</span><span class="symbol">res</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="comment"># manually install rgarch and dependencies as described on</span>
+ <span class="comment"># http://klein.uk/MPO1A.html</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">rgarch</span><span class="keyword">)</span>
+
+ <span class="comment"># Estimate ARCH(4) model with mean equation ARMA(1,(1,4))</span>
+ <span class="comment"># ?ugarchspec</span>
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">4</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">fixed.pars</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment"># ?ugarchfit</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+
+
+<span class="comment"># --- Ex 4: c) ---</span>
+<span class="comment"># Test again for remaining ARCH terms (and compute again ACF and PACF). What can you conclude? </span>
+<span class="comment"># Observe carefully the estimated coefficients, what problems do you identify?</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">)</span>
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+
+ <span class="comment"># MA(1) term is not significant and ARCH effects still remain.</span>
+
+
+
+<span class="comment"># --- Ex 4: d) ---</span>
+<span class="comment"># Estimate now a GARCH(1,1), do you still have the same problems? Tabulate ACF and PACF and </span>
+<span class="comment"># test for autocorrelation up to lag 4 in squared residuals.</span>
+
+ <span class="comment"># Estimate GARCH(1,1) model with mean equation ARMA(1,(1,4))</span>
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">include.mean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">fixed.pars</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="symbol">LPPI.d1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="comment"># Verify that the correlogram of squared residuals is clean. Do ARCH LM test again.</span>
+
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">/</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">sigma</span> <span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+
+ <span class="comment"># ARCH test manually:</span>
+ <span class="symbol">u.sqr</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="symbol">arch4d</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">u.sqr</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">u.sqr</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">arch4d</span><span class="keyword">)</span>
+ <span class="functioncall">lht</span><span class="keyword">(</span><span class="symbol">arch4d</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"L(u.sqr, 1)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 2)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 3)"</span><span class="keyword">,</span> <span class="string">"L(u.sqr, 4)"</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="comment"># We reject the null of no autocorrelation in the squared residuals up to lag 4. </span>
+ <span class="comment"># We do not proceed further here.  </span>
+
+
+
+<span class="comment"># --- Ex 4: e) ---</span>
+<span class="comment"># Produce one-step-ahead forecast with this model.</span>
+
+ <span class="keyword">?</span><span class="symbol">ugarchforecast</span>
+ <span class="symbol">forc</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchforecast</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">,</span> <span class="argument">n.ahead</span><span class="argument">=</span><span class="number">100</span><span class="keyword">)</span>
+ <span class="symbol">forc</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">forc</span><span class="keyword">,</span><span class="argument">which</span><span class="argument">=</span><span class="string">"all"</span><span class="keyword">)</span>
+
+ <span class="comment"># As time goes on, the forecast tends to the long run variance of the process.</span>
+
+
+
+
+<span class="comment"># --- Ex 5:  -----------------------------</span>
+
+
+<span class="comment"># --- Ex 5: a) ---</span>
+<span class="comment"># Estimate an ARIMA model for the series ym (return on a portfolio) following </span>
+<span class="comment"># Box-Jenkins methodology. Why might someone conclude that the residuals appear </span>
+<span class="comment"># to be white noise?</span>
+
+ <span class="symbol">arch</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/arch.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">arch</span><span class="keyword">)</span>
+
+ <span class="comment"># Box-Jenkins methodology</span>
+ <span class="comment"># -&gt; Estimate a MA(3,6)</span>
+
+ <span class="symbol">arma5a</span> <span class="assignement">&lt;-</span> <span class="functioncall">arima</span><span class="keyword">(</span><span class="symbol">arch</span><span class="keyword">$</span><span class="symbol">ym</span><span class="keyword">,</span> <span class="argument">order</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">,</span><span class="number">6</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">fixed</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">,</span> <span class="number">NA</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">arma5a</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">type</span><span class="argument">=</span><span class="string">"l"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: b) ---</span>
+<span class="comment"># Perform the LM test for ARCH errors.</span>
+
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">arma5a</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: c) ---</span>
+<span class="comment"># Estimate an ARCH-M process (using the standard deviation in the mean equation), </span>
+<span class="comment"># with an ARCH(1) for the variance.</span>
+
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">6</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">garchInMean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">inMeanType</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">fixed.pars</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma1</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">arch</span><span class="keyword">$</span><span class="symbol">ym</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 5: d) ---</span>
+<span class="comment"># Check the ACF and the PACF. Do they appear to be satisfactory? Try other formulations </span>
+<span class="comment"># for the ARCH-M process. Interpret the coefficient of the std. dev. in the mean equation.</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>
+
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">6</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">garchInMean</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span> <span class="argument">inMeanType</span><span class="argument">=</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">fixed.pars</span><span class="argument">=</span><span class="functioncall">list</span><span class="keyword">(</span><span class="argument">ma1</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma2</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma3</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma4</span><span class="argument">=</span><span class="number">0</span><span class="keyword">,</span><span class="argument">ma5</span><span class="argument">=</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">arch</span><span class="keyword">$</span><span class="symbol">ym</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">4</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 7:  -----------------------------</span>
+<span class="comment"># The variables, Ret, Inf, dtbill, are the S&amp;P Composite index return, the US inflation </span>
+<span class="comment"># rate, and the first difference of the three-month Treasury bill rate. The mean equation </span>
+<span class="comment"># has the following form Ret = c + b1*Ret(-1) + b2*Inf(-1) + b3*dtbill(-1) + u.</span>
+
+ <span class="symbol">garch</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/garch.csv"</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">garch</span><span class="keyword">)</span>
+
+ <span class="symbol">ret</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">ret</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1954</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">12</span><span class="keyword">)</span>
+ <span class="symbol">inf</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">inf</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1954</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">12</span><span class="keyword">)</span>
+ <span class="symbol">dtbill</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts</span><span class="keyword">(</span><span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">dtbill</span><span class="keyword">,</span> <span class="argument">start</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1954</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="number">12</span><span class="keyword">)</span>
+ <span class="symbol">garch.ts</span> <span class="assignement">&lt;-</span> <span class="functioncall">ts.union</span><span class="keyword">(</span><span class="symbol">ret</span><span class="keyword">,</span> <span class="symbol">inf</span><span class="keyword">,</span> <span class="symbol">dtbill</span><span class="keyword">)</span>
+
+ <span class="symbol">lm7</span> <span class="assignement">&lt;-</span> <span class="functioncall">dynlm</span><span class="keyword">(</span><span class="symbol">ret</span> <span class="keyword">~</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">ret</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">inf</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">L</span><span class="keyword">(</span><span class="symbol">dtbill</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">garch.ts</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 7: a) ---</span>
+<span class="comment"># Test for ARCH terms in the squared residuals from this equation (and plot the ACF and PACF </span>
+<span class="comment"># of the squared residual).</span>
+
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">^</span><span class="number">2</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 7: b) ---</span>
+<span class="comment"># Try to model the heteroskedasticity using: GARCH and TARCH models.</span>
+
+ <span class="comment">## ---</span>
+ <span class="comment"># GARCH(1,1) probably is enough to take into account all the autocorrelation on squared residuals.</span>
+
+ <span class="comment"># generate matrix of external regressors</span>
+ <span class="symbol">n</span> <span class="assignement">&lt;-</span> <span class="functioncall">dim</span><span class="keyword">(</span><span class="symbol">garch</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span>
+ <span class="symbol">ret_1</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">ret</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">:</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="comment"># head(data.frame(garch$obs, garch$ret, garch$ret_1))</span>
+ <span class="symbol">inf_1</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">inf</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">:</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">dtbill_1</span> <span class="assignement">&lt;-</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">NA</span><span class="keyword">,</span> <span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">dtbill</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">:</span><span class="keyword">(</span><span class="symbol">n</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="symbol">ex.reg</span> <span class="assignement">&lt;-</span> <span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">ret_1</span><span class="keyword">,</span> <span class="symbol">inf_1</span><span class="keyword">,</span> <span class="symbol">dtbill_1</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="symbol">n</span><span class="keyword">,</span><span class="keyword">]</span>
+ <span class="functioncall">head</span><span class="keyword">(</span><span class="symbol">ex.reg</span><span class="keyword">)</span>
+ <span class="symbol">ex.reg</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.matrix</span><span class="keyword">(</span><span class="symbol">ex.reg</span><span class="keyword">)</span>
+
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"GARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">external.regressors</span><span class="argument">=</span><span class="symbol">ex.reg</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">ret</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="symbol">n</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">acf</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">pacf</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">)</span>
+ <span class="functioncall">ArchTest</span><span class="keyword">(</span><span class="symbol">sgarch.fit</span><span class="keyword">@</span><span class="slot">fit</span><span class="keyword">$</span><span class="symbol">resid</span><span class="keyword">,</span> <span class="argument">lags</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="comment">## ---</span>
+ <span class="comment"># TARCH: Even though the previous model seems to be good, we can try to see if there are </span>
+ <span class="comment"># some asymmetric responses to negative and positive shocks.</span>
+
+ <span class="symbol">spec</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchspec</span><span class="keyword">(</span><span class="argument">variance.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">model</span> <span class="argument">=</span> <span class="string">"fGARCH"</span><span class="keyword">,</span> <span class="argument">submodel</span><span class="argument">=</span><span class="string">"TGARCH"</span><span class="keyword">,</span> <span class="argument">garchOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">mean.model</span> <span class="argument">=</span> <span class="functioncall">list</span><span class="keyword">(</span><span class="argument">armaOrder</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">0</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">external.regressors</span><span class="argument">=</span><span class="symbol">ex.reg</span><span class="keyword">)</span> <span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span> <span class="assignement">&lt;-</span> <span class="functioncall">ugarchfit</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">garch</span><span class="keyword">$</span><span class="symbol">ret</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">:</span><span class="symbol">n</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">spec</span> <span class="argument">=</span> <span class="symbol">spec</span><span class="keyword">)</span>
+ <span class="symbol">sgarch.fit</span>
+
+
+
+
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+ <span class="functioncall">save.image</span><span class="keyword">(</span><span class="string">"EndOfSession.RData"</span><span class="keyword">)</span>
+ <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"yes"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># MPO1 Quantitative Research Methods</span>
+<span class="comment"># Thilo Klein</span>
+<span class="comment"># Lab Session 1: General Introduction to R; Descriptive Statistics</span>
+
+<span class="comment"># Required libraries: Rcmdr, timeDate</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Ex 1: find help; R Commander; install/load packages -------------------</span>
+ <span class="keyword">?</span><span class="symbol">memory.size</span>                    <span class="comment"># help if exact command is known</span>
+ <span class="functioncall">help.search</span><span class="keyword">(</span><span class="string">"memory size"</span><span class="keyword">)</span>  <span class="comment"># help if exact command is not knowm</span>
+ <span class="functioncall">install.packages</span><span class="keyword">(</span><span class="string">"Rcmdr"</span><span class="keyword">)</span>   <span class="comment"># install package Rcmdr</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">Rcmdr</span><span class="keyword">)</span>                  <span class="comment"># load package</span>
+
+
+
+
+<span class="comment"># --- Ex 2: Load a dataset and save it with a different name ----------------</span>
+ <span class="symbol">dataset2</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/dataset"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>  <span class="comment"># read dataset from .csv file</span>
+ <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>                                                           <span class="comment"># display active objects in workspace</span>
+ <span class="functioncall">save</span><span class="keyword">(</span><span class="string">"dataset2"</span><span class="keyword">,</span> <span class="argument">file</span><span class="argument">=</span><span class="string">"dataset2.RData"</span><span class="keyword">)</span>                <span class="comment"># save active object dataset2</span>
+ <span class="functioncall">rm</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>                                           <span class="comment"># clear object dataset2 from workspace</span>
+ <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>                                          <span class="comment"># clear workspace</span>
+ <span class="functioncall">load</span><span class="keyword">(</span><span class="string">"C:/.../dataset2.RData"</span><span class="keyword">)</span>                          <span class="comment"># load object dataset2</span>
+
+
+
+
+<span class="comment"># --- Ex 4: Provide description(s) for one or more variables ------------------</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>                      <span class="comment"># some characteristics of all variables </span>
+ <span class="functioncall">is.double</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">$</span><span class="symbol">rev</span><span class="keyword">)</span>        <span class="comment"># is variable rev of type double?</span>
+
+
+
+
+<span class="comment"># --- Ex 5: Inspect and modify the dataset ------------------</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>                           <span class="comment"># directly call the variables, to undo: detach()</span>
+ <span class="functioncall">edit</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>                                 <span class="comment"># open AND modify dataset</span>
+ <span class="functioncall">edit</span><span class="keyword">(</span><span class="symbol">year</span><span class="keyword">)</span>                                             <span class="comment"># open AND modify single variable</span>
+ <span class="functioncall">browse</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>                           <span class="comment"># open dataset</span>
+ <span class="functioncall">cbind</span><span class="keyword">(</span><span class="symbol">comp_name</span><span class="keyword">,</span> <span class="symbol">year</span><span class="keyword">,</span> <span class="symbol">level</span><span class="keyword">,</span> <span class="symbol">capital</span><span class="keyword">)</span>
+ <span class="functioncall">cbind</span><span class="keyword">(</span><span class="symbol">comp_name</span><span class="keyword">,</span> <span class="symbol">year</span><span class="keyword">,</span> <span class="symbol">level</span><span class="keyword">,</span> <span class="symbol">capital</span><span class="keyword">)</span><span class="keyword">[</span><span class="symbol">level</span> <span class="keyword">&gt;</span> <span class="number">3</span> <span class="keyword">&amp;</span> <span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">level</span><span class="keyword">)</span>==<span class="number">FALSE</span><span class="keyword">]</span>
+
+
+
+
+<span class="comment"># --- Ex 6: Create (generate) a new variable ------------------</span>
+<span class="comment"># --- Ex 6: a) ---</span>
+<span class="comment"># Calculate output per employee for all enterprises.</span>
+
+ <span class="symbol">totemp</span> <span class="assignement">&lt;-</span> <span class="symbol">softemp</span> <span class="keyword">+</span> <span class="symbol">othemp</span>
+ <span class="symbol">productivity</span> <span class="assignement">&lt;-</span> <span class="symbol">rev</span> <span class="keyword">/</span> <span class="symbol">totemp</span>
+
+
+<span class="comment"># --- Ex 6: b) ---</span>
+<span class="comment"># generate a variable containing revenue squared.</span>
+
+ <span class="symbol">revsq</span> <span class="assignement">&lt;-</span> <span class="symbol">rev</span><span class="keyword">^</span><span class="number">2</span>
+ <span class="symbol">lrev</span> <span class="assignement">&lt;-</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">)</span>
+ <span class="symbol">ltotemp</span> <span class="assignement">&lt;-</span> <span class="functioncall">log</span><span class="keyword">(</span><span class="symbol">totemp</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 7: Generate an indicator variable ------------------</span>
+ <span class="symbol">year2002</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">year</span> == <span class="number">2002</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span>
+ <span class="functioncall">cbind</span><span class="keyword">(</span><span class="symbol">year</span><span class="keyword">,</span> <span class="symbol">year2002</span><span class="keyword">)</span>
+ <span class="symbol">compnameis</span> <span class="assignement">&lt;-</span> <span class="functioncall">paste</span><span class="keyword">(</span><span class="string">"company name is:"</span><span class="keyword">,</span> <span class="symbol">comp_name</span><span class="keyword">,</span> <span class="argument">sep</span><span class="argument">=</span><span class="string">" "</span><span class="keyword">)</span>
+ <span class="symbol">compnameis</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">:</span><span class="number">10</span><span class="keyword">]</span>
+
+
+
+
+<span class="comment"># --- Ex 8: Calculate summary statistics. Identify missing values and outliers. Note that the latter may be the result of mistakes. Calculate proportions of individuals presenting a certain characteristic. ------------------</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>
+ <span class="number">NA</span><span class="keyword">%in%</span><span class="symbol">level</span>
+ <span class="functioncall">length</span><span class="keyword">(</span><span class="symbol">level</span><span class="keyword">[</span><span class="functioncall">is.na</span><span class="keyword">(</span><span class="symbol">level</span><span class="keyword">)</span><span class="keyword">]</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 9: Calculate additional summary statistics but only for a few variables, or a subset of observations. ------------------</span>
+ <span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">)</span>
+ <span class="functioncall">var</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">)</span>
+ <span class="functioncall">help.search</span><span class="keyword">(</span><span class="string">"Skewness"</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">timeDate</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">skewness</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">)</span>
+ <span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">[</span><span class="symbol">level</span><span class="keyword">&gt;</span><span class="number">2</span><span class="keyword">]</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 10: Analysis of the frequency of discrete variables ------------------</span>
+ <span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">pub</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 11: Analysis of the frequency of a combination of discrete variables (two-way tables) ------------------</span>
+ <span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">pub</span><span class="keyword">,</span> <span class="symbol">level</span><span class="keyword">)</span>
+ <span class="symbol">t</span><span class="assignement">&lt;-</span><span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">pub</span><span class="keyword">,</span> <span class="symbol">level</span><span class="keyword">)</span>
+ <span class="symbol">t</span><span class="keyword">/</span><span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">t</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 12: Analysis of a variable conditioned on a discrete variable ------------------</span>
+ <span class="keyword">?</span><span class="symbol">by</span>
+ <span class="functioncall">by</span><span class="keyword">(</span><span class="argument">data</span><span class="argument">=</span><span class="symbol">totemp</span><span class="keyword">,</span> <span class="argument">INDICES</span><span class="argument">=</span><span class="symbol">us</span><span class="keyword">,</span> <span class="argument">FUN</span><span class="argument">=</span><span class="symbol">summary</span><span class="keyword">)</span>
+ <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">totemp</span><span class="keyword">,</span> <span class="symbol">us</span><span class="keyword">,</span> <span class="symbol">summary</span><span class="keyword">)</span>
+ <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">totemp</span><span class="keyword">,</span> <span class="symbol">india</span><span class="keyword">,</span> <span class="symbol">summary</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">by</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">,</span> <span class="symbol">india</span><span class="keyword">,</span> <span class="symbol">summary</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 13: Graphs ------------------</span>
+<span class="comment"># --- Ex 13: a) ---</span>
+<span class="comment"># Scatter plots</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">rev</span> <span class="keyword">~</span> <span class="symbol">totemp</span><span class="keyword">)</span> <span class="comment"># plot(totemp, rev)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lrev</span> <span class="keyword">~</span> <span class="symbol">ltotemp</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 13: b) ---</span>
+<span class="comment"># Histograms</span>
+
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">[</span><span class="symbol">rev</span><span class="keyword">&lt;</span><span class="number">1000</span><span class="keyword">]</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">[</span><span class="symbol">rev</span><span class="keyword">&lt;</span><span class="number">500</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">breaks</span><span class="argument">=</span><span class="number">50</span><span class="keyword">)</span>
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">[</span><span class="symbol">rev</span><span class="keyword">&lt;</span><span class="number">200</span> <span class="keyword">&amp;</span> <span class="symbol">uk</span>==<span class="number">1</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">breaks</span><span class="argument">=</span><span class="number">50</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">rev</span><span class="keyword">[</span><span class="symbol">rev</span><span class="keyword">&lt;</span><span class="number">200</span> <span class="keyword">&amp;</span> <span class="symbol">uk</span>==<span class="number">0</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">breaks</span><span class="argument">=</span><span class="number">50</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 14: Drop variables or observations ------------------</span>
+ <span class="symbol">dataset2</span><span class="keyword">$</span><span class="symbol">dom</span> <span class="assignement">&lt;-</span> NULL
+
+
+
+
+<span class="comment"># --- Ex 15: Generate linear transformations ------------------</span>
+ <span class="symbol">othemp_lt</span> <span class="assignement">&lt;-</span> <span class="number">1</span> <span class="keyword">+</span> <span class="symbol">othemp</span><span class="keyword">/</span><span class="number">100</span>
+ <span class="functioncall">sum</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">)</span>
+ <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">)</span>
+ <span class="number">1</span> <span class="keyword">+</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">)</span><span class="keyword">/</span><span class="number">100</span>
+ <span class="symbol">othemp_qt</span> <span class="assignement">&lt;-</span> <span class="number">1</span> <span class="keyword">+</span> <span class="symbol">othemp</span><span class="keyword">/</span><span class="number">100</span> <span class="keyword">+</span> <span class="number">5</span> <span class="keyword">*</span> <span class="symbol">othemp</span><span class="keyword">^</span><span class="number">2</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">othemp_lt</span> <span class="keyword">~</span> <span class="symbol">othemp</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">othemp_qt</span> <span class="keyword">~</span> <span class="symbol">othemp</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 16: Some properties of the sample variance ------------------</span>
+ <span class="functioncall">cor</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">,</span> <span class="symbol">softemp</span><span class="keyword">,</span> <span class="argument">use</span><span class="argument">=</span><span class="string">" pairwise.complete.obs"</span><span class="keyword">)</span>
+ <span class="functioncall">cov</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">,</span> <span class="symbol">softemp</span><span class="keyword">,</span> <span class="argument">use</span><span class="argument">=</span><span class="string">" pairwise.complete.obs"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 16: a) ---</span>
+<span class="comment"># generate a variable which is the sum and  apply the variance. You have created the </span>
+<span class="comment"># variable (totemp), so you need to apply the variance.</span>
+
+ <span class="symbol">myvar</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span><span class="functioncall">var</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">na.rm</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">}</span>
+ <span class="functioncall">myvar</span><span class="keyword">(</span><span class="symbol">totemp</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 16: b) ---</span>
+<span class="comment"># Apply the formula: Var (X+Y) = Var (X) + Var (Y) + 2 * covariance (X, Y)</span>
+
+ <span class="functioncall">myvar</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">myvar</span><span class="keyword">(</span><span class="symbol">softemp</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="number">2</span><span class="keyword">*</span><span class="functioncall">cov</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">,</span> <span class="symbol">softemp</span><span class="keyword">,</span> <span class="argument">use</span><span class="argument">=</span><span class="string">"pairwise.complete.obs"</span><span class="keyword">)</span>
+
+ <span class="comment"># the same applies to the mean:</span>
+ <span class="symbol">mymean</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span><span class="argument">na.rm</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">}</span>
+ <span class="functioncall">mymean</span><span class="keyword">(</span><span class="symbol">othemp</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">mymean</span><span class="keyword">(</span><span class="symbol">softemp</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 19: T-tests (in your own time) ------------------</span>
+<span class="comment"># --- Ex 19: b) ---</span>
+<span class="comment"># Using R, perform this test and calculate the confidence interval at 99% </span>
+<span class="comment"># significance level.</span>
+
+ <span class="symbol">data</span> <span class="assignement">&lt;-</span> <span class="functioncall">scan</span><span class="keyword">(</span><span class="string">"clipboard"</span><span class="keyword">)</span>
+ <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span><span class="keyword">*</span><span class="functioncall">qnorm</span><span class="keyword">(</span><span class="number">0.99</span><span class="keyword">)</span>
+ <span class="functioncall">t.test</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">,</span> <span class="argument">mu</span><span class="argument">=</span><span class="number">60</span><span class="keyword">,</span> <span class="argument">alternative</span><span class="argument">=</span><span class="string">"less"</span><span class="keyword">,</span> <span class="argument">conf.level</span><span class="argument">=</span><span class="number">0.99</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Digression: my function to count NAs per variable ---</span>
+ <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+ <span class="functioncall">showNAs</span><span class="keyword">(</span><span class="symbol">dataset2</span><span class="keyword">)</span>
+
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+ <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"no"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

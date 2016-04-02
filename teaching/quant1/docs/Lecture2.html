@@ -1,0 +1,133 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># Lecture 2: Random variables and probability distributions</span>
+
+<span class="comment"># Required libraries: --</span>
+  <span class="functioncall">rm</span><span class="keyword">(</span><span class="argument">list</span><span class="argument">=</span><span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span>
+  <span class="comment"># source("http://klein.uk/R/myfunctions.R")</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+<span class="comment"># --- Simulation: de Mere's Problem (page 2) -------------------</span>
+
+  <span class="functioncall">set.seed</span><span class="keyword">(</span><span class="number">123</span><span class="keyword">)</span>
+
+<span class="comment"># Simulate 4 throws of a single die</span>
+  <span class="symbol">dice4</span> <span class="assignement">=</span> <span class="functioncall">sample</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">,</span><span class="symbol">T</span><span class="keyword">)</span>
+<span class="comment"># Check condition</span>
+  <span class="number">6</span> <span class="keyword">%in%</span> <span class="symbol">dice4</span>
+<span class="comment"># 1000 simulations</span>
+  <span class="symbol">e</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">1000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="number">6</span> <span class="keyword">%in%</span> <span class="functioncall">sample</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">,</span><span class="number">4</span><span class="keyword">,</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="comment"># frequency table</span>
+  <span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">)</span>
+<span class="comment"># relative frequency</span>
+  <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">e</span><span class="keyword">)</span>
+
+<span class="comment"># Simulate 24 throws of two dice</span>
+  <span class="symbol">dice24.1</span> <span class="assignement">=</span> <span class="functioncall">sample</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">,</span><span class="number">24</span><span class="keyword">,</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">;</span> <span class="symbol">dice24.2</span> <span class="assignement">=</span> <span class="functioncall">sample</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">,</span><span class="number">24</span><span class="keyword">,</span><span class="symbol">T</span><span class="keyword">)</span>
+<span class="comment"># Check condition</span>
+  <span class="number">12</span> <span class="keyword">%in%</span> <span class="keyword">(</span><span class="symbol">dice24.1</span> <span class="keyword">+</span> <span class="symbol">dice24.2</span><span class="keyword">)</span>
+<span class="comment"># 1000 simulations</span>
+  <span class="symbol">f</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">1000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="number">12</span> <span class="keyword">%in%</span> <span class="keyword">(</span><span class="functioncall">sample</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">,</span><span class="number">24</span><span class="keyword">,</span><span class="symbol">T</span><span class="keyword">)</span> <span class="keyword">+</span> <span class="functioncall">sample</span><span class="keyword">(</span><span class="number">6</span><span class="keyword">,</span><span class="number">24</span><span class="keyword">,</span><span class="symbol">T</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">)</span>
+<span class="comment"># frequency table </span>
+  <span class="functioncall">table</span><span class="keyword">(</span><span class="symbol">f</span><span class="keyword">)</span>
+<span class="comment"># relative frequency</span>
+  <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">f</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Simulation: Central Limit Theorem (page 27) -------------------</span>
+
+<span class="comment"># 10,000 draws from a uniform distribution. This is the parent distribution which is obviously non-Normal.</span>
+  <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">runif</span><span class="keyword">(</span><span class="number">10000</span><span class="keyword">)</span>
+  <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span>
+
+<span class="comment"># To compute an average, two observations are drawn at random from the parent distribution and averaged. </span>
+<span class="comment"># Then another sample of two is drawn and another value average is computed. This process is repeated 10,000 times.</span>
+  <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">10000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="functioncall">runif</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+<span class="comment"># Distribution of averages of two</span>
+  <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+<span class="comment"># Repeatedly taking eight from the parent distribution and computing averages</span>
+  <span class="symbol">x</span> <span class="assignement">=</span> <span class="functioncall">sapply</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">:</span><span class="number">10000</span><span class="keyword">,</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="functioncall">runif</span><span class="keyword">(</span><span class="number">8</span><span class="keyword">)</span><span class="keyword">)</span> <span class="keyword">)</span>
+  <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">,</span> <span class="argument">freq</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+<span class="comment"># Distribution of the mean approaches a Normal distribution</span>
+  <span class="functioncall">lines</span><span class="keyword">(</span><span class="argument">x</span><span class="argument">=</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">.01</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">y</span><span class="argument">=</span><span class="functioncall">dnorm</span><span class="keyword">(</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">,</span><span class="number">.01</span><span class="keyword">)</span><span class="keyword">,</span> <span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">,</span> <span class="functioncall">sd</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+  <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"no"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

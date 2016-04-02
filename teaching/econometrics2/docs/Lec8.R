@@ -1,10 +1,10 @@
 # Lecture 8
  library(plm)
- source("http://thiloklein.de/R/myfunctions.R")
+ source("http://klein.uk/R/myfunctions.R")
 
 
 # --- Ex 3: Panel Data, Random Effects, Fixed Effects and First Differences -----------------------------
- wage <- read.csv("http://thiloklein.de/R/Lent/wagepan.csv",header=T)
+ wage <- read.csv("http://klein.uk/R/Lent/wagepan.csv",header=T)
  str(wage)
 
  waget <- pdata.frame(wage, c("nr","year"))

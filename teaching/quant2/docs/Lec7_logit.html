@@ -1,0 +1,176 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># Lecure 7: Binary dependent variable models</span>
+
+ <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+
+<span class="comment"># --- Ex 1: Logit model -----------------------------</span>
+
+ <span class="symbol">eaef</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/Lent/eaef21.csv"</span><span class="keyword">,</span> <span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: a) ---</span>
+<span class="comment"># Observe the distribution of ASVABC. ASVABC accounts for the result of an ability test.</span>
+
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: b) ---</span>
+<span class="comment"># Investigate if the probability of a respondent obtaining a bachelor's degree </span>
+<span class="comment"># from a four-year college (BACH=1) is related to the respondent's score on ASVABC,</span>
+<span class="comment"># by estimating a linear model and a logit model.</span>
+
+ <span class="symbol">BACH</span> <span class="assignement">&lt;-</span> <span class="functioncall">ifelse</span><span class="keyword">(</span><span class="symbol">S</span> <span class="keyword">&gt;</span> <span class="number">12</span><span class="keyword">,</span> <span class="number">1</span><span class="keyword">,</span> <span class="number">0</span><span class="keyword">)</span>
+ <span class="symbol">lm1b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">shccm</span><span class="keyword">(</span><span class="symbol">lm1b</span><span class="keyword">)</span>
+
+ <span class="symbol">glm1b</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">logit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: c) ---</span>
+<span class="comment"># Plot the probabilities estimated. </span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">pch</span><span class="argument">=</span><span class="string">"|"</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"OLS"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">lm1b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">pch</span><span class="argument">=</span><span class="string">"|"</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Logit"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: d) ---</span>
+<span class="comment"># In order to interpret the logit results, estimate the marginal effects at the mean value </span>
+<span class="comment"># of ASVABC (default) and at values of 40, 55 and 70.</span>
+
+ <span class="symbol">M</span> <span class="assignement">&lt;-</span> <span class="functioncall">model.matrix</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">data.frame</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">)</span><span class="keyword">)</span>
+
+ <span class="symbol">F.log</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="number">1</span><span class="keyword">/</span><span class="keyword">(</span><span class="number">1</span> <span class="keyword">+</span> <span class="functioncall">exp</span><span class="keyword">(</span><span class="keyword">-</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+ <span class="symbol">f.log</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">x</span><span class="keyword">)</span><span class="keyword">{</span>
+   <span class="functioncall">F.log</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">*</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">-</span><span class="functioncall">F.log</span><span class="keyword">(</span><span class="symbol">x</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="keyword">}</span>
+
+ <span class="symbol">M</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">40</span><span class="keyword">;</span> <span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">f.log</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment">## Or use R built in logistic function</span>
+ <span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">stats</span><span class="keyword">)</span>
+ <span class="symbol">M</span><span class="keyword">[</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="assignement">&lt;-</span> <span class="number">55</span><span class="keyword">;</span> <span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">dlogis</span><span class="keyword">(</span><span class="functioncall">mean</span><span class="keyword">(</span><span class="symbol">M</span><span class="keyword">%*%</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="comment">## Or use the simple outcome equation instead</span>
+ <span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span> <span class="keyword">*</span> <span class="functioncall">dlogis</span><span class="keyword">(</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">70</span><span class="keyword">)</span><span class="keyword">%*%</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: e) ---</span>
+<span class="comment"># Give an interpretation of the OLS regression and explain why OLS is not a satisfactory </span>
+<span class="comment"># estimation method for this kind of model. </span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">.5</span><span class="keyword">,</span><span class="number">1.5</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm1b</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"OLS"</span><span class="keyword">,</span> <span class="string">"Logit"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"red"</span><span class="keyword">,</span><span class="string">"blue"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">1</span><span class="keyword">:</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">lm1e</span><span class="keyword">$</span><span class="symbol">res</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">h</span> <span class="argument">=</span> <span class="number">0</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topright"</span><span class="keyword">,</span> <span class="string">"OLS residuals"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 1: f) ---</span>
+<span class="comment"># For the logit model, generate the pseudo-R2.</span>
+
+ <span class="symbol">glm1f.null</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">logit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="number">1</span> <span class="keyword">-</span> <span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span><span class="keyword">/</span><span class="functioncall">logLik</span><span class="keyword">(</span><span class="symbol">glm1f.null</span><span class="keyword">)</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span>
+
+
+<span class="comment"># --- Digression: Logit vs Probit coefficients ---</span>
+
+ <span class="comment"># logit: </span>
+ <span class="symbol">glm1b</span>
+
+ <span class="comment"># probit:</span>
+ <span class="symbol">glm1g</span> <span class="assignement">&lt;-</span> <span class="functioncall">glm</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">family</span><span class="argument">=</span><span class="functioncall">binomial</span><span class="keyword">(</span><span class="argument">link</span><span class="argument">=</span><span class="symbol">probit</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">glm1g</span>
+
+ <span class="functioncall">par</span><span class="keyword">(</span><span class="argument">mfrow</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">1</span><span class="keyword">,</span><span class="number">3</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">pch</span><span class="argument">=</span><span class="string">"|"</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"Logit vs. Probit"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1g</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="number">27</span><span class="keyword">,</span><span class="number">.95</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"Logit"</span><span class="keyword">,</span> <span class="string">"Probit"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">pch</span><span class="argument">=</span><span class="string">"|"</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">.1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">xlim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="functioncall">min</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span><span class="number">35</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"lower tail"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1g</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"topleft"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"Logit"</span><span class="keyword">,</span> <span class="string">"Probit"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">BACH</span> <span class="keyword">~</span> <span class="symbol">ASVABC</span><span class="keyword">,</span> <span class="argument">pch</span><span class="argument">=</span><span class="string">"|"</span><span class="keyword">,</span> <span class="argument">ylim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">.85</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">xlim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">63</span><span class="keyword">,</span><span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">main</span><span class="argument">=</span><span class="string">"upper tail"</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1b</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">lines</span><span class="keyword">(</span><span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">glm1g</span><span class="keyword">$</span><span class="symbol">fitted</span><span class="keyword">)</span> <span class="keyword">~</span> <span class="functioncall">sort</span><span class="keyword">(</span><span class="symbol">ASVABC</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="string">"bottomright"</span><span class="keyword">,</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"Logit"</span><span class="keyword">,</span> <span class="string">"Probit"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">col</span> <span class="argument">=</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">lwd</span> <span class="argument">=</span> <span class="number">2</span><span class="keyword">,</span> <span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>

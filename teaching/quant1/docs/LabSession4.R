@@ -4,7 +4,7 @@
 # Lab Session 4: Generalized Least Squares
 
 # Required libraries: car, VGAM, zoo, lmtest, graphics
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -15,7 +15,7 @@
 # --- Ex 1: a) ---
 # Load usmetal.txt with read.table
 
- metal <- read.table("http://thiloklein.de/R/usmetal.txt", header=T)
+ metal <- read.table("http://klein.uk/R/usmetal.txt", header=T)
  str(metal)
 
 
@@ -74,7 +74,7 @@
 # to test the null hypothesis that none of the variables in the regression matter 
 # for the price of wine.
 
- wine <- read.csv("http://thiloklein.de/R/wineweather1", header=T)
+ wine <- read.csv("http://klein.uk/R/wineweather1", header=T)
  str(wine)	# 38 obs. of 7 variables.
  lm2a <- lm(logprice ~ degrees + hrain + wrain + time_sv, data=wine); summary(lm2a)
  wine		# 11 NAs for variable logprice
@@ -85,7 +85,7 @@
  # k = number of coefficients = 5
  paste("R^2 is", summary(lm2a)$r.squared)
  paste("df residuals = n-k =", 27-5)
- paste("Restrictions = k–1 = df of the model =", 5-1)
+ paste("Restrictions = k-1 = df of the model =", 5-1)
  paste("F-stat =", summary(lm2a)$r.squared / (5-1) / ((1- summary(lm2a)$r.squared) / (27-5)) )
  # summary(lm2a)$fstatistic
  pf(q=summary(lm2a)$fstatistic[1], df1=summary(lm2a)$fstatistic[2], df2=summary(lm2a)$fstatistic[3], lower.tail=F)
@@ -152,7 +152,7 @@
 # and homoskedastic-only standard errors for equation: price ~ lotsize + sqrft + bdrms.
 # Discuss any important difference with the usual homoskedasticity-only standard errors.
 
- house <- read.csv("http://thiloklein.de/R/hprice1", header=T)
+ house <- read.csv("http://klein.uk/R/hprice1", header=T)
  str(house)
 
  lm3a <- lm(price ~ lotsize + sqrft + bdrms, data=house)
@@ -190,7 +190,7 @@
 
 
 # --- Ex 4: Autocorrelation  ------------------
- bond <- read.csv("http://thiloklein.de/R/bond_int_rates", header=T)
+ bond <- read.csv("http://klein.uk/R/bond_int_rates", header=T)
  str(bond)
 
  library(zoo)
@@ -220,7 +220,7 @@
 # RESET (regression specification error test). 
 # for: relevant omitted variables; non-linearities
 
- nations <- read.csv("http://thiloklein.de/R/nations", header=T)
+ nations <- read.csv("http://klein.uk/R/nations", header=T)
  str(nations)
 
  lm5 <- lm(birth ~ gnpcap + urban, data=nations); shccm(lm5)
@@ -255,7 +255,7 @@
 
 
 # --- Ex 6: Normality ------------------
- eaef21 <- read.csv("http://thiloklein.de/R/eaef21", header=T)
+ eaef21 <- read.csv("http://klein.uk/R/eaef21", header=T)
  str(eaef21)
 
 
@@ -305,7 +305,7 @@
 
 
 # --- Ex 7: Outliers ------------------
- crime <- read.csv("http://thiloklein.de/R/crime", header=T)
+ crime <- read.csv("http://klein.uk/R/crime", header=T)
  str(crime)
 
  plot(subset(crime, select=c("crime","pctmetro","poverty","single")))

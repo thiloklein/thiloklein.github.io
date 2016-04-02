@@ -3,7 +3,7 @@
 # Lec 6: SEM
 
 # Libraries: lmtest, sandwich, AER, systemfit
-  source("http://thiloklein.de/R/myfunctions.R")
+  source("http://klein.uk/R/myfunctions.R")
   ls()
 # -------------------------------------------------------------------
 
@@ -11,7 +11,7 @@
 
 
 # --- Ex 10:  -----------------------------
- fish <- read.csv("http://thiloklein.de/R/Lent/fish.csv", header=T)
+ fish <- read.csv("http://klein.uk/R/Lent/fish.csv", header=T)
  str(fish)
 
 # --- Ex 10: c) ---

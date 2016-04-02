@@ -1,0 +1,246 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># MPO1 Quantitative Research Methods</span>
+<span class="comment"># Thilo Klein</span>
+<span class="comment"># Lab Session 2: Linear Regression in R; Good Practice Guide</span>
+
+<span class="comment"># Required libraries: .</span>
+  <span class="functioncall">source</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/myfunctions.R"</span><span class="keyword">)</span>
+  <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span>
+<span class="comment"># -------------------------------------------------------------------</span>
+
+
+
+
+<span class="comment"># --- Ex 1: Run Script-file from command line ---------------------------</span>
+ <span class="comment"># print("hello, world")</span>
+ <span class="comment"># setwd("C:/Dokumente und Einstellungen/Thilo/Desktop/Lab_Sessions/Session2/Data")</span>
+ <span class="comment"># source("hello.R")</span>
+
+
+<span class="comment"># --- Ex 2: The linear model ---------------------------</span>
+<span class="comment"># --- Ex 2: a) ---</span>
+<span class="comment"># Review the contents and regress employment growth on GDP growth. Provide an </span>
+<span class="comment"># interpretation of the results.</span>
+
+ <span class="symbol">growth</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/growth"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span><span class="argument">sep</span><span class="argument">=</span><span class="string">","</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">growth</span><span class="keyword">)</span>
+ <span class="symbol">lm2</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">empgrow</span> <span class="keyword">~</span> <span class="symbol">GDPgrow</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">growth</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: b) ---</span>
+<span class="comment"># Visually inspect data and regression line. </span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">empgrow</span> <span class="keyword">~</span> <span class="symbol">GDPgrow</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">growth</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: c) ---</span>
+<span class="comment"># Are the coefficients significant? </span>
+
+ <span class="comment"># compare t-value of b2 (5.8) to 97.5% quantile of t-dist (2.07) and reject H0: b2=0.</span>
+ <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">1</span><span class="keyword">-</span><span class="number">0.025</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">23</span><span class="keyword">)</span>
+ <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.025</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">23</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 2: f) ---</span>
+<span class="comment"># Build a confidence interval for the slope. </span>
+
+ <span class="symbol">b_1</span> <span class="assignement">&lt;-</span> <span class="symbol">lm2</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">]</span>
+ <span class="symbol">sd_b1</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm2</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">1</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span>
+ <span class="symbol">t_0.975</span> <span class="assignement">&lt;-</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">1</span><span class="keyword">-</span><span class="number">0.025</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">23</span><span class="keyword">)</span>
+ <span class="symbol">b_1</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">sd_b1</span><span class="keyword">*</span><span class="symbol">t_0.975</span>            <span class="comment"># 95%-confidence interval for b_1</span>
+
+
+
+
+<span class="comment"># --- Ex 3: The linear model with quadratic terms --------------------------------</span>
+ <span class="symbol">house</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/housing"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span><span class="argument">sep</span><span class="argument">=</span><span class="string">","</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">house</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: a) ---</span>
+<span class="comment"># Estimate a model to test this, using total expenditure as a proxy for total income.</span>
+
+ <span class="symbol">lm3a</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">housing</span> <span class="keyword">~</span> <span class="symbol">total</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">house</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm3a</span><span class="keyword">)</span>
+
+
+<span class="comment"># --- Ex 3: b) ---</span>
+<span class="comment"># Is a quadratic form more appropriate?</span>
+
+ <span class="symbol">house</span><span class="keyword">$</span><span class="symbol">totalsq</span> <span class="assignement">&lt;-</span> <span class="symbol">house</span><span class="keyword">$</span><span class="symbol">total</span><span class="keyword">^</span><span class="number">2</span>
+ <span class="symbol">lm3b</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">housing</span> <span class="keyword">~</span> <span class="symbol">total</span> <span class="keyword">+</span> <span class="symbol">totalsq</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">house</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm3b</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 4: Extrapolation and accuracy of least least squares --------------------------------</span>
+
+ <span class="symbol">eaef</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/eaef"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span><span class="argument">sep</span><span class="argument">=</span><span class="string">","</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">)</span>
+
+ <span class="symbol">lm4</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">weight</span> <span class="keyword">~</span> <span class="symbol">height</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm4</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 5: Estimates for changing units of measurement --------------------------------</span>
+
+ <span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">weight_grams</span> <span class="assignement">&lt;-</span> <span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">weight</span><span class="keyword">*</span><span class="number">454</span>           <span class="comment"># one pound is 454 grams</span>
+ <span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">height_metric</span> <span class="assignement">&lt;-</span> <span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">height</span> <span class="keyword">*</span> <span class="number">2.54</span>               <span class="comment"># one inch is 2.54 cm</span>
+
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">weight_grams</span> <span class="keyword">~</span> <span class="symbol">height</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="number">5.562</span><span class="keyword">*</span><span class="number">454</span>   <span class="comment"># =2525.148</span>
+
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">weight</span> <span class="keyword">~</span> <span class="symbol">height_metric</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="number">5.562496</span><span class="keyword">/</span><span class="number">2.54</span>   <span class="comment"># =2.189959</span>
+
+
+
+
+<span class="comment"># --- Ex 6: Multiple linear regression --------------------------------</span>
+
+ <span class="symbol">hprice1</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/hprice1"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span><span class="argument">sep</span><span class="argument">=</span><span class="string">","</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">hprice1</span><span class="keyword">)</span>
+
+ <span class="symbol">lm6</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">sqrft</span> <span class="keyword">+</span> <span class="symbol">bdrms</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">hprice1</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm6</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 7: Confidence intervals of regression coefficients (1) --------------------------------</span>
+
+ <span class="symbol">oilprice1</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/R/oilprice1"</span><span class="keyword">,</span><span class="argument">header</span><span class="argument">=</span><span class="symbol">T</span><span class="keyword">,</span><span class="argument">sep</span><span class="argument">=</span><span class="string">","</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">oilprice1</span><span class="keyword">)</span>
+
+ <span class="functioncall">plot</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">api</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">oilprice1</span><span class="keyword">)</span>
+ <span class="symbol">lm7</span> <span class="assignement">&lt;-</span> <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">price</span> <span class="keyword">~</span> <span class="symbol">api</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">oilprice1</span><span class="keyword">)</span>
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">)</span>
+
+ <span class="symbol">t</span> <span class="assignement">&lt;-</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.975</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">13</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">)</span>              <span class="comment"># quantile of t distribution</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">)</span>
+ <span class="symbol">b</span> <span class="assignement">&lt;-</span> <span class="symbol">lm7</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">]</span>                               <span class="comment"># coefficient</span>
+
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">se_b</span> <span class="assignement">&lt;-</span> <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">lm7</span><span class="keyword">)</span><span class="keyword">$</span><span class="symbol">coef</span><span class="keyword">[</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">]</span> <span class="comment"># standard error of coefficient</span>
+
+ <span class="symbol">b</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">se_b</span><span class="keyword">*</span><span class="symbol">t</span>                     <span class="comment"># confidence interval</span>
+
+ <span class="functioncall">ls</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span> <span class="functioncall">rm</span><span class="keyword">(</span><span class="symbol">b</span><span class="keyword">,</span> <span class="symbol">t</span><span class="keyword">,</span> <span class="symbol">se_b</span><span class="keyword">)</span>                   <span class="comment"># remove objects if no longer needed!</span>
+
+
+
+
+<span class="comment"># --- Ex 8: Reversal of regressor and regressand --------------------------------</span>
+
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">earnings</span> <span class="keyword">~</span> <span class="symbol">schooling</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">schooling</span> <span class="keyword">~</span> <span class="symbol">earnings</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">eaef</span><span class="keyword">)</span>
+
+ <span class="keyword">?</span><span class="symbol">cor</span>
+ <span class="functioncall">cor</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">earnings</span><span class="keyword">,</span> <span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">schooling</span><span class="keyword">,</span> <span class="argument">method</span><span class="argument">=</span><span class="string">"pearson"</span><span class="keyword">)</span>
+
+
+
+
+<span class="comment"># --- Ex 9: Regression against a constant (optional) --------------------------------</span>
+
+ <span class="functioncall">summary</span><span class="keyword">(</span><span class="symbol">eaef</span><span class="keyword">$</span><span class="symbol">weight</span><span class="keyword">)</span>
+ <span class="functioncall">lm</span><span class="keyword">(</span><span class="symbol">weight</span> <span class="keyword">~</span> <span class="number">1</span><span class="keyword">,</span> <span class="argument">data</span><span class="argument">=</span><span class="symbol">eaef</span><span class="keyword">)</span>
+ <span class="comment"># lm(weight ~ -1 + c(rep(2,540)), data=eaef)</span>
+
+
+
+
+<span class="comment"># --- Ex 10: Confidence intervals for regression coefficients (2) --------------------------------</span>
+
+ <span class="symbol">t5</span> <span class="assignement">&lt;-</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.025</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">60</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span>       <span class="comment"># t-quantile 5%</span>
+ <span class="symbol">t1</span> <span class="assignement">&lt;-</span> <span class="functioncall">qt</span><span class="keyword">(</span><span class="argument">p</span><span class="argument">=</span><span class="number">0.005</span><span class="keyword">,</span> <span class="argument">df</span><span class="argument">=</span><span class="number">60</span><span class="keyword">-</span><span class="number">2</span><span class="keyword">,</span> <span class="argument">lower.tail</span><span class="argument">=</span><span class="symbol">F</span><span class="keyword">)</span> <span class="comment"># t-quantile 1%</span>
+
+ <span class="symbol">myCI</span> <span class="assignement">&lt;-</span> <span class="keyword">function</span><span class="keyword">(</span><span class="formalargs">b</span><span class="keyword">,</span> <span class="formalargs">se</span><span class="keyword">,</span> <span class="formalargs">t</span><span class="keyword">)</span><span class="keyword">{</span>    <span class="comment"># function to generate CI</span>
+   <span class="symbol">b</span> <span class="keyword">+</span> <span class="functioncall">c</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">1</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">*</span><span class="symbol">se</span><span class="keyword">*</span><span class="symbol">t</span>
+ <span class="keyword">}</span>
+
+ <span class="functioncall">myCI</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">.2</span><span class="keyword">,</span> <span class="number">.07</span><span class="keyword">,</span> <span class="symbol">t5</span><span class="keyword">)</span>     <span class="comment"># CI for beta=-0.2, se_beta=0.07; at 5% level</span>
+ <span class="functioncall">myCI</span><span class="keyword">(</span><span class="keyword">-</span><span class="number">.12</span><span class="keyword">,</span> <span class="number">.07</span><span class="keyword">,</span> <span class="symbol">t5</span><span class="keyword">)</span>    <span class="comment"># CI for beta=-0.12, se_beta=0.07; at 1% level</span>
+
+
+
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+ <span class="functioncall">q</span><span class="keyword">(</span><span class="string">"no"</span><span class="keyword">)</span>
+</pre>
+</body>
+</html>
