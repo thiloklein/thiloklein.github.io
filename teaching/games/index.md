@@ -46,7 +46,7 @@ This course has been designed to introduce students to the intricacies and backg
 
 <TR bgcolor="#f8f8f8"><TD colspan="4" >Venue: <a href="http://www.training.cam.ac.uk/jsss/venue/824385" rel="external">Alison Richard Building, Room 119</a></TD></TR>
 <TR>
-<TD >14:00-15:00</TD><TD ><b>Briefing session</b>: Intro to Game Theory; Info on course syllabus and student group projects. [<a href="/teaching/games/docs/briefing.pdf">Slides</a>, <a href="/teaching/games/docs/gg.csv">Data</a>, <a href="/teaching/games/docs/gg.R">R-Script</a>]<!----></TD><TD >--</TD><TD ><a href="http://veconlab.econ.virginia.edu/gg/gg.php" rel="external">Link to www-experiment</a><!--Link to www-experiment (tba)--></TD>
+<TD >14:00-15:00</TD><TD ><b>Briefing session</b>: Intro to Game Theory; Info on course syllabus and student group projects. [<a href="/teaching/games/docs/briefing.pdf">Slides</a>, <a href="/teaching/games/docs/gg.csv">Data</a>, <a href="/teaching/games/docs/gg.html">R-Script</a>]<!----></TD><TD >--</TD><TD ><a href="http://veconlab.econ.virginia.edu/gg/gg.php" rel="external">Link to www-experiment</a><!--Link to www-experiment (tba)--></TD>
 </TR>
 
 <TR><TD colspan="4" ><br></TD></TR>

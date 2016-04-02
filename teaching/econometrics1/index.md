@@ -100,7 +100,7 @@ We offer EViews and RExcel in two parallel streams. EViews is networked so you c
 - Double click to install both R and RExcel 
 - Click OK whenever something pops up.
 
-######Install issues:
+###### Install issues:
 
 The following problems are usually caused by internet failure while installing RAndFriends (computer firewall blocked the installation), or computer security blocking launching of downloaded components: (1) Excel does not show the RExcel Add-in, (2) When clicking Start R, a warning pops up: "No R server configured". It is important to understand that RAndFriends downloads other components DURING the installation process, so if the user's computer is not connected to the internet, then installation often fails.
 
@@ -109,7 +109,7 @@ The following problems are usually caused by internet failure while installing R
   - download and install [statconnDCOM](http://rcom.univie.ac.at/download/current/statconnDCOM.latest.exe) 
   - download and install [RExcel](http://rcom.univie.ac.at/download/RExcel.distro/RExcelInst.latest.exe)
 
-######Key settings you should be aware of:
+###### Key settings you should be aware of:
 
 - If you get the warning message: "R server not found", go to Addins -> RExcel -> Set R Server, then select Background. Click Save and then Click Close.
 - Excel Options -> Trust Center -> Trust Center Settings -> Macro Settings -> Trust Access to the VBA project object model

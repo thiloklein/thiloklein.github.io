@@ -12,7 +12,7 @@
  #names(data) <- names(read.table("clipboard",sep=" ",header=TRUE))
 
 ## b) from csv file
- data <- read.csv("~/Desktop/gg.csv")
+ data <- read.csv("http://klein.uk/teaching/games/docs/gg.csv")
 
 
 ## drop non-participants and attach data

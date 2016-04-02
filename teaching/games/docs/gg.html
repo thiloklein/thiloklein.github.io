@@ -1,0 +1,110 @@
+<html>
+<head>
+<style type="text/css">
+.number{
+	color: rgb(21,20,181) ;
+}
+
+.functioncall{
+	color: red ;
+}
+
+.string{
+	color: rgb(153,153,255) ;
+}
+
+.keyword{
+	color: black;
+}
+
+.argument{
+	color: rgb( 177,63,5) ;
+}
+
+.comment{
+	color: rgb( 204,204,204) ;
+}
+
+.roxygencomment{
+	color: rgb(0,151,255);
+}
+
+.formalargs{
+	color: rgb(18,182,18);
+}
+
+.eqformalargs{
+	color: rgb(18,182,18);
+}
+
+.assignement{
+	color: rgb(55,55,98);
+}
+
+.package{
+	color: rgb(150,182,37);
+}
+
+.slot{
+	font-style:italic;
+}
+
+.symbol{
+	color: black ;
+}
+
+.prompt{
+	color: black ;
+}
+
+.line{
+    color: gray ;   
+}
+</style>
+</head>
+<body>
+<pre>
+<span class="comment">#####################################################</span>
+<span class="comment">## ~~ Script to analyse data from Guessing game ~~ ##</span>
+<span class="comment">#####################################################</span>
+
+<span class="comment">## install R software from http://cran.r-project.org/</span>
+<span class="comment">## optional: install user-interface Rstudio http://www.rstudio.com/ide/download/</span>
+
+<span class="comment">## read data and variable names:</span>
+
+<span class="comment">## a) from clipboard in linux</span>
+ <span class="comment">#data &lt;- read.table("clipboard",sep=" ",header=TRUE)</span>
+ <span class="comment">#names(data) &lt;- names(read.table("clipboard",sep=" ",header=TRUE))</span>
+
+<span class="comment">## b) from csv file</span>
+ <span class="symbol">data</span> <span class="assignement">&lt;-</span> <span class="functioncall">read.csv</span><span class="keyword">(</span><span class="string">"http://klein.uk/teaching/games/docs/gg.csv"</span><span class="keyword">)</span>
+
+
+<span class="comment">## drop non-participants and attach data</span>
+ <span class="symbol">data</span> <span class="assignement">&lt;-</span> <span class="functioncall">subset</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">,</span> <span class="symbol">Guess</span><span class="keyword">!=</span><span class="string">"*.**"</span><span class="keyword">)</span>
+ <span class="functioncall">attach</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+ <span class="functioncall">str</span><span class="keyword">(</span><span class="symbol">data</span><span class="keyword">)</span>
+
+
+<span class="comment">## convert factors to numeric type</span>
+ <span class="symbol">Guess</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.numeric</span><span class="keyword">(</span><span class="functioncall">as.character</span><span class="keyword">(</span><span class="symbol">Guess</span><span class="keyword">)</span><span class="keyword">)</span>
+ <span class="symbol">Avg.Guess</span> <span class="assignement">&lt;-</span> <span class="functioncall">as.numeric</span><span class="keyword">(</span><span class="functioncall">as.character</span><span class="keyword">(</span><span class="symbol">Avg.Guess</span><span class="keyword">)</span><span class="keyword">)</span>
+
+
+<span class="comment">## plot histogram</span>
+ <span class="symbol">r</span> <span class="assignement">&lt;-</span> <span class="number">1</span> <span class="comment"># first round</span>
+ <span class="functioncall">hist</span><span class="keyword">(</span><span class="symbol">Guess</span><span class="keyword">[</span><span class="symbol">Round</span>==<span class="symbol">r</span><span class="keyword">]</span><span class="keyword">,</span> <span class="argument">breaks</span><span class="argument">=</span><span class="functioncall">seq</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="number">100</span><span class="keyword">,</span><span class="number">.25</span><span class="keyword">)</span><span class="keyword">,</span> <span class="argument">xlim</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">0</span><span class="keyword">,</span><span class="functioncall">max</span><span class="keyword">(</span><span class="symbol">Guess</span><span class="keyword">[</span><span class="symbol">Round</span>==<span class="symbol">r</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">,</span>
+   <span class="argument">main</span><span class="argument">=</span><span class="string">"Histogram"</span><span class="keyword">,</span> <span class="argument">xlab</span><span class="argument">=</span><span class="string">"Round 1"</span><span class="keyword">,</span> <span class="argument">col</span><span class="argument">=</span><span class="string">"black"</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">v</span><span class="argument">=</span><span class="symbol">Avg.Guess</span><span class="keyword">[</span><span class="symbol">Round</span>==<span class="symbol">r</span><span class="keyword">]</span><span class="keyword">,</span><span class="argument">col</span><span class="argument">=</span><span class="string">"blue"</span><span class="keyword">,</span><span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span><span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">abline</span><span class="keyword">(</span><span class="argument">v</span><span class="argument">=</span><span class="number">2</span><span class="keyword">/</span><span class="number">3</span><span class="keyword">*</span><span class="symbol">Avg.Guess</span><span class="keyword">[</span><span class="symbol">Round</span>==<span class="symbol">r</span><span class="keyword">]</span><span class="keyword">,</span><span class="argument">col</span><span class="argument">=</span><span class="string">"red"</span><span class="keyword">,</span><span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span><span class="argument">lty</span><span class="argument">=</span><span class="number">2</span><span class="keyword">)</span>
+ <span class="functioncall">legend</span><span class="keyword">(</span><span class="argument">x</span><span class="argument">=</span><span class="number">40</span><span class="keyword">,</span><span class="argument">y</span><span class="argument">=</span><span class="number">1.75</span><span class="keyword">,</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"mean"</span><span class="keyword">,</span><span class="string">"2/3*mean"</span><span class="keyword">,</span><span class="string">"guesses"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">col</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="string">"blue"</span><span class="keyword">,</span><span class="string">"red"</span><span class="keyword">,</span><span class="string">"black"</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">lty</span><span class="argument">=</span><span class="functioncall">c</span><span class="keyword">(</span><span class="number">2</span><span class="keyword">,</span><span class="number">2</span><span class="keyword">,</span><span class="number">1</span><span class="keyword">)</span><span class="keyword">,</span><span class="argument">lwd</span><span class="argument">=</span><span class="number">2</span><span class="keyword">,</span><span class="argument">bty</span><span class="argument">=</span><span class="string">"n"</span><span class="keyword">,</span><span class="argument">cex</span><span class="argument">=</span><span class="number">0.9</span><span class="keyword">)</span>
+
+
+<span class="comment"># -------------------------------------------------------------------</span>
+<span class="comment"># --- End of Session ------------------------------------------------</span>
+
+<span class="functioncall">q</span><span class="keyword">(</span><span class="string">"no"</span><span class="keyword">)</span> <span class="comment"># exit</span>
+</pre>
+</body>
+</html>
