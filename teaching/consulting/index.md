@@ -26,7 +26,7 @@ We are a group of PhD students at Cambridge Judge Business School with a common 
 
 "The Empirics Lab offers a fantastic service to students who need a little help with their statistics (and who doesn't!). The meeting with Thilo Klein helped me to think clearly and logically about what I needed to do with my data and offered an excellent supplementary set of advice to supervisors who are not always available. You need to book in advance sometimes, so plan ahead!" -- Joe Gladstone, MPhil in Innovation, Strategy, and Organisation, University of Cambridge, Cambridge/UK
 
-[Read more](testimonials.html)
+[Read more](testimonials/index.html)
 
 ***
 

@@ -26,7 +26,7 @@ published: true
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="/teaching/games/">Course website</a></TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>

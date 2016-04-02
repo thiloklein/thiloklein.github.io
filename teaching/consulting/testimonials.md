@@ -8,7 +8,7 @@ published: true
 
 ## Testimonials: Empirics Lab
 
-[Back to site](index.html)
+[Back to site](/teaching/consulting/index.html)
 
 ***
 
