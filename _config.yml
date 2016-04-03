@@ -9,7 +9,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-highlighter: rouge
 exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'vender']
 gems: [jekyll-paginate]
 

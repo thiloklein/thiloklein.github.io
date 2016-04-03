@@ -70,7 +70,7 @@ This FAQ for [Quantitative Methods I](/teaching/quant1/index.html) and [Economet
 ##### <a name="a1"></a> Where do I find the datasets you used in lectures and workshops?
 All datasets we use in lecture and workshops are available online in the folder [http://klein.uk/R/](https://github.com/thiloklein/thiloklein.github.io/tree/master/R/). One way to pull the data from the website is to paste the full path in your browser command line and save the dataset in txt or csv format. You can also use the R console to read the data in the active workspace by typing:
 
-```R
+``` r
 yourdata <- read.csv("http://klein.uk/R/yourdata")
 ```
 
