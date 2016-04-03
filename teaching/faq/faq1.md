@@ -67,7 +67,7 @@ This FAQ for [Quantitative Methods I](/teaching/quant1/index.html) and [Economet
 
 ***
 
-#####<a name="a1"></a> Where do I find the datasets you used in lectures and workshops?
+##### <a name="a1"></a> Where do I find the datasets you used in lectures and workshops?
 All datasets we use in lecture and workshops are available online in the folder [http://klein.uk/R/](https://github.com/thiloklein/thiloklein.github.io/tree/master/R/). One way to pull the data from the website is to paste the full path in your browser command line and save the dataset in txt or csv format. You can also use the R console to read the data in the active workspace by typing:
 
 {% highlight r %} 
@@ -102,7 +102,7 @@ rm("yourdata.new"); ls()
 
 ***
 
-#####<a name="a2"></a> I have issues installing the R commander. Where do I find help?
+##### <a name="a2"></a> I have issues installing the R commander. Where do I find help?
 
 Follow [this](http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/installation-notes.html) tutorial for Mac, Windows, and Linux systems.
 
@@ -110,7 +110,7 @@ Follow [this](http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/installation-notes.html
 
 ***
 
-#####<a name="a3"></a> I want to replicate textbook examples using R. Where can I find some hints?
+##### <a name="a3"></a> I want to replicate textbook examples using R. Where can I find some hints?
 
 If you are working with the Stock and Watson (2007) book, you may find this helpful:
 
@@ -124,7 +124,7 @@ The same works for `"Greene2003"`, `"Baltagi2002"`, `"CameronTrivedi1998"`, `"Fr
 
 ***
 
-#####<a name="a4"></a> What does the shccm() function do?
+##### <a name="a4"></a> What does the shccm() function do?
 
 Use the `shccm()` function instead of `summary()` to report regressions results with heteroskedasticity robust standard errors for large samples. If your data is homoskedastic, the robust errors will give the same results as the errors estimated under the homoskedasticity assumption. If your data is heteroskedastic, only the robust errors will be consistent. Therefore, with heteroskedasticity robust errors you are always on the safe side.
 In the course of last year's programme, I wrote several convenience functions that should make your life easier. The functions and a short documentation are available at [http://klein.uk/R/myfunctions.R](http://klein.uk/R/myfunctions.R). To work with the functions, first source them
@@ -162,7 +162,7 @@ R> shccm
 
 ***
 
-#####<a name="b1"></a> How can I change the language in the console?
+##### <a name="b1"></a> How can I change the language in the console?
 
 Switch to English
 
@@ -185,7 +185,7 @@ For other languages check
 
 ***
 
-#####<a name="b2"></a> How do I plot normal density functions and shaded areas in R?
+##### <a name="b2"></a> How do I plot normal density functions and shaded areas in R?
 
 Plot normal densities
 
@@ -220,7 +220,7 @@ legend("topleft",legend=c("dark","light"),fill=c("grey30","grey80"),bty="n")
 
 ***
 
-#####<a name="b3"></a> How do I know my current working directory? How can I set my workspace?
+##### <a name="b3"></a> How do I know my current working directory? How can I set my workspace?
 
 To get your working directory, use the command
 
@@ -238,7 +238,7 @@ setwd("C:/...")
 
 ***
 
-#####<a name="b4"></a> How do I create a dummy variable? How do I change the reference category of an explanatory variable?
+##### <a name="b4"></a> How do I create a dummy variable? How do I change the reference category of an explanatory variable?
 
 Generate a factor variable
 
@@ -270,7 +270,7 @@ levels(gender)
 
 ***
 
-#####<a name="b5"></a> How do I check the length of a variable or the dimension of a dataset?
+##### <a name="b5"></a> How do I check the length of a variable or the dimension of a dataset?
 
 Length
 {% highlight r %} 
@@ -291,7 +291,7 @@ dim(mydataset)
 
 ***
 
-#####<a name="b6"></a> How do I obtain growth rates from a vector of observations?
+##### <a name="b6"></a> How do I obtain growth rates from a vector of observations?
 
 There are several ways to accomplish this in R. One way is by using
 
@@ -330,7 +330,7 @@ Note: the difference in length of the level vector `x` and the growth vector `xg
 
 ***
 
-#####<a name="b7"></a> How do I load Excel, SPSS, Stata, SAS, or EViews files in R?
+##### <a name="b7"></a> How do I load Excel, SPSS, Stata, SAS, or EViews files in R?
 
 For xls files:
 
@@ -352,7 +352,7 @@ For example, SPSS can be read using `read.spss`, Stata files using `read.dta`, e
 
 ***
 
-#####<a name="b8"></a> How do I change variable names in R?
+##### <a name="b8"></a> How do I change variable names in R?
 
 Suppose you want to change the first variable name in your dataset 'yourdata'. Just type:
 
@@ -368,7 +368,7 @@ names(yourdata)[1] <- "newname"
 
 ***
 
-#####<a name="c1"></a> I use "exactly" the same commands as in your script / the R help but still get an error message.
+##### <a name="c1"></a> I use "exactly" the same commands as in your script / the R help but still get an error message.
 
 Be aware that R is case sensitive. If you type, for example
 
@@ -388,7 +388,7 @@ you will receive an error message. Please rule out such problems before you post
 
 ***
 
-#####<a name="c2"></a> I get an error saying "object myvariable is not found" although I loaded mydata including myvariable. What is wrong?
+##### <a name="c2"></a> I get an error saying "object myvariable is not found" although I loaded mydata including myvariable. What is wrong?
 
 R allows you to load multiple datasets in the active workspace. This additional freedom comes at a price: you have to tell R which dataset you want to work with -- otherwise it will not know and tell you that the object is not found. You should either do
 
@@ -415,7 +415,7 @@ when you attach a new dataset to work with. I usually forget this and therefore 
 
 ***
 
-#####<a name="c3"></a> I get an error saying "ERROR: 'x' must be numeric", or "using type="numeric" with a factor response will be ignored". What's that?
+##### <a name="c3"></a> I get an error saying "ERROR: 'x' must be numeric", or "using type="numeric" with a factor response will be ignored". What's that?
 
 When you get one of these error messages you are probably trying to apply a statistical method that requires an integer (such as years of schooling) or numeric variable (such as body height) but your input variable is stored in a factor format (with levels, for example, "red", "green", "blue"). You can check the storage format of all the variables in your data by typing
 
@@ -439,7 +439,7 @@ yourdata$yourvariable <- as.integer( as.character( yourdata$yourvariable ) )
 
 ***
 
-#####<a name="c4"></a> The results I get with R differ from Excel, which I use as a "test".
+##### <a name="c4"></a> The results I get with R differ from Excel, which I use as a "test".
 
 Let me first reemphasise that Excel is not a statistical software and does things in a very, well.. at best idiosyncratic way. One example I came across last year is Excel's skewness formula. There are generally two ways of calculating the sample skewness, dependent on how you do the degrees of freedom adjustments.
 
@@ -504,7 +504,7 @@ Now, here is how Excel does things. Its [SKEW function](http://office.microsoft.
 
 ***
 
-#####<a name="c5"></a> One of my explanatory variables is automatically dropped from the model. Why is that?
+##### <a name="c5"></a> One of my explanatory variables is automatically dropped from the model. Why is that?
 
 The non-technical answer is that (at least) two of the variables in your model are collinear. For the technical version check the [next question](#c6).
 
@@ -512,7 +512,7 @@ The non-technical answer is that (at least) two of the variables in your model a
 
 ***
 
-#####<a name="c6"></a> Why do I get "ERROR: there are aliased coefficients in the model" when estimating my model?
+##### <a name="c6"></a> Why do I get "ERROR: there are aliased coefficients in the model" when estimating my model?
 
 Having aliased coefficients in your model means that the square matrix `X'X` (where `X` is your design matrix) is singular, i.e., it has determinant of zero and is non-invertible. This is the classical problem of perfect multicollinearity. The coefficient vector `b_hat=(X'X)^[-1]X'y` can therefore not be estimated. For the model summary, R will drop one variable and return NA as the estimate for it's aliased coefficient. To obtain the vif and other model statistics, drop one of the variables that cause the singularity manually and try the command again.
 
@@ -520,7 +520,7 @@ Having aliased coefficients in your model means that the square matrix `X'X` (wh
 
 ***
 
-#####<a name="c7"></a> I get the following warning message: "longer object length is not a multiple of shorter object length".
+##### <a name="c7"></a> I get the following warning message: "longer object length is not a multiple of shorter object length".
 
 You are using two variables with different length. This usually happens when you work with both level and growth rates or differenced data. See a detailed treatment [here](#b6).
 
@@ -532,7 +532,7 @@ You are using two variables with different length. This usually happens when you
 
 ***
 
-#####<a name="d1"></a> How can I get a one sided t-test with the linearHypothesis() function?
+##### <a name="d1"></a> How can I get a one sided t-test with the linearHypothesis() function?
 
 For the case of testing a single hypothesis, you can use the equivalence of F-test and t-test: `F stat = (t stat)^2` and the general relationship between p-values for one-sided and two-sided test. Here is an example from MPO1 Lab Session 2, Exercise 2. Suppose we want to test whether employment grows at a lower rate than GDP does. The null is GDPgrow=1, the alternative GDPgrow<1.
 
@@ -606,7 +606,7 @@ Model 2: empgrow ~ GDPgrow
 
 ***
 
-#####<a name="d2"></a> Breusch-Pagan, Koenker, White? How to test for heteroskedasticity in R?
+##### <a name="d2"></a> Breusch-Pagan, Koenker, White? How to test for heteroskedasticity in R?
 
 The LM test in the lecture slides can be obtained in R using the option `studentize=T`. This test was suggested by Koenker (1981) and is preferable to the classical Breusch-Pagan test (option: `studentize=F`) because it does not rely on normally distributed errors.
 
@@ -624,7 +624,7 @@ Sources: Wooldridge (2009) Introductory econometrics: a modern approach, pages 2
 
 ***
 
-#####<a name="d3"></a> How do I find suitable variable transformations in a multiple regression model?
+##### <a name="d3"></a> How do I find suitable variable transformations in a multiple regression model?
 
 For the simple linear regression one can plot the variables and see how they relate to each other. In multiple regression, you can use residual plots against fitted values (y hat) or independent variables to find suitable variable transformations, the very same way that you would proceed with simple linear regression. This is an iterative process. One way to automate this, although no panacea, is to use step-wise model-selection based on information criteria such as AIC or BIC (covered in Lent Term). Do lookup the `stepAIC()` function from library MASS.
 
@@ -632,7 +632,7 @@ For the simple linear regression one can plot the variables and see how they rel
 
 ***
 
-#####<a name="d4"></a> How is it possible that my tests indicate homoskedasticity but standard errors under summary() and shccm() still differ?
+##### <a name="d4"></a> How is it possible that my tests indicate homoskedasticity but standard errors under summary() and shccm() still differ?
 
 Homoskedasticity tests can probably not reject the null because the tests have low power for low sample size. The same problem then carries through to your robust estimates. Note that standard and robust error estimates only converge for large samples.
 
@@ -640,7 +640,7 @@ Homoskedasticity tests can probably not reject the null because the tests have l
 
 ***
 
-#####<a name="d5"></a> Can I use the RESET test to check if there are no relevant omitted variables in the regression model?
+##### <a name="d5"></a> Can I use the RESET test to check if there are no relevant omitted variables in the regression model?
 
 Linearity tests, such as the RESET test, only test for a very specific type of misspecification: imposing a linear model on non-linear data. To see this, let us first simulate two models, `y = 20 + x1 + x2` and `z = 20 + x1 + x1^2` as follows.
 
@@ -719,7 +719,7 @@ RESET = 11556.97, df1 = 2, df2 = 9996, p-value < 2.2e-16
 
 ***
 
-#####<a name="d6"></a> I found a model with a good overall fit but it fails several assumptions. How should I proceed?
+##### <a name="d6"></a> I found a model with a good overall fit but it fails several assumptions. How should I proceed?
 
 The first step is to be aware of the problem, i.e., any effects on consistency and efficiency of the estimates? In how far would sample size mitigate problems? What alternative estimation methods are available? You would then want to describe possible model improvements and also estimate these models (given you have the data you need).
 
@@ -731,7 +731,7 @@ The first step is to be aware of the problem, i.e., any effects on consistency a
 
 ***
 
-#####<a name="e1"></a> I have a question on the course material. Where do I get an answer?
+##### <a name="e1"></a> I have a question on the course material. Where do I get an answer?
 
 It works best to ask your question directly in the lecture. And indeed, if at all possible, ask me and not your neighbors (o: This reduces the noise level and I can immediately address problems and avoid confusion.
 
@@ -747,7 +747,7 @@ I try my best to help you, and sometimes it would be easier -- in the short term
 
 ***
 
-#####<a name="e2"></a> Which questions should be reserved for office hours?
+##### <a name="e2"></a> Which questions should be reserved for office hours?
 
 I answer any questions that concern you and only you -- at least I will try it. These are, for example, questions regarding your study plans, individual research projects, reference letters, etc. You should prepare these questions by email. For simple requests (appointments) during the term, you can expect an answer within one business day, and we should find a date within a week.
 
@@ -761,7 +761,7 @@ This leaves office hours with all the more time for questions that are unrelated
 
 ***
 
-#####<a name="e3"></a> Can you write me a reference letter?
+##### <a name="e3"></a> Can you write me a reference letter?
 
 I can always write you a reference letter for a scholarship, a PhD programme, etc. However, my recommendation can be more or less strong. In particular your grades in my course will only determine part of the letter. Please consider the following points when asking me for a reference letter.
 
@@ -773,7 +773,7 @@ I can always write you a reference letter for a scholarship, a PhD programme, et
 
 ***
 
-#####<a name="e4"></a> Can you supervise my M.Phil. dissertation?
+##### <a name="e4"></a> Can you supervise my M.Phil. dissertation?
 
 No. You should find a faculty member who is interested in supervising your research. If you are not sure which scholar to approach with your research proposal, I can probably help you with that. That being said, I am more than happy to discuss the empirical aspects of your dissertation at any stage of your research. To do so, please go to [Empirics Lab](/teaching/consulting/index.html) to arrange an appointment, or stop by at the University's [Statistics Clinic](http://www.statslab.cam.ac.uk/clinic).
 
@@ -781,7 +781,7 @@ No. You should find a faculty member who is interested in supervising your resea
 
 ***
 
-#####<a name="e5"></a> I don't like the course the way it is. What can I do?
+##### <a name="e5"></a> I don't like the course the way it is. What can I do?
 
 In this case, please give me an advance notice. Many things are a lot easier for you to notice (font too small, micro distorted, presentation too fast / too slow ...). For me it is very frustrating to read about problems -- which I could have fixed in the first term week -- only in the end of term evaluation. Please notify me directly in class or just after class, send me an email, or give vent to your anger in the forum. As long as you give no feedback, I have to assume that you are very happy (o:
 
@@ -789,7 +789,7 @@ In this case, please give me an advance notice. Many things are a lot easier for
 
 ***
 
-#####<a name="e6"></a> I like this course!
+##### <a name="e6"></a> I like this course!
 
 If you like something particularly well, I am of course happy to hear it (o:
 
@@ -797,7 +797,7 @@ If you like something particularly well, I am of course happy to hear it (o:
 
 ***
 
-#####<a name="e7"></a> Lectures, handout, workshops, exercises, contest... -- do I have to do all this?
+##### <a name="e7"></a> Lectures, handout, workshops, exercises, contest... -- do I have to do all this?
 
 Short answer: No. Simply choose the modules that suit your learning style best.
 
