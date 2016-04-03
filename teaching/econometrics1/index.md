@@ -56,7 +56,7 @@ This course is designed for the [Cambridge Master of Finance](http://www.jbs.cam
 <TD align="center">4</TD>
 <TD >Tests of regression assumptions, continued: Outliers and Influential observations [<a href="docs/lecture7.pdf">Session 7</a>, <a href="docs/Lecture4.html">R-script</a>]</TD>
 <TD align="center">Ch. 8-9</TD>
-<TD ><a href="docs/Quiz7Qs.pdf">Sheet 7</a>, <a href="docs/Assignments/Workbook2.pdf">WB2</a></TD>
+<TD ><a href="docs/Quiz7Qs.pdf">Sheet 7</a>, <a href="docs/Workbook2.pdf">WB2</a></TD>
 <TD >Generalized Least Squares [<a href="docs/MFinLabSession3.pdf">Handout</a>, <a href="docs/CompLabSession3.html">R-Script</a>]</TD>
 </TR>
 </TABLE>

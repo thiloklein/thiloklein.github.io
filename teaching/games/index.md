@@ -53,7 +53,7 @@ This course has been designed to introduce students to the intricacies and backg
 <TR bgcolor="#e8e8e8"><TD colspan="4" >Friday 30/01/15, <b>Registration closes</b>: Register online <a href="http://www.training.cam.ac.uk/event/1197051" rel="external">here</a></TD></TR>
 
 <TR><TD colspan="4" ></TD></TR>
-<TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 03/02/15, <b>Pre-course survey closes</b>: Submit your preferences over group project topics in groups (of two or three) or individually <a href="GameTheorySurvey.html">here</a></TD></TR>
+<TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 03/02/15, <b>Pre-course survey closes</b>: Submit your preferences over group project topics in groups (of two or three) or individually <a href="survey/index.html">here</a></TD></TR>
 
 <TR><TD colspan="4" ></TD></TR>
 <TR bgcolor="#e8e8e8"><TD colspan="4" >Tuesday 03/03/15, <b>Submission deadline</b> for research proposals from student groups.</TD></TR>
