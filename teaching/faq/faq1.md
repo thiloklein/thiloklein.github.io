@@ -70,33 +70,33 @@ This FAQ for [Quantitative Methods I](/teaching/quant1/index.html) and [Economet
 ##### <a name="a1"></a> Where do I find the datasets you used in lectures and workshops?
 All datasets we use in lecture and workshops are available online in the folder [http://klein.uk/R/](https://github.com/thiloklein/thiloklein.github.io/tree/master/R/). One way to pull the data from the website is to paste the full path in your browser command line and save the dataset in txt or csv format. You can also use the R console to read the data in the active workspace by typing:
 
-``` r
+```r
 yourdata <- read.csv("http://klein.uk/R/yourdata")
 ```
 
 and write it to your local disk
 
-{% highlight r %} 
+```r 
 write.csv(yourdata, "C:/mydata.csv")
-{% endhighlight %}
+```
 
 and also re-read it in your active R-workspace
 
-{% highlight r %} 
+```r 
 yourdata.new <- read.csv("C:/mydata.csv")
-{% endhighlight %}
+```
 
 if you check your workspace you will find the two datasets (in R's language: dataframes)
 
-{% highlight r %} 
+```r 
 ls()
-{% endhighlight %}
+```
 
 to remove one of them type
 
-{% highlight r %} 
+```r 
 rm("yourdata.new"); ls()
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -114,9 +114,9 @@ Follow [this](http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/installation-notes.html
 
 If you are working with the Stock and Watson (2007) book, you may find this helpful:
 
-{% highlight r %} 
+```r 
 install.packages("AER"); help("StockWatson2007", package = "AER")
-{% endhighlight %}
+```
 
 The same works for `"Greene2003"`, `"Baltagi2002"`, `"CameronTrivedi1998"`, `"Franses1998"`, and `"WinkelmannBoes2009"`.
 
@@ -129,13 +129,13 @@ The same works for `"Greene2003"`, `"Baltagi2002"`, `"CameronTrivedi1998"`, `"Fr
 Use the `shccm()` function instead of `summary()` to report regressions results with heteroskedasticity robust standard errors for large samples. If your data is homoskedastic, the robust errors will give the same results as the errors estimated under the homoskedasticity assumption. If your data is heteroskedastic, only the robust errors will be consistent. Therefore, with heteroskedasticity robust errors you are always on the safe side.
 In the course of last year's programme, I wrote several convenience functions that should make your life easier. The functions and a short documentation are available at [http://klein.uk/R/myfunctions.R](http://klein.uk/R/myfunctions.R). To work with the functions, first source them
 
-{% highlight r %} 
+```r 
 source("http://klein.uk/R/myfunctions.R")
-{% endhighlight %}
+```
 
 and look at the required arguments and the example
 
-{% highlight r %} 
+```r 
 R> shccm
  
   function(model, type=c("hc0","hc1","hc2","hc3","hc4")){
@@ -152,7 +152,7 @@ R> shccm
     # Example: shccm(my.lm.model, "hc0")
     ...
   }
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -166,20 +166,20 @@ R> shccm
 
 Switch to English
 
-{% highlight r %} 
+```r 
 library(tcltk2); setLanguage("en_US")
-{% endhighlight %}
+```
 
 and test your setting with a command that issues a warning
 
-{% highlight r %} 
+```r 
 1:3 + 1:2
-{% endhighlight %}
+```
 
 For other languages check
-{% highlight r %} 
+```r 
 ?setLanguage
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -189,7 +189,7 @@ For other languages check
 
 Plot normal densities
 
-{% highlight r %} 
+```r 
 grid  <- seq(9,11,0.001)
 norm  <- dnorm(grid,mean=10,sd=0.2)
 plot(grid, norm,type="l",xlab="x", ylab="f(x)")
@@ -197,11 +197,11 @@ plot(grid, norm,type="l",xlab="x", ylab="f(x)")
 norm  <- dnorm(grid,mean=10.3,sd=0.2)
 lines(grid, norm)
 abline(h=0)
-{% endhighlight %}
+```
 
 Plot of shaded areas below density curves ([Source]( http://www.feferraz.net/en/P/Shaded_areas_in_R))
 
-{% highlight r %} 
+```r 
 ## light
 cord.x <- c(10.4,seq(10.4,11,0.01),11)
 cord.y <- c(0,dnorm(seq(10.4,11,0.01), mean=10.3,sd=0.2),0) 
@@ -214,7 +214,7 @@ polygon(cord.x,cord.y,col="grey30", lty=0)
 
 ## add legend
 legend("topleft",legend=c("dark","light"),fill=c("grey30","grey80"),bty="n")
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -224,15 +224,15 @@ legend("topleft",legend=c("dark","light"),fill=c("grey30","grey80"),bty="n")
 
 To get your working directory, use the command
 
-{% highlight r %} 
+```r 
 getwd()
-{% endhighlight %}
+```
 
 and to change it, use
 
-{% highlight r %} 
+```r 
 setwd("C:/...")
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -242,21 +242,21 @@ setwd("C:/...")
 
 Generate a factor variable
 
-{% highlight r %} 
+```r 
 gender <- factor(c("male","male","female","female","male","female")); gender
 [1] male   male   female female male   female
 Levels: female male
-{% endhighlight %}
+```
 
 Create dummy variable
 
-{% highlight r %} 
+```r 
 yourgenderdummy <- ifelse(gender=="female",1,0); yourgenderdummy
 [1] 0 0 1 1 0 1
-{% endhighlight %}
+```
 
 Change reference category
-{% highlight r %} 
+```r 
 levels(gender)
 [1] "female" "male"  
 
@@ -264,7 +264,7 @@ gender <- relevel(gender, ref="male")
 
 levels(gender)
 [1] "male"   "female"
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -273,19 +273,19 @@ levels(gender)
 ##### <a name="b5"></a> How do I check the length of a variable or the dimension of a dataset?
 
 Length
-{% highlight r %} 
+```r 
 length(myvariable)
-{% endhighlight %}
+```
 
 Dimension and variable types of a dataset
-{% highlight r %} 
+```r 
 str(mydataset)
-{% endhighlight %}
+```
 
 Dimension
-{% highlight r %} 
+```r 
 dim(mydataset)
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -295,7 +295,7 @@ dim(mydataset)
 
 There are several ways to accomplish this in R. One way is by using
 
-{% highlight r %} 
+```r 
 x <- cumsum(1:5); x
 [1]  1  3  6 10 15
 
@@ -312,17 +312,17 @@ cbind(x, xg)
 [3,]  6 1.0000000
 [4,] 10 0.6666667
 [5,] 15 0.5000000
-{% endhighlight %}
+```
 
 At this point it comes in handy to write your own convenience function:
 
-{% highlight r %} 
+```r 
 growthrate <- function(x){
   c( NA, diff(x) / x[1:(length(x)-1)] )
 }
 growthrate(x)
 [1]        NA 2.0000000 1.0000000 0.6666667 0.5000000
-{% endhighlight %}
+```
 
 Note: the difference in length of the level vector `x` and the growth vector `xg` is taken care of by placing the additional `NA`.
 
@@ -334,17 +334,17 @@ Note: the difference in length of the level vector `x` and the growth vector `xg
 
 For xls files:
 
-{% highlight r %} 
+```r 
 library(gdata)
 read.xls("C:/yourdata.xls")
-{% endhighlight %}
+```
 
 In the R Commander: Data -> import data from excel file. For the other software packages:
 
-{% highlight r %} 
+```r 
 library(foreign)
 help(package=foreign)
-{% endhighlight %}
+```
 
 For example, SPSS can be read using `read.spss`, Stata files using `read.dta`, etc
 
@@ -356,9 +356,9 @@ For example, SPSS can be read using `read.spss`, Stata files using `read.dta`, e
 
 Suppose you want to change the first variable name in your dataset 'yourdata'. Just type:
 
-{% highlight r %} 
+```r 
 names(yourdata)[1] <- "newname"
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -372,15 +372,15 @@ names(yourdata)[1] <- "newname"
 
 Be aware that R is case sensitive. If you type, for example
 
-{% highlight r %} 
+```r 
 cov(x, y, use=" pairwise.complete.obs")
-{% endhighlight %}
+```
 
 instead of
 
-{% highlight r %} 
+```r 
 cov(x, y, use="pairwise.complete.obs")
-{% endhighlight %}
+```
 
 you will receive an error message. Please rule out such problems before you post on the forum.
 
@@ -392,22 +392,22 @@ you will receive an error message. Please rule out such problems before you post
 
 R allows you to load multiple datasets in the active workspace. This additional freedom comes at a price: you have to tell R which dataset you want to work with -- otherwise it will not know and tell you that the object is not found. You should either do
 
-{% highlight r %} 
+```r 
 plot(mydata$myvariable)
-{% endhighlight %}
+```
 
 or alternatively
 
-{% highlight r %} 
+```r 
 attach(mydata)
 plot(myvariable)
-{% endhighlight %}
+```
 
 If you choose the second option, make sure you detach your data by typing
 
-{% highlight r %} 
+```r 
 detach(mydata)
-{% endhighlight %}
+```
 
 when you attach a new dataset to work with. I usually forget this and therefore prefer to go for the first option.
 
@@ -419,21 +419,21 @@ when you attach a new dataset to work with. I usually forget this and therefore 
 
 When you get one of these error messages you are probably trying to apply a statistical method that requires an integer (such as years of schooling) or numeric variable (such as body height) but your input variable is stored in a factor format (with levels, for example, "red", "green", "blue"). You can check the storage format of all the variables in your data by typing
 
-{% highlight r %} 
+```r 
 str(yourdata)
-{% endhighlight %}
+```
 
 R will not run a linear regression for a dependent variable that is stored in factor format. While this is quite sensible in most cases, there may be cases where your factor levels are "1", "2", "3", and so forth and you may wish to use this variable as the dependent variable in a linear regression or a corrlation matrix. In this case, you can convert the variable type to numeric
 
-{% highlight r %} 
+```r 
 yourdata$yourvariable <- as.numeric( as.character( yourdata$yourvariable ) )
-{% endhighlight %}
+```
 
 or integer format
 
-{% highlight r %} 
+```r 
 yourdata$yourvariable <- as.integer( as.character( yourdata$yourvariable ) )
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -447,13 +447,13 @@ See the definition of sample skewness at [wikipedia](http://en.wikipedia.org/wik
 
 Data
 
-{% highlight r %} 
+```r 
 data <- c(1,6,3,4,2,5,9,6,2,2)
-{% endhighlight %}
+```
 
 Caculate skewness using R's `timeDate` package
 
-{% highlight r %} 
+```r 
 install.packages("timeDate")
 library(timeDate)
 skewness(data, method="moment")
@@ -465,11 +465,11 @@ skewness.timeDate = function(x){
 }
 skewness.timeDate(data)
 [1] 0.5798614
-{% endhighlight %}
+```
 
 Caculate skewness using R's `moment` package
 
-{% highlight r %} 
+```r 
 install.packages("moments")
 library(moments)
 skewness(data)
@@ -481,24 +481,24 @@ skewness.moments = function(x){
 }
 skewness.moments(data)
 [1] 0.6791418
-{% endhighlight %}
+```
 
 The difference is in the degrees of freedom adjustment of the standard deviation:
 
-{% highlight r %} 
+```r 
 ## timeDate does:
 sqrt(1/9*sum((data-mean(data))^2))
 
 ## moments does:
 sqrt(1/10*sum((data-mean(data))^2))
-{% endhighlight %}
+```
 
 Now, here is how Excel does things. Its [SKEW function](http://office.microsoft.com/en-us/excel-help/skew-HP005209261.aspx) actually calculates the population (not the sample!) skewness: n/((n-1)*(n-2)) * sum(((x-x_bar)/s)^3). Here s is the sample standard deviation, yielding
 
-{% highlight r %} 
+```r 
 10/((10-1)*(10-2)) * sum(((data-mean(data))/sd(data))^3)
 [1] 0.8053631
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -538,7 +538,7 @@ For the case of testing a single hypothesis, you can use the equivalence of F-te
 
 Read the data and run the simple OLS regression:
 
-{% highlight r %} 
+```r 
 growth <- read.csv("http://klein.uk/R/growth",header=T,sep=",")
 lm2    <- lm(empgrow ~ GDPgrow, data=growth); summary(lm2)
 ...
@@ -579,13 +579,13 @@ $p.value.onesided
 
 $p.value.twosided
 [1] 4.108322e-06
-{% endhighlight %}
+```
 
 Observe that you get the same results for the two-sided p-value with an F-test because F-test and t-test are equivalent for testing a single hypothesis. To obtain the one-sided p-value, simply devide the two-sided p-value by two.
 
 F-test (using lht function):
 
-{% highlight r %} 
+```r 
 library(car)
 linearHypothesis(model=lm2, "GDPgrow=1")
 Linear hypothesis test
@@ -600,7 +600,7 @@ Model 2: empgrow ~ GDPgrow
 1     24 25.949                                  
 2     23 10.127  1    15.823 35.937 4.108e-06 ***
 ...
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -612,9 +612,9 @@ The LM test in the lecture slides can be obtained in R using the option `student
 
 The White test is an extension of the above tests and can be obtained for your linear model, lm1, and a single explanatory variable, x, as follows:
 
-{% highlight r %} 
+```r 
 bptest(lm1, ~ x + I(x^2))
-{% endhighlight %}
+```
 
 While the BP test tests for the expected value of the squared residuals to be a linear function of the explanatory variables, the White test tests for any general correlation structure including squared and interaction terms. The shortcomings of the White test are probably twofold. First, it is not feasible for a large number of explanatory variables. Second, both tests also lead us to reject the null if the model is misspecified (the White test even more so). I would generally recommend to test for missepecification of the functional form using a REgression Specification Error Test (RESET) before testing for the minor problem of heteroskedasticity.
 
@@ -645,33 +645,33 @@ Homoskedasticity tests can probably not reject the null because the tests have l
 Linearity tests, such as the RESET test, only test for a very specific type of misspecification: imposing a linear model on non-linear data. To see this, let us first simulate two models, `y = 20 + x1 + x2` and `z = 20 + x1 + x1^2` as follows.
 
 Generate some error terms
-{% highlight r %} 
+```r 
 set.seed(123)
 
 epsilon <- rnorm(10000)
 omega   <- rnorm(10000)
 eta     <- rnorm(10000)
-{% endhighlight %}
+```
 
 Generate independent variables
 
-{% highlight r %} 
+```r 
 x1 <- 5 + omega + 0.3* eta
 x2 <- 10 + omega
-{% endhighlight %}
+```
 
 Generate dependent variables
 
-{% highlight r %} 
+```r 
 y <- 20 + x1 + x2 + epsilon
 z <- 20 + x1 + x1^2 + epsilon
-{% endhighlight %}
+```
 
 Let us now regress misspecified versions of these true models and see whether RESET test complains.
 
 General model misspecification: Omitted Variable Bias for b2
 
-{% highlight r %} 
+```r 
 cov(x1,x2)  # =1
 [1] 1.002215
 
@@ -692,11 +692,11 @@ resettest(lm1)
 
 data:  lm1 
 RESET = 0.437, df1 = 2, df2 = 9996, p-value = 0.646
-{% endhighlight %}
+```
 
 Misspecification of functional form
 
-{% highlight r %} 
+```r 
 ## misspecified model lm2
 lm2 <- lm(z ~ x1); lm2$coef
 (Intercept)          x1 
@@ -713,7 +713,7 @@ resettest(lm2)
 
 data:  lm2 
 RESET = 11556.97, df1 = 2, df2 = 9996, p-value < 2.2e-16
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
