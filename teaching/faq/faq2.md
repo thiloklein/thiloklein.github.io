@@ -87,7 +87,7 @@ This FAQ for [Quantitative Methods II](/teaching/quant2/index.html) and [Econome
 
 ***
 
-#####<a name="a1"></a> Can you explain what the functions adf.test.1() and adf.test.2() do? How are they different from R's adf.test() function?
+##### <a name="a1"></a> Can you explain what the functions adf.test.1() and adf.test.2() do? How are they different from R's adf.test() function?
 
 `adf.test.1()` and `adf.test.2()` are convenience functions that I wrote. `adf.test.2()` gives the adf test specification. If you apply the `summary()` command, p-values would be wrong because they are based on the t-distribution! To obtain the correct p-value based on the Dickey-Fuller distribution use the `adf.test.1()` function. The sole difference between the latter and R's standard adf test function is that it allows to specify whether to include an intercept and/or a trend variable.
 
