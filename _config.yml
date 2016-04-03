@@ -5,8 +5,10 @@ source: .
 destination: ./_site
 plugins_dir: ./_plugins
 lsi: true
-highlighter: rouge
 markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+highlighter: rouge
 exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'vender']
 gems: [jekyll-paginate]
 
