@@ -177,9 +177,7 @@ and test your setting with a command that issues a warning
 ```
 
 For other languages check
-```r 
-?setLanguage
-```
+`?setLanguage`
 
 [Back to top](index.html)
 

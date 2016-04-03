@@ -105,7 +105,7 @@ The following commands select the first [1] observation for any given date year 
 
 Generate the data
 
-{% highlight r %} 
+```r
 year    <- sort(rep(2010:2011,4))
 
 quarter <- rep(c("Q1","Q2","Q3","Q4"), 2)
@@ -120,11 +120,11 @@ data    <- data.frame(year,quarter,index); data
 6 2011      Q2   105
 7 2011      Q3   105
 8 2011      Q4   105
-{% endhighlight %}
+```
 
 Option 1: `by` function
 
-{% highlight r %} 
+```r
 by(data, data$year, myfunction <- function(x) x[1,])
 data$year: 2010
   year quarter index
@@ -133,25 +133,25 @@ data$year: 2010
 data$year: 2011
   year quarter index
 5 2011      Q1   105
-{% endhighlight %}
+```
 
 Option2 : `aggregate` function
 
-{% highlight r %} 
+```r
 aggregate(data, list(Grouped.by=year), myfunction <- function(x) x[1])
   Grouped.by year quarter index
 1       2010 2010      Q1   100
 2       2011 2011      Q1   105
-{% endhighlight %}
+```
 
 Option 3: `sapply` function
 
-{% highlight r %} 
+```r
 sapply(data, function(x) x[seq(1,8,4)])
      year quarter index
 [1,] 2010       1   100
 [2,] 2011       1   105
-{% endhighlight %}
+```
 
 For a detailed treatment of the apply-functions, see the [UCLA site](http://www.ats.ucla.edu/stat/r/library/advanced_function_r.htm).
 
@@ -179,14 +179,14 @@ Have a look at the help files for the `arma` and `arima` functions? If you want 
 
 Suppose you were estimating an `ARIMA(1,(1,4))` model with `order=c(1,0,4)`. How can we force the `ma2` and `ma3` coefficients to be 0? This is accomplished by the `fixed` option, and best illustrated using an example.
 
-{% highlight r %} 
+```r
 quart <- read.csv("http://klein.uk/R/Lent/quarterly.csv")
 arima(quart$DLPPI, order=c(1,0,4), fixed=c(NA, NA, 0, 0, NA, NA))
 Coefficients:
          ar1      ma1  ma2  ma3     ma4  intercept
       0.7636  -0.3531    0    0  0.2862     0.0075
 s.e.  0.0809   0.1049    0    0  0.0980     0.0032
-{% endhighlight %}
+```
 
 The structure should get clearer now. You can see that setting an NA allows the corresponding coefficient to be estimated, and 0 forces the coefficient to be zero. What needs getting used to is the order of the terms in the fixed option. First, we have the ar1 term (here: NA), then four ma terms (here: NA, 0, 0, NA) and finally the intercept (here: NA).
 
@@ -200,27 +200,27 @@ See Exercise 1b in Lab Session 2. This is accomplished by changing the range of 
 
 Generate variables
 
-{% highlight r %} 
+```r
 quart   <- read.csv("http://klein.uk/R/Lent/quarterly.csv")
 PPI     <- ts(quart$PPI, start=c(1960, 1), freq=4)
 LPPI    <- ts(log(PPI), start=c(1960, 1), freq=4)
 LPPI.d1 <- diff(LPPI, lag=1, differences=1)
-{% endhighlight %}
+```
 
 Plot acf/pacf
 
-{% highlight r %} 
+```r
 par(mfrow=c(2,1))
 acf(LPPI.d1); pacf(LPPI.d1)
-{% endhighlight %}
+```
 
 ![acf.png]({{site.baseurl}}/teaching/faq/images/acf.png)
 
 Get rid of 0 lag autocorrelation in acf
 
-{% highlight r %} 
+```r
 acf(LPPI.d1, xlim=c(0.25,5.5)); pacf(LPPI.d1)
-{% endhighlight %}
+```
 
 ![acf1.png]({{site.baseurl}}/teaching/faq/images/acf1.png)
 
@@ -256,20 +256,20 @@ You can force `auto.arima` to ignore seasonal differencing using the following a
 
 First, fit an ARMA model to some simulated data
 
-{% highlight r %} 
+```r
 x     = arima.sim(list(order=c(1,0,1),ar=.9,ma=-.5),n=100) # simulate data
 x.fit = arima(x, order = c(1, 0, 1)) # fit model & print results
-{% endhighlight %}
+```
 
 then forecast 10 ahead
 
-{% highlight r %} 
+```r
 x.fore = predict(x.fit, n.ahead=10)
-{% endhighlight %}
+```
 
 and plot the forecasts (with error bounds).
 
-{% highlight r %} 
+```r
 U    = x.fore$pred + 2*x.fore$se
 L    = x.fore$pred - 2*x.fore$se
 minx = min(x,L)
@@ -277,7 +277,7 @@ maxx = max(x,U)
 ts.plot(x,x.fore$pred,col=1:2, ylim=c(minx,maxx))
 lines(U, col="blue", lty="dashed")
 lines(L, col="blue", lty="dashed")
-{% endhighlight %}
+```
 
 ![forecasterror.png]({{site.baseurl}}/teaching/faq/images/forecasterror.png)
 
@@ -315,41 +315,41 @@ You know that the log difference gives the growth rate, g, so to obtain a one st
 
 This is best illustrated with an example. Let us first generate a vector of dates.
 
-{% highlight r %} 
+```r
 dates <- factor(c("1/8/2000", "1/9/2000", "1/10/2000", "1/11/2000")); dates
 [1] 1/8/2000  1/9/2000  1/10/2000 1/11/2000
 Levels: 1/10/2000 1/11/2000 1/8/2000 1/9/2000
-{% endhighlight %}
+```
 
 Then check [this](http://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html) for the appropriate date format.
 
-{% highlight r %} 
+```r
 %m -- Month as decimal number (01-12).
 %d -- Day of the month as decimal number (01-31).
 %Y -- Year with century.
-{% endhighlight %}
+```
 
 Use the `as.Date()` function to convert the vector into date format as follows.
 
-{% highlight r %} 
+```r
 dates2 <- as.Date(dates, format="%m/%d/%Y"); dates2
 [1] "2000-01-08" "2000-01-09" "2000-01-10" "2000-01-11"
-{% endhighlight %}
+```
 
 The relevance of this transformation becomes clear when we try to sort the data by date. You will find that this is not possible with the original factor variable date, e.g., January 8th (1/8/2000) should come before January 10th (1/10/2000).
 
-{% highlight r %} 
+```r
 sort(dates)
 [1] 1/10/2000 1/11/2000 1/8/2000  1/9/2000 
 Levels: 1/10/2000 1/11/2000 1/8/2000 1/9/2000
-{% endhighlight %}
+```
 
 However, when R recongnises the date format of the variable, it gets things right.
 
-{% highlight r %} 
+```r
 sort(dates2)
 [1] "2000-01-08" "2000-01-09" "2000-01-10" "2000-01-11"
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -361,7 +361,7 @@ In the table below, the value of the new variable is 1 if `value = max(value)` i
 
 Generate the data:
 
-{% highlight r %} 
+```r
 class <- c(1,1,1,2,3,3)
 value <- c(5,90,100, 55,60,10)
 new   <- rep(NA,6)
@@ -373,11 +373,11 @@ data  <- data.frame(class, value, new); data
 4     2    55  NA
 5     3    60  NA
 6     3    10  NA
-{% endhighlight %}
+```
 
 Get max by class
 
-{% highlight r %} 
+```r
 x   <- c( by(data$value, data$class, max) )
 idx <- c( by(data$class, data$class, max) )
 dx  <- data.frame(idx,x); dx
@@ -385,11 +385,11 @@ dx  <- data.frame(idx,x); dx
 1   1 100
 2   2  55
 3   3  60
-{% endhighlight %}
+```
 
 Merge the max with your obs (in Excel this is vlookup :o)
 
-{% highlight r %} 
+```r
 data2 <- merge(dx,data,by.x=1,by.y=1); data2
   idx   x value new
 1   1 100     5  NA
@@ -398,11 +398,11 @@ data2 <- merge(dx,data,by.x=1,by.y=1); data2
 4   2  55    55  NA
 5   3  60    60  NA
 6   3  60    10  NA
-{% endhighlight %}
+```
 
 Apply indicator function to obtain binary variable
 
-{% highlight r %} 
+```r
 data2$new <- data2$x - data2$value; data2
   idx   x value new
 1   1 100     5  95
@@ -420,7 +420,7 @@ data2$new <- lapply(data2$new, function(x) ifelse(x==0,1,0)); data2
 4   2  55    55   1
 5   3  60    60   1
 6   3  60    10   0
-{% endhighlight %}
+```
 
 This is an ad-hoc solution but you may be able to generalize it to other problems. Another application would be the demeaning of variables for fixed effects estimation.
 
@@ -432,9 +432,9 @@ This is an ad-hoc solution but you may be able to generalize it to other problem
 
 The function `fitted()` does not seem to work for panel models. In this case, you can obtain fitted values by subtracting the estimated residuals from the actual observations as follows.
 
-{% highlight r %} 
+```r
 yourmodel$model[[1]] - yourmodel$residuals
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -464,9 +464,9 @@ If this is the case for any of the lab exercises, try to reinstall the rgarch pa
 
 You need to source my convenience functions by tying:
 
-{% highlight r %} 
+```r
 source("http://klein.uk/R/myfunctions.R")
-{% endhighlight %}
+```
 
 [Back to top](index.html)
 
@@ -560,9 +560,9 @@ This is the simple t-test that is reported in the regression summary command `su
 
 When you look-up the definition of the AIC you will understand why this is.
 
-{% highlight r %} 
+```r
 AIC = -2*LogLikelihood + 2*npar or AIC = n*log(RSS) + 2*npar 
-{% endhighlight %}
+```
 
 When the residual sum of squares is below 1, the term log(RSS) is negative. Dependent on the values of n and npar the AIC may be positive or negative. The interpretation of the AIC measure still remains the same.
 
@@ -574,15 +574,15 @@ When the residual sum of squares is below 1, the term log(RSS) is negative. Depe
 
 You should ideally choose a sequence of lags up to 15 as in the summary of the ugarchfit. The `ugarchfit` results give you the ArchTest based on standardized residuals, i.e. based on
 
-{% highlight r %} 
+```r
 sgarch.fit@fit$residuals/sgarch.fit@fit$sigma 
-{% endhighlight %}
+```
 
 instead of simply
 
-{% highlight r %} 
+```r
 sgarch.fit@fit$residuals 
-{% endhighlight %}
+```
 
 Please use those for your analysis (this was corrected in the R-scripts for the lectures but not for some of the exercises in the lab).
 
@@ -612,15 +612,15 @@ The choice of lag length is basically an empirical question. "A rule of thumb is
 
 You should not rely on this but determine the lag length based on the Ljung-Box stats. The `ljung.box.test.1()` function only differs from `ljung.box.test` by allowing you to specify the lag-length (k) to be reported.
 
-{% highlight r %} 
+```r
 seq(1,15,1) 
-{% endhighlight %}
+```
 
 gives you lag-length 1 to 15.
 
-{% highlight r %} 
+```r
 seq(1,10,1)
-{% endhighlight %}
+```
 
 1 to 10, etc.
 
@@ -658,17 +658,17 @@ AR models are invertible (but may not be stationary). MA models are stationary, 
 
 Invertibility condition check for MA(1)-process:
 
-{% highlight r %} 
+```r
 y_t = u_t + b_1 * u_t-1
-{% endhighlight %}
+```
 
 If the root of this polynomial lies outside the unit circle, the MA(1) process can be forecasted because it satisfies the invertibility condition. The invertibility condition is satisfied if the absolute value of the parameter of the model satisfies `|b_1|<1`.
 
 Stationarity condition check for AR(1)-process (ADF test):
 
-{% highlight r %} 
+```r
 y_t = u_t + a_1 * y_t-1
-{% endhighlight %}
+```
 
 AR is stationary if roots of the above polynomial lie outside the unit-circle, i.e., `|a_1|<1`.
 
@@ -700,9 +700,9 @@ Remember that the simple ARMA model assumes that there are no ARCH effects. This
 
 Exercise 2b, Lab Session 4. The first command
 
-{% highlight r %} 
+```r
 glm2b$coef[2] * dnorm(mean(M%*%coef(glm2b)))
-{% endhighlight %}
+```
 
 gives the marginal effect (of the average respondent) based on the derivative of the link function with respect to the independent variable (see lecture notes: think chain rule!). This approach makes sense for continuous variables. For dummy variables, the second command is appropriate. It gives the difference in estimated probabilities for white and non-white respondents.
 
