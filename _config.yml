@@ -5,6 +5,7 @@ source: .
 destination: ./_site
 plugins_dir: ./_plugins
 lsi: true
+highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM

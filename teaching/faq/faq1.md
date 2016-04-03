@@ -256,6 +256,7 @@ yourgenderdummy <- ifelse(gender=="female",1,0); yourgenderdummy
 ```
 
 Change reference category
+
 ```r 
 levels(gender)
 [1] "female" "male"  
@@ -273,16 +274,19 @@ levels(gender)
 ##### <a name="b5"></a> How do I check the length of a variable or the dimension of a dataset?
 
 Length
+
 ```r 
 length(myvariable)
 ```
 
 Dimension and variable types of a dataset
+
 ```r 
 str(mydataset)
 ```
 
 Dimension
+
 ```r 
 dim(mydataset)
 ```

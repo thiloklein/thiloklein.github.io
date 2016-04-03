@@ -36,27 +36,27 @@ and three algorithms that can be used to simulate matching data:
 
 To get the latest *stable version* from [CRAN](http://cran.at.r-project.org/web/packages/matchingMarkets/index.html):
 
-{% highlight r %}
+```r
 install.packages("matchingMarkets")
 library(matchingMarkets)
-{% endhighlight %}
+```
 
 Under Linux, the dependency package `gmp` requires that you have GNU MP (> 4.1.4) installed, see [http://gmplib.org](http://gmplib.org).
 
 To get the most recent *development version* from [GitHub](https://github.com/thiloklein/matchingMarkets):
 
-{% highlight r %}
+```r
 install.packages("devtools")
 devtools::install_github("thiloklein/matchingMarkets")
 library(matchingMarkets)
-{% endhighlight %}
+```
 
 or from [R-Forge](https://r-forge.r-project.org/R/?group_id=1906):
 
-{% highlight r %}
+```r
 install.packages("matchingMarkets", repos="http://R-Forge.R-project.org")
 library(matchingMarkets)
-{% endhighlight %}
+```
 
 ***
 
