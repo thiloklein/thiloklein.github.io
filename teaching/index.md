@@ -11,6 +11,53 @@ published: true
 ## Teaching
 
 
+
+***
+
+### <a name="r"></a> Data Visualisation
+
+##### 2016
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Data Visualisation (National Workshop, Accra)</TD>
+<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
+<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
+<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
+</TR>
+</TABLE>
+
+
+##### 2015
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Suva)</TD>
+<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
+<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
+<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
+</TR>
+<TR >
+<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Tirana)</TD>
+<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
+<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
+<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
+</TR>
+</TABLE>
+
+
 ***
 
 ### <a name="games"></a> Game Theory
@@ -204,39 +251,6 @@ published: true
 <TD VALIGN="TOP"><a href="finance/index.html">Seminar website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-***
-
-### <a name="r"></a> Data Viz
-
-##### 2015/2016
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Fiji)</TD>
-<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
-<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
-<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
-</TR>
-<TR >
-<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Albania)</TD>
-<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
-<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
-<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Data Visualisation (National Workshop, Ghana)</TD>
-<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
-<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
-<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
 </TR>
 </TABLE>
 

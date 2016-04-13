@@ -55,14 +55,14 @@ navbar_list:
 - name: Teaching
   link: /teaching/index.html
   dropdown: &dropdown
+  - name: Data Vis
+    link: /teaching/index.html#r
   - name: Game Theory
     link: /teaching/index.html#games
   - name: Econometrics
     link: /teaching/index.html#econometrics
   - name: Finance
     link: /teaching/index.html#finance
-  - name: Data Viz
-    link: /teaching/index.html#r
 - name: CV
   link: /research/cv_ThiloKLEIN.pdf
 
