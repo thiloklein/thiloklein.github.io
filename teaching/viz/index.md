@@ -16,6 +16,41 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 
 ***
 
+#### Galleries
+
+<footer class="row-fluid">
+    <section class="span3">
+  	    <h5>ggplot2</h5>
+			  <p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts. </p>
+				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+		</section>
+		<section class="span3">
+		    <h5>ggvis</h5>
+				<p>The <a href="http://ggvis.rstudio.com/">ggvis</a> package is a data visualization package for R which lets you create rich interactive graphics with a syntax similar in spirit to ggplot2. </p>
+				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+		</section>
+		<section class="span3">
+		    <h5>googleVis</h5>
+				<p>The <a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a> package provides an interface to <a href="https://developers.google.com/chart/interactive/docs/gallery?hl=en">Google Charts API</a>, allowing users to create interactive charts based on R data frames. </p>
+				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+		</section>
+    <section class="span3">
+  	    <h5>rCharts</h5>
+				<p>The <a href="http://rcharts.io">rCharts</a> package allows you to create, customize and publish interactive javascript visualizations from R using a <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a> style plotting interface. </p>
+				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+		</section>
+</footer>
+
+<footer class="row-fluid">
+    <section class="span3">
+        <h5>rMaps</h5>
+				<p>The <a href="http://rmaps.github.io">rMaps</a> package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet. </p>
+				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+		</section>
+</footer>
+
+***
+
 #### Course material
 
 <TABLE WIDTH="100%"> 
@@ -120,41 +155,6 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 </TR>
 </TABLE>
 
-
-***
-
-#### Galleries
-
-<footer class="row-fluid">
-    <section class="span3">
-		    <h5>ggplot2</h5>
-			  <p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
-		</section>
-		<section class="span3">
-		    <h5>ggvis</h5>
-				<p>The <a href="http://ggvis.rstudio.com/">ggvis</a> package is a data visualization package for R which lets you create rich interactive graphics with a syntax similar in spirit to ggplot2. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
-		</section>
-		<section class="span3">
-		    <h5>googleVis</h5>
-				<p>The <a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a> package provides an interface to <a href="https://developers.google.com/chart/interactive/docs/gallery?hl=en">Google Charts API</a>, allowing users to create interactive charts based on R data frames. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
-		</section>
-    <section class="span3">
-  	    <h5>rCharts</h5>
-				<p>The <a href="http://rcharts.io">rCharts</a> package allows you to create, customize and publish interactive javascript visualizations from R using a <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a> style plotting interface. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
-		</section>
-</footer>
-
-<footer class="row-fluid">
-    <section class="span3">
-        <h5>rMaps</h5>
-				<p>The <a href="http://rmaps.github.io">rMaps</a> package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
-		</section>
-</footer>
 
 ***
 

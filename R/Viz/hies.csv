@@ -1,0 +1,118 @@
+Subcategory.id,Subcategory,Category.id,Category,Total,Total.cat
+-99,Total,-99,NA,120063,120063
+1,Food & non-alcoholic beverages,-99,Total,51042,120063
+111,bread & cereals,1,Food & non-alcoholic beverages,20456,51042
+112,meat,1,Food & non-alcoholic beverages,12285,51042
+113,fish & sea food,1,Food & non-alcoholic beverages,8484,51042
+114,"milk, cheese & eggs",1,Food & non-alcoholic beverages,1449,51042
+115,oils & fats,1,Food & non-alcoholic beverages,695,51042
+116,fruit,1,Food & non-alcoholic beverages,779,51042
+117,vegetables,1,Food & non-alcoholic beverages,1458,51042
+118,"sugar, jam, honey, chocolate & confectionery",1,Food & non-alcoholic beverages,1699,51042
+119,food products n.e.c.,1,Food & non-alcoholic beverages,1471,51042
+121,"coffee, tea & cocoa",1,Food & non-alcoholic beverages,910,51042
+122,"mineral water, soft drinks, juices",1,Food & non-alcoholic beverages,1356,51042
+2,"Alcoholic beverages, tobacco & narcotics",-99,Total,5739,120063
+211,spirits,2,"Alcoholic beverages, tobacco & narcotics",258,5739
+212,wine,2,"Alcoholic beverages, tobacco & narcotics",73,5739
+213,beer,2,"Alcoholic beverages, tobacco & narcotics",798,5739
+221,tobacco,2,"Alcoholic beverages, tobacco & narcotics",2579,5739
+231,narcotics,2,"Alcoholic beverages, tobacco & narcotics",2031,5739
+3,Clothing & footwear,-99,Total,3580,120063
+311,clothing materials,3,Clothing & footwear,279,3580
+312,garments,3,Clothing & footwear,2132,3580
+313,other articles of clothing & accessories,3,Clothing & footwear,93,3580
+314,"cleaning, repair & hire of clothing",3,Clothing & footwear,572,3580
+321,shoes & other footwear,3,Clothing & footwear,503,3580
+4,"Housing, water, electricity, gas & other fuels",-99,Total,18515,120063
+411,actual rentals paid by tenants,4,"Housing, water, electricity, gas & other fuels",2169,18515
+412,other actual rentals,4,"Housing, water, electricity, gas & other fuels",,18515
+421,imputed rentals of owner occupiers,4,"Housing, water, electricity, gas & other fuels",,18515
+422,other  imputed rentals,4,"Housing, water, electricity, gas & other fuels",,18515
+431,materials for maint./ repair of the dwelling,4,"Housing, water, electricity, gas & other fuels",862,18515
+432,services for maint./repair of the dwelling,4,"Housing, water, electricity, gas & other fuels",118,18515
+441,water supply,4,"Housing, water, electricity, gas & other fuels",1884,18515
+442,refuse collection,4,"Housing, water, electricity, gas & other fuels",39,18515
+444,other services relating to the dwelling n.e.c.,4,"Housing, water, electricity, gas & other fuels",119,18515
+451,electricity,4,"Housing, water, electricity, gas & other fuels",7274,18515
+452,gas,4,"Housing, water, electricity, gas & other fuels",1481,18515
+453,liquid fuels,4,"Housing, water, electricity, gas & other fuels",4347,18515
+454,solid fuels,4,"Housing, water, electricity, gas & other fuels",87,18515
+455,heat energy,4,"Housing, water, electricity, gas & other fuels",136,18515
+5,"Furnishings, equip. & routine hhold maintenance",-99,Total,4806,120063
+511,furniture & furnishings,5,"Furnishings, equip. & routine hhold maintenance",245,4806
+512,carpets & other floor coverings,5,"Furnishings, equip. & routine hhold maintenance",63,4806
+521,hhold textiles,5,"Furnishings, equip. & routine hhold maintenance",199,4806
+531,major hhold appliances electric or not,5,"Furnishings, equip. & routine hhold maintenance",531,4806
+532,small electric hhold appliances,5,"Furnishings, equip. & routine hhold maintenance",170,4806
+533,repair of hhold appliances,5,"Furnishings, equip. & routine hhold maintenance",2,4806
+540,"glassware, tableware & hhold utensils",5,"Furnishings, equip. & routine hhold maintenance",361,4806
+551,major tools & equipment,5,"Furnishings, equip. & routine hhold maintenance",151,4806
+552,small tools & miscellaneous accessories,5,"Furnishings, equip. & routine hhold maintenance",333,4806
+561,non-durable hhold goods,5,"Furnishings, equip. & routine hhold maintenance",2383,4806
+562,domestic services & hhold services,5,"Furnishings, equip. & routine hhold maintenance",369,4806
+6,Health,-99,Total,1030,120063
+611,pharmaceutical products,6,Health,430,1030
+612,other medical products,6,Health,1,1030
+613,therapeutic appliances & equipment,6,Health,11,1030
+621,medical services,6,Health,27,1030
+622,dental services,6,Health,69,1030
+623,paramedical services,6,Health,234,1030
+630,hospital services,6,Health,259,1030
+7,Transport,-99,Total,15212,120063
+711,motor cars,7,Transport,2781,15212
+712,motor cycles,7,Transport,3,15212
+713,bicycles,7,Transport,5,15212
+721,spare parts & accessories for transport ,7,Transport,320,15212
+722,fuels & lubricants for transport equip.,7,Transport,7311,15212
+723,Maint. & repair of personal transport equip.,7,Transport,461,15212
+724,other services of personal transport equip.,7,Transport,211,15212
+732,passenger transport by road,7,Transport,2051,15212
+733,passenger transport by air,7,Transport,1842,15212
+734,passenger transport by sea & inl& waterway,7,Transport,125,15212
+736,other purchased transport services,7,Transport,100,15212
+8,Communication,-99,Total,5236,120063
+811,postal services,8,Communication,107,5236
+820,telephone & telefax equipment,8,Communication,429,5236
+830,telephone & telefax services,8,Communication,4700,5236
+9,Recreation & culture,-99,Total,2939,120063
+911,equipment for sound & pictures,9,Recreation & culture,358,2939
+912,photographic & cinematographic equip.,9,Recreation & culture,13,2939
+913,information processing equipment,9,Recreation & culture,222,2939
+914,recording media,9,Recreation & culture,42,2939
+915,"repair of audio-visual, photo & IT equip",9,Recreation & culture,2,2939
+921,major durables for outdoor recreation,9,Recreation & culture,26,2939
+922,major durables for indoor recreation,9,Recreation & culture,26,2939
+931,"games, toys & hobbies",9,Recreation & culture,57,2939
+932,equipment for sport & open air recreation,9,Recreation & culture,36,2939
+933,"gardens, plants & flowers",9,Recreation & culture,15,2939
+934,pets & related products,9,Recreation & culture,24,2939
+941,recreational & sporting services,9,Recreation & culture,3,2939
+942,cultural services,9,Recreation & culture,385,2939
+943,games of chance,9,Recreation & culture,32,2939
+951,books,9,Recreation & culture,1387,2939
+952,newspapers & periodicals,9,Recreation & culture,1,2939
+953,miscellaneous printed matter,9,Recreation & culture,39,2939
+954,stationery & drawing materials,9,Recreation & culture,274,2939
+960,package holidays,9,Recreation & culture,,2939
+10,Education,-99,Total,4619,120063
+1010,pre-primary & primary education,10,Education,594,4619
+1020,secondary education,10,Education,515,4619
+1040,tertiary education,10,Education,3511,4619
+11,Restaurants & hotels,-99,Total,2457,120063
+1111,"restaurants, cafes & the like",11,Restaurants & hotels,1393,2457
+1112,accommodation services,11,Restaurants & hotels,1064,2457
+12,Miscellaneous goods & services,-99,Total,4888,120063
+1211,hairdressing salons ,12,Miscellaneous goods & services,146,4888
+1213,appliances & products for personal care,12,Miscellaneous goods & services,2182,4888
+1231,"jewellery, clocks & watches",12,Miscellaneous goods & services,39,4888
+1232,other personal effects,12,Miscellaneous goods & services,116,4888
+1240,social protection,12,Miscellaneous goods & services,,4888
+1251,life insurance,12,Miscellaneous goods & services,1,4888
+1252,insurance connected with the dwelling,12,Miscellaneous goods & services,77,4888
+1253,insurance connected with health,12,Miscellaneous goods & services,2,4888
+1254,insurance connected with transprt,12,Miscellaneous goods & services,36,4888
+1255,other insurance,12,Miscellaneous goods & services,1,4888
+1261,fisim,12,Miscellaneous goods & services,2185,4888
+1262,other financial services n.e.c.,12,Miscellaneous goods & services,30,4888
+1270,other services,12,Miscellaneous goods & services,72,4888
