@@ -30,7 +30,7 @@ setwd("D:/project/") ## replace with your project folder!
 
 ## read data in csv format (for xlsx files, see R package 'xlsx')
 # hies <- read.csv("permanent/2_cleanData/hies.csv", stringsAsFactors=FALSE)
-hies <- read.csv("http://klein.uk/R//hies.csv", stringsAsFactors=FALSE)
+hies <- read.csv("http://klein.uk/R/Viz/hies.csv", stringsAsFactors=FALSE)
 # str(hies)
 # View(hies)
 
