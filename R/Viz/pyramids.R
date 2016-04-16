@@ -34,6 +34,7 @@ getAgeTable <- function(country, year) {
 
 dPyramid <- function(dat, colors=NULL) {
   #dat <- getAgeTable(country, year)
+  year <- sort(unique(dat$Year))
   dat$Male <- -1 * dat$Male
   
   keep <- c("Year", "Age", "Male", "Female", "ord")
