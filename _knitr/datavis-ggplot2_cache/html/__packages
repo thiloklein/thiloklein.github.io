@@ -1,0 +1,8 @@
+base
+knitr
+rmarkdown
+scales
+plyr
+reshape2
+RColorBrewer
+ggplot2

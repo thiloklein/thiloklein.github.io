@@ -1,6 +1,6 @@
 ---
 title: "Household Income & Expenditure Statistics"
-author: "Anonymous"
+author: "PARIS21"
 date: "November 17, 2015"
 output: html_document
 ---
@@ -13,7 +13,7 @@ You can also embed plots, for example:
 
 ```{r echo=FALSE}
 ## Read chunk from tree.R (does not run code)
-knitr::read_chunk('../3_R/tree.R')
+knitr::read_chunk('tree.R')
 ```
 
 ```{r myTree, echo=FALSE, warning=FALSE, message=FALSE, results='asis', cache=TRUE}

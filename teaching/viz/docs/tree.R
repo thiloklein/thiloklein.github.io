@@ -25,11 +25,11 @@ plot(Tree)  ## dispay as HTML in browser
 ## ---- myTree ---
 
 ## change working directory
-getwd()
-setwd("D:/project/") ## replace with your project folder!
+# getwd()
+# setwd("D:/project/") ## replace with your own project folder.
 
-## read data in csv format (for xlsx files, see R package 'xlsx')
-# hies <- read.csv("permanent/2_cleanData/hies.csv", stringsAsFactors=FALSE)
+## read data in csv format
+# hies <- read.csv("hies.csv", stringsAsFactors=FALSE) ## to use your own data
 hies <- read.csv("http://klein.uk/R/Viz/hies.csv", stringsAsFactors=FALSE)
 # str(hies)
 # View(hies)
@@ -42,16 +42,6 @@ hies <- hies[hies$Total>10,]
 hies$Subcategory <- paste(hies$Subcategory, hies$Total, sep=" $")
 hies$Category <- paste(hies$Category, hies$Total.cat, sep=" $")
 
-## define color variable 'colorvar'
-hies$colorvar <- hies$Total
-cats <- unique(hies$Category) ## for all expenditure categories
-for(i in cats){               ## standardise totals to interval [0,1]
-  thisTotal <- with(hies, Total[Category==i])
-  max.cat <- max(thisTotal)
-  min.cat <- min(thisTotal)
-  hies$colorvar[hies$Category==i] <- (thisTotal-min.cat)/(max.cat-min.cat)
-}
-
 ## set value of global category as Not Applicable (!) 
 hies$Category[1] <- NA
 
@@ -62,10 +52,8 @@ library(googleVis)
 tree <- gvisTreeMap(
           data=hies,  
           idvar = "Subcategory", parentvar = "Category", 
-          sizevar = "Total", colorvar = "colorvar",
+          sizevar = "Total", colorvar = "Total",
           options=list(
-            maxColorValue=1,
-            minColorValue=0,
             width=600, height=500,
             fontSize=16, 
             minColor='lightblue',
@@ -78,17 +66,10 @@ tree <- gvisTreeMap(
         )
 
 ## results
-#tree                                   ## Ajax code
-#plot(tree)                             ## dispay as HTML in browser
-cat(tree$html$chart, file="Tree.html") ## save as HTML
+# tree                                   ## Ajax code
+# plot(tree)                             ## dispay as HTML in browser
+# cat(tree$html$chart, file="Tree.html") ## save as HTML
 
 print(tree, tag='chart')
-
-
-
-## ---- useful_to_know
-
-#- thousands delimiters
-#- factors
 
 
