@@ -14,6 +14,28 @@ library(plyr)
 getAgeTable <- function(country, year) {
   c1 <- "http://www.census.gov/population/international/data/idb/region.php?N=%20Results%20&T=10&A=separate&RT=0&Y="  
   c2 <- "&R=-1&C="
+  url <- paste0(c1, year, c2, country)
+  df <- data.frame(readHTMLTable(url))
+  keep <- c(2, 4, 5)
+  df <- df[,keep]  
+  names(df) <- c("Age", "Male", "Female")
+  cols <- 2:3
+  df[,cols] <- apply(df[,cols], 2, function(x) as.numeric(as.character(gsub(",", "", x))))
+  df <- df[df$Age != 'Total', ]  
+  df$Male <- -1 * df$Male
+  df$Age <- factor(df$Age, levels = df$Age, labels = df$Age)
+  
+  df.melt <- melt(df, 
+                  value.name='Population', 
+                  variable.name = 'Gender', 
+                  id.vars='Age' )
+  
+  return(df.melt)
+}
+
+getAgeTable2 <- function(country, year) {
+  c1 <- "http://www.census.gov/population/international/data/idb/region.php?N=%20Results%20&T=10&A=separate&RT=0&Y="  
+  c2 <- "&R=-1&C="
   yrs <- gsub(" ", "", toString(year))
   url <- paste0(c1, yrs, c2, country)
   df <- data.frame(readHTMLTable(url))
