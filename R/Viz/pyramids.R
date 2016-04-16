@@ -3,7 +3,7 @@
 
 library(XML)
 library(reshape2)
-library(rCharts)
+#library(rCharts)
 library(plyr)
 
 
@@ -132,6 +132,7 @@ dPyramid <- function(dat, colors=NULL) {
 
 hPyramid <- function(dat, colors = NULL) {
   #dat <- getAgeTable(country, year)
+  year <- sort(unique(dat$Year))
   dat$Male <- -1 * dat$Male
   
   dat$Age <- factor(dat$Age, levels = rev(dat$Age), labels = rev(dat$Age))
