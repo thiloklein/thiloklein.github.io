@@ -17,46 +17,142 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 ***
 
 #### Galleries
-
 <footer class="row-fluid">
-    <section class="span3">
-  	    <h5>ggplot2</h5>
-			  <p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts. </p>
-				<p><a class="btn" href="datavis-ggplot2/index.html">Learn more &raquo;</a></p>
-		</section>
-  	<section class="span3">
-		    <h5>maps</h5>
-				<p>Examples of plotting region-level data on country maps using the <a href="http://docs.ggplot2.org/current/">ggplot2</a> package and shape files from <a href="http://gadm.org">gadm.org</a>. </p>
-				<p><a class="btn" href="datavis-maps/index.html">Learn more &raquo;</a></p>
-		</section>
-  	<section class="span3">
-		    <h5>population pyramids</h5>
-				<p>Examples of static and interactive population pyramids using the packages <a href="http://docs.ggplot2.org/current/">ggplot2</a> and <a href="http://rcharts.io">rCharts</a> and population data from <a href="http://www.census.gov/population/international/data/idb/informationGateway.php">census.gov</a>. </p>
-				<p><a class="btn" href="datavis-pyramids/index.html">Learn more &raquo;</a></p>
-		</section>
-    <section class="span3">
-		    <h5>googleVis</h5>
-				<p>The <a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a> package provides an interface to <a href="https://developers.google.com/chart/interactive/docs/gallery?hl=en">Google Charts API</a>, allowing users to create interactive charts based on R data frames. </p>
-				<p><a class="btn" href="/blog/2015/08/dataviz/index.html">Learn more &raquo;</a></p>
-		</section>
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="ggplot2" src="images/ggplot2.png"></div>
+						<hgroup>
+							<h5>
+								<a href="datavis-ggplot2/index.html">ggplot2</a>
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts.</p>
+</p>
+					</div>
+					<footer>
+						<p><a href="datavis-ggplot2/index.html" class="btn">Learn more &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
+
+
+
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="maps" src="images/maps.png"></div>
+						<hgroup>
+							<h5>
+								<a href="datavis-maps/index.html">maps</a>
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>Examples of plotting region-level data on country maps using the <a href="http://docs.ggplot2.org/current/">ggplot2</a> package and shape files from <a href="http://gadm.org">gadm.org</a>.</p>
+</p>
+					</div>
+					<footer>
+						<p><a href="datavis-maps/index.html" class="btn">Learn more &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
+
+
+
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="pyramids" src="images/pyramids.png"></div>
+						<hgroup>
+							<h5>
+								<a href="datavis-pyramids/index.html">population pyramids</a>
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>Examples of static and interactive population pyramids using the packages <a href="http://docs.ggplot2.org/current/">ggplot2</a> and <a href="http://rcharts.io">rCharts</a> and population data from <a href="http://www.census.gov/population/international/data/idb/informationGateway.php">census.gov</a>.</p>
+</p>
+					</div>
+					<footer>
+						<p><a href="datavis-pyramids/index.html" class="btn">Learn more &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
+
+
+
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="googleVis" src="images/googleVis.png"></div>
+						<hgroup>
+							<h5>
+								<a href="/blog/2015/08/dataviz/index.html">googleVis</a>
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>The <a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a> package provides an interface to <a href="https://developers.google.com/chart/interactive/docs/gallery?hl=en">Google Charts API</a>, allowing users to create interactive charts based on R data frames.</p>
+</p>
+					</div>
+					<footer>
+						<p><a href="/blog/2015/08/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
+
 </footer>
 
+
+
+
+
 <footer class="row-fluid">
-    <section class="span3">
-        <h5>rMaps</h5>
-				<p>The <a href="http://rmaps.github.io">rMaps</a> package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet. </p>
-				<p><a class="btn" href="/blog/2015/08/dataviz/index.html">Learn more &raquo;</a></p>
-		</section>
-    <section class="span3">
-        <h5>rCharts</h5>
-				<p>The <a href="http://rcharts.io">rCharts</a> package allows you to create, customize and publish interactive javascript visualisations from R using a <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a> style plotting interface. </p>
-				<p><a class="btn" href="/blog/2015/08/dataviz/index.html">Learn more &raquo;</a></p>
-		</section>
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="rMaps" src="images/rMaps.png"></div>
+						<hgroup>
+							<h5>
+								<a href="/blog/2015/08/dataviz/index.html">rMaps</a>
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>The <a href="http://rmaps.github.io">rMaps</a> package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet.</p>
+</p>
+					</div>
+					<footer>
+						<p><a href="/blog/2015/08/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
+					</footer>
+				</article><!--/span-->
+
+
+
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="rCharts" src="images/rCharts.png"></div>
+						<hgroup>
+							<h5>
+								<a href="/blog/2015/08/dataviz/index.html">rCharts</a>
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>The <a href="http://rcharts.io">rCharts</a> package allows you to create, customize and publish interactive javascript visualisations from R using a <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a> style plotting interface.</p>
+</p>
+					</div>
+					<footer>
+						<p><a href="/blog/2015/08/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
+					</footer>
+				</article><!--/span-->
+
+</footer>
+
+<!--		
   	<section class="span3">
 		    <h5>ggvis</h5>
 				<p>The <a href="http://ggvis.rstudio.com/">ggvis</a> package is a data visualisation package for R which lets you create rich interactive graphics with a syntax similar in spirit to ggplot2. </p>
 		</section>
-</footer>
+-->
 
 ***
 
