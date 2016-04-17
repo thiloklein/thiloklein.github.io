@@ -67,7 +67,7 @@ library(rCharts)
 source('http://klein.uk/R/Viz/pyramids.R')
 
 ## Select population counts for Qatar in 2014
-dat <- getAgeTable(country='QA', year=2014)
+dat <- getAgeTable2(country='QA', year=2014)
 kable(head(dat))
 
 n1 <- nPyramid(dat, colors = c('darkred', 'silver'))

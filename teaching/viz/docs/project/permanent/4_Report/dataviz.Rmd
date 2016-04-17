@@ -1,0 +1,236 @@
+---
+title: "Interactive Charts"
+output:
+  html_document:
+    toc: true
+---
+
+#### Data Visualisation with R
+
+These data visualisation modules provide an overview of packages for interactive graphs with R. <!--more--> 
+
+See [here](http://klein.uk/teaching/) for the course materials.
+
+***
+
+#### Overview
+
+- [The rCharts package](#a)
+    + [Population pyramid](#a1)
+    + [Data table](#a2)
+- [The googleVis package](#b)
+    + [Tree map](#b1)
+    + [Sankey chart](#b2)
+    + [Calendar chart](#b3)
+    + [Pie chart](#b4)
+    + [Geo chart](#b5)
+    + [Motion chart](#b6)
+- [Forum](http://stackoverflow.com/tags)
+
+For other R libraries, see [leaflet](http://rstudio.github.io/leaflet/), [htmlwidgets](http://www.htmlwidgets.org/showcase_leaflet.html), [plotly](https://plot.ly/r/) and useful tutorials on data visualisation in R at [flowingdata.com](http://flowingdata.com/).
+
+Many of the packages below require that you have [Rtools](https://cran.r-project.org/bin/windows/Rtools/) installed in addition to [base R](https://cran.r-project.org/). I also recommend using [RStudio](https://www.rstudio.com/products/rstudio/download/) as a front end.
+
+***
+
+####<a name="a"></a> A. The rCharts package
+
+The [rCharts](http://rcharts.io) package allows you to create, customize and publish interactive javascript visualizations from R using a [lattice](http://www.statmethods.net/advgraphs/trellis.html) style plotting interface.
+
+To get started, open R and install and load the package as follows.
+
+```{r eval=FALSE}
+library(devtools)
+install_github('ramnathv/rCharts')
+```
+
+Then you can start exploring the examples using pre-loaded datasets or your own data. For more examples, check out the [rCharts gallery](http://rcharts.io/gallery/).
+
+***
+
+#####<a name="a1"></a> A.1. Population pyramid
+```{r include=FALSE}
+library(knitr)
+opts_chunk$set(comment = NA, results = "asis", tidy = F)
+```
+
+```{r PyramidExample, cache=TRUE}
+library(rCharts)
+source('https://raw.githubusercontent.com/walkerke/teaching-with-datavis/master/pyramids/rcharts_pyramids.R')
+
+## Select population counts for Qatar in 2014
+dat <- getAgeTable(country='QA', year=2014)
+kable(head(dat))
+
+n1 <- nPyramid('QA', 2014, colors = c('darkred', 'silver'))
+n1$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="a2"></a> A.2. Data table
+```{r DatatableExample, cache=TRUE}
+## Load data
+SchoolsGroup <- read.csv("https://raw.github.com/patilv/rChartsTutorials/master/SchoolsGroup.csv")
+kable(head(SchoolsGroup))
+
+## Load styles
+tab2 <- dTable(SchoolsGroup[,-1], sPaginationType = "full_numbers")
+tab2$templates$script <- "http://timelyportfolio.github.io/rCharts_dataTable/chart_customsort.html" 
+
+## Set column names
+tab2$params$table$aoColumns =
+  list(
+    list(sType = "string_ignore_null", sTitle = "Group 1"),
+    list(sType = "string_ignore_null", sTitle = "Group 2"),
+    list(sType = "string_ignore_null", sTitle = "Group 3"),
+    list(sType = "string_ignore_null", sTitle = "Group 4")
+  )
+
+## Produce data table
+n1 <- tab2
+n1$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+
+<br>
+<br>
+
+[Back to top](#)
+
+***
+
+####<a name="b"></a> B. The googleVis package
+
+The [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) package provides an interface to [Google Charts API](https://developers.google.com/chart/interactive/docs/gallery?hl=en), allowing users to create interactive charts based on R data frames.
+
+```{r setOptions, message=FALSE, include=FALSE}
+## Before you start install and load the package and set the output option using the `options` function.
+library(googleVis)
+op <- options(gvis.plot.tag='chart')
+```
+
+***
+
+#####<a name="b1"></a> B.1. Tree map
+```{r TreeExample, results='asis', tidy=FALSE, cache=TRUE}
+## Load the googleVis library
+library(googleVis)
+
+## Inspect data
+kable(head(Regions))
+
+## Plot
+Tree <- gvisTreeMap(data = Regions,  
+                    idvar = "Region", parentvar = "Parent", 
+                    sizevar = "Val", colorvar = "Fac", 
+                    options=list(fontSize=16))
+plot(Tree)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b2"></a> B.2. Sankey chart
+```{r SankeyExample, results='asis', cache=TRUE}
+datSK <- data.frame(From=c(rep("A",3), rep("B", 3)),
+                    To=c(rep(c("X", "Y", "Z"),2)),
+                    Weight=c(5,7,6,2,9,4))
+kable(head(datSK))
+
+Sankey <- gvisSankey(data = datSK, from="From", to="To", weight="Weight",
+                     options=list(
+                       sankey="{link: {color: { fill: '#d799ae' } },
+                            node: { color: { fill: '#a61d4c' },
+                            label: { color: '#871b47' } }}"))
+plot(Sankey)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b3"></a> B.3. Calendar chart
+```{r CalendarExample, results='asis', cache=TRUE}
+kable(head(Cairo))
+
+Cal <- gvisCalendar(data = Cairo, 
+                    datevar="Date", 
+                    numvar="Temp",
+                    options=list(
+                      title="Daily temperature in Cairo",
+                      height=320,
+                      calendar="{yearLabel: { fontName: 'Times-Roman',
+                               fontSize: 32, color: '#1A8763', bold: true},
+                               cellSize: 10,
+                               cellColor: { stroke: 'red', strokeOpacity: 0.2 },
+                               focusedCellColor: {stroke:'red'}}")
+)
+plot(Cal)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b4"></a> B.4. Pie chart
+```{r PieChartExample, results='asis', cache=TRUE}
+kable(head(CityPopularity))
+
+Pie <- gvisPieChart(data = CityPopularity)
+plot(Pie)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b5"></a> B.5. Geo chart
+```{r GeoChartExample, results='asis', cache=TRUE}
+kable(head(Exports))
+
+Geo <- gvisGeoChart(data = Exports, locationvar="Country", 
+                 colorvar="Profit",
+                 options=list(projection="kavrayskiy-vii"))
+plot(Geo)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b6"></a> B.6. Motion chart
+```{r MotionChartExample, results='asis', cache=TRUE}
+kable(head(Fruits))
+
+M <- gvisMotionChart(data = Fruits, idvar = 'Fruit', timevar = 'Year',
+         options=list(width=400, height=350))
+plot(M)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+```{r resetOptions, include=FALSE}
+## At the end of your session, do not forget to reset the options.
+## Set options back to original options
+options(op)
+```
+
+[Back to top](#)
+
+<a name="forum"> </a>
+
+
+
+

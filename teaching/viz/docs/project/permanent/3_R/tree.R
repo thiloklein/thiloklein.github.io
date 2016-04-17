@@ -26,7 +26,7 @@ plot(Tree)  ## dispay as HTML in browser
 
 ## change working directory
 # getwd()
-# setwd("D:/project/") ## replace with your own project folder.
+# setwd("D:/project/") ## replace with your own project folder!
 
 ## read data in csv format
 # hies <- read.csv("hies.csv", stringsAsFactors=FALSE) ## to use your own data

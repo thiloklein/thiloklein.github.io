@@ -1,10 +1,10 @@
 ## Script to generate population pyramids from the Census Bureau's International Database with rCharts
 ## Author: Kyle Walker, http://personal.tcu.edu/kylewalker/
 
-#library(XML)
-#library(reshape2)
+library(XML)
+library(reshape2)
+library(plyr)
 #library(rCharts)
-#library(plyr)
 
 
 

@@ -77,7 +77,8 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
     <li>The R software: An open source interface to the most popular data visualisation packages</li>
 </ul>
 </TD>
-<TD valign="top"> <a href="docs/DataViz_1_overview.pdf">Slides</a> </TD>
+<TD valign="top"> <a href="docs/DataViz_1_overview.pdf">Slides</a> <br>
+<a href="docs/project/permanent/3_R/pizza.R">pizza.R</a> </TD>
 </TR>
 <TR >
 <TD valign="top" align="center">13:30 - 14:30</TD>
@@ -122,7 +123,9 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
     <li>Application to tree maps and HIES data</li>
 </ul>
 </TD>
-<TD valign="top"> <a href="docs/DataViz_4_reports.pdf">Slides</a> <br> <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">rmarkdown cheatsheet</a> </TD>
+<TD valign="top"> <a href="docs/DataViz_4_reports.pdf">Slides</a> <br> 
+<a href="docs/project.zip">project.zip</a> <br>
+<a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">rmarkdown cheatsheet</a>  </TD>
 </TR>
 
 <TR >
@@ -187,7 +190,7 @@ For the lab sessions we will use the open source software environment R. I think
 
 ##### RStudio
 
-Many of the packages require that you have Rtools installed in addition to base R. I also recommend using RStudio as a front end.
+I also recommend using RStudio as a front end.
 
 * Download and install RStudio from [rstudio.com](https://www.rstudio.com):
     + In the homepage, click : `Download RStudio`
@@ -202,22 +205,37 @@ Many of the packages require that you have Rtools installed in addition to base 
 
 ***
 
+##### Rtools
+
+Many of the packages require that you have [Rtools](https://cran.r-project.org/bin/windows/Rtools/) installed in addition to base R. 
+
+***
+
 ##### R Packages
 
-To get the latest stable version of a package from CRAN:
+1. To get the latest stable version of a package from CRAN:
 
 ```
 install.packages("packagename")
 library(packagename)
 ```
 
-
-To get the most recent development version of a package from GitHub:
+2. To get the most recent development version of a package from GitHub:
 
 ```
 install.packages("devtools")
 devtools::install_github("author/packagename")
 library(packagename)
+```
+
+For example, to use the [rCharts](http://rcharts.io/gallery/) and [rMaps](http://rmaps.github.io) packages, you do
+
+```
+devtools::install_github("author/packagename")
+install_github('ramnathv/rCharts')
+install_github('ramnathv/rMaps')
+library(rCharts)
+library(rMaps)
 ```
 
 
