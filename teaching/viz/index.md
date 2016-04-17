@@ -22,17 +22,17 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
     <section class="span3">
   	    <h5>ggplot2</h5>
 			  <p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+				<p><a class="btn" href="datavis-ggplot2/index.html">Learn more &raquo;</a></p>
 		</section>
   	<section class="span3">
 		    <h5>maps</h5>
 				<p>Examples of plotting region-level data on country maps using the <a href="http://docs.ggplot2.org/current/">ggplot2</a> package and shape files from <a href="http://gadm.org">gadm.org</a>. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+				<p><a class="btn" href="datavis-maps/index.html">Learn more &raquo;</a></p>
 		</section>
   	<section class="span3">
 		    <h5>population pyramids</h5>
-				<p>Examples of static and interactive population pyramids using the packages <a href="http://docs.ggplot2.org/current/">ggplot2</a> and <a href="https://cran.r-project.org/web/packages/pyramid/index.html">pyramid</a> and population data from <a href="http://www.census.gov/population/international/data/idb/informationGateway.php">census.gov</a>. </p>
-				<p><a class="btn" href="#">Learn more &raquo;</a></p>
+				<p>Examples of static and interactive population pyramids using the packages <a href="http://docs.ggplot2.org/current/">ggplot2</a> and <a href="http://rcharts.io">rCharts</a> and population data from <a href="http://www.census.gov/population/international/data/idb/informationGateway.php">census.gov</a>. </p>
+				<p><a class="btn" href="datavis-pyramids/index.html">Learn more &raquo;</a></p>
 		</section>
     <section class="span3">
 		    <h5>googleVis</h5>
@@ -97,10 +97,10 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
     <li>Setting up your project structure</li>
     <li>Data manipulation and preparation</li>
     <li>Importing your data from any format into R</li>
-    <li>Interactive maps with package googleVis</li>
+    <li>Creating maps with package ggplot2</li>
 </ul>
 </TD>
-<TD valign="top">--</TD>
+<TD valign="top"> <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot2 cheatsheet</a> </TD>
 </TR>
 <TR >
 <TD valign="top" align="center">16:15 - 17:15</TD>
@@ -119,10 +119,10 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 <ul>
     <li>Report writing</li>
     <li>Websites and interactive graphs</li>
-    <li>Application to HIES data</li>
+    <li>Application to tree maps and HIES data</li>
 </ul>
 </TD>
-<TD valign="top"> <a href="docs/DataViz_4_reports.pdf">Slides</a> </TD>
+<TD valign="top"> <a href="docs/DataViz_4_reports.pdf">Slides</a> <br> <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">rmarkdown cheatsheet</a> </TD>
 </TR>
 
 <TR >

@@ -1,0 +1,168 @@
+---
+title: "Choropleth maps with R"
+layout: default
+group: Teaching
+graphics: yes
+output: html_document
+published: true
+comments: true
+---
+
+Examples of plotting region-level data on country maps using the <a href="http://docs.ggplot2.org/current/">ggplot2</a> package and shape files from <a href="http://gadm.org">gadm.org</a>.
+
+***
+
+#### Overview
+
+1. [Simulated data for Norwegian communes](#I)    
+2. [Region-level literacy data from Ghanaian census](#II)
+
+
+***
+
+```{r global_options, echo=FALSE}
+knitr::opts_chunk$set(fig.align = 'center', echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, cache = TRUE, tidy = TRUE)
+#fig.width = 5, fig.height = 4, , results = "asis", tidy = FALSE
+```
+
+Start by installing the following packages.
+```{r, eval=FALSE}
+## load packages
+install.packages("raster")
+install.packages("ggplot2")
+install.packages("rgeos")
+install.packages("maptools")
+install.packages("scales")
+```
+
+***
+
+#### <a name="I"></a> 1. Simulated data for Norwegian communes
+
+
+```{r}
+## download shapefile from gadm.org 
+## level=1 -> region ; level=2 -> commune
+library(raster)
+states.shp <- getData('GADM', country = 'NOR', level = 2)
+class(states.shp)
+names(states.shp)
+head(states.shp$NAME_2)
+```
+
+```{r}
+## fortify shape file to dataframe format 
+library(rgeos)
+library(maptools)
+library(ggplot2)
+states.shp.f <- fortify(states.shp, region = "NAME_2")
+class(states.shp.f)
+head(states.shp.f)
+```
+
+```{r}
+## create random data to plot on map
+num.states <- length(states.shp$NAME_2)
+set.seed(123)
+mydata <- data.frame(id = states.shp$NAME_2, prevalence = rnorm(num.states, 55, 20))
+head(mydata)
+```
+
+```{r}
+## merge shape file with data 
+merge.shp.coef <- merge(states.shp.f, mydata, by = "id")
+head(merge.shp.coef)
+```
+
+```{r}
+## basic plot
+ggplot() +
+  geom_polygon(data = merge.shp.coef, 
+               aes(x = long, y = lat, group = group, fill = prevalence),
+               color = "black", size = 0.25) + 
+  coord_map()
+```
+
+```{r}
+## nicer plot
+library(scales)
+library(ggmap)
+ggplot() +
+  geom_polygon(data = merge.shp.coef, 
+               aes(x = long, y = lat, group = group, fill = prevalence), 
+               color = "black", size = 0.25) + 
+  coord_map() +
+  scale_fill_distiller(name = "prevalence", palette = "YlGn", breaks = pretty_breaks(n = 5)) +
+  theme_nothing(legend = TRUE) +
+  labs(title = "Prevalence of X in Norway")
+```
+
+[Back to top](#)
+
+***
+
+
+#### <a name="II"></a> 2. Region-level literacy data from Ghanaian census
+
+Now, let us try to use the above code snippets to produce regional-level plots for Ghana based on the 2010 census. Take the literacy rate as an example.
+
+```{r}
+## read individual-level literacy data from 2010 census
+load(url("http://klein.uk/R/Viz/litGH.RData"))
+
+## define binary literacy variable
+litGH$literacy <- ifelse(litGH$LITERACY == "None (Not literate)", 0, 1)
+litGH$id <- litGH$REGION
+
+## obtain region-level literacy rates
+(litGH <- aggregate(formula = literacy ~ id, data = litGH, FUN = mean))
+mydata <- litGH
+```
+
+Start over from 1. to download the shapefiles for Ghana (ISO code `'GHA'`) and produce the choropleth maps. Note: make sure to use regional levels, i.e. `level = 1` and `NAME_1`, instead of the commune-level variables in the Norwegian data above.
+
+
+
+```{r}
+## download shapefile from gadm.org 
+## level=1 -> region ; level=2 -> commune
+library(raster)
+states.shp <- getData('GADM', country = 'GHA', level = 1)
+class(states.shp)
+names(states.shp)
+states.shp$NAME_1
+```
+
+```{r}
+## fortify shape file to dataframe format 
+library(rgeos)
+library(maptools)
+library(ggplot2)
+states.shp.f <- fortify(states.shp, region = "NAME_1")
+class(states.shp.f)
+head(states.shp.f)
+```
+
+```{r}
+## merge shape file with data 
+merge.shp.coef <- merge(states.shp.f, mydata, by = "id")
+head(merge.shp.coef)
+```
+
+```{r}
+## basic plot
+ggplot() +
+  geom_polygon(data = merge.shp.coef, 
+               aes(x = long, y = lat, group = group, fill = literacy),
+               color = "black", size = 0.25) + 
+  coord_map()
+```
+
+
+[Back to top](#)
+
+
+
+
+
+

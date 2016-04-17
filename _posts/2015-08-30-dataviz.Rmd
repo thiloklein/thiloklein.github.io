@@ -1,0 +1,388 @@
+---
+published: true
+layout: post
+title: Interactive Charts
+comments: true
+excerpt: null
+thumbnail: null
+output:
+  html_document:
+    toc: true
+---
+
+#### Data Visualisation with R
+
+These data visualisation modules provide an overview of packages for interactive graphs with R. <!--more--> 
+
+See [here](http://klein.uk/teaching/) for the course materials.
+
+***
+
+#### Overview
+
+- [The rCharts package](#a)
+    + [Population pyramid](#a1)
+    + [Data table](#a2)
+- [The googleVis package](#b)
+    + [Tree map](#b1)
+    + [Sankey chart](#b2)
+    + [Calendar chart](#b3)
+    + [Pie chart](#b4)
+    + [Geo chart](#b5)
+    + [Motion chart](#b6)
+- [The rMaps package](#c)
+    + [Leaflet heat maps](#c1)
+    + [Animated choropleths](#c2)
+- [Forum](http://stackoverflow.com/tags)
+
+For other R libraries, see [leaflet](http://rstudio.github.io/leaflet/), [htmlwidgets](http://www.htmlwidgets.org/showcase_leaflet.html), [plotly](https://plot.ly/r/) and useful tutorials on data visualisation in R at [flowingdata.com](http://flowingdata.com/).
+
+Many of the packages below require that you have [Rtools](https://cran.r-project.org/bin/windows/Rtools/) installed in addition to [base R](https://cran.r-project.org/). I also recommend using [RStudio](https://www.rstudio.com/products/rstudio/download/) as a front end.
+
+***
+
+####<a name="a"></a> A. The rCharts package
+
+The [rCharts](http://rcharts.io) package allows you to create, customize and publish interactive javascript visualizations from R using a [lattice](http://www.statmethods.net/advgraphs/trellis.html) style plotting interface.
+
+To get started, open R and install and load the package as follows.
+
+```{r eval=FALSE}
+library(devtools)
+install_github('ramnathv/rCharts')
+```
+
+Then you can start exploring the examples using pre-loaded datasets or your own data. For more examples, check out the [rCharts gallery](http://rcharts.io/gallery/).
+
+***
+
+#####<a name="a1"></a> A.1. Population pyramid
+```{r include=FALSE}
+library(knitr)
+opts_chunk$set(comment = NA, results = "asis", tidy = F)
+```
+
+```{r PyramidExample, cache=TRUE}
+library(rCharts)
+source('http://klein.uk/R/Viz/pyramids.R')
+
+## Select population counts for Qatar in 2014
+dat <- getAgeTable(country='QA', year=2014)
+kable(head(dat))
+
+n1 <- nPyramid(dat, colors = c('darkred', 'silver'))
+n1$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="a2"></a> A.2. Data table
+```{r DatatableExample, cache=TRUE}
+## Load data
+SchoolsGroup <- read.csv("https://raw.github.com/patilv/rChartsTutorials/master/SchoolsGroup.csv")
+kable(head(SchoolsGroup))
+
+## Load styles
+tab2 <- dTable(SchoolsGroup[,-1], sPaginationType = "full_numbers")
+tab2$templates$script <- "http://timelyportfolio.github.io/rCharts_dataTable/chart_customsort.html" 
+
+## Set column names
+tab2$params$table$aoColumns =
+  list(
+    list(sType = "string_ignore_null", sTitle = "Group 1"),
+    list(sType = "string_ignore_null", sTitle = "Group 2"),
+    list(sType = "string_ignore_null", sTitle = "Group 3"),
+    list(sType = "string_ignore_null", sTitle = "Group 4")
+  )
+
+## Produce data table
+n1 <- tab2
+n1$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+
+<br>
+<br>
+
+[Back to top](#)
+
+***
+
+####<a name="b"></a> B. The googleVis package
+
+The [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) package provides an interface to [Google Charts API](https://developers.google.com/chart/interactive/docs/gallery?hl=en), allowing users to create interactive charts based on R data frames.
+
+```{r setOptions, message=FALSE, include=FALSE}
+## Before you start install and load the package and set the output option using the `options` function.
+library(googleVis)
+op <- options(gvis.plot.tag='chart')
+```
+
+***
+
+#####<a name="b1"></a> B.1. Tree map
+```{r TreeExample, results='asis', tidy=FALSE, cache=TRUE}
+## Load the googleVis library
+library(googleVis)
+
+## Inspect data
+kable(head(Regions))
+
+## Plot
+Tree <- gvisTreeMap(Regions,  
+                    "Region", "Parent", 
+                    "Val", "Fac", 
+                    options=list(fontSize=16))
+plot(Tree)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b2"></a> B.2. Sankey chart
+```{r SankeyExample, results='asis', cache=TRUE}
+datSK <- data.frame(From=c(rep("A",3), rep("B", 3)),
+                    To=c(rep(c("X", "Y", "Z"),2)),
+                    Weight=c(5,7,6,2,9,4))
+kable(head(datSK))
+
+Sankey <- gvisSankey(datSK, from="From", to="To", weight="Weight",
+                     options=list(
+                       sankey="{link: {color: { fill: '#d799ae' } },
+                            node: { color: { fill: '#a61d4c' },
+                            label: { color: '#871b47' } }}"))
+plot(Sankey)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b3"></a> B.3. Calendar chart
+```{r CalendarExample, results='asis', cache=TRUE}
+kable(head(Cairo))
+
+Cal <- gvisCalendar(Cairo, 
+                    datevar="Date", 
+                    numvar="Temp",
+                    options=list(
+                      title="Daily temperature in Cairo",
+                      height=320,
+                      calendar="{yearLabel: { fontName: 'Times-Roman',
+                               fontSize: 32, color: '#1A8763', bold: true},
+                               cellSize: 10,
+                               cellColor: { stroke: 'red', strokeOpacity: 0.2 },
+                               focusedCellColor: {stroke:'red'}}")
+)
+plot(Cal)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b4"></a> B.4. Pie chart
+```{r PieChartExample, results='asis', cache=TRUE}
+kable(head(CityPopularity))
+
+Pie <- gvisPieChart(CityPopularity)
+plot(Pie)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b5"></a> B.5. Geo chart
+```{r GeoChartExample, results='asis', cache=TRUE}
+kable(head(Exports))
+
+Geo=gvisGeoChart(Exports, locationvar="Country", 
+                 colorvar="Profit",
+                 options=list(projection="kavrayskiy-vii"))
+plot(Geo)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="b6"></a> B.6. Motion chart
+```{r MotionChartExample, results='asis', cache=TRUE}
+kable(head(Fruits))
+
+M <- gvisMotionChart(Fruits, 'Fruit', 'Year',
+         options=list(width=400, height=350))
+plot(M)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+```{r resetOptions, include=FALSE}
+## At the end of your session, do not forget to reset the options.
+## Set options back to original options
+options(op)
+```
+
+[Back to top](#)
+
+***
+
+####<a name="c"></a> C. The rMaps package
+
+The [rMaps](http://rmaps.github.io) package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet.
+
+To get started, open R and install and load the package as follows.
+
+```{r eval=FALSE}
+library(devtools)
+install_github('ramnathv/rMaps')
+```
+
+***
+
+#####<a name="c1"></a> C.1. Leaflet heat maps
+```{r MapExample, results='asis', cache=TRUE, message=FALSE}
+## 1. Create map
+library(rMaps)
+L2 <- Leaflet$new()
+L2$setView(c(29.7632836,  -95.3632715), 15)
+L2$tileLayer(provider = "MapQuestOpen.OSM")
+L2$show('inline', include_assets = TRUE, cdn = TRUE)
+
+## 2. Get data
+data(crime, package="ggmap")
+library(plyr)
+crime_dat <- ddply(crime, .(lat, lon), summarise, count = length(address))
+kable(head(crime_dat))
+
+## 3. Transform to json format
+crime_dat <- rCharts::toJSONArray2(na.omit(crime_dat), json = F, names = F)
+
+## 4. Add leaflet-heat plugin. 
+L2$addAssets(jshead = c(
+  "http://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"
+))
+
+## 5. Add javascript to modify underlying chart
+L2$setTemplate(afterScript = sprintf("<script> var addressPoints = %s
+  var heat = L.heatLayer(addressPoints).addTo(map) </script>", 
+  rjson::toJSON(crime_dat)
+))
+L2$show('iframesrc', cdn  = TRUE)
+```
+<br>
+
+[Back to top](#)
+
+***
+
+#####<a name="c2"></a> C.2. Animated choropleths
+```{r ChoroplethsExample, results='asis', cache=TRUE, message=FALSE}
+## Get data
+library(Quandl)
+vcData <- Quandl("FBI_UCR/USCRIME_TYPE_VIOLENTCRIMERATE")
+kable(head(vcData[,1:6]))
+
+## Reshape data
+library(reshape2)
+datm <- melt(vcData, 'Year', 
+  variable.name = 'State',
+  value.name = 'Crime'
+)
+datm <- subset(na.omit(datm), 
+  !(State %in% c("United States", "District of Columbia"))
+)
+
+## Discretize crime rates
+datm2 <- transform(datm,
+  State = state.abb[match(as.character(State), state.name)],
+  fillKey = cut(Crime, quantile(Crime, seq(0, 1, 1/5)), labels = LETTERS[1:5]),
+  Year = as.numeric(substr(Year, 1, 4))
+)
+
+## Associate fill colors
+fills = setNames(
+  c(RColorBrewer::brewer.pal(5, 'YlOrRd'), 'white'),
+  c(LETTERS[1:5], 'defaultFill')
+)
+
+## Create payload for data maps
+library(plyr); library(rMaps)
+dat2 <- dlply(na.omit(datm2), "Year", function(x){
+  y = rCharts::toJSONArray2(x, json = F)
+  names(y) = lapply(y, '[[', 'State')
+  return(y)
+})
+
+## Create simple choropleth
+options(rcharts.cdn = TRUE)
+map <- Datamaps$new()
+map$set(
+  dom = 'chart_1',
+  scope = 'usa',
+  fills = fills,
+  data = dat2[[46]],
+  legend = TRUE,
+  labels = TRUE
+)
+map$show('inline', include_assets = TRUE, cdn = TRUE)
+```
+
+<br>
+<br>
+
+```{r ChoroplethsExampleContd, results='asis', cache=TRUE, message=FALSE}
+## Animated choropleth
+map2 = map$copy()
+map2$set(
+  bodyattrs = "ng-app ng-controller='rChartsCtrl'"
+)
+map2$addAssets(
+  jshead = "http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"
+)
+
+map2$setTemplate(chartDiv = "
+  <div class='container'>
+    <input id='slider' type='range' min=2005 max=2010 ng-model='year' width=200>
+    <span ng-bind='year'></span>
+    <div id='{{chartId}}' class='rChart datamaps'></div>  
+  </div>
+  <script>
+    function rChartsCtrl($scope){
+      $scope.year = 2005;
+      $scope.$watch('year', function(newYear){
+        map{{chartId}}.updateChoropleth(chartParams.newData[newYear]);
+      })
+    }
+  </script>"
+)
+map2$set(newData = dat2)
+map2$show('iframesrc', cdn  = TRUE)
+```
+<br>
+
+[Back to top](#)
+
+<a name="forum"> </a>
+
+
+<!--
+library(knitr)
+knit("~/Documents/Sites/thiloklein.github.io/viz/Rmd/2015-08-30-dataviz.Rmd", "~/Documents/Sites/thiloklein.github.io/_posts/2015-08-30-dataviz.md") 
+replace ```r ``` with {% highlight r %} {% endhighlight %}
+sudo jekyll serve --watch
+-->
+
+
