@@ -309,14 +309,14 @@ Many of the packages require that you have [Rtools](https://cran.r-project.org/b
 
 ##### R Packages
 
-1. To get the latest stable version of a package from CRAN:
+To get the latest stable version of a package from CRAN:
 
 ```
 install.packages("packagename")
 library(packagename)
 ```
 
-2. To get the most recent development version of a package from GitHub:
+To get the most recent development version of a package from GitHub:
 
 ```
 install.packages("devtools")
