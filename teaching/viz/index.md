@@ -185,7 +185,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
     <li>A brief introduction to R</li>
 </ul>
 </TD>
-<TD valign="top"> <a href="docs/DataViz_2_best_practices.pdf">Slides</a> </TD>
+<TD valign="top"> <a href="docs/DataViz_2_best_practices.pdf">Slides</a><br> <a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">R reference card</a> </TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">14:45 - 16:00 </TD>
