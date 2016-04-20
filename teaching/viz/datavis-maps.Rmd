@@ -110,6 +110,9 @@ Now, let us try to use the above code snippets to produce regional-level plots f
 ## read individual-level literacy data from 2010 census
 load(url("http://klein.uk/R/Viz/litGH.RData"))
 
+## drop population below 11 age 
+litGH <- litGH[litGH$LITERACY != "Less than 11",]
+
 ## define binary literacy variable
 litGH$literacy <- ifelse(litGH$LITERACY == "None (Not literate)", 0, 1)
 litGH$id <- litGH$REGION
