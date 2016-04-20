@@ -254,7 +254,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
     <li>Regional and local resources: <a href="http://data-visualization.meetup.com/">Data Visualisation Meetups</a> and local <a href="http://blog.revolutionanalytics.com/local-r-groups.html">R User Groups</a></li>
 </ul>
 </TD>
-<TD valign="top"> <a href="docs/DataViz_5_resources.pdf">Slides</a> </TD>
+<TD valign="top"> <a href="docs/DataViz_5_resources.pdf">Slides</a> <br> <a href="docs/Evaluation_form.doc">Evaluation form</a> </TD>
 </TR>
 </TABLE>
 
