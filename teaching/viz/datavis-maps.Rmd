@@ -161,6 +161,21 @@ ggplot() +
   coord_map()
 ```
 
+```{r}
+## add the region names to the basic map
+
+## 1. obtain mean coordinates for each region
+cnames <- aggregate(cbind(long, lat) ~ id, data=merge.shp.coef, FUN=function(x) mean(range(x)))
+
+## 2. plot using geom_text option
+ggplot() +
+  geom_polygon(data = merge.shp.coef, 
+               aes(x = long, y = lat, group = group, fill = literacy),
+               color = "black", size = 0.25) + 
+  coord_map() + 
+  geom_text(data=cnames, aes(long, lat, label = id), size=3, color="white", fontface="bold")
+```
+
 
 [Back to top](#)
 
