@@ -28,7 +28,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						</hgroup>
 					</header>
 					<div class="content">
-<p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts.</p>
+<p>The <a href="http://docs.ggplot2.org/current/">ggplot2</a> package is a plotting system for R, based on the grammar of graphics, which tries to take the good parts of base and lattice graphics and none of the bad parts.
 </p>
 					</div>
 					<footer>
@@ -49,7 +49,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						</hgroup>
 					</header>
 					<div class="content">
-<p>Examples of plotting region-level data on country maps using the <a href="http://docs.ggplot2.org/current/">ggplot2</a> package and shape files from <a href="http://gadm.org">gadm.org</a>.</p>
+<p>Examples of plotting region-level data on country maps using the <a href="http://docs.ggplot2.org/current/">ggplot2</a> package and shape files from <a href="http://gadm.org">gadm.org</a>.
 </p>
 					</div>
 					<footer>
@@ -70,7 +70,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						</hgroup>
 					</header>
 					<div class="content">
-<p>Examples of static and interactive population pyramids using the packages <a href="http://docs.ggplot2.org/current/">ggplot2</a> and <a href="http://rcharts.io">rCharts</a> and population data from <a href="http://www.census.gov/population/international/data/idb/informationGateway.php">census.gov</a>.</p>
+<p>Examples of static and interactive population pyramids using the packages <a href="http://docs.ggplot2.org/current/">ggplot2</a> and <a href="http://rcharts.io">rCharts</a> and population data from <a href="http://www.census.gov/population/international/data/idb/informationGateway.php">census.gov</a>.
 </p>
 					</div>
 					<footer>
@@ -91,7 +91,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						</hgroup>
 					</header>
 					<div class="content">
-<p>The <a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a> package provides an interface to <a href="https://developers.google.com/chart/interactive/docs/gallery?hl=en">Google Charts API</a>, allowing users to create interactive charts based on R data frames.</p>
+<p>The <a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a> package provides an interface to <a href="https://developers.google.com/chart/interactive/docs/gallery?hl=en">Google Charts API</a>, allowing users to create interactive charts based on R data frames.
 </p>
 					</div>
 					<footer>
@@ -117,7 +117,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						</hgroup>
 					</header>
 					<div class="content">
-<p>The <a href="http://rmaps.github.io">rMaps</a> package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet.</p>
+<p>The <a href="http://rmaps.github.io">rMaps</a> package makes it easy to create, customize and share interactive maps from R, with a few lines of code. It supports several javascript based mapping libraries like Leaflet, DataMaps and Crosslet.
 </p>
 					</div>
 					<footer>
@@ -137,7 +137,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						</hgroup>
 					</header>
 					<div class="content">
-<p>The <a href="http://rcharts.io">rCharts</a> package allows you to create, customize and publish interactive javascript visualisations from R using a <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a> style plotting interface.</p>
+<p>The <a href="http://rcharts.io">rCharts</a> package allows you to create, customize and publish interactive javascript visualisations from R using a <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a> style plotting interface.
 </p>
 					</div>
 					<footer>
