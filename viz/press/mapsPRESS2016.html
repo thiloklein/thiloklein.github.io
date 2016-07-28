@@ -58,7 +58,9 @@
     datamap.svg.selectAll('.datamaps-subunit').on('click', function (e) {
         var local = datamap.options.data[e.id];
         console.log(local);
-        window.open(local.url, '_blank');
+        if(local.fillKey != 'NA'){
+            window.open(local.url, '_blank');
+        }
     });
 },
 "data": {
