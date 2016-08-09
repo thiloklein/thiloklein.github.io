@@ -14,90 +14,6 @@ published: true
 
 ***
 
-### <a name="r"></a> Data Visualisation
-
-##### 2016
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Data Visualisation (National Workshop, Accra)</TD>
-<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
-<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
-<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
-</TR>
-</TABLE>
-
-
-##### 2015
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Suva)</TD>
-<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
-<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
-<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
-</TR>
-<TR >
-<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Tirana)</TD>
-<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
-<TD VALIGN="TOP"> <a href="http://stackoverflow.com/tags">Forum</a> </TD>
-<TD VALIGN="TOP"> <a href="/blog/2015/08/dataviz/index.html">Gallery</a></TD>
-</TR>
-</TABLE>
-
-
-***
-
-### <a name="games"></a> Game Theory
-
-##### 2014/2015
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-##### 2013/2014
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1062223">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-***
-
 ### <a name="econometrics"></a>Econometrics
 
 ##### 2014/2015
@@ -111,7 +27,7 @@ published: true
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Building R packages (Replication Workshop, Cambridge)</TD>
-<TD VALIGN="TOP">Slides </TD>
+<TD VALIGN="TOP"><a href="slides/r-packages.pdf">Slides</a> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
@@ -218,6 +134,44 @@ published: true
 
 ***
 
+### <a name="games"></a> Game Theory
+
+##### 2014/2015
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+##### 2013/2014
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1062223">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+***
+
 ### <a name="finance"></a> Finance
 
 ##### 2013/2014
@@ -231,7 +185,7 @@ published: true
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Microfinance (Bachelor/ Master, Tübingen)</TD>
-<TD VALIGN="TOP">Slides </TD>
+<TD VALIGN="TOP"><a href="slides/microfinance.pdf">Slides</a> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
@@ -253,4 +207,51 @@ published: true
 <TD VALIGN="TOP"> </TD>
 </TR>
 </TABLE>
+
+
+***
+
+### <a name="r"></a> Data Visualisation
+
+##### 2016
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Data Visualisation (National Workshop, Accra)</TD>
+<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
+<TD VALIGN="TOP">  </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+
+##### 2015
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Suva)</TD>
+<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
+<TD VALIGN="TOP">  </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR >
+<TD VALIGN="TOP">Data Visualisation (Regional Workshop, Tirana)</TD>
+<TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
+<TD VALIGN="TOP">  </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
 
