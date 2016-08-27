@@ -12,8 +12,8 @@ title: R package
 
 > Structural Estimators and Algorithms for the Analysis of Stable Matchings.
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/matchingMarkets)](http://cran.r-project.org/package=matchingMarkets)
-[![CRAN_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/matchingMarkets?color=brightgreen)](http://cran.r-project.org/package=matchingMarkets)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/matchingMarkets?color=blue)](http://cran.r-project.org/package=matchingMarkets)
+[![CRAN_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/matchingMarkets?color=blue)](http://cran.r-project.org/package=matchingMarkets)
 
 
 ***
