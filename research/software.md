@@ -40,7 +40,9 @@ Functions `hri` and `sri` are based on [Patrick Prosser](http://www.dcs.gla.ac.u
 
 #### Installation
 
-To get the latest *stable version* from [CRAN](http://cran.at.r-project.org/web/packages/matchingMarkets/index.html):
+Get started by installing the [R software](https://www.r-project.org/) for statistical computing.
+
+To get the latest *stable version* of the package from [CRAN](http://cran.at.r-project.org/web/packages/matchingMarkets/index.html):
 
 ```r
 install.packages("matchingMarkets")
