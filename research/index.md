@@ -27,13 +27,13 @@ My research interest is in market design. This economic discipline examines the 
 
 #### Publications
 
-- [Why Do India's Urban Poor Choose to Go Private? Health Policy Simulations in Slums of Hyderabad](http://www.universitymeetsmicrofinance.eu/master-theses.html). Ibidem Press, 2012.
+- [Why Do India's Urban Poor Choose to Go Private? Health Policy Simulations in Slums of Hyderabad](mphil.pdf). Ibidem Press, 2012.
 
   It is well known that even the abjectly poor in developing countries show marked preferences for private services compared to public offerings. Past research has attributed these preferences to a lack of public provider accountability, which can be observed in terms of provider attitude, and the inavailability of even basic drugs in public health facilities. Stated preference research in bottom at the pyramid markets has shown that the availability of medicines is the predominant factor in hospital choice of the poor.  This paper disentangles consumer preferences for the certain and the uncertain components of expenses for medicines. In line with new theories of insurance demand, discrete choice experiments for maternity care in slums of Hyderabad show that those living below USD 2 per day have even more pronounced preferences for the insured provision of the uncertain component than higher income people.  This insurance demand is shown to be an important, and so far overlooked, factor that explains low income people's predilection for private providers, such as microfinance institutions.
 
   The [working paper](http://www.rug.nl/research/globalisation-studies-groningen/research/conferencesandseminars/conferences/eumicrofinconf2011/papers/4b.klein.pdf) is available in the Proceedings of the 2011 European Research Conference on Microfinance.
 
-- [Microfinance 2.0 - Group Formation & Repayment Performance in Online Lending Platforms](http://www.universitymeetsmicrofinance.eu/master-theses.html). Ibidem Press, 2010.
+- [Microfinance 2.0 - Group Formation & Repayment Performance in Online Lending Platforms](diploma.pdf). Ibidem Press, 2010.
 
   Microfinance 2.0 examines the role of reputation-based intermediaries on the world’s largest peer-to-peer online lending platform. This marketplace as well as other recently opened lending websites allow people to auction microcredit over the Internet and are in line with the disintermediation in financial transactions through the power of enabling technologies. To mitigate severe information asymmetries in anonymous online transactions, the platforms allow lenders to delegate the screening of potential borrowers and the monitoring of loan repayments to designated group leaders. Thilo Klein provides an in-depth study into the mechanisms of these credit information networks and critically assesses their potential to ease access to finance for the credit-constrained during the US credit crunch.
   
