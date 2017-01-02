@@ -49,7 +49,7 @@ Get started by installing the [R software](https://www.r-project.org/) for stati
 
 To get the latest *stable version* of the package from [CRAN](https://cran.r-project.org/package=matchingMarkets):
 
-```R
+```r
 install.packages("matchingMarkets")
 library(matchingMarkets)
 ```
@@ -58,14 +58,14 @@ Under Linux, the dependency package `gmp` requires that you have GNU MP (> 4.1.4
 
 To get the most recent *development version* from [GitHub](https://github.com/thiloklein/matchingMarkets):
 
-```R
+```r
 install.packages("devtools")
 devtools::install_github("thiloklein/matchingMarkets")
 library(matchingMarkets)
 ```
 or from [R-Forge](https://r-forge.r-project.org/R/?group_id=1906):
 
-```R
+```r
 install.packages("matchingMarkets", repos="http://R-Forge.R-project.org")
 library(matchingMarkets)
 ```
@@ -74,5 +74,5 @@ library(matchingMarkets)
 
 #### Documentation
 
-Package documentation is available at [matchingMarkets.org](http://matchingMarkets.org) and the [vignette](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf) is available from the [CRAN page](https://cran.r-project.org/package=matchingMarkets). An application of the estimator in function `stabit` is in [Klein (2015)](https://ideas.repec.org/p/cam/camdae/1521.html).
+Package documentation is available at [matchingMarkets.org](http://matchingMarkets.org) and the [vignette](http://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf) is available from the [CRAN page](https://cran.r-project.org/package=matchingMarkets). An application of the estimator in function `stabit` is in [Klein (2015)](https://ideas.repec.org/p/cam/camdae/1521.html).
 
