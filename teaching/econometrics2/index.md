@@ -74,7 +74,7 @@ This is an advanced course in econometrics, designed for the [Cambridge Master o
 
 For the lab sessions we will use the software environment R. We will need the rgarch package to fit various advanced GARCH models. The package is available on the R-forge repository.
 
-If you have at least R versions 2.13 or 2.12 you should be able to install the package using: `install.packages("rgarch")` with option `repos="http://r-forge.html-project.org"`
+If you have at least R versions 2.13 or 2.12 you should be able to install the package using: `install.packages("rgarch")` with option `repos="http://r-forge.r-project.org"`
 
 If you are working in the Judge computer lab, follow three simple steps:
 
@@ -86,7 +86,7 @@ If you are working in the Judge computer lab, follow three simple steps:
 
 ##### Documentation
 
-Good references for the methods covered in this advanced course are Grant Farnsworth's [Econometrics in R](http://cran.html-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf) and the UCLA [Resources to help you learn and use R](http://www.ats.ucla.edu/stat/R/). 
+Good references for the methods covered in this advanced course are Grant Farnsworth's [Econometrics in R](http://cran.r-project.org/doc/contrib/Farnsworth-EconometricsInR.pdf) and the UCLA [Resources to help you learn and use R](http://www.ats.ucla.edu/stat/R/). 
 
 ***
 

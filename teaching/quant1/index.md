@@ -116,14 +116,14 @@ For the lab sessions we will use the open source software environment R. I think
 
 ##### R installation
 
-- Download and install R from [http://www.html-project.org](http://www.html-project.org):
+- Download and install R from [http://www.r-project.org](http://www.r-project.org):
   - Under Download on left side click: CRAN
   - Choose a local mirror in the UK, e.g., London or Bristol.
   - Choose platform, e.g. Windows
   - Select "base" (Binaries for base distribution (managed by Duncan Murdoch))
   - Click "Download R 2.13.2 for Windows" (39 megabytes) to save and run Setup program: R-2.13.2-win32.exe
-- Documentation for R is provided via the build in help (use, for example, `help.search("t test")` in the console) but also through the [R Homepage](http://www.html-project.org/). Useful are [An Introduction to R](http://cran.html-project.org/doc/manuals/R-intro.pdf) and the [R Reference Card](http://cran.html-project.org/doc/contrib/Short-refcard.pdf). Other manuals are available on the website.
-- If you are new to R, I recommend working through W.J. Owen's [R tutorial](http://cran.html-project.org/doc/contrib/Owen-TheRGuide.pdf). It is easy to read and tries to explain R with the help of examples from basic statistics.
+- Documentation for R is provided via the build in help (use, for example, `help.search("t test")` in the console) but also through the [R Homepage](http://www.r-project.org/). Useful are [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf) and the [R Reference Card](http://cran.r-project.org/doc/contrib/Short-refcard.pdf). Other manuals are available on the website.
+- If you are new to R, I recommend working through W.J. Owen's [R tutorial](http://cran.r-project.org/doc/contrib/Owen-TheRGuide.pdf). It is easy to read and tries to explain R with the help of examples from basic statistics.
 - The R Commander allows an easy start with R using mouse and menu. Install the commander by typing `install.packages("Rcmdr")` and load it in the active workspace `library(Rcmdr)`. You can run the Commander by typing `Commander()` in the console.
 
 ***
