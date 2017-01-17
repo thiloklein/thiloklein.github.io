@@ -28,7 +28,7 @@ baseurl:
 permalink: /blog/:year/:month/:title/
 
 # Configuration for site
-title: thilo klein <br><br>
+title: thilo klein <br>
 #description: . #Economist, Analyst, dabbler on the side
 name: klein.uk
 author: Thilo Klein
