@@ -1,7 +1,7 @@
 /* Adjust Original Styles */
 @media (max-width: {{ site.responsive_bp | minus:1 }}px) {
 	.hero-unit {
-		padding: 19px;
+		padding: 10px 60px;
 	}
 	.hero-unit header h1 {
 		font-size: 40px;
@@ -10,10 +10,6 @@
 }
 .hero-unit header h1 {
 	margin-bottom: 0.125em;
-}
-
-.hero-unit {
-    padding: 1px 60px;
 }
 
 body {
