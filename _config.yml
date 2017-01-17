@@ -54,17 +54,18 @@ navbar_list:
   link: /research/software/index.html
 - name: Teaching
   link: /teaching/index.html
-  dropdown: &dropdown
-  - name: Econometrics
-    link: /teaching/index.html#econometrics
-  - name: Game Theory
-    link: /teaching/index.html#games
-  - name: Finance
-    link: /teaching/index.html#finance
-  - name: Data Vis
-    link: /teaching/index.html#r
 - name: CV
   link: /research/cv_ThiloKLEIN.pdf
+
+#  dropdown: &dropdown
+#  - name: Econometrics
+#    link: /teaching/index.html#econometrics
+#  - name: Game Theory
+#    link: /teaching/index.html#games
+#  - name: Finance
+#    link: /teaching/index.html#finance
+#  - name: Data Vis
+#    link: /teaching/index.html#r
 
 # Configuration for bootstrap and color theme
 # `bootstrap`:
