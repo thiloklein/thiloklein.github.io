@@ -1,7 +1,7 @@
 /* Adjust Original Styles */
 @media (max-width: {{ site.responsive_bp | minus:1 }}px) {
 	.hero-unit {
-		padding: 10px 60px;
+		padding: 1px 60px;
 	}
 	.hero-unit header h1 {
 		font-size: 40px;
