@@ -18,7 +18,7 @@
 				<ul class="nav">
 {% for node in site.navbar_list %}
 	{% if node.name == page.group %}{% assign active = 'active' %}
-	{% else %}{% assign active = nil %}{% endif %}
+	{% else %}{% assign active = null %}{% endif %}
 	{% if node.dropdown %}
 					<li class="dropdown dropdown-container {{ active }}">
 						<a class="dropdown-link" href="{{ site.baseurl }}{{ node.link }}">{{ node.name }}</a>
