@@ -9,7 +9,7 @@ published: true
 
 ## Research
 
-My research interest is in market design. This economic discipline examines the reasons why markets institutions fail and considers the properties of alternative mechanisms. I seek to combine microeconomic theory and microeconometrical analysis to gain insights about the design of market rules and institutions.
+My research interest is in market design, with a specific focus on matching markets. Matching is like marriage: both sides have to choose each other and prices don't do (all) the work. The economic discipline of market design examines the reasons why markets institutions fail and considers the properties of alternative mechanisms. I seek to combine microeconomic theory and microeconometrical analysis to gain insights about the design of market rules and institutions.
 
 ***
 
