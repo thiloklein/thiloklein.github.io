@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: Matching Markets II
+title: Matching Markets
 category: 
   - software
 tags: 
