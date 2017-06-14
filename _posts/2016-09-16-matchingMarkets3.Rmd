@@ -18,7 +18,7 @@ thumbnail: /viz/matching/simprob.gif
 
 #### Causal inference from endogenous groups
 
-This post builds on my previous post on [sorting bias in endogenous groups](http://klein.uk/blog/2015/07/matchingMarkets2/) to ilustrate a method to draw causal inference from endogenously formed groups.<!--more-->
+This post builds on my previous post on [sorting bias in endogenous groups](http://klein.uk/blog/2016/07/matchingMarkets2/) to ilustrate a method to draw causal inference from endogenously formed groups.<!--more-->
 
 In my previous post, I had shown the endogeneity problem that arises from matching into groups and how it can be resolved by controlling for unobservables that affect both group formation and outcomes.
 

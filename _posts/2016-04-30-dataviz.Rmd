@@ -4,15 +4,15 @@ layout: post
 title: Interactive Charts
 comments: true
 excerpt: null
-thumbnail: null
+thumbnail: /viz/misc/rMaps.png
 output:
   html_document:
     toc: true
 ---
 
-#### Data Visualisation with R
+#### Open-source data visualisations
 
-These data visualisation modules provide an overview of packages for interactive graphs with R. <!--more--> 
+I'm sharing some inspiring visualisations I explored with workshop participants at a datavis workshop in Ghana this week. They provide an overview of popular software packages for interactive graphs. <!--more--> 
 
 See [here](http://klein.uk/teaching/) for the course materials.
 

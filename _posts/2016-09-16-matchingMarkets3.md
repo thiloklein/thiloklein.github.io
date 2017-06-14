@@ -17,7 +17,7 @@ thumbnail: /viz/matching/simprob.gif
 
 <div id="causal-inference-from-endogenous-groups" class="section level4">
 <h4>Causal inference from endogenous groups</h4>
-<p>This post builds on my previous post on <a href="http://klein.uk/blog/2015/07/matchingMarkets2/">sorting bias in endogenous groups</a> to ilustrate a method to draw causal inference from endogenously formed groups.<!--more--></p>
+<p>This post builds on my previous post on <a href="http://klein.uk/blog/2016/07/matchingMarkets2/">sorting bias in endogenous groups</a> to ilustrate a method to draw causal inference from endogenously formed groups.<!--more--></p>
 <p>In my previous post, I had shown the endogeneity problem that arises from matching into groups and how it can be resolved by controlling for unobservables that affect both group formation and outcomes.</p>
 <p>This post illustrates a method that helps to estimate these unobservales and, at the same time, provides a source of exogenous variation to identify the parameters in the group outcome equation. The method is applied in <a href="https://ideas.repec.org/p/cam/camdae/1521.html"><span class="citation">Klein (2015a)</span></a> and documented in the vignette <a href="https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf"><span class="citation">(Klein 2015b)</span></a> to R package <a href="http://cran.r-project.org/package=matchingMarkets"><code>matchingMarkets</code></a> <a href="http://cran.r-project.org/package=matchingMarkets"><span class="citation">(Klein 2015c)</span></a>.</p>
 </div>
