@@ -13,7 +13,7 @@ thumbnail: /viz/matching/simdaa.gif
 #### Algorithms for matching problems
 
 
-R package matchingMarkets contains code for algorithms to find stable matchings in the three most common matching problems: the stable roommates problem, the college admissions problem, and the house allocation problem. <!--more-->
+R package matchingMarkets contains code for algorithms to find stable matchings in the three most common matching problems: stable roommates, college admissions, and house allocation. <!--more-->
 
 Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on.
 In matching markets, the use of money is impossible or undesirable. Market participants thus care about who they are doing business with, and prices don't necessarily do all the talking. Prominent examples include the allocation of kindergarten, school and university places, or the distribution of donor organs.
