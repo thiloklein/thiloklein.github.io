@@ -86,7 +86,7 @@ asides:
     recent_posts: true
     tweets: false
     github: true
-    archive_tabs: true
+    archive_tabs: false
     themes: false
 
 # Configuration for pygments
