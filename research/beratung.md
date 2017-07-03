@@ -22,7 +22,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 <footer class="row-fluid">
 				<article class="span4">
 					<header>
-						<div class="thumbnail"><img alt="Design" src="images/design.png"></div>
+						<div class="thumbnail"><img alt="Design" src="../images/design.png"></div>
 						<hgroup>
 							<h5>
 								Design von Regeln
@@ -39,7 +39,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 				<article class="span4">
 					<header>
-						<div class="thumbnail"><img alt="Implementation" src="images/implementation.png"></div>
+						<div class="thumbnail"><img alt="Implementation" src="../images/implementation.png"></div>
 						<hgroup>
 							<h5>
 								Entwicklung von Algorithmen
@@ -56,7 +56,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 				<article class="span4">
 					<header>
-						<div class="thumbnail"><img alt="Analysis" src="images/analysis.jpg"></div>
+						<div class="thumbnail"><img alt="Analysis" src="../images/analysis.jpg"></div>
 						<hgroup>
 							<h5>
 								Analyse und Evaluation
