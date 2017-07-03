@@ -19,6 +19,8 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 #### Beratungsleistungen
 
+***
+
 <footer class="row-fluid">
 				<article class="span4">
 					<header>
@@ -75,6 +77,8 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 ***
 
 #### Presseberichterstattungen zum Thema
+
+***
 
 <a href="http://www.faz.net/aktuell/wirtschaft/kinderbetreuung-raus-aus-der-kita-warteschlange-15053793.html">Raus aus der Kita-Warteschlange</a>, *Frankfurter Allgemeine Zeitung*, 18. Juni 2017.
 
