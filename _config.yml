@@ -54,6 +54,8 @@ navbar_list:
   link: /research/software/index.html
 - name: Teaching
   link: /teaching/index.html
+- name: Beratung
+  link: /research/beratung/index.html
 - name: CV
   link: /research/cv_ThiloKLEIN.pdf
 

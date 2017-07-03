@@ -14,6 +14,61 @@ published: true
 
 ***
 
+### <a name="games"></a> Game Theory
+
+##### 2017/2018
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Design of Matching Markets (<a href="https://www.uni-mannheim.de/1/english/">MSc/ PhD</a>)</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+##### 2014/2015
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+##### 2013/2014
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1062223">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+***
+
 ### <a name="econometrics"></a>Econometrics
 
 ##### 2014/2015
@@ -134,44 +189,6 @@ published: true
 
 ***
 
-### <a name="games"></a> Game Theory
-
-##### 2014/2015
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-##### 2013/2014
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory for Social Scientists (<a href="http://www.training.cam.ac.uk/event/1062223">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-***
-
 ### <a name="finance"></a> Finance
 
 ##### 2013/2014
@@ -207,7 +224,6 @@ published: true
 <TD VALIGN="TOP"> </TD>
 </TR>
 </TABLE>
-
 
 ***
 
