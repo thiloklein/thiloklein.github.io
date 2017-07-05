@@ -22,7 +22,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 ***
 
 <footer class="row-fluid">
-				<article class="span4">
+				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="Design" src="../images/design.png"></div>
 						<hgroup>
@@ -39,7 +39,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 
 
-				<article class="span4">
+				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="Implementation" src="../images/implementation.png"></div>
 						<hgroup>
@@ -56,7 +56,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 
 
-				<article class="span4">
+				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="Analysis" src="../images/analysis.jpg"></div>
 						<hgroup>
