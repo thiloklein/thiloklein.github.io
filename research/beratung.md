@@ -49,7 +49,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 						</hgroup>
 					</header>
 					<div class="content">
-<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf matchingMarkets.org frei zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
+<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf <a href="http://matchingMarkets.org">matchingMarkets.org</a> frei zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
 </p>
 					</div>
 				</article>

@@ -12,8 +12,8 @@ title: R package
 
 > Structural Estimators and Algorithms for the Analysis of Stable Matchings.
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/matchingMarkets?color=blue)](http://cran.r-project.org/package=matchingMarkets)
-[![CRAN_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/matchingMarkets?color=blue)](http://cran.r-project.org/package=matchingMarkets)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/matchingMarkets?color=blue)](https://cran.r-project.org/package=matchingMarkets)
+[![CRAN_Downloads](https://cranlogs.r-pkg.org/badges/grand-total/matchingMarkets?color=blue)](https://cran.r-project.org/package=matchingMarkets)
 
 
 ***
@@ -24,11 +24,11 @@ The `matchingMarkets` R package comes with two estimators:
 
 * `stabit`: Implements a Bayes estimator that corrects for sample selection in matching markets when the selection process is a one-sided matching game (i.e. group formation).
 
-* `stabit2`: Implements the Bayes estimator for a two-sided matching game (i.e. the [college admissions](http://en.wikipedia.org/wiki/Stable_marriage_problem#Similar_problems) and [stable marriage](http://en.wikipedia.org/wiki/Stable_marriage_problem) problems).
+* `stabit2`: Implements the Bayes estimator for a two-sided matching game (i.e. the [college admissions](https://en.wikipedia.org/wiki/Stable_marriage_problem#Similar_problems) and [stable marriage](https://en.wikipedia.org/wiki/Stable_marriage_problem) problems).
 
 and five algorithms that can be used to simulate matching data:
 
-* `hri`: Constraint model for the hospital/residents problem. Finds *all* stable matchings in two-sided matching markets. Implemented for both the [stable marriage problem](http://en.wikipedia.org/wiki/Stable_marriage_problem) (one-to-one matching) and the [hospital/residents problem](http://en.wikipedia.org/wiki/Stable_marriage_problem#Similar_problems), also known as college admissions problem (many-to-one matching). 
+* `hri`: Constraint model for the hospital/residents problem. Finds *all* stable matchings in two-sided matching markets. Implemented for both the [stable marriage problem](https://en.wikipedia.org/wiki/Stable_marriage_problem) (one-to-one matching) and the [hospital/residents problem](https://en.wikipedia.org/wiki/Stable_marriage_problem#Similar_problems), also known as college admissions problem (many-to-one matching). 
 
 * `iaa`: Immediate Acceptance Algorithm (a.k.a. Boston mechanism): First-preference-first algorithm used for school choice in many countries. And Gale-Shapley Deferred Acceptance Algorithm.
 
@@ -38,7 +38,7 @@ and five algorithms that can be used to simulate matching data:
 
 * `ttc`: Top-Trading-Cycles Algorithm. Finds stable matchings in the [housing market problem](https://en.wikipedia.org/wiki/Top_trading_cycle).
 
-Functions `hri` and `sri` are based on Patrick Prosser's n-ary [constraint encoding](http://www.dcs.gla.ac.uk/~pat/roommates/distribution/papers/cpaior2014.pdf) model. They allow for *incomplete preference lists* (some agents find certain agents unacceptable) and *unbalanced instances* (unequal number of agents on both sides).
+Functions `hri` and `sri` are based on Patrick Prosser's n-ary [constraint encoding](https://www.dcs.gla.ac.uk/~pat/roommates/distribution/papers/cpaior2014.pdf) model. They allow for *incomplete preference lists* (some agents find certain agents unacceptable) and *unbalanced instances* (unequal number of agents on both sides).
 
 
 ***
@@ -54,7 +54,7 @@ install.packages("matchingMarkets")
 library(matchingMarkets)
 ```
 
-Under Linux, the dependency package `gmp` requires that you have GNU MP (> 4.1.4) installed, see http://gmplib.org.
+Under Linux, the dependency package `gmp` requires that you have GNU MP (> 4.1.4) installed, see https://gmplib.org.
 
 To get the most recent *development version* from [GitHub](https://github.com/thiloklein/matchingMarkets):
 
@@ -66,7 +66,7 @@ library(matchingMarkets)
 or from [R-Forge](https://r-forge.r-project.org/R/?group_id=1906):
 
 ```r
-install.packages("matchingMarkets", repos="http://R-Forge.R-project.org")
+install.packages("matchingMarkets", repos="https://R-Forge.R-project.org")
 library(matchingMarkets)
 ```
 
@@ -74,5 +74,5 @@ library(matchingMarkets)
 
 #### Documentation
 
-Package documentation is available at [matchingMarkets.org](http://matchingMarkets.org) and the [vignette](http://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf) is available from the [CRAN page](https://cran.r-project.org/package=matchingMarkets). An application of the estimator in function `stabit` is in [Klein (2015)](https://ideas.repec.org/p/cam/camdae/1521.html).
+Package documentation is available at [matchingMarkets.org](https://matchingMarkets.org) and the [vignette](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf) is available from the [CRAN page](https://cran.r-project.org/package=matchingMarkets). An application of the estimator in function `stabit` is in [Klein (2015)](https://ideas.repec.org/p/cam/camdae/1521.html).
 
