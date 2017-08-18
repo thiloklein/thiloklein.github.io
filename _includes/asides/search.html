@@ -1,10 +1,10 @@
 			<section id="sidebar-search" class="well input-append">
-				<form class="form-search" action="http://google.com/search" method="get">
+				<form class="form-search" action="https://google.com/search" method="get">
 					<button class="btn btn-inverse pull-right" type="submit">
 						<i class="icon-search icon-white" style="vertical-align:baseline" ></i>
 					</button>
 {% if site.safe %}
-					<input type="hidden" name="q" value="site:{{ site.url | remove_first:'http://' }}">
+					<input type="hidden" name="q" value="site:{{ site.url | remove_first:'https://' }}">
 {% else %}
 					<input type="hidden" name="q" value="site:{{ site.url | domain_name }}">
 {% endif %}
