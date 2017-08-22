@@ -37,13 +37,13 @@ My research interest is in market design, with a specific focus on matching mark
 
 #### Reports
 
-- The Role of National Statistical Systems in the Data Revolution, *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. 
+- [The Role of National Statistical Systems in the Data Revolution](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. 
 
-- Rethinking Donor Support for Statistical Capacity Development, *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.
+- [Rethinking Donor Support for Statistical Capacity Development](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.
 
-- Measuring the Value of Official Statistics, *Chapter 5: UNECE Recommendations on the Value of Official Statistics*, UNECE, 2017.
+- [Measuring the Value of Official Statistics](https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/2017/CES_4-Value_of_Official_Statistics_for_endorsement_for_upload.pdf), *Chapter 5: UNECE Recommendations on the Value of Official Statistics*, UNECE, 2017.
 
-- Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity Development, *Technical Report*, UNSDSN, 2015.
+- [Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity Development](http://unsdsn.org/wp-content/uploads/2015/04/Data-for-Development-Full-Report.pdf), *Technical Report*, UNSDSN, 2015.
 
 - [Partner Report on Support to Statistics](http://www.paris21.org/press), *Technical Report*, Partnership in Statistics for Development in the 21st Century (PARIS21), Issues 2015-2017.
 
