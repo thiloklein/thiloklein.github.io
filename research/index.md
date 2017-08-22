@@ -15,13 +15,15 @@ My research interest is in market design, with a specific focus on matching mark
 
 #### In the pipeline
 
+- Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending. *submitted*.
+
 - [Does Anti-Diversification Pay? A One-Sided Matching Model of Microfinance](https://ideas.repec.org/p/cam/camdae/1521.html). *Cambridge Working Papers in Economics \#1521*, University of Cambridge, 2015. <!--  In many economic situations, market participation requires that agents form groups subject to exogenous rules. Consider a microfinance institution that decides on rules for diversifying borrower groups in terms of their exposure to income shocks. Such rules affect group repayment by influencing both who matches with whom (direct effect) and who participates in the market (participation). I develop the key trade-off for conflicting predictions of extant theoretical models and estimate both effects separately. Group formation creates an endogeneity problem, but a matching model exploits the exogenous variation from counterfactual groups. I find that while diversification has no participation effect it has a significant positive direct effect. -->
 
 - [Analysis of stable matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2017. <!--  The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
 
 ***
 
-#### Other working papers
+#### Policy papers
 
 - [Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate Sector](http://www.oecd-ilibrary.org/economics/access-to-new-data-sources-for-statistics_9a1fa77f-en), *OECD Statistics Working Paper #17/06*, OECD Publishing, Paris, 2017. (with S. Verhulst)    
   
@@ -30,6 +32,20 @@ My research interest is in market design, with a specific focus on matching mark
 - [An Indicator for Statistical Literacy Based on National Newspaper Archives](http://iase-web.org/documents/papers/rt2016/Klein.pdf), *IASE 2016 Roundtable Paper*, International Association for Statistical Education, Berlin, 2016. (with A. Galdin and E. Mohamedou)
 
 - [Making Data Portals Work for SDGs: A View on Deployment, Design and Technology](http://www.paris21.org/sites/default/files/Paper_on_Data_Portals%20wcover_WEB.pdf), *PARIS21 Discussion Paper #8*, Paris, 2016. (with G. Greenwell et al.)
+
+***
+
+#### Reports
+
+- The Role of National Statistical Systems in the Data Revolution, *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. 
+
+- Rethinking Donor Support for Statistical Capacity Development, *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.
+
+- Measuring the Value of Official Statistics, *Chapter 5: UNECE Recommendations on the Value of Official Statistics*, UNECE, 2017.
+
+- Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity Development, *Technical Report*, UNSDSN, 2015.
+
+- [Partner Report on Support to Statistics](http://www.paris21.org/press), *Technical Report*, Partnership in Statistics for Development in the 21st Century (PARIS21), Issues 2015-2017.
 
 ***
 
