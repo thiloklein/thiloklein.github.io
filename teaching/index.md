@@ -26,7 +26,7 @@ published: true
 <TH VALIGN="TOP" WIDTH="10%">  </TH>
 </TR>
 <TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Design of Matching Markets (<a href="https://www.uni-mannheim.de/1/english/">MSc/ PhD</a>)</TD>
+<TD VALIGN="TOP">Market Design (<a href="https://www.uni-mannheim.de/1/english/">MSc/ PhD</a>)</TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
