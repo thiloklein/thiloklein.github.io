@@ -20,7 +20,7 @@ gems: [jekyll-paginate]
 # * Project page:
 #   url: http://USERNAME.github.com/REPOSITORY
 #   baseurl: /REPOSITORY
-url: http://klein.uk
+url: https://klein.uk
 baseurl: 
 
 # Configuration for permalink
