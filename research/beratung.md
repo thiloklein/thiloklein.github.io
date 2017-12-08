@@ -76,15 +76,19 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 ***
 
-#### Presseberichterstattungen zum Thema
+#### Presse- und Forschungsberichte zum Thema
 
 ***
 
-<a href="http://www.faz.net/aktuell/wirtschaft/kinderbetreuung-raus-aus-der-kita-warteschlange-15053793.html">Raus aus der Kita-Warteschlange</a>, *Frankfurter Allgemeine Zeitung*, 18. Juni 2017.
+[Raus aus der Kita-Warteschlange](http://www.faz.net/aktuell/wirtschaft/kinderbetreuung-raus-aus-der-kita-warteschlange-15053793.html), *Frankfurter Allgemeine Zeitung*, 18. Juni 2017.
 
-<a href="http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/">Wie Städte dem Ansturm auf Kindertagesstätten begegnen können</a>, *Ökonomenstimme*, 30. Juni 2017.
+[Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](http://ftp.zew.de/pub/zew-docs/policybrief/pb04-17.pdf), *ZEW policy brief*, \# 4, Oktober 2017.
 
-<a href="http://www.zew.de/de/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/">Wie Städte dem Ansturm auf Kindertagesstätten begegnen können</a>, *ZEWnews*, 3. Juli 2017.
+[Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30. Juni 2017.
+
+[Matching Practices for Kindergartens in Germany](http://www.matching-in-practice.eu/), Matching-in-Practice Country Profile \# xx, 2017.
+
+[How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEWnews*, 3. Juli 2017.
 
 ***
 
