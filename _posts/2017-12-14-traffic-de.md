@@ -9,7 +9,7 @@ tags:
   - development
   - big data
 comments: true
-thumbnail: /viz/misc/traffic.png
+thumbnail: /viz/misc/traffic_bw.png
 ---
 
 

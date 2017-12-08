@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: Priceless data
+title: Priceless Data
 category: [research]
 tags: [econometrics, game theory, matching markets, official statistics, school choice]
 comments: true
