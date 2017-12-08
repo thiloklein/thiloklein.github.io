@@ -15,40 +15,46 @@ My research interest is in market design, with a specific focus on matching mark
 
 #### In the pipeline
 
-- Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending. *under review*.
+- Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending. *(under review)*.
 
-- matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings. *under revision*. <!--[matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](https://cran.r-project.org/web/packages/matchingMarkets/matchingMarkets.pdf), R package version 0.3-3, The Comprehensive R Archive Network, 2015.-->
+- matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings. *(under review)*. <!-- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](https://cran.r-project.org/web/packages/matchingMarkets/matchingMarkets.pdf), R package version 0.3-3, The Comprehensive R Archive Network, 2015.-->
 
 
 ***
 
 #### Working papers
 
-- [Does Anti-Diversification Pay? A One-Sided Matching Model of Microfinance](https://ideas.repec.org/p/cam/camdae/1521.html). *Cambridge Working Papers in Economics \#1521*, University of Cambridge, 2015. <!--  In many economic situations, market participation requires that agents form groups subject to exogenous rules. Consider a microfinance institution that decides on rules for diversifying borrower groups in terms of their exposure to income shocks. Such rules affect group repayment by influencing both who matches with whom (direct effect) and who participates in the market (participation). I develop the key trade-off for conflicting predictions of extant theoretical models and estimate both effects separately. Group formation creates an endogeneity problem, but a matching model exploits the exogenous variation from counterfactual groups. I find that while diversification has no participation effect it has a significant positive direct effect. -->
+- Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans, *ZEW Discussion Paper \#17-06x*, Centre for European Economic Research, (*forthcoming*).
 
-- [Analysis of stable matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2017. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
+- [Analysis of Stable Matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2017. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
+
+<!-- - [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](http://cran.r-project.org/package=matchingMarkets), *R package version 0.3-3*, The Comprehensive R Archive Network, 2017. -->
 
 - [Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate Sector](http://www.oecd-ilibrary.org/economics/access-to-new-data-sources-for-statistics_9a1fa77f-en), *OECD Statistics Working Paper #17/06*, OECD Publishing, Paris, 2017. (with S. Verhulst)    
   
 - [Public-Private Partnerships for Statistics. Lessons Learned, Future Steps](http://www.oecd-ilibrary.org/development/public-private-partnerships-for-statistics-lessons-learned-future-steps_5jm3nqp1g8wf-en), *OECD Development Co-operation Working Paper #27*, OECD Publishing, Paris, 2016. (with N. Robin and J. Jütting)    
 
+- [Making Data Portals Work for SDGs: A View on Deployment, Design and Technology](http://www.paris21.org/sites/default/files/Paper_on_Data_Portals%20wcover_WEB.pdf), *PARIS21 Discussion Paper #8*, Paris, 2016. (with G. Greenwell et al.)
+
 - [An Indicator for Statistical Literacy Based on National Newspaper Archives](http://iase-web.org/documents/papers/rt2016/Klein.pdf), *IASE 2016 Roundtable Paper*, International Association for Statistical Education, Berlin, 2016. (with A. Galdin and E. Mohamedou)
 
-- [Making Data Portals Work for SDGs: A View on Deployment, Design and Technology](http://www.paris21.org/sites/default/files/Paper_on_Data_Portals%20wcover_WEB.pdf), *PARIS21 Discussion Paper #8*, Paris, 2016. (with G. Greenwell et al.)
+- [dispersion: Dispersion Statistics in Small Samples](https://github.com/thiloklein/dispersion), *R package version 0.1-2*, The Comprehensive R Archive Network, 2015.
+
+- [Does Anti-Diversification Pay? A One-Sided Matching Model of Microfinance](https://ideas.repec.org/p/cam/camdae/1521.html). *Cambridge Working Papers in Economics \#1521*, University of Cambridge, 2015. <!--  In many economic situations, market participation requires that agents form groups subject to exogenous rules. Consider a microfinance institution that decides on rules for diversifying borrower groups in terms of their exposure to income shocks. Such rules affect group repayment by influencing both who matches with whom (direct effect) and who participates in the market (participation). I develop the key trade-off for conflicting predictions of extant theoretical models and estimate both effects separately. Group formation creates an endogeneity problem, but a matching model exploits the exogenous variation from counterfactual groups. I find that while diversification has no participation effect it has a significant positive direct effect. -->
 
 ***
 
 #### Reports
 
-- [The Role of National Statistical Systems in the Data Revolution](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. 
+- [The Role of National Statistical Systems in the Data Revolution](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. (with S. Badie et al.)
 
-- [Rethinking Donor Support for Statistical Capacity Development](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.
+- [Rethinking Donor Support for Statistical Capacity Development](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.  (with S. Badie et al.)
 
-- [Measuring the Value of Official Statistics](https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/2017/CES_4-Value_of_Official_Statistics_for_endorsement_for_upload.pdf), *Chapter 5: UNECE Recommendations on the Value of Official Statistics*, UNECE, 2017.
+- [Measuring the Value of Official Statistics](https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/2017/CES_4-Value_of_Official_Statistics_for_endorsement_for_upload.pdf), *Chapter 5: UNECE Recommendations on the Value of Official Statistics*, United Nations ECE, 2017. (with P. van de Ven)
 
-- [Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity Development](http://unsdsn.org/wp-content/uploads/2015/04/Data-for-Development-Full-Report.pdf), *Technical Report*, UNSDSN, 2015.
+- [Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity Development](http://unsdsn.org/wp-content/uploads/2015/04/Data-for-Development-Full-Report.pdf), *Technical Report*, United Nations SDSN, 2015. (with J. Espey et al.)
 
-- [Partner Report on Support to Statistics](http://www.paris21.org/press), *Technical Report*, Partnership in Statistics for Development in the 21st Century (PARIS21), Issues 2015-2017.
+- [Partner Report on Support to Statistics](http://www.paris21.org/partner-report-on-support-to-statistics-press), *Technical Report*, Partnership in Statistics for Development in the 21st Century (PARIS21), Issues 2015-2017.
 
 ***
 
