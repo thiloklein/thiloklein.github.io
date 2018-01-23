@@ -86,7 +86,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						<div class="thumbnail"><img alt="googleVis" src="images/googleVis.png"></div>
 						<hgroup>
 							<h5>
-								<a href="/blog/2015/08/dataviz/index.html">googleVis</a>
+								<a href="/blog/2016/04/dataviz/index.html">googleVis</a>
 							</h5>
 						</hgroup>
 					</header>
@@ -95,7 +95,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 </p>
 					</div>
 					<footer>
-						<p><a href="/blog/2015/08/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
+						<p><a href="/blog/2016/04/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
 						<br>
 					</footer>
 				</article><!--/span-->
@@ -112,7 +112,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						<div class="thumbnail"><img alt="rMaps" src="images/rMaps.png"></div>
 						<hgroup>
 							<h5>
-								<a href="/blog/2015/08/dataviz/index.html">rMaps</a>
+								<a href="/blog/2016/04/dataviz/index.html">rMaps</a>
 							</h5>
 						</hgroup>
 					</header>
@@ -121,7 +121,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 </p>
 					</div>
 					<footer>
-						<p><a href="/blog/2015/08/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
+						<p><a href="/blog/2016/04/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
 					</footer>
 				</article><!--/span-->
 
@@ -132,7 +132,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 						<div class="thumbnail"><img alt="rCharts" src="images/rCharts.png"></div>
 						<hgroup>
 							<h5>
-								<a href="/blog/2015/08/dataviz/index.html">rCharts</a>
+								<a href="/blog/2016/04/dataviz/index.html">rCharts</a>
 							</h5>
 						</hgroup>
 					</header>
@@ -141,7 +141,7 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 </p>
 					</div>
 					<footer>
-						<p><a href="/blog/2015/08/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
+						<p><a href="/blog/2016/04/dataviz/index.html" class="btn">Learn more &raquo;</a></p>
 					</footer>
 				</article><!--/span-->
 

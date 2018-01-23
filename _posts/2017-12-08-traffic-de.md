@@ -15,9 +15,9 @@ thumbnail: /viz/misc/traffic_bw.png
 
 #### Die Rolle von Big Data
 
-Die internationale Gemeinschaft hat sich mit dem Pariser Klimaabkommen und den UN-Zielen für nachhaltige Entwicklung ambitionierte Ziele gesetzt. 
+Die internationale Gemeinschaft hat sich mit dem Pariser Klimaabkommen und den UN-Zielen für nachhaltige Entwicklung ambitionierte Ziele gesetzt. Dabei fehlt in vielen Bereichen die empirische Basis
 <!--more-->
-Dabei fehlt in vielen Bereichen die empirische Basis, um Fortschritte bei der Erreichung dieser Ziele zu messen. So gibt es für zwei Drittel der insgesamt 232 SDG-Indikatoren keine bestehende Datengrundlage. Große Hoffnungen liegen daher auf den Daten aus dem Privatsektor. Die Gestaltung von öffentlich-privaten Partnerschaften, um so an Big Data zu gelangen, kann bei der Lösung globaler Probleme wie CO2-Emissionsreduktion eine entscheidende Rolle spielen.
+um Fortschritte bei der Erreichung dieser Ziele zu messen. So gibt es für zwei Drittel der insgesamt 232 SDG-Indikatoren keine bestehende Datengrundlage. Große Hoffnungen liegen daher auf den Daten aus dem Privatsektor. Die Gestaltung von öffentlich-privaten Partnerschaften, um so an Big Data zu gelangen, kann bei der Lösung globaler Probleme wie CO2-Emissionsreduktion eine entscheidende Rolle spielen.
 
 Politische Entscheidungsträger zeigen zunehmendes Interesse an der Analyse von Big Data. Daten zu Nutzeraktivitäten und Bewegungsinformationen in Mobilfunknetzen, sozialen Medien, Sensoren oder Geodaten und haben enormes Potential konventionelle Statistiken zu komplementieren und zu erweitern. Damit lassen sich robuste Entscheidungsgrundlagen in Echtzeit und in völlig neuen Anwendungsfeldern generieren.
 
