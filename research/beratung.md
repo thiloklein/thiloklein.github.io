@@ -80,7 +80,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 ***
 
-- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](http://ftp.zew.de/pub/zew-docs/policybrief/pb04-17.pdf), *ZEW policy brief*, \# 4, Oktober 2017.
+- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief*, \# 4, Oktober 2017.
 
 - [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30. Juni 2017.
 
@@ -88,7 +88,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 - [How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEW News*, 3. Juli 2017.
 
-- [Matching Practices for Kindergartens in Germany](http://www.matching-in-practice.eu/), *Matching-in-Practice Country Profile*, \# xx, 2017.
+- [Matching Practices for Kindergartens in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile*, \# xx, 2018.
 
 ***
 
