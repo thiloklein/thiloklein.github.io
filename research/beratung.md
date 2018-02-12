@@ -88,7 +88,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 - [How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEW News*, 3. Juli 2017.
 
-- [Matching Practices for Kindergartens in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile*, \# xx, 2018.
+- [Matching Practices for Kindergartens in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile*, \# 26, February 2018.
 
 ***
 
