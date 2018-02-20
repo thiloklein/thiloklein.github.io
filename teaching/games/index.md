@@ -9,7 +9,7 @@ published: true
 
 
 
-## Game Theory for Social Scientists
+## Game Theory 
 
 This is an introductory course in game theory, designed for the university's Master and PhD courses and organised by the [Cambridge Social Sciences Research Methods Centre](http://www.training.cam.ac.uk/event/1197051). The course is based on Martin J. Osborne's  "An Introduction to Game Theory". 
 
