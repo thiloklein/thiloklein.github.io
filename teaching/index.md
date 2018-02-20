@@ -30,14 +30,13 @@ published: true
 </TR>
 <TR>
 <TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
-<TD VALIGN="TOP"><a href="#">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
-</TR>
+<TD VALIGN="TOP"> </TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Operations Research (BSc)</TD>
-<TD VALIGN="TOP"><a href="#">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
