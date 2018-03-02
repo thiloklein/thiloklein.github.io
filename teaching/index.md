@@ -261,7 +261,7 @@ published: true
 <TH VALIGN="TOP" WIDTH="10%">  </TH>
 </TR>
 <TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Microfinance (Bachelor/ Master, Tübingen)</TD>
+<TD VALIGN="TOP">Microfinance (BSc/ MSc, Tübingen)</TD>
 <TD VALIGN="TOP"><a href="slides/microfinance.pdf">Slides</a> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>

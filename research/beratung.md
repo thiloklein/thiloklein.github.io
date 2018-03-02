@@ -80,6 +80,8 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 ***
 
+- [ Verdruss bei der Kitaplatz-Vergabe: Eltern drohen mit weiteren Klagen](http://www.wn.de/Muenster/3203115-Verdruss-bei-der-Kitaplatz-Vergabe-Eltern-drohen-mit-weiteren-Klagen), *Westfälische Nachrichten*, 1. März 2018.
+
 - [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief*, \# 4, Oktober 2017.
 
 - [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30. Juni 2017.
