@@ -14,6 +14,7 @@ published: true
 
 ### <a name="maths"></a> Applied Mathematics
 
+##### 2018
 
 <TABLE WIDTH="100%"> 
 <TR>
@@ -42,6 +43,60 @@ published: true
 </TR>
 </TABLE>
 
+***
+
+### <a name="games"></a> Game Theory
+
+##### 2018
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Market Design: Auctions and Matching (<a href="https://www.uni-mannheim.de/en/">MSc</a>)</TD>
+<TD VALIGN="TOP"><a href="matching/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+##### 2014/15
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+##### 2013/14
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1062223">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
 
 ***
 
@@ -84,45 +139,6 @@ published: true
 <TD VALIGN="TOP">Data Visualisation (Regional Workshop, Tirana)</TD>
 <TD VALIGN="TOP"><a href="viz/index.html">Course website</a> </TD>
 <TD VALIGN="TOP">  </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-***
-
-### <a name="games"></a> Game Theory
-
-
-##### 2014/15
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-##### 2013/14
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1062223">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
 </TABLE>
