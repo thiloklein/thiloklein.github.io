@@ -29,42 +29,42 @@ This is an introductory course in market design for Masters students with a focu
 <TR bgcolor="#f0f0f0">
 <TD align="center">1</TD>
 <TD >The basic matching model<br> [<a href="docs/lecture1.pdf">Slides</a>]</TD>
-<TD> Marriage model. Stability, Deferred Acceptance, strategyproofness. Man/woman-optimal matchings and polarization of preferences. Blocking lemma.   </TD>
+<TD> Marriage model. Stability, Deferred Acceptance, strategyproofness. Man/woman-optimal matchings and polarization of preferences. Blocking lemma. <p> </p>   </TD>
 <TD align="center"> Ch. 9</TD>
 <TD> </TD>
 </TR>
 <TR >
 <TD align="center">2</TD>
 <TD >The medical match<br>  [<a href="docs/lecture2.pdf">Slides</a>]</TD>
-<TD> Introduction of the many-to-one model, Roth's analysis of the UK market and the experiment with Kagel, Rural Hospital Theorem, decomposition lemma. History of NRMP and couples problem.  </TD>
+<TD> Introduction of the many-to-one model, Roth's analysis of the UK market and the experiment with Kagel, Rural Hospital Theorem, decomposition lemma. History of NRMP and couples problem. <p> </p> </TD>
 <TD align="center"> Ch. 10 </TD>
 <TD> </TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">3</TD>
 <TD >Assignment markets<br> [<a href="docs/lecture3.pdf">Slides</a>]</TD>
-<TD> One-to-one model. Efficiency. Serial Dictatorship, Top Trading Cycles. House allocation (priave/public/mixed endowments).  </TD>
+<TD> One-to-one model. Efficiency. Serial Dictatorship, Top Trading Cycles. House allocation (priave/public/mixed endowments). <p> </p> </TD>
 <TD align="center"> Ch. 11 </TD>
 <TD > </TD>
 </TR>
 <TR >
 <TD align="center">4</TD>
-<TD > School Choice<br> [<a href="docs/lecture4.pdf">Slides</a>]</TD>
-<TD> The Many-to-one assignment model. Immediate Acceptance (Boston), DA, TTC. Short review of Boston and NYC school match.  </TD>
+<TD > School choice<br> [<a href="docs/lecture4.pdf">Slides</a>]</TD>
+<TD> The Many-to-one assignment model. Immediate Acceptance (Boston), DA, TTC. Short review of Boston and NYC school match. <p> </p> </TD>
 <TD align="center"> Ch. 13 </TD>
 <TD> </TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD align="center">5</TD>
 <TD >Course allocation<br> [<a href="docs/lecture5.pdf">Slides</a>]</TD>
-<TD> Bidding for courses. HBS draft mechanism. Approximate competitive equilibrium with equal incomes, Budish-Kessler experiment.  </TD>
+<TD> Bidding for courses. HBS draft mechanism. Approximate competitive equilibrium with equal incomes, Budish-Kessler experiment. <p> </p> </TD>
 <TD align="center"> Ch. 15</TD>
 <TD > </TD>
 </TR>
 <TR >
 <TD align="center">6</TD>
 <TD >Kidney exchange<br> [<a href="docs/lecture6.pdf">Slides</a>]</TD>
-<TD> Trades v. waiting list, kidney exchange algorithm (QJE version). Efficency and incentives.  </TD>
+<TD> Trades v. waiting list, kidney exchange algorithm (QJE version). Efficency and incentives. <p> </p> </TD>
 <TD align="center"> Ch. 16 </TD>
 <TD> </TD>
 </TR>
@@ -75,7 +75,7 @@ This is an introductory course in market design for Masters students with a focu
 #### Textbook
 
 
-Haeringer, G. (2018). <a href="https://mitpress.mit.edu/books/market-design">Market Design Auctions and Matching</a>. The MIT Press.
+Haeringer, G. (2018). *Market Design: Auctions and Matching*. The MIT Press.
 
 ***
 
