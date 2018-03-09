@@ -15,6 +15,8 @@ My research interest is in market design, with a specific focus on matching mark
 
 #### In the pipeline
 
+<p> </p>
+
 - Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending. *(under review)*.
 
 - matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings. *(under review)*. <!-- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](https://cran.r-project.org/web/packages/matchingMarkets/matchingMarkets.pdf), R package version 0.3-3, The Comprehensive R Archive Network, 2015.-->
@@ -23,6 +25,8 @@ My research interest is in market design, with a specific focus on matching mark
 ***
 
 #### Working papers
+
+<p> </p>
 
 - [Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans](https://www.econstor.eu/bitstream/10419/172525/1/1009650815.pdf), *ZEW Discussion Paper \#17-073*, Centre for European Economic Research.
 
@@ -46,6 +50,8 @@ My research interest is in market design, with a specific focus on matching mark
 
 #### Reports
 
+<p> </p>
+
 - [The Role of National Statistical Systems in the Data Revolution](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. (with S. Badie et al.)
 
 - [Rethinking Donor Support for Statistical Capacity Development](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.  (with S. Badie et al.)
@@ -59,6 +65,8 @@ My research interest is in market design, with a specific focus on matching mark
 ***
 
 #### Monographs
+
+<p> </p>
 
 - Matching for Credit: Implications for Market Design and Econometric Analysis. Dissertation, University of Cambridge, 2015.
 
