@@ -19,17 +19,19 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 #### Beratungsleistungen
 
-***
+<p> </p> <br>
 
 <footer class="row-fluid">
 				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="Design" src="../images/design.png"></div>
+						<p> </p>
 						<hgroup>
 							<h5>
 								Design von Regeln
 							</h5>
 						</hgroup>
+						<p> </p>
 					</header>
 					<div class="content">
 <p>Beratung beim Design von Regeln. Dies umfasst zum Beispiel Quotenregeln, um eine bestimmte Geschlechterverteilung und Altersstruktur für Kitagruppen zu erreichen oder auch eine garantierte gemeinsame Unterbringung von Geschwistern. Das ZEW berät dafür bei der elektronisch unterstützten Erstellung der Ranglisten, die individuell mit den Zielen der Träger abgestimmt werden können.
@@ -42,14 +44,16 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="Implementation" src="../images/implementation.png"></div>
+						<p> </p>
 						<hgroup>
 							<h5>
 								Entwicklung von Algorithmen
 							</h5>
 						</hgroup>
+						<p> </p>
 					</header>
 					<div class="content">
-<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf <a href="http://matchingMarkets.org">matchingMarkets.org</a> frei zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
+<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf <a href="http://matchingtools.com">matchingMarkets.org</a> als freie API zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
 </p>
 					</div>
 				</article>
@@ -59,11 +63,13 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="Analysis" src="../images/analysis.jpg"></div>
+						<p> </p>
 						<hgroup>
 							<h5>
 								Analyse und Evaluation
 							</h5>
 						</hgroup>
+						<p> </p>
 					</header>
 					<div class="content">
 <p>Analyse der Nachfrage von Eltern nach bestimmten Kita-Modellen und Stadtteilen um eine bedarfsgerechte Planung durch Stadt und Jugendamt zu ermöglichen, sowie Evaluierung der Auswirkungen von Vergaberegeln auf den Wiedereinstieg junger Eltern in Beruf  und die Zusammensetzung von Kita-Gruppen.
