@@ -34,6 +34,7 @@ This course has been designed to introduce students to the intricacies and backg
 
 #### Course material
 
+<p> </p>
 
 <TABLE WIDTH="100%"> 
 <TR>

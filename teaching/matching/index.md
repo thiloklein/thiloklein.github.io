@@ -18,6 +18,8 @@ This is an introductory course in market design for Masters students with a focu
 
 #### Course material
 
+<p> </p>
+
 <TABLE WIDTH="100%"> 
 <TR>
 <TH align="center" WIDTH="10%"> Week </TH>

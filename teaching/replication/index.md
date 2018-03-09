@@ -26,6 +26,8 @@ The primary objective of the lab is the exact replication of published results. 
 
 #### Course material
 
+<p> </p>
+
 <TABLE WIDTH="100%"> 
 <TR>
 <TH align="left" WIDTH="10%"> Presenters </TH>

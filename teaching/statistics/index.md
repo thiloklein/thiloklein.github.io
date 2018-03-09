@@ -23,6 +23,8 @@ Die Kursmaterialien stehen in der untenstehenden Kursübersicht oder als Gesamtp
 
 #### Kursmaterial
 
+<p> </p>
+
 <TABLE WIDTH="100%"> 
 <TR>
 <TH align="center" WIDTH="10%"> Wochen </TH>

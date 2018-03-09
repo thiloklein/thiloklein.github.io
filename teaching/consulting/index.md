@@ -52,38 +52,39 @@ Have a look at our profiles to make sure that your (proposed) research and your 
 <TD WIDTH="5%"> </TD>
 <TD VALIGN="center" WIDTH="20%">Despo Malikkidou<br>despo@empiricslab.org</TD>
 <TD WIDTH="5%"> </TD>
-<TD VALIGN="center" WIDTH="65%">Topics: tail risk in emerging and developed countries, power laws in economics and finance, financial econometrics, econometrics of high frequency data; <br> Methods: time series analysis, tail index estimation methods, regression analysis. <p> </p> </TD>
+<TD VALIGN="center" WIDTH="65%"> <p> </p> Topics: tail risk in emerging and developed countries, power laws in economics and finance, financial econometrics, econometrics of high frequency data; <br> Methods: time series analysis, tail index estimation methods, regression analysis. <p> </p> </TD>
 </TR>
 <TR>
 <TD VALIGN="center"><img src="images/jerry.jpg" Border="0"></TD>
 <TD> </TD>
 <TD VALIGN="center">Jerry He<br>jerry@empiricslab.org</TD>
 <TD> </TD>
-<TD VALIGN="center">Topics: R&D alliance choices, contingent contracts (royalties, milestone payments); <br> Methods: instrumental variables, sequential bargaining models, propensity score matching, gibbs sampling methods. <p> </p> </TD>
+<TD VALIGN="center"> <p> </p> Topics: R&D alliance choices, contingent contracts (royalties, milestone payments); <br> Methods: instrumental variables, sequential bargaining models, propensity score matching, gibbs sampling methods. <p> </p> </TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="center"><img src="images/michael.jpg" Border="0"></TD>
 <TD> </TD>
 <TD VALIGN="center">Michael Freeman<br>michael@empiricslab.org</TD>
 <TD> </TD>
-<TD VALIGN="center">Topics: inventory management, retail analytics, forecasting, e-commerce, customer intelligence; <br> Methods: statistical inference, computer simulation, stochastic methods, time series analysis. <p> </p> </TD>
+<TD VALIGN="center"> <p> </p> Topics: inventory management, retail analytics, forecasting, e-commerce, customer intelligence; <br> Methods: statistical inference, computer simulation, stochastic methods, time series analysis. <p> </p> </TD>
 </TR>
 <TR>
 <TD VALIGN="center"><img src="images/thilo.jpg" Border="0"></TD>
 <TD> </TD>
 <TD VALIGN="center">Thilo Klein<br>thilo@empiricslab.org</TD>
 <TD> </TD>
-<TD VALIGN="center">Topics: development finance and insurance, health economics, matching markets; <br> Methods: experiments, discrete choice models, sample selection models, instrumental variable techniques, panel models, social network analyis. <p> </p> </TD>
+<TD VALIGN="center"> <p> </p> Topics: development finance and insurance, health economics, matching markets; <br> Methods: experiments, discrete choice models, sample selection models, instrumental variable techniques, panel models, social network analyis. <p> </p> </TD>
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="center"><img src="images/blaine.jpg" Border="0"></TD>
 <TD> </TD>
 <TD VALIGN="center">Blaine Landis<br>blaine@empiricslab.org</TD>
 <TD> </TD>
-<TD VALIGN="center">Topics: personality and social psychology, social networks, psychometrics; <br> Methods: regression analysis, factor analysis, structural equation modeling, meta-analysis, social network analysis, dyadic data analysis (Dave Kenny's Social Relations Model). <p> </p> </TD>
+<TD VALIGN="center"> <p> </p> Topics: personality and social psychology, social networks, psychometrics; <br> Methods: regression analysis, factor analysis, structural equation modeling, meta-analysis, social network analysis, dyadic data analysis (Dave Kenny's Social Relations Model). <p> </p> </TD>
 </TR>
 </TABLE>
 
+<p> </p>
 
 ##### 2. Register
 
