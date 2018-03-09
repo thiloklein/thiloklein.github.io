@@ -19,7 +19,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 #### Beratungsleistungen
 
-<p> </p> <br>
+<p> </p>
 
 <footer class="row-fluid">
 				<article class="span3">
@@ -53,7 +53,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 						<p> </p>
 					</header>
 					<div class="content">
-<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf <a href="http://matchingtools.com">matchingMarkets.org</a> als freie API zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
+<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf <a href="http://matchingtools.com">matchingtools.com</a> als freie API zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
 </p>
 					</div>
 				</article>
@@ -84,7 +84,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 #### Presse- und Forschungsberichte zum Thema
 
-***
+<p> </p>
 
 - [ Verdruss bei der Kitaplatz-Vergabe: Eltern drohen mit weiteren Klagen](http://www.wn.de/Muenster/3203115-Verdruss-bei-der-Kitaplatz-Vergabe-Eltern-drohen-mit-weiteren-Klagen), *Westfälische Nachrichten*, 1. März 2018.
 
