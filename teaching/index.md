@@ -57,7 +57,7 @@ published: true
 <TH VALIGN="TOP" WIDTH="10%">  </TH>
 </TR>
 <TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Market Design: Auctions and Matching (<a href="https://www.uni-mannheim.de/en/">MSc</a>)</TD>
+<TD VALIGN="TOP">Market Design: Auctions and Matching Algorithms (<a href="https://www.uni-mannheim.de/en/">MSc</a>)</TD>
 <TD VALIGN="TOP"><a href="matching/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
@@ -209,7 +209,7 @@ published: true
 <TD VALIGN="TOP"><a href="faq/faq1/index.html">FAQ</a></TD>
 </TR>
 <TR >
-<TD VALIGN="TOP">Advanced Quantitative Methods (<a href="http://www.jbs.cam.ac.uk/programmes/research-programmes/research-masters/mphil-finance/">MPhil Finance</a>/ <a href="https://www.jbs.cam.ac.uk/programmes/research-programmes/">PhD</a>)</TD>
+<TD VALIGN="TOP">Advanced Quantitative Methods (<a href="http://www.jbs.cam.ac.uk/programmes/research-programmes/research-masters/mphil-finance/">MPhil Finance</a>/ <a href="https://www.jbs.cam.ac.uk/programmes/research-programmes/">PhD</a>) <p> </p></TD>
 <TD VALIGN="TOP"><a href="quant2/index.html">Course website</a></TD>
 <TD VALIGN="TOP">Forum</TD>
 <TD VALIGN="TOP"><a href="faq/faq2/index.html">FAQ</a></TD>
@@ -221,7 +221,7 @@ published: true
 <TD VALIGN="TOP"><a href="faq/faq1/index.html">FAQ</a></TD>
 </TR>
 <TR >
-<TD VALIGN="TOP">Econometrics II (<a href="http://www.jbs.cam.ac.uk/programmes/master-of-finance-mfin/">Master of Finance</a>)</TD>
+<TD VALIGN="TOP">Econometrics II (<a href="http://www.jbs.cam.ac.uk/programmes/master-of-finance-mfin/">Master of Finance</a>) <p> </p></TD>
 <TD VALIGN="TOP"><a href="econometrics2/index.html">Course website</a></TD>
 <TD VALIGN="TOP">Forum</TD>
 <TD VALIGN="TOP"><a href="faq/faq2/index.html">FAQ</a></TD>
@@ -249,7 +249,7 @@ published: true
 <TD VALIGN="TOP"><a href="faq/faq1/index.html">FAQ</a></TD>
 </TR>
 <TR >
-<TD VALIGN="TOP">Advanced Quantitative Methods (<a href="http://www.jbs.cam.ac.uk/programmes/research-programmes/research-masters/mphil-finance/">MPhil Finance</a>/ <a href="https://www.jbs.cam.ac.uk/programmes/research-programmes/">PhD</a>)</TD>
+<TD VALIGN="TOP">Advanced Quantitative Methods (<a href="http://www.jbs.cam.ac.uk/programmes/research-programmes/research-masters/mphil-finance/">MPhil Finance</a>/ <a href="https://www.jbs.cam.ac.uk/programmes/research-programmes/">PhD</a>) <p> </p></TD>
 <TD VALIGN="TOP"><a href="quant2/index.html">Course website</a></TD>
 <TD VALIGN="TOP">Forum</TD>
 <TD VALIGN="TOP"><a href="faq/faq2/index.html">FAQ</a></TD>
@@ -261,7 +261,7 @@ published: true
 <TD VALIGN="TOP"><a href="faq/faq1/index.html">FAQ</a></TD>
 </TR>
 <TR >
-<TD VALIGN="TOP">Econometrics II (<a href="http://www.jbs.cam.ac.uk/programmes/master-of-finance-mfin/">Master of Finance</a>)</TD>
+<TD VALIGN="TOP">Econometrics II (<a href="http://www.jbs.cam.ac.uk/programmes/master-of-finance-mfin/">Master of Finance</a>) <p> </p></TD>
 <TD VALIGN="TOP"><a href="econometrics2/index.html">Course website</a></TD>
 <TD VALIGN="TOP">Forum</TD>
 <TD VALIGN="TOP"><a href="faq/faq2/index.html">FAQ</a></TD>
