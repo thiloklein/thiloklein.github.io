@@ -65,3 +65,12 @@ Quatember, A. (2014). *Statistik ohne Angst vor Formeln: Das Studienbuch für Wi
 ***
 
 
+#### Errata
+
+6 April 2018: Korrektur der Lösung zu Übungsaufgabe 18.
+
+***
+
+
+
+
