@@ -17,6 +17,9 @@ The workshops serve as a venue for collaboration between statisticians to adopt 
 ***
 
 #### Galleries
+
+<p> </p>
+
 <footer class="row-fluid">
 				<article class="span3">
 					<header>

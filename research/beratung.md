@@ -3,7 +3,7 @@ layout: default
 group: Beratung
 comments: false
 published: true
-title: Matching-Design
+title: Beratung
 ---
 
 
@@ -34,7 +34,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 						<p> </p>
 					</header>
 					<div class="content">
-<p>Beratung beim Design von Regeln. Dies umfasst zum Beispiel Quotenregeln, um eine bestimmte Geschlechterverteilung und Altersstruktur für Kitagruppen zu erreichen oder auch eine garantierte gemeinsame Unterbringung von Geschwistern. Das ZEW berät dafür bei der elektronisch unterstützten Erstellung der Ranglisten, die individuell mit den Zielen der Träger abgestimmt werden können.
+<p>Beratung beim Design von Regeln. Dies umfasst zum Beispiel Quotenregeln, um eine bestimmte Geschlechterverteilung und Altersstruktur für Kitagruppen zu erreichen oder auch eine garantierte gemeinsame Unterbringung von Geschwistern. Das ZEW berät dafür bei elektronisch unterstützten Lösungen, die individuell mit den Zielen der Träger abgestimmt werden können.
 </p>
 					</div>
 				</article>
@@ -53,7 +53,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 						<p> </p>
 					</header>
 					<div class="content">
-<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese auf <a href="http://matchingtools.com">matchingtools.com</a> als freie API zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.
+<p>Diese beruhen auf bewährten Lösungen wie dem „Gale-Shapley-Algorithmus“ und sind komplementär zu existierenden Online-Plattformen. Die Forschungsgruppe stellt diese als Open Source Software zur Verfügung. Das ZEW berät bei der Umsetzung oder übernimmt diese als unabhängige Drittpartei. <!--anhand der vollkommen anonymisierten Ranglisten der einzelnen Träger und der von der Stadt erfassten, anonymisierten Ranglisten der Eltern.-->
 </p>
 					</div>
 				</article>
@@ -88,7 +88,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 - [ Verdruss bei der Kitaplatz-Vergabe: Eltern drohen mit weiteren Klagen](http://www.wn.de/Muenster/3203115-Verdruss-bei-der-Kitaplatz-Vergabe-Eltern-drohen-mit-weiteren-Klagen), *Westfälische Nachrichten*, 1. März 2018.
 
-- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief*, \# 4, Oktober 2017.
+- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* # 4, Oktober 2017.
 
 - [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30. Juni 2017.
 
@@ -96,7 +96,7 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 - [How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEW News*, 3. Juli 2017.
 
-- [Matching Practices for Kindergartens in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile*, \# 26, February 2018.
+- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile* # 26, February 2018.
 
 ***
 

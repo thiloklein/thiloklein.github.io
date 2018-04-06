@@ -3,76 +3,107 @@ layout: default
 group: Software
 comments: true
 published: true
-title: R package
+title: Software
 ---
 
 
 
-## R package matchingMarkets
+## Software
 
-> Structural Estimators and Algorithms for the Analysis of Stable Matchings.
+This site contains documentation on software I am authoring and maintaining for matching problems. In matching markets, supply and demand cannot (or should not) be coordinated by prices, but by other criteria. Prominent examples include personal preferences of market participants in the sharing economy, as well as in education and labour markets, where both sides have to choose each other, i.e. employees cannot just choose their employer, they also have to be chosen (and vice versa). 
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/matchingMarkets?color=blue)](https://cran.r-project.org/package=matchingMarkets)
-[![CRAN_Downloads](https://cranlogs.r-pkg.org/badges/grand-total/matchingMarkets?color=blue)](https://cran.r-project.org/package=matchingMarkets)
-
-
-***
-
-#### Functions
-
-The `matchingMarkets` R package comes with two estimators:
-
-* `stabit`: Implements a Bayes estimator that corrects for sample selection in matching markets when the selection process is a one-sided matching game (i.e. group formation).
-
-* `stabit2`: Implements the Bayes estimator for a two-sided matching game (i.e. the [college admissions](https://en.wikipedia.org/wiki/Stable_marriage_problem#Similar_problems) and [stable marriage](https://en.wikipedia.org/wiki/Stable_marriage_problem) problems).
-
-and five algorithms that can be used to simulate matching data:
-
-* `hri`: Constraint model for the hospital/residents problem. Finds *all* stable matchings in two-sided matching markets. Implemented for both the [stable marriage problem](https://en.wikipedia.org/wiki/Stable_marriage_problem) (one-to-one matching) and the [hospital/residents problem](https://en.wikipedia.org/wiki/Stable_marriage_problem#Similar_problems), also known as college admissions problem (many-to-one matching). 
-
-* `iaa`: Immediate Acceptance Algorithm (a.k.a. Boston mechanism): First-preference-first algorithm used for school choice in many countries. And Gale-Shapley Deferred Acceptance Algorithm.
-
-* `sri`: Constraint model for the stable roommates problem. Finds all stable matchings in the [roommates problem](https://en.wikipedia.org/wiki/Stable_roommates_problem) (one-sided matching market).
-
-* `plp`: Partitioning Linear Programme. Finds stable matchings in the [roommates problem](https://en.wikipedia.org/wiki/Stable_roommates_problem) (one-sided matching market) with transferable utility.
-
-* `ttc`: Top-Trading-Cycles Algorithm. Finds stable matchings in the [housing market problem](https://en.wikipedia.org/wiki/Top_trading_cycle).
-
-Functions `hri` and `sri` are based on Patrick Prosser's n-ary [constraint encoding](https://www.dcs.gla.ac.uk/~pat/roommates/distribution/papers/cpaior2014.pdf) model. They allow for *incomplete preference lists* (some agents find certain agents unacceptable) and *unbalanced instances* (unequal number of agents on both sides).
+A major challenge in matching markets is designing allocation mechanisms in such a way that all participants have an incentive to reveal their true preferences. This can prevent individual participants from taking advantage of others through strategic reporting of their preferences, whilst also facilitating the statistical analysis of existing allocation practices, such as the design of gender and minority quotas in labour markets or catchment areas in school choice.
 
 
 ***
 
-#### Installation
+#### Solutions for
 
-Get started by installing the [R software](https://www.r-project.org/) for statistical computing.
+<p> </p>
 
-To get the latest *stable version* of the package from [CRAN](https://cran.r-project.org/package=matchingMarkets):
+<footer class="row-fluid">
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="ggplot2" src="../images/researchers.png"></div>
+						<hgroup>
+							<h5>
+								Researchers
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>R package <a href="https://cran.r-project.org/package=matchingMarkets">matchingMarkets</a> implements structural estimators to estimate preferences and to allow causal inference based on observed outcomes in matching markets. This includes one-sided matching of agents into groups as well as two-sided matching of students to schools. The package also contains algorithms to find stable matchings in the three most common matching problems: the stable roommates problem, the college admissions problem, and the house allocation problem.
+</p>
+					</div>
+					<footer>
+						<p><a href="https://matchingmarkets.org" class="btn">Learn more &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
 
-```r
-install.packages("matchingMarkets")
-library(matchingMarkets)
-```
 
-Under Linux, the dependency package `gmp` requires that you have GNU MP (> 4.1.4) installed, see https://gmplib.org.
 
-To get the most recent *development version* from [GitHub](https://github.com/thiloklein/matchingMarkets):
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="maps" src="../images/developers.png"></div>
+						<hgroup>
+							<h5>
+								Developers
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>MatchingTools API is an application programming interface that provides access to the most commonly used matching algorithms. It is based on the well-documented, tried and tested software implementation in R package <a href="https://cran.r-project.org/package=matchingMarkets">matchingMarkets</a> on the Comprehensive R Archive Network (CRAN). Taking preference lists of market participants as input, the algorithms return matchings in JSON open standard file format. <!--The documentation below is written using the OpenAPI/Swagger specification.-->
+</p>
+					</div>
+					<footer>
+						<p><a href="https://matchingtools.com" class="btn">Learn more &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
 
-```r
-install.packages("devtools")
-devtools::install_github("thiloklein/matchingMarkets")
-library(matchingMarkets)
-```
-or from [R-Forge](https://r-forge.r-project.org/R/?group_id=1906):
 
-```r
-install.packages("matchingMarkets", repos="https://R-Forge.R-project.org")
-library(matchingMarkets)
-```
+
+				<article class="span3">
+					<header>
+						<div class="thumbnail"><img alt="pyramids" src="../images/users.png"></div>
+						<hgroup>
+							<h5>
+								Users/Administrators
+							</h5>
+						</hgroup>
+					</header>
+					<div class="content">
+<p>Web applications for matching schemes based on the most commonly used matching algorithms implemented in R package <a href="https://cran.r-project.org/package=matchingMarkets">matchingMarkets</a> on the Comprehensive R Archive Network (CRAN).
+</p>
+					</div>
+					<footer>
+						<p><a class="btn">Coming soon &raquo;</a></p>
+						<br>
+					</footer>
+				</article><!--/span-->
+
+
+
+
+</footer>
+
+
+
+
+
+
 
 ***
 
 #### Documentation
 
-Package documentation is available at [matchingMarkets.org](https://matchingMarkets.org) and the [vignette](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf) is available from the [CRAN page](https://cran.r-project.org/package=matchingMarkets). An application of the estimator in function `stabit` is in [Klein (2015)](https://ideas.repec.org/p/cam/camdae/1521.html).
+<p> </p>
+
+- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](https://cran.r-project.org/web/packages/matchingMarkets/matchingMarkets.pdf), *R package version 0.3-5*, The Comprehensive R Archive Network, 2018.
+
+- [Analysis of Stable Matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2018. 
+
+***
+
 
