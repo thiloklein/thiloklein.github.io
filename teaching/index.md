@@ -57,7 +57,7 @@ published: true
 <TH VALIGN="TOP" WIDTH="10%">  </TH>
 </TR>
 <TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Market Design: Auctions and Matching Algorithms (<a href="https://www.uni-mannheim.de/en/">MSc</a>)</TD>
+<TD VALIGN="TOP">Market Design: Auctions and Matching Algorithms (<a href="https://www.uni-mannheim.de/en/">MSc/ PhD</a>)</TD>
 <TD VALIGN="TOP"><a href="matching/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
@@ -105,6 +105,25 @@ published: true
 ***
 
 ### <a name="r"></a> Data Science
+
+##### 2018
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Business Analytics</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP">  </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+<p> </p>
 
 ##### 2016
 
