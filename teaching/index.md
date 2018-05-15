@@ -106,24 +106,6 @@ published: true
 
 ### <a name="r"></a> Data Science
 
-##### 2018
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Business Analytics</TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP">  </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-<p> </p>
 
 ##### 2016
 
