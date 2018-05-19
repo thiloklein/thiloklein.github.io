@@ -9,7 +9,7 @@ tags:
   - development
   - smart data
 comments: true
-thumbnail: /viz/misc/trucks_bw.png
+thumbnail: /viz/misc/truck_bw.png
 ---
 
 
