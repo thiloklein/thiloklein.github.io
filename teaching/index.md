@@ -24,14 +24,14 @@ published: true
 <TH VALIGN="TOP" WIDTH="10%">  </TH>
 </TR>
 <TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Statistik (BSc)</TD>
-<TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
+<TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
+<TD VALIGN="TOP"><a href="mathematics/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
 <TR>
-<TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
-<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP">Statistik (BSc)</TD>
+<TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>

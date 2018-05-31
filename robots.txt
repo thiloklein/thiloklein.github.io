@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /teaching/mathematics/docs/
 Disallow: /teaching/statistics/docs/
 Disallow: /teaching/matching/docs/
 Disallow: /teaching/slides/
