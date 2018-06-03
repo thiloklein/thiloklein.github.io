@@ -14,6 +14,25 @@ published: true
 
 ### <a name="maths"></a> Applied Mathematics
 
+##### 2018/19
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Operations Research (BSc)</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+<p> </p>
+
 ##### 2018
 
 <TABLE WIDTH="100%"> 
@@ -32,12 +51,6 @@ published: true
 <TR>
 <TD VALIGN="TOP">Statistik (BSc)</TD>
 <TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Operations Research (BSc)</TD>
-<TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
@@ -106,6 +119,24 @@ published: true
 
 ### <a name="r"></a> Data Science
 
+##### 2018/19
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Machine Learning (BSc)</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+<p> </p>
 
 ##### 2016
 

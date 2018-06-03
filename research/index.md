@@ -56,6 +56,8 @@ My research interest is in market design, with a specific focus on matching mark
 
 ***
 
+- [Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassen](http://www.oekonomenstimme.org/artikel/2018/05/wie-sich-lebensmittelspenden-mittels-marktdesign-effizienter-gestalten-lassen/), *Ökonomenstimme*, 22 May 2018.
+
 - [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* # 4, October 2017. (with Fugger and T. Riehm)
 
 - [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30 June 2017.
