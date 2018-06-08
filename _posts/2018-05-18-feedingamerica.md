@@ -31,7 +31,7 @@ Im verwendeten Verfahren hat FA eine Onlineplattform geschaffen. Jeden Tag logge
 
 Die auf diese Weise neu organisierte Verteilung von Lebensmittelspenden ist ein Beispiel dafür, wie Fortschritt in Technik, Wissenschaft und Forschung dazu geführt hat, dass Märkte immer besser und individueller gestaltet werden können – und somit für gelungenes Marktdesign.
 
-Der Artikel in voller Länge ist im Erscheinen in der Zeitschrift *Wirtschaftswissenschaftliches Studium*. Dieser Beitrag ist zuerst am 18. Mai 2018 auf dem Portal [Ökonomenstimme](http://www.oekonomenstimme.org/artikel/2018/05/wie-sich-lebensmittelspenden-mittels-marktdesign-effizienter-gestalten-lassen) erschienen.
+Der Artikel in voller Länge ist im Erscheinen in der Zeitschrift *Wirtschaftswissenschaftliches Studium*. Dieser Beitrag ist zuerst am 18. Mai 2018 auf dem Portal [Ökonomenstimme](http://www.oekonomenstimme.org/artikel/2018/05/wie-sich-lebensmittelspenden-mittels-marktdesign-effizienter-gestalten-lassen) erschienen. Die *Welt am Sonntag* hat das Thema in dem Artikel [Kann das „Prinzip Ebay“ die Tafeln retten?](https://www.welt.de/wirtschaft/article176970890/Umgang-mit-Lebensmittelspenden-Kann-das-Prinzip-Ebay-die-Tafeln-retten.html) aufgegriffen.
 
 
 
