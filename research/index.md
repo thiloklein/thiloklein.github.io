@@ -17,6 +17,8 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
+- [Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending](EEAESEM2018_paper.pdf), *Unpublished Working Paper*. [[slides](EEAESEM2018_slides.pdf)]
+
 - [Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans](https://www.econstor.eu/bitstream/10419/172525/1/1009650815.pdf), *ZEW Discussion Paper # 17-073*, Centre for European Economic Research.
 
 - [Analysis of Stable Matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2017. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
