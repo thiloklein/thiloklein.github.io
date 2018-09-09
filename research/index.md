@@ -21,7 +21,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 - Die Regeln machen den Unterschied: Marktdesign, *Wirtschaftswissenschaftliches Studium*, forthcoming. (with V. Gretschko and A. Wambach)
 
-- [Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending](EEAESEM2018_paper.pdf), *Unpublished Working Paper*. [[slides](EEAESEM2018_slides.pdf)]
+- [Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending](EEAESEM2018_paper.pdf), *71st European Meeting of the Econometric Society*, 29 August 2018, University of Cologne. [[slides](EEAESEM2018_slides.pdf)]
 
 - [Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans](https://www.econstor.eu/bitstream/10419/172525/1/1009650815.pdf), *ZEW Discussion Paper # 17-073*, Centre for European Economic Research.
 
