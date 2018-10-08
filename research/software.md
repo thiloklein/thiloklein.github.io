@@ -78,7 +78,7 @@ A major challenge in matching markets is designing allocation mechanisms in such
 </p>
 					</div>
 					<footer>
-						<p><a class="btn">Coming soon &raquo;</a></p>
+						<p><a href="https://github.com/svengiegerich/kitamatch" class="btn">Learn more &raquo;</a></p>
 						<br>
 					</footer>
 				</article><!--/span-->
