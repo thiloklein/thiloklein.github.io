@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: Lebensmittelspenden
+title: Lebensmittel-spenden
 category: 
   - opinion
 tags: 

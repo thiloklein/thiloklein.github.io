@@ -37,7 +37,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [Matching for Microcredits – Market Design Approaches to Financial Integration](https://www.zew.de/de/publikationen/1112-2018/), *ZEW News*, 12 December 2018.
+- [Matching for Microcredit – Market Design Approaches to Financial Integration](https://www.zew.de/de/publikationen/1112-2018/), *ZEW News*, 12 December 2018.
 
 - [Matching für Mikrokredite – Finanzielle Integration durch Marktdesign-Ansätze](http://www.oekonomenstimme.org/artikel/2018/12/matching-fuer-mikrokredite--marktdesign-ansaetze-fuer-finanzielle-integration/), *Ökonomenstimme*, 10 Dezember 2018.
 
