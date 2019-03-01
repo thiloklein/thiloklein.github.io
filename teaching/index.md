@@ -12,46 +12,6 @@ published: true
 
 ***
 
-### <a name="maths"></a> Research Methods
-
-##### 2018/19 -- date
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Introduction to Academic Writing (BSc)</TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-<p> </p>
-
-##### 2013/14 -- 2014/15
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-***
-
 ### <a name="games"></a> Digital Economy
 
 ##### 2018/19 -- date
@@ -106,31 +66,6 @@ published: true
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Models and Methods of Data Assessment (BSc)</TD>
 <TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-<p> </p>
-
-##### 2017/18
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
-<TD VALIGN="TOP"><a href="mathematics/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-<TR>
-<TD VALIGN="TOP">Statistik (BSc)</TD>
-<TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
@@ -226,10 +161,77 @@ published: true
 <TD VALIGN="TOP"><a href="faq/faq1/index.html">FAQ</a></TD>
 </TR>
 <TR >
-<TD VALIGN="TOP">Econometrics II (<a href="http://www.jbs.cam.ac.uk/programmes/master-of-finance-mfin/">Master of Finance</a>) <p> </p></TD>
+<TD VALIGN="TOP">Econometrics II (<a href="http://www.jbs.cam.ac.uk/programmes/master-of-finance-mfin/">Master of Finance</a>) </TD>
 <TD VALIGN="TOP"><a href="econometrics2/index.html">Course website</a></TD>
 <TD VALIGN="TOP">Forum</TD>
 <TD VALIGN="TOP"><a href="faq/faq2/index.html">FAQ</a></TD>
+</TR>
+</TABLE>
+
+***
+
+### <a name="methods"></a> Research Methods
+
+##### 2018/19 -- date
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Introduction to Academic Writing (BSc)</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+<p> </p>
+
+##### 2013/14 -- 2014/15
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+***
+
+### <a name="maths"></a> Mathematics
+
+##### 2017/18
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
+<TD VALIGN="TOP"><a href="mathematics/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR>
+<TD VALIGN="TOP">Statistik (BSc)</TD>
+<TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
 </TR>
 </TABLE>
 
