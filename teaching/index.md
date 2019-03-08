@@ -25,7 +25,7 @@ published: true
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Introduction to Digital Economy (BSc)</TD>
-<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"><a href="https://ilias.hs-heilbronn.de/">ILIAS</a> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
@@ -65,7 +65,7 @@ published: true
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Models and Methods of Data Assessment (BSc)</TD>
-<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"><a href="https://ilias.hs-heilbronn.de/">ILIAS</a> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
@@ -183,7 +183,7 @@ published: true
 </TR>
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Introduction to Academic Writing (BSc)</TD>
-<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"><a href="https://ilias.hs-heilbronn.de/">ILIAS</a> </TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
