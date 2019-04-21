@@ -19,7 +19,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- Die Regeln machen den Unterschied: Marktdesign, *Wirtschaftswissenschaftliches Studium*, forthcoming. (with V. Gretschko and A. Wambach)
+- [Die Regeln machen den Unterschied: Marktdesign](https://elibrary.vahlen.de/10.15358/0340-1650-2019-4-22/die-regeln-machen-den-unterschied-marktdesign-jahrgang-48-2019-heft-4), *Wirtschaftswissenschaftliches Studium*, 48(4): 22-28. (with V. Gretschko and A. Wambach)
 
 - [Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending](EEAESEM2018_paper.pdf), *71st European Meeting of the Econometric Society*, 29 August 2018, University of Cologne. [[slides](EEAESEM2018_slides.pdf)]
 
