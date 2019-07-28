@@ -12,9 +12,9 @@ published: true
 
 ***
 
-### <a name="games"></a> Digital Economy
+### <a name="games"></a> Economics
 
-##### 2018/19 -- date
+##### 2018/19
 
 <TABLE WIDTH="100%"> 
 <TR>
@@ -50,11 +50,116 @@ published: true
 </TR>
 </TABLE>
 
+<p> </p>
+
+##### 2013/14 -- 2014/15
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
+<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
 ***
 
-### <a name="r"></a> Data Analytics
+### <a name="maths"></a> Mathematics
 
-##### 2018/19 -- date
+##### 2019 -- date
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Analysis and Linear Algebra (BSc)</TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR>
+<TD VALIGN="TOP">Analysis und Lineare Algebra (BSc)</TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+<p> </p>
+
+##### 2017/18
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH>
+<TH VALIGN="TOP" WIDTH="15%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+<TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
+<TD VALIGN="TOP"><a href="mathematics/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR>
+<TD VALIGN="TOP">Statistik (BSc)</TD>
+<TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+***
+
+### <a name="r"></a> Statistics and Data Analytics
+
+##### 2019 -- date
+
+<TABLE WIDTH="100%"> 
+<TR>
+<TH VALIGN="TOP" WIDTH="65%">  </TH><TH VALIGN="TOP" WIDTH="15%">  </TH><TH VALIGN="TOP" WIDTH="10%">  </TH><TH VALIGN="TOP" WIDTH="10%">  </TH>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Statistics II (BSc)</TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR >
+<TD VALIGN="TOP">Statistik II (BSc)</TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR bgcolor="#f0f0f0">
+<TD VALIGN="TOP">Multivariate statistische Analysemethoden (BSc)</TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+<TR >
+<TD VALIGN="TOP">Statistische Verfahren (MSc) </TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
+</TABLE>
+
+<p> </p>
+
+##### 2018/19
 
 <TABLE WIDTH="100%"> 
 <TR>
@@ -170,9 +275,9 @@ published: true
 
 ***
 
-### <a name="methods"></a> Research Methods
+### <a name="methods"></a> Academic Writing
 
-##### 2018/19 -- date
+##### 2018/19
 
 <TABLE WIDTH="100%"> 
 <TR>
@@ -184,52 +289,6 @@ published: true
 <TR bgcolor="#f0f0f0">
 <TD VALIGN="TOP">Introduction to Academic Writing (BSc)</TD>
 <TD VALIGN="TOP"><a href="https://ilias.hs-heilbronn.de/">ILIAS</a> </TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-<p> </p>
-
-##### 2013/14 -- 2014/15
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Game Theory (<a href="http://www.training.cam.ac.uk/event/1197051">MPhil/ PhD</a>)</TD>
-<TD VALIGN="TOP"><a href="games/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-</TABLE>
-
-***
-
-### <a name="maths"></a> Mathematics
-
-##### 2017/18
-
-<TABLE WIDTH="100%"> 
-<TR>
-<TH VALIGN="TOP" WIDTH="65%">  </TH>
-<TH VALIGN="TOP" WIDTH="15%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-<TH VALIGN="TOP" WIDTH="10%">  </TH>
-</TR>
-<TR bgcolor="#f0f0f0">
-<TD VALIGN="TOP">Wirtschaftsmathematik (BSc)</TD>
-<TD VALIGN="TOP"><a href="mathematics/index.html">Course website</a></TD>
-<TD VALIGN="TOP"> </TD>
-<TD VALIGN="TOP"> </TD>
-</TR>
-<TR>
-<TD VALIGN="TOP">Statistik (BSc)</TD>
-<TD VALIGN="TOP"><a href="statistics/index.html">Course website</a></TD>
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
