@@ -82,6 +82,140 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 ***
 
+
+#### Videotutorials: Mechanismus und Bewerberliste
+
+<p> </p>
+
+<footer class="row-fluid">
+				<article class="span6">
+					<header>			
+<div class="thumbnail">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/360373073" allowfullscreen frameborder="0"></iframe>
+</div>
+</div>
+
+						<p> </p>
+						<hgroup>
+							<h5>
+								1: Einleitung und Mechanismus
+							</h5>
+						</hgroup>
+						<p> </p>
+					</header>
+					<div class="content">
+<p>Erklärung der Funktionsweise des Zuteilungsverfahrens.
+</p>
+					</div>
+				</article>
+
+
+
+				<article class="span6">
+					<header>
+<div class="thumbnail">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/360375744" allowfullscreen frameborder="0"></iframe>
+</div>
+</div>
+						<p> </p>
+						<hgroup>
+							<h5>
+								2: Allgemeines zur Bewerberliste
+							</h5>
+						</hgroup>
+						<p> </p>
+					</header>
+					<div class="content">
+<p>Vorstellung der grundlegenden Eigenschaften der Bewerberliste.
+</p>
+					</div>
+				</article>
+
+
+</footer>
+
+
+***
+
+#### Videotutorials: Koordinierungsrunden
+
+<p> </p>
+
+<footer class="row-fluid">
+				<article class="span6">
+					<header>			
+<div class="thumbnail">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/360375869" allowfullscreen frameborder="0"></iframe>
+</div>
+</div>
+
+						<p> </p>
+						<hgroup>
+							<h5>
+								3: Erste Koordinierungsrunde und Platzangebote
+							</h5>
+						</hgroup>
+						<p> </p>
+					</header>
+					<div class="content">
+<p>Basierend auf der Bewerberliste in Tutorial 2 wird hier erklärt, wie den Bewerbern Platzangebote gemacht werden können.
+</p>
+					</div>
+				</article>
+
+				<article class="span6">
+					<header>
+<div class="thumbnail">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/360376092" allowfullscreen frameborder="0"></iframe>
+</div>
+</div>
+						<p> </p>
+						<hgroup>
+							<h5>
+								4: Zweite Koordinierungsrunde
+							</h5>
+						</hgroup>
+						<p> </p>
+					</header>
+					<div class="content">
+<p>Dieses Tutorial setzt den Ablauf des exemplarischen Koordinierungsverfahrens fort.
+</p>
+					</div>
+				</article>
+
+</footer>
+
+<p> </p>
+
+<footer class="row-fluid">
+				<article class="span6">
+					<header>
+<div class="thumbnail">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/360376159" allowfullscreen frameborder="0"></iframe>
+</div>
+</div>
+						<p> </p>
+						<hgroup>
+							<h5>
+								5: Dritte Koordinierungsrunde und Abschluss des Verfahrens
+							</h5>
+						</hgroup>
+						<p> </p>
+					</header>
+					<div class="content">
+<p>Abschluss des Beispiels mit der dritten Koordinierungsrunde.
+</p>
+					</div>
+				</article>
+</footer>
+
+***
+
 #### Presse- und Forschungsberichte zum Thema
 
 <p> </p>
