@@ -37,6 +37,8 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
+- [Matching Practices for Trainee Teachers in Germany](http://www.matching-in-practice.eu/matching-practices-for-trainee-teachers-germany/), *Matching-in-Practice Country Profile # 28*, 2019. (with P. vom Baur)
+
 - [Matching for Microcredit – Market Design Approaches to Financial Integration](https://www.zew.de/de/publikationen/1112-2018/), *ZEW News*, 12 December 2018.
 
 - [Matching für Mikrokredite – Finanzielle Integration durch Marktdesign-Ansätze](http://www.oekonomenstimme.org/artikel/2018/12/matching-fuer-mikrokredite--marktdesign-ansaetze-fuer-finanzielle-integration/), *Ökonomenstimme*, 10 Dezember 2018.
@@ -47,7 +49,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 - [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* # 4, October 2017. (with Fugger and T. Riehm)
 
-- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile # 26*, 2018. (with S. Herzog)
+- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/matching-practices-for-childcare-germany/), *Matching-in-Practice Country Profile # 26*, 2018. (with S. Herzog)
 
 - [How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEW News*, 3 July 2017.
 
@@ -75,9 +77,9 @@ My research interest is in market design, with a specific focus on matching mark
 
 - Use of statistics in policy making: A text-mining framework for measurement and monitoring, *PARIS21 Discussion Paper*, Paris, forthcoming. (with R. Avendano et al.) 
 
-- [Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate Sector](http://www.oecd-ilibrary.org/economics/access-to-new-data-sources-for-statistics_9a1fa77f-en), *OECD Statistics Working Paper # 17/06*, OECD Publishing, Paris, 2017. (with S. Verhulst)    
+- [Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate Sector](http://www.oecd-ilibrary.org/economics/access-to-new-data-sources-for-statistics_9a1fa77f-en), *OECD Statistics Working Paper # 17/06*, OECD Publishing, Paris, 2017. (with S. Verhulst)
   
-- [Public-Private Partnerships for Statistics. Lessons Learned, Future Steps](http://www.oecd-ilibrary.org/development/public-private-partnerships-for-statistics-lessons-learned-future-steps_5jm3nqp1g8wf-en), *OECD Development Co-operation Working Paper # 27*, OECD Publishing, Paris, 2016. (with N. Robin and J. Jütting)    
+- [Public-Private Partnerships for Statistics. Lessons Learned, Future Steps](http://www.oecd-ilibrary.org/development/public-private-partnerships-for-statistics-lessons-learned-future-steps_5jm3nqp1g8wf-en), *OECD Development Co-operation Working Paper # 27*, OECD Publishing, Paris, 2016. (with N. Robin and J. Jütting)
 
 - [Making Data Portals Work for SDGs: A View on Deployment, Design and Technology](http://www.paris21.org/sites/default/files/Paper_on_Data_Portals%20wcover_WEB.pdf), *PARIS21 Discussion Paper # 8*, Paris, 2016. (with G. Greenwell et al.)
 
