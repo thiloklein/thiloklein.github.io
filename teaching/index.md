@@ -103,8 +103,15 @@ published: true
 <TD VALIGN="TOP"> </TD>
 <TD VALIGN="TOP"> </TD>
 </TR>
+<TR>
+<TD VALIGN="TOP">Statistik (BSc, DHBW Mannheim)</TD>
+<TD VALIGN="TOP">Moodle</TD>
+<TD VALIGN="TOP"> </TD>
+<TD VALIGN="TOP"> </TD>
+</TR>
 </TABLE>
 
+***
 
 ##### Applied
 
@@ -175,6 +182,7 @@ published: true
 </TR>
 </TABLE>
 
+***
 
 ##### Software and consultation
 

@@ -220,7 +220,7 @@ Die ZEW-Forschungsgruppe „Marktdesign“ bietet über die Plattform <a href="h
 
 <p> </p>
 
-- [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
+- [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. 
 
 - [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile* #26, February 2018.
 

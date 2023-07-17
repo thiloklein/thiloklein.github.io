@@ -11,9 +11,6 @@ title: Blog
 					<h2>
 						<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 					</h2>
-					<h5>
-						<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.date_format }}</time>
-					</h5>
 				</hgroup></header>
 				<div class="content">
 					<!--{% include libs/thumbnail %}-->
@@ -39,9 +36,6 @@ title: Blog
 							<h2>
 								<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 							</h2>
-							<h5>
-								<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.date_format }}</time>
-							</h5>
 						</hgroup>
 					</header>
 					<div class="content">
