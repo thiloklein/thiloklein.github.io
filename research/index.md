@@ -19,17 +19,36 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [Die Regeln machen den Unterschied: Marktdesign](https://elibrary.vahlen.de/10.15358/0340-1650-2019-4-22/die-regeln-machen-den-unterschied-marktdesign-jahrgang-48-2019-heft-4), *Wirtschaftswissenschaftliches Studium*, 48(4): 22-28. (with V. Gretschko and A. Wambach)
+- The Cost of Strategy-Proofness in School Choice, *Games and Economic Behavior*, 2023. (with J. Ortega)
 
-- [Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending](EEAESEM2018_paper.pdf), *71st European Meeting of the Econometric Society*, 29 August 2018, University of Cologne. [[slides](EEAESEM2018_slides.pdf)]
+- School Choice with Independent versus Consolidated Districts, *Games and Economic Behavior* (*review and resubmit*), 2023. (with R. Aue and J. Ortega)
 
-- [Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans](https://www.econstor.eu/bitstream/10419/172525/1/1009650815.pdf), *ZEW Discussion Paper # 17-073*, Centre for European Economic Research.
+- Effiziente und faire Verteilung von Lebensmittelspenden, *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2023. (with M. Ott)
 
-- [Analysis of Stable Matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2017. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
+- [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
 
-- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](http://cran.r-project.org/package=matchingMarkets), *R package version 0.3-5*, The Comprehensive R Archive Network, 2017.
+- [Die Regeln machen den Unterschied: Marktdesign](https://elibrary.vahlen.de/10.15358/0340-1650-2019-4-22/die-regeln-machen-den-unterschied-marktdesign-jahrgang-48-2019-heft-4), *Wirtschaftswissenschaftliches Studium*, 2019. (with V. Gretschko and A. Wambach)
 
-- [Does Anti-Diversification Pay? A One-Sided Matching Model of Microfinance](https://ideas.repec.org/p/cam/camdae/1521.html). *Cambridge Working Papers in Economics # 1521*, University of Cambridge, 2015. <!--  In many economic situations, market participation requires that agents form groups subject to exogenous rules. Consider a microfinance institution that decides on rules for diversifying borrower groups in terms of their exposure to income shocks. Such rules affect group repayment by influencing both who matches with whom (direct effect) and who participates in the market (participation). I develop the key trade-off for conflicting predictions of extant theoretical models and estimate both effects separately. Group formation creates an endogeneity problem, but a matching model exploits the exogenous variation from counterfactual groups. I find that while diversification has no participation effect it has a significant positive direct effect. -->
+
+***
+
+##### Discussion papers
+
+<p> </p>
+
+- matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings, *R package*, 2023.
+
+- Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending, 2023.
+
+- [Improving Efficiency and Equality in School Choice](https://www.zew.de/publikationen/improving-efficiency-and-equality-in-school-choice), *ZEW Discussion Paper 22-046*, 2022. (with J. Ortega)
+
+- [What Happens when Separate and Unequal School Districts Merge?](https://www.zew.de/publikationen/what-happens-when-separate-and-unequal-school-districts-merge), *ZEW Discussion Paper 20-032*, 2020. (with R. Aue and J. Ortega)
+
+- Analysis of Stable Matchings in R: Package matchingMarkets, *Vignette to R package matchingMarkets*, 2017. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
+
+- [Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans](https://www.econstor.eu/bitstream/10419/172525/1/1009650815.pdf), *ZEW Discussion Paper 17-073*, 2017.
+
+- [Does Anti-Diversification Pay? A One-Sided Matching Model of Microfinance](https://ideas.repec.org/p/cam/camdae/1521.html), *Cambridge Working Papers in Economics 1521*, 2015. <!--  In many economic situations, market participation requires that agents form groups subject to exogenous rules. Consider a microfinance institution that decides on rules for diversifying borrower groups in terms of their exposure to income shocks. Such rules affect group repayment by influencing both who matches with whom (direct effect) and who participates in the market (participation). I develop the key trade-off for conflicting predictions of extant theoretical models and estimate both effects separately. Group formation creates an endogeneity problem, but a matching model exploits the exogenous variation from counterfactual groups. I find that while diversification has no participation effect it has a significant positive direct effect. -->
 
 ***
 
@@ -37,23 +56,33 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [Matching Practices for Trainee Teachers in Germany](http://www.matching-in-practice.eu/matching-practices-for-trainee-teachers-germany/), *Matching-in-Practice Country Profile # 28*, 2019. (with P. vom Baur)
+- [Tapping into People's Impatience for Better Environmental Subsidies](https://ftp.zew.de/pub/zew-docs/policybrief/en/pb04-23.pdf), *ZEW Policy Brief #4*, 2023. (with A. Atayev, G. Caspari and A. Hillenbrand)
 
-- [Matching for Microcredit – Market Design Approaches to Financial Integration](https://www.zew.de/de/publikationen/1112-2018/), *ZEW News*, 12 December 2018.
+- [Matching Practices for Trainee Teachers in Germany](http://www.matching-in-practice.eu/matching-practices-for-trainee-teachers-germany/), *Matching-in-Practice Country Profile #28*, 2019. (with P. vom Baur)
 
-- [Matching für Mikrokredite – Finanzielle Integration durch Marktdesign-Ansätze](http://www.oekonomenstimme.org/artikel/2018/12/matching-fuer-mikrokredite--marktdesign-ansaetze-fuer-finanzielle-integration/), *Ökonomenstimme*, 10 Dezember 2018.
+- Matching for Microcredit – Market Design Approaches to Financial Integration, *ZEW News*, 12 December 2018.
 
-- [How Market Design Can Make Food Donations More Efficient](https://www.zew.de/de/publikationen/0708-2018-1/), *ZEW News*, 8 July 2018.
+- How Market Design Can Make Food Donations More Efficient, *ZEW News*, 8 July 2018.
 
-- [Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassen](http://www.oekonomenstimme.org/artikel/2018/05/wie-sich-lebensmittelspenden-mittels-marktdesign-effizienter-gestalten-lassen/), *Ökonomenstimme*, 22 May 2018.
+- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/matching-practices-for-childcare-germany/), *Matching-in-Practice Country Profile #26*, 2018. (with S. Herzog)
 
-- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* # 4, October 2017. (with Fugger and T. Riehm)
+- How Can Cities Handle the Stampede for Nursery Places?, *ZEW News*, 3 July 2017.
 
-- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/matching-practices-for-childcare-germany/), *Matching-in-Practice Country Profile # 26*, 2018. (with S. Herzog)
+***
 
-- [How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEW News*, 3 July 2017.
+##### Policy briefs (German)
 
-- [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30 June 2017.
+<p> </p>
+
+- [Mit Digitalisierung gegen Lebensmittelverschwendung](https://ftp.zew.de/pub/zew-docs/policybrief/de/pb09-23.pdf), *ZEW Policy Brief #9*, 2023. (with M. Ott)
+
+- Matching für Mikrokredite – Finanzielle Integration durch Marktdesign-Ansätze, *Ökonomenstimme*, 10 Dezember 2018.
+
+- Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassen, *Ökonomenstimme*, 22 May 2018.
+
+- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* #4, October 2017. (with N. Fugger and T. Riehm)
+
+- Wie Städte dem Ansturm auf Kindertagesstätten begegnen können, *Ökonomenstimme*, 30 June 2017.
 
 ***
 
@@ -75,8 +104,6 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- Use of statistics in policy making: A text-mining framework for measurement and monitoring, *PARIS21 Discussion Paper*, Paris, forthcoming. (with R. Avendano et al.) 
-
 - [Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate Sector](http://www.oecd-ilibrary.org/economics/access-to-new-data-sources-for-statistics_9a1fa77f-en), *OECD Statistics Working Paper # 17/06*, OECD Publishing, Paris, 2017. (with S. Verhulst)
   
 - [Public-Private Partnerships for Statistics. Lessons Learned, Future Steps](http://www.oecd-ilibrary.org/development/public-private-partnerships-for-statistics-lessons-learned-future-steps_5jm3nqp1g8wf-en), *OECD Development Co-operation Working Paper # 27*, OECD Publishing, Paris, 2016. (with N. Robin and J. Jütting)
@@ -91,13 +118,13 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [How Big Data Generated by Companies Can Be Used to Protect the Environment](http://www.zew.de/en/publikationen/zew-periodika/zewnews/), *ZEW News*, Economic Policy Analysis, Issue 02/2018.
+- How Big Data Generated by Companies Can Be Used to Protect the Environment, *ZEW News*, Economic Policy Analysis, Issue 02/2018.
 
-- [Wie sich Big Data weltweit für den Klimaschutz einsetzen lässt](https://www.zew.de/en/publikationen/12-2017/), *ZEW News*, Wirtschaftspolitische Analyse, Ausgabe 12/2017.
+- Wie sich Big Data weltweit für den Klimaschutz einsetzen lässt, *ZEW News*, Wirtschaftspolitische Analyse, Ausgabe 12/2017.
 
-- [How to Measure Global Statistical Literacy](http://www.oecd.org/std/theoecdstatisticsnewsletter-allissues.htm), *OECD Statistics Newsletter*, Issue 66, OECD Publishing, 2017.
+- [How to Measure Global Statistical Literacy](http://www.oecd.org/std/theoecdstatisticsnewsletter-allissues.htm), *OECD Statistics Newsletter*, Issue 66, 2017.
 
-- [Measuring Support to Statistics in Developing Countries](http://www.oecd.org/std/theoecdstatisticsnewsletter-allissues.htm), *OECD Statistics Newsletter*, Issue 65, OECD Publishing, 2016. (with J. Jütting)
+- [Measuring Support to Statistics in Developing Countries](http://www.oecd.org/std/theoecdstatisticsnewsletter-allissues.htm), *OECD Statistics Newsletter*, Issue 65, 2016. (with J. Jütting)
 
 ***
 
@@ -105,9 +132,9 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [The Role of National Statistical Systems in the Data Revolution](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 3: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017. (with S. Badie et al.)
+- [The Role of National Statistical Systems in the Data Revolution](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 3: 2017 Development Co-operation Report*, 2017. (with S. Badie et al.)
 
-- [Rethinking Donor Support for Statistical Capacity Development](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 4: 2017 Development Co-operation Report*, OECD Publishing, Paris, 2017.  (with S. Badie et al.)
+- [Rethinking Donor Support for Statistical Capacity Development](http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en), *Chapter 4: 2017 Development Co-operation Report*, 2017.  (with S. Badie et al.)
 
 - [Measuring the Value of Official Statistics](https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/2017/CES_4-Value_of_Official_Statistics_for_endorsement_for_upload.pdf), *Chapter 5: UNECE Recommendations on the Value of Official Statistics*, United Nations ECE, 2017. (with P. van de Ven)
 

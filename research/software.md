@@ -32,7 +32,7 @@ A major challenge in matching markets is designing allocation mechanisms in such
 						</hgroup>
 					</header>
 					<div class="content">
-<p>R package <a href="https://cran.r-project.org/package=matchingMarkets">matchingMarkets</a> implements structural estimators to estimate preferences and to allow causal inference based on observed outcomes in matching markets. This includes one-sided matching of agents into groups as well as two-sided matching of students to schools. The package also contains algorithms to find stable matchings in the three most common matching problems: the stable roommates problem, the college admissions problem, and the house allocation problem.
+<p>R package <a href="https://matchingmarkets.org/">matchingMarkets</a> implements structural estimators to estimate preferences and to allow causal inference based on observed outcomes in matching markets. This includes one-sided matching of agents into groups as well as two-sided matching of students to schools. The package also contains algorithms to find stable matchings in the three most common matching problems: the stable roommates problem, the college admissions problem, and the house allocation problem.
 </p>
 					</div>
 					<footer>
@@ -53,7 +53,7 @@ A major challenge in matching markets is designing allocation mechanisms in such
 						</hgroup>
 					</header>
 					<div class="content">
-<p>MatchingTools API is an application programming interface that provides access to the most commonly used matching algorithms. It is based on the well-documented, tried and tested software implementation in R package <a href="https://cran.r-project.org/package=matchingMarkets">matchingMarkets</a> on the Comprehensive R Archive Network (CRAN). Taking preference lists of market participants as input, the algorithms return matchings in JSON open standard file format. <!--The documentation below is written using the OpenAPI/Swagger specification.-->
+<p><a href="https://matchingtools.com">MatchingTools API</a> is an application programming interface that provides access to the most commonly used matching algorithms. It is based on the well-documented, tried and tested software implementation in R package matchingMarkets. Taking preference lists of market participants as input, the algorithms return matchings in JSON open standard file format. <!--The documentation below is written using the OpenAPI/Swagger specification.-->
 </p>
 					</div>
 					<footer>
@@ -74,11 +74,11 @@ A major challenge in matching markets is designing allocation mechanisms in such
 						</hgroup>
 					</header>
 					<div class="content">
-<p>Web applications for matching schemes based on the most commonly used matching algorithms implemented in R package <a href="https://cran.r-project.org/package=matchingMarkets">matchingMarkets</a> on the Comprehensive R Archive Network (CRAN).
+<p>The <a href="https://kitamatch.com/">KitaMatch</a> plattform provides documentation and a web application for matching schemes based on the most commonly used matching algorithms implemented in R package matchingMarkets.
 </p>
 					</div>
 					<footer>
-						<p><a href="https://github.com/svengiegerich/kitamatch" class="btn">Learn more &raquo;</a></p>
+						<p><a href="https://kitamatch.com" class="btn">Learn more &raquo;</a></p>
 						<br>
 					</footer>
 				</article><!--/span-->
@@ -100,9 +100,9 @@ A major challenge in matching markets is designing allocation mechanisms in such
 
 <p> </p>
 
-- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](https://cran.r-project.org/web/packages/matchingMarkets/matchingMarkets.pdf), *R package version 0.3-5*, The Comprehensive R Archive Network, 2018.
+- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](#), *R package*.
 
-- [Analysis of Stable Matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf). *Vignette to R package matchingMarkets*, The Comprehensive R Archive Network, 2018. 
+- [Analysis of Stable Matchings in R: Package matchingMarkets](#), *Vignette to R package matchingMarkets*. 
 
 ***
 

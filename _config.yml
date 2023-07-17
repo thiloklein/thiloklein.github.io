@@ -123,7 +123,7 @@ facebook:
     locale: en_US
 
 twitter:
-    username: kleindotuk
+    username: prof_klein
     count: 3
     exclude_replies: true
     show_screen_name: true

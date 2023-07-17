@@ -12,7 +12,7 @@ title: Beratung
 
 In vielen deutschen Städten ist die Vergabe von freien Plätzen in Schulen und Kindertagesstätten intransparent und mit erheblichen Kosten für Eltern und Personal verbunden. Neben dem aktuellen Mangel an Plätzen führen auch ineffiziente Vergabeverfahren dazu, dass der Mangel größer erscheint, als er tatsächlich ist. Eine Möglichkeit zur flächendeckenden Lösung des Problems wären zentrale Vergabesysteme, die gutes Marktdesign durch den Einsatz von bewährten Algorithmen liefern kann. 
 
-Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/design-von-matching-maerkten/">ZEW-Forschungsgruppe „Marktdesign“</a> bietet folgende Lösungen für die Umsetzung von zentralen Vergabeverfahren an.
+Die ZEW-Forschungsgruppe „Marktdesign“ bietet über die Plattform <a href="https://kitamatch.com">KitaMatch</a> folgende Lösungen für die Umsetzung von zentralen Vergabeverfahren an.
 
 
 ***
@@ -216,27 +216,41 @@ Die <a href="http://www.zew.de/de/forschung/marktdesign/forschungsschwerpunkte/d
 
 ***
 
-#### Presse- und Forschungsberichte zum Thema
+#### Forschungsberichte zum Thema
 
 <p> </p>
 
-- [ Verdruss bei der Kitaplatz-Vergabe: Eltern drohen mit weiteren Klagen](http://www.wn.de/Muenster/3203115-Verdruss-bei-der-Kitaplatz-Vergabe-Eltern-drohen-mit-weiteren-Klagen), *Westfälische Nachrichten*, 1. März 2018.
+- [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
 
-- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* # 4, Oktober 2017.
+- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile* #26, February 2018.
 
-- [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *Ökonomenstimme*, 30. Juni 2017.
+- [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* #4, Oktober 2017.
+
+***
+
+#### Presseartikel 
+
+<p> </p>
+
+- [Können Algorithmen eine bessere Kitaplatzvergabe ermöglichen?](https://www.zew.de/das-zew/aktuelles/koennen-algorithmen-eine-bessere-kitaplatzvergabe-ermoeglichen), *ZEW Nachgefragt*, 25. Januar 2022.
+
+- [„Kita-Match“: Ein Kitaplatz per Algorithmus](https://www.wiwo.de/politik/deutschland/hilfreiche-software-kita-match-ein-kitaplatz-per-algorithmus/27890190.html), *WirtschaftsWoche*, 14. Dezember 2021.
+
+- [Marktdesign: Ökonomie ohne Elfenbeinturm](https://www.wiwo.de/my/politik/konjunktur/vwl-marktdesign-oekonomie-ohne-elfenbeinturm/25470414.html), *WirtschaftsWoche*, 25. Januar 2020.
+
+- [Gegen den Kita-Frust](https://www.faz.net/aktuell/wirtschaft/wie-ein-algorithmus-kitaplaetze-fairer-vergeben-soll-16510418.html), *Frankfurter Allgemeine Zeitung*, 30. November 2019.
 
 - [Raus aus der Kita-Warteschlange](http://www.faz.net/aktuell/wirtschaft/kinderbetreuung-raus-aus-der-kita-warteschlange-15053793.html), *Frankfurter Allgemeine Zeitung*, 18. Juni 2017.
 
-- [How Can Cities Handle the Stampede for Nursery Places?](http://www.zew.de/en/das-zew/aktuelles/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/), *ZEW News*, 3. Juli 2017.
-
-- [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/related-markets/), *Matching-in-Practice Country Profile* # 26, February 2018.
-
 ***
+
+#### Podcasts
+
+<p> </p>
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/458173203&color=%2300aabb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=true"></iframe>
 
-***
+
 
 
 
