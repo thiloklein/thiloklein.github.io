@@ -25,11 +25,13 @@ A major challenge in matching markets is designing allocation mechanisms in such
 				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="ggplot2" src="../images/researchers.png"></div>
+						<p> </p>
 						<hgroup>
 							<h5>
 								Researchers
 							</h5>
 						</hgroup>
+						<p> </p>
 					</header>
 					<div class="content">
 <p>R package <a href="https://matchingmarkets.org/">matchingMarkets</a> implements structural estimators to estimate preferences and to allow causal inference based on observed outcomes in matching markets. This includes one-sided matching of agents into groups as well as two-sided matching of students to schools. The package also contains algorithms to find stable matchings in the three most common matching problems: the stable roommates problem, the college admissions problem, and the house allocation problem.
@@ -46,11 +48,13 @@ A major challenge in matching markets is designing allocation mechanisms in such
 				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="maps" src="../images/developers.png"></div>
+						<p> </p>
 						<hgroup>
 							<h5>
 								Developers
 							</h5>
 						</hgroup>
+						<p> </p>
 					</header>
 					<div class="content">
 <p><a href="https://matchingtools.com">MatchingTools API</a> is an application programming interface that provides access to the most commonly used matching algorithms. It is based on the well-documented, tried and tested software implementation in R package matchingMarkets. Taking preference lists of market participants as input, the algorithms return matchings in JSON open standard file format. <!--The documentation below is written using the OpenAPI/Swagger specification.-->
@@ -67,11 +71,13 @@ A major challenge in matching markets is designing allocation mechanisms in such
 				<article class="span3">
 					<header>
 						<div class="thumbnail"><img alt="pyramids" src="../images/users.png"></div>
+						<p> </p>
 						<hgroup>
 							<h5>
 								Users/Administrators
 							</h5>
 						</hgroup>
+						<p> </p>
 					</header>
 					<div class="content">
 <p>The <a href="https://kitamatch.com/">KitaMatch</a> plattform provides documentation and a web application for matching schemes based on the most commonly used matching algorithms implemented in R package matchingMarkets.
