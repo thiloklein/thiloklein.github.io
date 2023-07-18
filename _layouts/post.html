@@ -7,9 +7,6 @@ group: Blog
 					<h1>
 						<a href="{{ site.baseurl }}{{ page.url }}" rel="bookmark" title="Permanent link">{{ page.title }}</a>
 					</h1>
-					<p class="meta">
-						<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: site.date_format }}</time>
-					</p>
 				</header>
 				<div class="content">
 {{ content }}
