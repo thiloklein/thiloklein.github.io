@@ -19,11 +19,11 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- The Cost of Strategy-Proofness in School Choice, *Games and Economic Behavior*, 2023. (with J. Ortega)
+- [The Cost of Strategy-Proofness in School Choice](https://doi.org/10.1016/j.geb.2023.07.008), *Games and Economic Behavior*, 2023. (with J. Ortega)
 
 - School Choice with Independent versus Consolidated Districts, *Games and Economic Behavior* (*revision requested*), 2023. (with R. Aue and J. Ortega)
 
-- Effiziente und faire Verteilung von Lebensmittelspenden, *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2023. (with M. Ott)
+- [Effiziente und faire Verteilung von Lebensmittelspenden](https://www.wirtschaftsdienst.eu/archiv/jahr/2023/heft/8.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2023. (with M. Ott)
 
 - [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
 
@@ -36,7 +36,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- Analysis of Stable Matchings in R: Package matchingMarkets, *Vignette to R package matchingMarkets*, 2023. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
+- [Analysis of Stable Matchings in R: Package matchingMarkets](https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf), *Vignette to R package matchingMarkets*, 2023. <!-- The `matchingMarkets` package contains `R` and `C++` code for the estimation of structural models that correct for the sample selection bias of observed outcomes in matching markets. Matching is concerned with who transacts with whom, and how. For example, who works at which job, which students go to which school, who forms a workgroup with whom, and so on. The empirical analysis of matching markets is naturally subject to sample selection problems.  If agents match assortatively on characteristics unobserved to the analyst but correlated with both the exogenous variable and the outcome of interest, regression estimates will generally be biased. The package further implements matching algorithms such as the deferred-acceptance algorithm for college admissions, the top-trading-cycles algorithm for house allocation and a partitioning linear program for the roommates problem. -->
 
 - Matching for Credit: Testing Market Rules Across Models of Joint-Liability Lending, 2023.
 
@@ -44,7 +44,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 - [What Happens when Separate and Unequal School Districts Merge?](https://www.zew.de/publikationen/what-happens-when-separate-and-unequal-school-districts-merge), *ZEW Discussion Paper 20-032*, 2020. (with R. Aue and J. Ortega)
 
-- matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings, *R package*, 2017.
+- [matchingMarkets: Structural Estimators and Algorithms for the Analysis of Stable Matchings](https://cran.r-project.org/web/packages/matchingMarkets/index.html), *R package*, 2017.
 
 - [Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans](https://www.econstor.eu/bitstream/10419/172525/1/1009650815.pdf), *ZEW Discussion Paper 17-073*, 2017.
 
@@ -60,13 +60,13 @@ My research interest is in market design, with a specific focus on matching mark
 
 - [Matching Practices for Trainee Teachers in Germany](http://www.matching-in-practice.eu/matching-practices-for-trainee-teachers-germany/), *Matching-in-Practice Country Profile #28*, 2019. (with P. vom Baur)
 
-- Matching for Microcredit – Market Design Approaches to Financial Integration, *ZEW News*, 12 December 2018.
+- [Matching for Microcredit – Market Design Approaches to Financial Integration](https://ftp.zew.de/pub/zew-docs/zn/en/zn11122018.pdf#page=4), *ZEW News*, December 2018.
 
-- How Market Design Can Make Food Donations More Efficient, *ZEW News*, 8 July 2018.
+- [How Market Design Can Make Food Donations More Efficient](https://ftp.zew.de/pub/zew-docs/zn/en/zn07082018.pdf#page=3), *ZEW News*, July 2018.
 
 - [Matching Practices for Childcare in Germany](http://www.matching-in-practice.eu/matching-practices-for-childcare-germany/), *Matching-in-Practice Country Profile #26*, 2018. (with S. Herzog)
 
-- How Can Cities Handle the Stampede for Nursery Places?, *ZEW News*, 3 July 2017.
+- [How Can Cities Handle the Stampede for Nursery Places?](https://www.zew.de/en/zew/news/how-can-cities-handle-the-stampede-for-nursery-places), *ZEW News*, July 2017.
 
 ***
 
@@ -76,13 +76,13 @@ My research interest is in market design, with a specific focus on matching mark
 
 - [Mit Digitalisierung gegen Lebensmittelverschwendung](https://ftp.zew.de/pub/zew-docs/policybrief/de/pb09-23.pdf), *ZEW Policy Brief #9*, 2023. (with M. Ott)
 
-- Matching für Mikrokredite – Finanzielle Integration durch Marktdesign-Ansätze, *Ökonomenstimme*, 10 Dezember 2018.
+- [Matching für Mikrokredite – Finanzielle Integration durch Marktdesign-Ansätze](https://ftp.zew.de/pub/zew-docs/zn/zn1118.pdf#page=8), *ZEW News*, November 2018.
 
-- Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassen, *Ökonomenstimme*, 22 May 2018.
+- [Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassen](https://ftp.zew.de/pub/zew-docs/zn/zn0518.pdf#page=8), *ZEW News*, Mai 2018.
 
 - [Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden](https://www.econstor.eu/bitstream/10419/171332/1/1004717962.pdf), *ZEW policy brief* #4, October 2017. (with N. Fugger and T. Riehm)
 
-- Wie Städte dem Ansturm auf Kindertagesstätten begegnen können, *Ökonomenstimme*, 30 June 2017.
+- [Wie Städte dem Ansturm auf Kindertagesstätten begegnen können](https://ftp.zew.de/pub/zew-docs/zn/zn0617.pdf#page=8), *ZEW News*, Juni 2017.
 
 ***
 
@@ -118,9 +118,9 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- How Big Data Generated by Companies Can Be Used to Protect the Environment, *ZEW News*, Economic Policy Analysis, Issue 02/2018.
+- [How Big Data Generated by Companies Can Be Used to Protect the Environment](https://ftp.zew.de/pub/zew-docs/zn/en/zn01022018.pdf#page=5), *ZEW News*, Economic Policy Analysis, Issue 02/2018.
 
-- Wie sich Big Data weltweit für den Klimaschutz einsetzen lässt, *ZEW News*, Wirtschaftspolitische Analyse, Ausgabe 12/2017.
+- [Wie sich Big Data weltweit für den Klimaschutz einsetzen lässt](https://ftp.zew.de/pub/zew-docs/zn/zn1217.pdf#page=8), *ZEW News*, Wirtschaftspolitische Analyse, Ausgabe 12/2017.
 
 - [How to Measure Global Statistical Literacy](http://www.oecd.org/std/theoecdstatisticsnewsletter-allissues.htm), *OECD Statistics Newsletter*, Issue 66, 2017.
 
