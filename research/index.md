@@ -23,9 +23,11 @@ My research interest is in market design, with a specific focus on matching mark
 
 - School Choice with Independent versus Consolidated Districts, *Games and Economic Behavior* (*revision requested*), 2023. (with R. Aue and J. Ortega)
 
-- [Effiziente und faire Verteilung von Lebensmittelspenden](https://www.wirtschaftsdienst.eu/archiv/jahr/2023/heft/8.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2023. (with M. Ott)
-
 - [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
+
+- [Alleinerziehende in der Betreuungsplatzvergabe: Status quo und Handlungsempfehlungen](https://www.wirtschaftsdienst.eu/inhalt/jahr/2024/heft/5/beitrag/alleinerziehende-in-der-betreuungsplatzvergabe-status-quo-und-handlungsempfehlungen.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2024. (with H. Steinberg, S. Schüller, Y. Öztürk and P. Schober)
+
+- [Effiziente und faire Verteilung von Lebensmittelspenden](https://www.wirtschaftsdienst.eu/inhalt/jahr/2023/heft/8/beitrag/effiziente-und-faire-verteilung-von-lebensmittelspenden.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2023. (with M. Ott)
 
 - [Die Regeln machen den Unterschied: Marktdesign](https://elibrary.vahlen.de/10.15358/0340-1650-2019-4-22/die-regeln-machen-den-unterschied-marktdesign-jahrgang-48-2019-heft-4), *Wirtschaftswissenschaftliches Studium*, 2019. (with V. Gretschko and A. Wambach)
 
