@@ -19,9 +19,9 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [The Cost of Strategy-Proofness in School Choice](https://doi.org/10.1016/j.geb.2023.07.008), *Games and Economic Behavior*, 2023. (with J. Ortega)
-
 - [School Choice with Independent versus Consolidated Districts](https://doi.org/10.1016/j.geb.2024.07.003), *Games and Economic Behavior*, 2024. (with R. Aue and J. Ortega)
+
+- [The Cost of Strategy-Proofness in School Choice](https://doi.org/10.1016/j.geb.2023.07.008), *Games and Economic Behavior*, 2023. (with J. Ortega)
 
 - [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
 
