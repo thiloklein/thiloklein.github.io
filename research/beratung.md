@@ -232,6 +232,8 @@ Die ZEW-Forschungsgruppe „Marktdesign“ bietet über die Plattform <a href="h
 
 <p> </p>
 
+- [Algorithmus sucht passenden Kitaplatz](https://background.tagesspiegel.de/smart-city/algorithmus-sucht-passenden-kitaplatz), *Tagesspiegel*, 10. August 2023.
+
 - [Können Algorithmen eine bessere Kitaplatzvergabe ermöglichen?](https://www.zew.de/das-zew/aktuelles/koennen-algorithmen-eine-bessere-kitaplatzvergabe-ermoeglichen), *ZEW Nachgefragt*, 25. Januar 2022.
 
 - [„Kita-Match“: Ein Kitaplatz per Algorithmus](https://www.wiwo.de/politik/deutschland/hilfreiche-software-kita-match-ein-kitaplatz-per-algorithmus/27890190.html), *WirtschaftsWoche*, 14. Dezember 2021.
