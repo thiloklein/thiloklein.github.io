@@ -57,7 +57,7 @@ navbar_list:
 - name: Beratung
   link: /research/beratung/index.html
 - name: CV
-  link: /research/cv_ThiloKLEIN.pdf
+  link: /research/cv_ThiloKLEIN_.pdf
 
 #  dropdown: &dropdown
 #  - name: Econometrics
