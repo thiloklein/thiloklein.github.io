@@ -25,7 +25,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 - [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
 
-- [Mit Ungeduld zu besseren umweltfreundlichen Subventionen](http://klein.uk/research/index.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2025. (with G. Caspari, A. Hillenbrand, A. Atayev)
+- Mit Ungeduld zu besseren umweltfreundlichen Subventionen, *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2025. (with A. Atayev, G. Caspari, A. Hillenbrand)
 
 - [Alleinerziehende in der Betreuungsplatzvergabe: Status quo und Handlungsempfehlungen](https://www.wirtschaftsdienst.eu/inhalt/jahr/2024/heft/5/beitrag/alleinerziehende-in-der-betreuungsplatzvergabe-status-quo-und-handlungsempfehlungen.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2024. (with H. Steinberg, S. Schüller, Y. Öztürk and P. Schober)
 
@@ -40,7 +40,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
-- [Sorting, Status, and Shadow Education: How Track Placement Shapes Parental Investment](http://klein.uk/research/index.html), *ZEW Discussion Paper 25-0xx*, 2025. (with S. McNamara)
+- [Sorting, Status, and Shadow Education: How Track Placement Shapes Parental Investment](https://ftp.zew.de/pub/zew-docs/dp/dp25023.pdf), *ZEW Discussion Paper 25-023*, 2025. (with S. McNamara)
 
 - [Access, Achievements, and Aspirations: The Impacts of School Tracking on Student Outcomes](https://ftp.zew.de/pub/zew-docs/dp/dp24076.pdf), *ZEW Discussion Paper 24-076*, 2024. (with M. Bach and S. McNamara)
 
