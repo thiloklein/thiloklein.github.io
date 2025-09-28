@@ -25,7 +25,7 @@ My research interest is in market design, with a specific focus on matching mark
 
 - [A deferred acceptance mechanism for decentralized, fast and fair childcare assignment](http://www.mechanism-design.org/arch/v006-1/p_03.pdf), *Journal of Mechanism and Institution Design*, 2021. (with T. Reischmann and  S. Giegerich)
 
-- [Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige Schulsystem](#), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2025. (with S. McNamara)
+- [Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige Schulsystem](https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/9/beitrag/folgen-zu-frueher-leistungsdifferenzierung-lehren-aus-ungarn-fuer-das-deutsche-schulsystem.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2025. (with S. McNamara)
 
 - [Mit Ungeduld zu besseren umweltfreundlichen Subventionen](https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/6/beitrag/mit-ungeduld-zu-besseren-subventionen-fuer-umweltfreundliche-produkte.html), *Wirtschaftsdienst -- Zeitschrift für Wirtschaftspolitik*, 2025. (with A. Atayev, G. Caspari, A. Hillenbrand)
 
