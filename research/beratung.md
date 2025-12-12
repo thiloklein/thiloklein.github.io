@@ -250,10 +250,6 @@ Die ZEW-Forschungsgruppe „Marktdesign“ bietet über die Plattform <a href="h
 
 <p> </p>
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/458173203&color=%2300aabb&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=true"></iframe>
-
-<p> </p>
-
 <script class="podigee-podcast-player" src="https://player.podigee-cdn.net/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://wirtschaft-forschung-debatten.podigee.io/36-auf-die-platze-fertig-los-so-gelingt-die-kitaplatzvergabe/embed?context=external"></script>
 
 
