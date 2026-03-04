@@ -57,7 +57,7 @@ A major challenge in matching markets is designing allocation mechanisms in such
 						<p> </p>
 					</header>
 					<div class="content">
-<p><a href="https://matchingtools.com">MatchingTools API</a> is an application programming interface that provides access to the most commonly used matching algorithms. It is based on the well-documented, tried and tested software implementation in R package matchingMarkets. Taking preference lists of market participants as input, the algorithms return matchings in JSON open standard file format. <!--The documentation below is written using the OpenAPI/Swagger specification.-->
+<p><a href="https://api.matchingmarkets.org">MatchingMarkets API</a> is an application programming interface that provides access to the most commonly used matching algorithms. It is based on the well-documented, tried and tested software implementation in R package matchingMarkets. Taking preference lists of market participants as input, the algorithms return matchings in JSON open standard file format. <!--The documentation below is written using the OpenAPI/Swagger specification.-->
 </p>
 					</div>
 					<footer>
@@ -80,7 +80,7 @@ A major challenge in matching markets is designing allocation mechanisms in such
 						<p> </p>
 					</header>
 					<div class="content">
-<p>The <a href="https://kitamatch.com/">KitaMatch</a> plattform provides documentation and a web application for matching schemes based on the most commonly used matching algorithms implemented in R package matchingMarkets.
+<p>The <a href="https://matchingtools.de/kitamatch/">KitaMatch</a> software, hosted by MatchingTools GmbH provides a web application for childcare allocation and is based on matching algorithms implemented in R package matchingMarkets.
 </p>
 					</div>
 					<footer>
