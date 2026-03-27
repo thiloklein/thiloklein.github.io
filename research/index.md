@@ -42,6 +42,8 @@ My research interest is in market design, with a specific focus on matching mark
 
 <p> </p>
 
+- [Experimental School Choice with Parents](https://arxiv.org/abs/2603.24615), *arXiv:2603.24615*, 2026. (with M. Freer and J. Ortega)
+
 - [Sorting, Status, and Shadow Education: How Track Placement Shapes Parental Investment](https://ftp.zew.de/pub/zew-docs/dp/dp25023.pdf), *ZEW Discussion Paper 25-023*, 2025. (with S. McNamara)
 
 - [Access, Achievements, and Aspirations: The Impacts of School Tracking on Student Outcomes](https://ftp.zew.de/pub/zew-docs/dp/dp24076.pdf), *ZEW Discussion Paper 24-076*, 2024. (with M. Bach and S. McNamara)
