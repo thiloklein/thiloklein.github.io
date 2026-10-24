@@ -47,7 +47,8 @@ for (const [old, target] of Object.entries(R)) {
   ensureDirSync(join(file, ".."));
   Deno.writeTextFileSync(file, `<!DOCTYPE html>
 <html lang="de"><head><meta charset="utf-8">
-<title>Weitergeleitet</title>
+<title>Umgezogen: ${target}</title>
+<meta name="description" content="Die frühere Adresse /${old} ist umgezogen nach https://klein.uk${target}.">
 <link rel="canonical" href="https://klein.uk${target}">
 <meta http-equiv="refresh" content="0; url=${target}">
 <meta name="robots" content="noindex">

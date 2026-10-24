@@ -1,6 +1,6 @@
 ---
 pagetitle: "Environmental subsidies"
-description: "How subsidy programmes for eco-friendly products can better reach households that would not buy without support."
+description: "How waiting times make subsidies for eco-friendly products better targeted: fewer windfall gains, more impact per euro. Approach, project and materials."
 ---
 
 ::: {.app}

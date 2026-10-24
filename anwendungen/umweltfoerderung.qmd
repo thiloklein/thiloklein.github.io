@@ -1,6 +1,6 @@
 ---
 pagetitle: "Umweltförderung"
-description: "Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden."
+description: "Wie Wartezeiten Förderprogramme für umweltfreundliche Produkte zielgenauer machen: weniger Mitnahmeeffekte, mehr Wirkung je Euro. Ansatz und Materialien."
 ---
 
 ::: {.app}

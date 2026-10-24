@@ -1,6 +1,6 @@
 ---
 pagetitle: "Lebensmittelspenden"
-description: "Wie Echtzeitdaten und Marktdesign helfen, Lebensmittelspenden gerechter zu verteilen und Verschwendung zu vermeiden."
+description: "Wie Echtzeitdaten und Marktdesign Lebensmittelspenden gerechter an die Tafeln verteilen: eco-Plattform und TafelConnect, Ansatz, Kennzahlen und Materialien."
 ---
 
 ::: {.app}

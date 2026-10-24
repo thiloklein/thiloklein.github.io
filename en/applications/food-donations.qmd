@@ -1,6 +1,6 @@
 ---
 pagetitle: "Food donations"
-description: "How real-time data and market design help allocate food donations more fairly and reduce waste."
+description: "How real-time data and market design allocate food donations to food banks more fairly: the eco-Plattform and TafelConnect projects, approach and materials."
 ---
 
 ::: {.app}

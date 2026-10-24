@@ -1,5 +1,6 @@
 ---
-pagetitle: "Impressum und Datenschutz – Thilo Klein"
+pagetitle: "Impressum und Datenschutz"
+description: "Impressum und Datenschutzerklärung der Website von Prof. Dr. Thilo Klein, Hochschule Pforzheim: Anbieterangaben, Hosting über GitHub Pages, keine Cookies."
 ---
 ::: {.page-head}
 [Rechtliches]{.eyebrow}

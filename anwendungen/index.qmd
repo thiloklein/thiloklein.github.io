@@ -1,6 +1,6 @@
 ---
 pagetitle: "Anwendungen"
-description: "Vergabeverfahren für Kitas und Schulen sowie Marktdesign für Lebensmittelspenden und Umweltförderung."
+description: "Vergabeverfahren für Kitas und Schulen, Marktdesign für Lebensmittelspenden und Umweltförderung: Anwendungen, Kennzahlen und Ablauf einer Zusammenarbeit."
 ---
 
 ::: {.app}

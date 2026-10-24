@@ -21,60 +21,67 @@
     "text": "Privacy\nThis website is hosted on GitHub Pages, a service of GitHub Inc., San Francisco, USA. When you visit the site, GitHub processes technically necessary connection data, in particular your IP address, the time of access and the page requested, in order to deliver the site and keep it secure. The legal basis is Art. 6(1)(f) GDPR. Transfers to the USA take place under the EU-US Data Privacy Framework, in which GitHub participates.\nThis website sets no cookies, uses no analytics or tracking services and embeds no third-party content. Fonts are served from this site.\nYou have the right to access, rectify, erase and restrict the processing of your data and to object to processing, as well as the right to lodge a complaint with a data protection supervisory authority."
   },
   {
-    "objectID": "en/applications/teacher-traineeship.html",
-    "href": "en/applications/teacher-traineeship.html",
-    "title": "Teacher traineeship",
+    "objectID": "en/applications/schools.html",
+    "href": "en/applications/schools.html",
+    "title": "School places",
     "section": "",
-    "text": "Application\n\n\n\nAssigning trainee teachers to training seminars and schools when many constraints apply at once."
+    "text": "Application\n\n\n\nWhich procedures best meet preferences, what parents actually do and what early tracking does.\n\n\n\n\n\n\n\n\n\nunder 3%\ninstead of 15% placed only at their fourth-ranked school or lower (Budapest)\n\n\n5 km\ngain from joint allocation, measured as a school that much closer\n\n\n540\nparents and students in the school choice experiment\n\n\n\nFindings Materials Publications\n\n\n\nStarting point\n\n\nAt the transition to secondary school, popular schools are often oversubscribed. How places are then allocated determines how many families get their preferred school, whether strategic behaviour pays off and who ends up disadvantaged.\n\n\n\nApproach\n\n\nA comparison of allocation mechanisms using administrative data and experiments, and an analysis of what tracking into school types means for achievement and opportunity.\n\n\n\n\n\n\n\nMechanisms\n\n\nThe widely used Deferred Acceptance mechanism makes truthful reporting the best strategy, but in Budapest places almost one child in seven at their fourth-ranked school or lower. A mechanism that explicitly minimises poor placements reduces this share to under three per cent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIn an experiment with 324 parents and 216 students, all mechanisms were frequently manipulated, including the one considered strategy-proof. The advantages of the more efficient mechanism nonetheless largely persisted.\nWorking paper, 2026\n\n\n\nDistricts\n\n\nWhen school districts merge their allocation, everyone gains on average, especially families from small districts with sought-after schools. In Hungary the gain is equivalent to a school five kilometres closer.\nGames and Economic Behavior, 2024\n\n\n\nTracking\n\n\nAttending an academic-track school improves achievement and university aspirations, at least as much for disadvantaged children as for others. These children are less likely to get there; early and rigid tracking can therefore amplify inequality.\nWorking papers, 2024 and 2025\n\n\n\n\n\n\n\n\nPolicy brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025\n\n\n\nPractitioner article\n\n\nLessons from Hungary for Germany’s three-tier school system.\nWirtschaftsdienst, 2025, German\n\n\n\nReport\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW research report, 2020\n\n\n\nPodcast\n\n\nOn early tracking, in conversation with secondary school pupils from Mannheim.\nZEW podcast, September 2026, German\n\n\n\n\n\nCoverage is in German.\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Article on early trackingFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nMore press coverage (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe\n\n\n\n\nShow list\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  I am happy to discuss what the research means for your admission rules.\n  Send an email"
   },
   {
-    "objectID": "en/applications/teacher-traineeship.html#the-problem",
-    "href": "en/applications/teacher-traineeship.html#the-problem",
-    "title": "Teacher traineeship",
-    "section": "The problem",
-    "text": "The problem\nIn Germany, newly qualified teachers complete a practical traineeship (Referendariat), an entry-level labour market. Each year, many trainees must be assigned to training seminars and schools. Many constraints apply at once: subject combinations must match a school’s needs, seminars have limited capacity, and personal circumstances such as place of residence or family should be taken into account. If these constraints are handled one after another, assignments easily arise that could be improved by a simple swap."
-  },
-  {
-    "objectID": "en/applications/teacher-traineeship.html#the-procedure",
-    "href": "en/applications/teacher-traineeship.html#the-procedure",
-    "title": "Teacher traineeship",
-    "section": "The procedure",
-    "text": "The procedure\n\n\n  Teacher traineeship allocation: trainees are assigned to training seminars and schools subject to subject combinations, seminar capacity and school demand by subject at the same time.\n  \n  \n  Trainees\n  subjects\n  Seminars\n  capacity\n  Schools\n  demand by subject\n\nSchematic: trainees are assigned to schools via training seminars. Two assignments are highlighted.\n\nFor the conditions in Baden-Württemberg, a Top Trading Cycles mechanism adapted to these multidimensional constraints can be shown to guarantee stable and Pareto-efficient assignments. No one can be made better off without making someone else worse off, and justified claims to a place are not overridden.\n\nIn short\n\nAll constraints are considered simultaneously rather than in sequence.\nNo swap between two trainees could make both better off.\nOutcomes are transparent and can be explained to those affected.\n\n\nThe analysis is based on a comparison of allocation practice in Hesse and Baden-Württemberg."
-  },
-  {
-    "objectID": "en/applications/teacher-traineeship.html#publications",
-    "href": "en/applications/teacher-traineeship.html#publications",
-    "title": "Teacher traineeship",
-    "section": "Publications",
-    "text": "Publications\n1Matching Practices for Teaching Positions in Public Schools in GermanyMatching-in-Practice Country Profile 28 (2019) · T. Klein, P. vom Baur\n\nContact\nQuestions about teacher traineeship allocation: thilo.klein@hs-pforzheim.de"
-  },
-  {
-    "objectID": "en/applications/index.html",
-    "href": "en/applications/index.html",
-    "title": "For municipalities and government",
+    "objectID": "en/applications/schools.html#findings",
+    "href": "en/applications/schools.html#findings",
+    "title": "School places",
     "section": "",
-    "text": "Applications\n\n\n\nMany public services are allocated not by price but through applications, priorities and waiting lists. Well-designed procedures ensure that available places are fully used, preferences are met as far as possible and decisions remain transparent.\n\n\n\n\n\n\n\n\n\n10+ municipalities since 2019\n\n\nCoordinated allocation across all providers, including in Tübingen and Kaiserslautern.\nMore\n\n\n\n\n\n\nunder 3% instead of 15%\n\n\nWhich procedures best meet preferences, and what early tracking does.\nMore\n\n\n\n\n\n\n\n\n\n\n\n269 food banks connected\n\n\nReal-time allocation of surplus food to food bank outlets.\nMore\n\n\n\n\n\n\nWaiting as a filter\n\n\nSubsidy programmes that better reach households that would not buy without support.\nMore\n\n\n\n\n\n\n\n\nInitial conversation. Which places are allocated, under which rules, and where the problems lie.\nAnalysis. Evaluation of past allocation data and simulation of alternative rules.\nRule design. Priorities, quotas and special cases such as siblings, agreed with providers and within the legal framework.\nImplementation and evaluation. Introduction, usually as a pilot first, with accompanying evaluation.\n\nResearch and evaluation take place at Pforzheim University and ZEW. Software for day-to-day operation is provided by MatchingTools GmbH.\n\n  I am happy to answer questions about allocation procedures in your municipality or region.\n  Send an email"
+    "text": "Mechanisms\n\n\nThe widely used Deferred Acceptance mechanism makes truthful reporting the best strategy, but in Budapest places almost one child in seven at their fourth-ranked school or lower. A mechanism that explicitly minimises poor placements reduces this share to under three per cent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIn an experiment with 324 parents and 216 students, all mechanisms were frequently manipulated, including the one considered strategy-proof. The advantages of the more efficient mechanism nonetheless largely persisted.\nWorking paper, 2026\n\n\n\nDistricts\n\n\nWhen school districts merge their allocation, everyone gains on average, especially families from small districts with sought-after schools. In Hungary the gain is equivalent to a school five kilometres closer.\nGames and Economic Behavior, 2024\n\n\n\nTracking\n\n\nAttending an academic-track school improves achievement and university aspirations, at least as much for disadvantaged children as for others. These children are less likely to get there; early and rigid tracking can therefore amplify inequality.\nWorking papers, 2024 and 2025"
   },
   {
-    "objectID": "en/applications/index.html#allocation-in-education-and-labour-markets",
-    "href": "en/applications/index.html#allocation-in-education-and-labour-markets",
-    "title": "For municipalities and government",
-    "section": "Allocation in education and labour markets",
-    "text": "Allocation in education and labour markets\n\n\n\n\nChildcare places\nCoordinated allocation across providers. In use in Tübingen and Kaiserslautern, among others.\nMore\n\n\n\n\n\nSchool places\nProcedures and their effects at the transition to secondary school.\nMore"
-  },
-  {
-    "objectID": "en/applications/index.html#sustainable-market-design",
-    "href": "en/applications/index.html#sustainable-market-design",
-    "title": "For municipalities and government",
+    "objectID": "en/applications/schools.html#materials",
+    "href": "en/applications/schools.html#materials",
+    "title": "School places",
     "section": "",
-    "text": "269 food banks connected\n\n\nReal-time allocation of surplus food to food bank outlets.\nMore\n\n\n\n\n\n\nWaiting as a filter\n\n\nSubsidy programmes that better reach households that would not buy without support.\nMore"
+    "text": "Policy brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025\n\n\n\nPractitioner article\n\n\nLessons from Hungary for Germany’s three-tier school system.\nWirtschaftsdienst, 2025, German\n\n\n\nReport\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW research report, 2020\n\n\n\nPodcast\n\n\nOn early tracking, in conversation with secondary school pupils from Mannheim.\nZEW podcast, September 2026, German\n\n\n\n\n\nCoverage is in German.\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Article on early trackingFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nMore press coverage (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe"
   },
   {
-    "objectID": "en/applications/index.html#how-we-work-together",
-    "href": "en/applications/index.html#how-we-work-together",
-    "title": "For municipalities and government",
+    "objectID": "en/applications/schools.html#publications",
+    "href": "en/applications/schools.html#publications",
+    "title": "School places",
     "section": "",
-    "text": "Initial conversation. Which places are allocated, under which rules, and where the problems lie.\nAnalysis. Evaluation of past allocation data and simulation of alternative rules.\nRule design. Priorities, quotas and special cases such as siblings, agreed with providers and within the legal framework.\nImplementation and evaluation. Introduction, usually as a pilot first, with accompanying evaluation.\n\nResearch and evaluation take place at Pforzheim University and ZEW. Software for day-to-day operation is provided by MatchingTools GmbH.\n\n  I am happy to answer questions about allocation procedures in your municipality or region.\n  Send an email"
+    "text": "Show list\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  I am happy to discuss what the research means for your admission rules.\n  Send an email"
+  },
+  {
+    "objectID": "en/applications/food-donations.html",
+    "href": "en/applications/food-donations.html",
+    "title": "Food donations",
+    "section": "",
+    "text": "Application\n\n\n\nHow real-time data and market design help allocate donations more fairly and reduce waste.\n\n\n\n\n\n\n\n\n\n269 of 975\nfood banks in Germany are connected to the eco-Plattform (2026)\n\n\n265,000 t\nof food rescued by German food banks each year\n\n\n2019–2026\ntwo projects funded by the Federal Ministry of Food and Agriculture\n\n\n\nApproach Projects Materials Publications\n\n\n\nStarting point\n\n\nFood banks depend on donations from retailers and producers whose quantity and type are hard to predict. Some outlets receive more than they can distribute while others have too little. What is not passed on in time goes to waste.\n\n\n\nApproach\n\n\nA shared digital platform makes donation offers visible in real time. Surpluses can then be redistributed between outlets at no extra cost: needs are met more equitably and less food is wasted.\n\n\n\n\n\n\nReport offers. Retailers, manufacturers and wholesalers report surplus food as soon as it arises.\nMatch needs. The platform makes offers visible to the outlets that need them and can collect them.\nRedistribute. Surpluses go where need is greatest, at no extra cost.\n\nOne model is the US organisation Feeding America, where regional food banks bid for large donations using an internal currency; the resulting prices reveal where which foods are needed. After its introduction, total donations rose substantially.\n\n\n\n\n\n2019–2023\n\n\nMarket design for food donations from retailers. Today 269 of the 975 food banks in Germany are connected to the platform.\nFunded by the Federal Ministry of Food and Agriculture\n\n\n\n2023–2026\n\n\nMarket design for donations from producers and wholesalers.\nFunded by the Federal Ministry of Food and Agriculture\n\n\n\n\n\n\n\n\nPolicy brief\n\n\nHow digital platforms improve the allocation of donations.\nZEW, 2023, German\n\n\n\nPractitioner article\n\n\nMarket design for food banks.\nWirtschaftsdienst, 2023, German\n\n\n\n\n\nCoverage is in German.\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, also in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nMore press coverage (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen\n\n\n\n\nShow list\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  I am happy to share experience from eco-Plattform and TafelConnect.\n  Send an email"
+  },
+  {
+    "objectID": "en/applications/food-donations.html#approach",
+    "href": "en/applications/food-donations.html#approach",
+    "title": "Food donations",
+    "section": "",
+    "text": "Report offers. Retailers, manufacturers and wholesalers report surplus food as soon as it arises.\nMatch needs. The platform makes offers visible to the outlets that need them and can collect them.\nRedistribute. Surpluses go where need is greatest, at no extra cost.\n\nOne model is the US organisation Feeding America, where regional food banks bid for large donations using an internal currency; the resulting prices reveal where which foods are needed. After its introduction, total donations rose substantially."
+  },
+  {
+    "objectID": "en/applications/food-donations.html#projects",
+    "href": "en/applications/food-donations.html#projects",
+    "title": "Food donations",
+    "section": "",
+    "text": "2019–2023\n\n\nMarket design for food donations from retailers. Today 269 of the 975 food banks in Germany are connected to the platform.\nFunded by the Federal Ministry of Food and Agriculture\n\n\n\n2023–2026\n\n\nMarket design for donations from producers and wholesalers.\nFunded by the Federal Ministry of Food and Agriculture"
+  },
+  {
+    "objectID": "en/applications/food-donations.html#materials",
+    "href": "en/applications/food-donations.html#materials",
+    "title": "Food donations",
+    "section": "",
+    "text": "Policy brief\n\n\nHow digital platforms improve the allocation of donations.\nZEW, 2023, German\n\n\n\nPractitioner article\n\n\nMarket design for food banks.\nWirtschaftsdienst, 2023, German\n\n\n\n\n\nCoverage is in German.\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, also in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nMore press coverage (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen"
+  },
+  {
+    "objectID": "en/applications/food-donations.html#publications",
+    "href": "en/applications/food-donations.html#publications",
+    "title": "Food donations",
+    "section": "",
+    "text": "Show list\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  I am happy to share experience from eco-Plattform and TafelConnect.\n  Send an email"
   },
   {
     "objectID": "en/applications/childcare.html",
@@ -84,18 +91,11 @@
     "text": "Application\n\n\n\nCoordinated allocation across all providers: fewer multiple offers, faster placement, transparent criteria.\n\n\n\n\n\n\n\n\n\n10+\nmunicipalities use the procedure\n\n\n3\nGerman states\n\n\nsince 2019\nin operation\n\n\n1 week\nfor the coordinated allocation\n\n\n\nProcedure In use Materials Publications\n\n\n\nStarting point\n\n\nParents apply to several childcare centres at once, and each centre allocates its places on its own. Some families hold several offers while others wait, even though places would be available. The shortage looks larger than it is, and centre managers spend weeks working through waiting lists.\n\n\n\nApproach\n\n\nA shared procedure coordinates which centre makes an offer to which family, and when. Providers keep their own admission criteria; the procedure only ensures that offers are not blocked and that released places are passed on immediately.\n\n\n\n\n\n\nState preferences. Parents list several preferred childcare centres in order through a central registration.\nApply priorities. Each centre ranks its applications by its own admission criteria, such as age, siblings or place of residence.\nCoordinate offers. Families receive offers over several rounds. Each family holds at most one offer; if it accepts a better one, the previous place is released immediately.\nPass on free places. Released places go to the next suitable family in the following round, until no further improvement is possible.\n\n\nWhat the procedure guarantees\n\nNo family holds more than one place at a time.\nNo place stays empty while a family prefers it to its current offer and has priority under the centre’s criteria.\nListing additional preferences does not reduce the chance of getting one’s first choice.\nProviders continue to decide according to their own criteria.\n\n\nThe procedure does not create new places. It does ensure that existing places are allocated quickly and according to need, and it shows how many places are actually missing locally. It is based on an iterative deferred acceptance mechanism that also works in a decentralised way.\n\n\n\nUnder the name KitaMatch, the procedure is used in more than ten municipalities in three German states. In 2022 the ZEW Sponsors’ Association recognised the project as the best economic policy advisory project at ZEW.\n\n\nsince 2024\n\n\nThe university city has allocated its childcare places with KitaMatch since the main allocation round for the 2024/25 year. Registration runs through a central office; parents list several preferred centres in order.\n\n\n\nsince 2019\n\n\nThe city was among the first municipalities to allocate childcare places in a coordinated way across all providers.\n\n\n\nsince 2019\n\n\nAllocation in the Steinfurt district has run on KitaMatch since 2019; experience there formed the basis of the public guide. Greven and Emsdetten use the procedure as well.\n\n\n\n\n\n\n\n\nGuide\n\n\nManual describing the process for youth welfare offices, providers and centre managers.\nZEW, 2026, German\n\n\n\nGuide\n\n\nA guide to fast, fair and transparent childcare allocation.\nBertelsmann Stiftung, 2023, German\n\n\n\nPractitioner article\n\n\nStatus quo and policy recommendations.\nWirtschaftsdienst, 2024, German\n\n\n\nPolicy brief\n\n\nA guide for municipalities.\nZEW, 2017, German\n\n\n\nPodcast\n\n\nHow childcare places can be allocated successfully.\nZEW podcast, German\n\n\n\nPodcast\n\n\nHow market design gets built for the public sector.\nGame Changer, May 2026\n\n\n\n\n\nCoverage is in German.\nTagesspiegel, 08/2023Algorithmus sucht passenden KitaplatzWirtschaftsWoche, 12/2021„Kita-Match“: Ein Kitaplatz per AlgorithmusFAZ, 11/2019Gegen den Kita-Frust\nMore press coverage (4)Die Zeit, 02/2021Article in Die ZeitWirtschaftsWoche, 01/2020Marktdesign: Ökonomie ohne ElfenbeinturmDie Rheinpfalz, 10/2018Article in Die RheinpfalzFAZ, 06/2017Raus aus der Kita-Warteschlange\n\n\n\n\nShow list\n6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm4A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. Giegerich3Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein2Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. Riehm1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. Klein\n\n\n  Planning a change or want your current procedure evaluated? Get in touch.\n  Send an email"
   },
   {
-    "objectID": "en/applications/childcare.html#the-problem",
-    "href": "en/applications/childcare.html#the-problem",
+    "objectID": "en/applications/childcare.html#procedure",
+    "href": "en/applications/childcare.html#procedure",
     "title": "Childcare places",
-    "section": "The problem",
-    "text": "The problem\nParents apply to several childcare centres at once, and each centre allocates its places on its own. Some families end up holding several offers while others wait, even though places would be available. The shortage looks larger than it is, and centre managers spend weeks working through waiting lists."
-  },
-  {
-    "objectID": "en/applications/childcare.html#the-procedure",
-    "href": "en/applications/childcare.html#the-procedure",
-    "title": "Childcare places",
-    "section": "The procedure",
-    "text": "The procedure\nIn coordinated allocation, providers keep their own admission criteria. A shared procedure only coordinates which centre makes an offer to which family, and when. It is based on an iterative deferred acceptance mechanism that also works in a decentralised way over several rounds.\n\nState preferences. Parents list several preferred childcare centres in order through a central registration.\nApply priorities. Each centre ranks its applications by its own admission criteria, such as age, siblings or place of residence.\nCoordinate offers. Families receive offers over several rounds. Each family holds at most one offer; if it accepts a better one, the previous place is released immediately.\nPass on free places. Released places go to the next suitable family in the following round, until no further improvement is possible.\n\n\nWhat the procedure guarantees\n\nNo family holds more than one place at a time.\nNo place stays empty while a family prefers it to its current offer and has priority under the centre’s criteria.\nListing additional preferences does not reduce the chance of getting one’s first choice.\nProviders continue to decide according to their own criteria.\n\n\nThe procedure does not create new places. It does ensure that existing places are allocated quickly and according to need, and it shows how many places are actually missing locally."
+    "section": "",
+    "text": "State preferences. Parents list several preferred childcare centres in order through a central registration.\nApply priorities. Each centre ranks its applications by its own admission criteria, such as age, siblings or place of residence.\nCoordinate offers. Families receive offers over several rounds. Each family holds at most one offer; if it accepts a better one, the previous place is released immediately.\nPass on free places. Released places go to the next suitable family in the following round, until no further improvement is possible.\n\n\nWhat the procedure guarantees\n\nNo family holds more than one place at a time.\nNo place stays empty while a family prefers it to its current offer and has priority under the centre’s criteria.\nListing additional preferences does not reduce the chance of getting one’s first choice.\nProviders continue to decide according to their own criteria.\n\n\nThe procedure does not create new places. It does ensure that existing places are allocated quickly and according to need, and it shows how many places are actually missing locally. It is based on an iterative deferred acceptance mechanism that also works in a decentralised way."
   },
   {
     "objectID": "en/applications/childcare.html#in-use",
@@ -105,18 +105,11 @@
     "text": "Under the name KitaMatch, the procedure is used in more than ten municipalities in three German states. In 2022 the ZEW Sponsors’ Association recognised the project as the best economic policy advisory project at ZEW.\n\n\nsince 2024\n\n\nThe university city has allocated its childcare places with KitaMatch since the main allocation round for the 2024/25 year. Registration runs through a central office; parents list several preferred centres in order.\n\n\n\nsince 2019\n\n\nThe city was among the first municipalities to allocate childcare places in a coordinated way across all providers.\n\n\n\nsince 2019\n\n\nAllocation in the Steinfurt district has run on KitaMatch since 2019; experience there formed the basis of the public guide. Greven and Emsdetten use the procedure as well."
   },
   {
-    "objectID": "en/applications/childcare.html#for-decision-makers",
-    "href": "en/applications/childcare.html#for-decision-makers",
+    "objectID": "en/applications/childcare.html#materials",
+    "href": "en/applications/childcare.html#materials",
     "title": "Childcare places",
-    "section": "For decision-makers",
-    "text": "For decision-makers\n\nDie KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente Kitaplatzvergabe, guide with Bertelsmann Stiftung, 2023 (German)\nSingle parents in childcare allocation, Wirtschaftsdienst, 2024 (German)\nDecentralised childcare allocation without queues: a guide, ZEW policy brief, 2017 (German)\nSoftware and support for day-to-day operation: MatchingTools"
-  },
-  {
-    "objectID": "en/applications/childcare.html#listen",
-    "href": "en/applications/childcare.html#listen",
-    "title": "Childcare places",
-    "section": "Listen",
-    "text": "Listen\n\nThe Missing Middle – How Market Design Gets Built for the Public Sector, Game Changer, May 2026\nOn Your Spots, Get Set, Go? How Day Care Spots Can Be Successfully Allocated, ZEW podcast"
+    "section": "",
+    "text": "Guide\n\n\nManual describing the process for youth welfare offices, providers and centre managers.\nZEW, 2026, German\n\n\n\nGuide\n\n\nA guide to fast, fair and transparent childcare allocation.\nBertelsmann Stiftung, 2023, German\n\n\n\nPractitioner article\n\n\nStatus quo and policy recommendations.\nWirtschaftsdienst, 2024, German\n\n\n\nPolicy brief\n\n\nA guide for municipalities.\nZEW, 2017, German\n\n\n\nPodcast\n\n\nHow childcare places can be allocated successfully.\nZEW podcast, German\n\n\n\nPodcast\n\n\nHow market design gets built for the public sector.\nGame Changer, May 2026\n\n\n\n\n\nCoverage is in German.\nTagesspiegel, 08/2023Algorithmus sucht passenden KitaplatzWirtschaftsWoche, 12/2021„Kita-Match“: Ein Kitaplatz per AlgorithmusFAZ, 11/2019Gegen den Kita-Frust\nMore press coverage (4)Die Zeit, 02/2021Article in Die ZeitWirtschaftsWoche, 01/2020Marktdesign: Ökonomie ohne ElfenbeinturmDie Rheinpfalz, 10/2018Article in Die RheinpfalzFAZ, 06/2017Raus aus der Kita-Warteschlange"
   },
   {
     "objectID": "en/applications/childcare.html#publications",
@@ -124,13 +117,6 @@
     "title": "Childcare places",
     "section": "",
     "text": "Show list\n6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm4A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. Giegerich3Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein2Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. Riehm1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. Klein\n\n\n  Planning a change or want your current procedure evaluated? Get in touch.\n  Send an email"
-  },
-  {
-    "objectID": "en/applications/childcare.html#in-the-press",
-    "href": "en/applications/childcare.html#in-the-press",
-    "title": "Childcare places",
-    "section": "In the press",
-    "text": "In the press\nGerman-language coverage includes Tagesspiegel Background (August 2023), WirtschaftsWoche (December 2021), Die Zeit (February 2021) and Frankfurter Allgemeine Zeitung (November 2019). See Media for the full list.\n\nContact\nPlanning a change or want your current procedure evaluated? thilo.klein@hs-pforzheim.de"
   },
   {
     "objectID": "en/index.html",
@@ -168,11 +154,11 @@
     "text": "Listen\n\n\n\n\nThe Missing Middle\nGame Changer, May 2026. How market design actually gets built for the public sector, using childcare allocation as the example.\nListen ↗\n\n\n\n\n\nHow are school places allocated?\nZEW podcast, September 2026, in German. On early tracking, in conversation with secondary school pupils from Mannheim.\nListen ↗\n\n\n\n\n\nOn Your Spots, Get Set, Go?\nZEW podcast, in German. How KitaMatch allocates childcare places faster and more fairly.\nListen ↗"
   },
   {
-    "objectID": "en/index.html#profile",
-    "href": "en/index.html#profile",
+    "objectID": "en/index.html#teaching-and-transfer",
+    "href": "en/index.html#teaching-and-transfer",
     "title": "Thilo Klein",
-    "section": "Profile",
-    "text": "Profile\n\n\nCareer\n\n\nEducation\n\n\nRoles and conflicts of interest\n\n\n\nResearch transfer\nI am a co-founder and scientific advisor at MatchingTools GmbH ↗, a ZEW spin-out. When evaluating procedures whose implementation involves MatchingTools, I disclose this connection."
+    "section": "Teaching and Transfer",
+    "text": "Teaching and Transfer\n\n\n\n\nCurrent teaching\n\nAnalysis and Linear Algebra\nInferential Statistics\nMultivariate Statistics\nData Analytics with R\nQuantitative Research Methodologies\n\n\n\n\n\n\nCurrent Projects\n\nMatchingTools, EXIST research transfer project, Federal Ministry of Economic Affairs and Energy, 2026–2027\nTafelConnect, Real-time allocation of surplus food to food bank, Federal Ministry of Food and Agriculture, 2023-2026.\n\n\n\n\n\n\nSoftware\n\nmatchingMarkets. R package with algorithms for matching markets, downloaded more than 100,000 times. Project page ↗, CRAN ↗.\nKitaMatch. Public guide (in German): Best practices for childcare allocation ↗; operated by MatchingTools ↗.\nMatchingMarkets API ↗ is an application programming interface for matching algorithms.\n\n\n\n\n\n\nResearch transfer\n\nCo-founder and scientific advisor at MatchingTools GmbH ↗, a ZEW spin-out. When evaluating procedures whose implementation involves MatchingTools, I disclose this connection.\nEXIST coordinator at Pforzheim Business School"
   },
   {
     "objectID": "medien.html",
@@ -203,32 +189,32 @@
     "text": "Für Redaktionen\nAnfragen zu Interviews und Hintergrundgesprächen: thilo.klein@hs-pforzheim.de. Ein Porträtfoto steht hier zur Verfügung."
   },
   {
-    "objectID": "anwendungen/referendariat.html",
-    "href": "anwendungen/referendariat.html",
-    "title": "Referendariat",
+    "objectID": "anwendungen/schule.html",
+    "href": "anwendungen/schule.html",
+    "title": "Schulplatzvergabe",
     "section": "",
-    "text": "Anwendung\n\n\n\nZuweisung von Lehramtsanwärterinnen und -anwärtern zu Seminaren und Schulen, wenn viele Bedingungen gleichzeitig gelten."
+    "text": "Anwendung\n\n\n\nWelche Verfahren Wünsche am besten erfüllen, was Eltern tatsächlich tun und welche Folgen die frühe Aufteilung auf Schularten hat.\n\n\n\n\n\n\n\n\n\nunter 3 %\nstatt 15 % erst an der vierten Wunschschule oder später (Budapest)\n\n\n5 km\nGewinn gemeinsamer Vergabe, gemessen als näher gelegene Schule\n\n\n540\nEltern und Studierende im Schulwahl-Experiment\n\n\n\nErgebnisse Materialien Publikationen\n\n\n\nAusgangslage\n\n\nBeim Übergang auf weiterführende Schulen sind beliebte Schulen oft überbucht. Wie Plätze dann vergeben werden, entscheidet darüber, wie viele Familien ihre Wunschschule erhalten, ob sich taktisches Verhalten lohnt und wer am Ende benachteiligt ist.\n\n\n\nAnsatz\n\n\nVergleich von Vergabeverfahren mit Verwaltungsdaten und Experimenten, und Analyse, was die Aufteilung auf Schularten für Leistungen und Bildungschancen bedeutet.\n\n\n\n\n\n\n\nVerfahren\n\n\nDas verbreitete Deferred-Acceptance-Verfahren macht ehrliche Angaben zur besten Strategie, platziert in Budapest aber fast jedes siebte Kind erst an der vierten Wunschschule oder später. Ein Verfahren, das schlechte Platzierungen gezielt minimiert, senkt diesen Anteil auf unter drei Prozent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIm Experiment mit 324 Eltern und 216 Studierenden wurden alle Verfahren häufig strategisch genutzt, auch das als manipulationssicher geltende. Die Vorteile des effizienteren Verfahrens blieben dennoch weitgehend erhalten.\nDiskussionspapier, 2026\n\n\n\nBezirke\n\n\nLegen Schulbezirke ihre Vergabe zusammen, gewinnen im Durchschnitt alle, besonders Familien aus kleinen Bezirken mit begehrten Schulen. In Ungarn entspricht der Gewinn einer um fünf Kilometer näheren Schule.\nGames and Economic Behavior, 2024\n\n\n\nSchularten\n\n\nEin Gymnasium verbessert Leistungen und Studienpläne, für Kinder aus benachteiligten Familien mindestens so stark wie für andere. Diese gelangen aber seltener dorthin; eine frühe und strenge Aufteilung kann Ungleichheit verstärken.\nDiskussionspapiere, 2024 und 2025\n\n\n\n\n\n\n\n\nPolicy Brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025, Englisch\n\n\n\nFachartikel\n\n\nLehren aus Ungarn für das dreigliedrige Schulsystem.\nWirtschaftsdienst, 2025\n\n\n\nBericht\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW Research Report, 2020\n\n\n\nPodcast\n\n\nÜber die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.\nZEW-Podcast, September 2026\n\n\n\n\n\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Beitrag zur frühen Aufteilung auf SchulartenFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nWeitere Presseberichte (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe\n\n\n\n\nListe anzeigen\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  Gern bespreche ich, was die Forschung für Ihre Vergaberegeln bedeutet.\n  E-Mail schreiben"
   },
   {
-    "objectID": "anwendungen/referendariat.html#das-problem",
-    "href": "anwendungen/referendariat.html#das-problem",
-    "title": "Referendariat",
-    "section": "Das Problem",
-    "text": "Das Problem\nDas Referendariat ist ein Einstiegsarbeitsmarkt: Jedes Jahr müssen viele Lehramtsanwärterinnen und -anwärter Seminaren und Ausbildungsschulen zugewiesen werden. Dabei gelten viele Bedingungen zugleich. Die Fächerkombination muss zum Bedarf der Schule passen, Seminare haben begrenzte Kapazitäten, und persönliche Umstände wie Wohnort oder Familie sollen berücksichtigt werden. Werden diese Bedingungen nacheinander abgearbeitet, entstehen leicht Zuweisungen, die sich durch einfachen Tausch verbessern ließen."
+    "objectID": "anwendungen/schule.html#ergebnisse",
+    "href": "anwendungen/schule.html#ergebnisse",
+    "title": "Schulplatzvergabe",
+    "section": "",
+    "text": "Verfahren\n\n\nDas verbreitete Deferred-Acceptance-Verfahren macht ehrliche Angaben zur besten Strategie, platziert in Budapest aber fast jedes siebte Kind erst an der vierten Wunschschule oder später. Ein Verfahren, das schlechte Platzierungen gezielt minimiert, senkt diesen Anteil auf unter drei Prozent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIm Experiment mit 324 Eltern und 216 Studierenden wurden alle Verfahren häufig strategisch genutzt, auch das als manipulationssicher geltende. Die Vorteile des effizienteren Verfahrens blieben dennoch weitgehend erhalten.\nDiskussionspapier, 2026\n\n\n\nBezirke\n\n\nLegen Schulbezirke ihre Vergabe zusammen, gewinnen im Durchschnitt alle, besonders Familien aus kleinen Bezirken mit begehrten Schulen. In Ungarn entspricht der Gewinn einer um fünf Kilometer näheren Schule.\nGames and Economic Behavior, 2024\n\n\n\nSchularten\n\n\nEin Gymnasium verbessert Leistungen und Studienpläne, für Kinder aus benachteiligten Familien mindestens so stark wie für andere. Diese gelangen aber seltener dorthin; eine frühe und strenge Aufteilung kann Ungleichheit verstärken.\nDiskussionspapiere, 2024 und 2025"
   },
   {
-    "objectID": "anwendungen/referendariat.html#das-verfahren",
-    "href": "anwendungen/referendariat.html#das-verfahren",
-    "title": "Referendariat",
-    "section": "Das Verfahren",
-    "text": "Das Verfahren\n\n\n  Zuweisung im Referendariat: Lehramtsanwärterinnen und -anwärter werden Seminaren und Schulen zugewiesen; dabei gelten Fächerkombination, Seminarkapazität und Bedarf je Schule und Fach gleichzeitig.\n  \n  \n  Anwärter:innen\n  Fächer\n  Seminare\n  Kapazität\n  Schulen\n  Bedarf je Fach\n\nSchematische Darstellung: Anwärterinnen und Anwärter werden über Seminare Schulen zugewiesen. Hervorgehoben sind zwei Zuweisungen.\n\nFür die Bedingungen in Baden-Württemberg lässt sich zeigen, dass ein Top-Trading-Cycles-Verfahren, das an diese mehrdimensionalen Bedingungen angepasst ist, stabile und Pareto-effiziente Zuweisungen garantiert. Niemand kann also besser gestellt werden, ohne dass jemand anderes schlechter gestellt wird, und berechtigte Ansprüche auf einen Platz werden nicht übergangen.\n\nKurz gesagt\n\nAlle Bedingungen werden gleichzeitig berücksichtigt statt nacheinander.\nKein Tausch zwischen zwei Anwärtern könnte beide besser stellen.\nDie Ergebnisse sind nachvollziehbar und lassen sich gegenüber Betroffenen begründen.\n\n\nDie Analyse beruht auf einem Vergleich der Vergabepraxis in Hessen und Baden-Württemberg."
+    "objectID": "anwendungen/schule.html#materialien",
+    "href": "anwendungen/schule.html#materialien",
+    "title": "Schulplatzvergabe",
+    "section": "",
+    "text": "Policy Brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025, Englisch\n\n\n\nFachartikel\n\n\nLehren aus Ungarn für das dreigliedrige Schulsystem.\nWirtschaftsdienst, 2025\n\n\n\nBericht\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW Research Report, 2020\n\n\n\nPodcast\n\n\nÜber die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.\nZEW-Podcast, September 2026\n\n\n\n\n\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Beitrag zur frühen Aufteilung auf SchulartenFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nWeitere Presseberichte (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe"
   },
   {
-    "objectID": "anwendungen/referendariat.html#publikationen",
-    "href": "anwendungen/referendariat.html#publikationen",
-    "title": "Referendariat",
-    "section": "Publikationen",
-    "text": "Publikationen\n1Matching Practices for Teaching Positions in Public Schools in GermanyMatching-in-Practice Country Profile 28 (2019) · T. Klein, P. vom Baur\n\nKontakt\nFragen zur Zuweisung im Referendariat: thilo.klein@hs-pforzheim.de"
+    "objectID": "anwendungen/schule.html#publikationen",
+    "href": "anwendungen/schule.html#publikationen",
+    "title": "Schulplatzvergabe",
+    "section": "",
+    "text": "Liste anzeigen\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  Gern bespreche ich, was die Forschung für Ihre Vergaberegeln bedeutet.\n  E-Mail schreiben"
   },
   {
     "objectID": "anwendungen/kita.html",
@@ -238,39 +224,25 @@
     "text": "Anwendung\n\n\n\nKoordinierte Vergabe über alle Träger: weniger Mehrfachzusagen, schnellere Besetzung, transparente Kriterien.\n\n\n\n\n\n\n\n\n\n10+\nKommunen nutzen das Verfahren\n\n\n3\nBundesländer\n\n\nseit 2019\nim Einsatz\n\n\n1 Woche\nfür die koordinierte Vergabe\n\n\n\nVerfahren Im Einsatz Materialien Publikationen\n\n\n\nAusgangslage\n\n\nEltern bewerben sich bei mehreren Kitas zugleich, und jede Einrichtung vergibt ihre Plätze für sich. Manche Familien halten mehrere Zusagen, andere warten, obwohl Plätze frei wären. Der Mangel erscheint größer, als er ist, und Kita-Leitungen verbringen Wochen mit Nachrückverfahren.\n\n\n\nAnsatz\n\n\nEin gemeinsames Verfahren stimmt ab, welche Kita welcher Familie wann ein Angebot macht. Die Träger behalten ihre Aufnahmekriterien; das Verfahren sorgt nur dafür, dass Angebote nicht blockiert werden und frei werdende Plätze sofort weitergehen.\n\n\n\n\n\n\nWünsche angeben. Eltern nennen über eine zentrale Anmeldung mehrere Wunsch-Kitas in ihrer Reihenfolge.\nKriterien anwenden. Jede Kita ordnet ihre Bewerbungen nach ihren eigenen Aufnahmekriterien, etwa Alter, Geschwister oder Wohnort.\nAngebote koordinieren. In mehreren Runden erhalten Familien Angebote. Jede Familie hält höchstens ein Angebot; nimmt sie ein besseres an, wird das vorige sofort frei.\nFreie Plätze weitergeben. Frei gewordene Plätze gehen in der nächsten Runde an die nächste passende Familie, bis keine Verbesserung mehr möglich ist.\n\n\nWas das Verfahren garantiert\n\nKeine Familie hält mehrere Plätze gleichzeitig.\nKein Platz bleibt frei, solange eine Familie ihn ihrem aktuellen Angebot vorzieht und nach den Kriterien der Kita Vorrang hätte.\nZusätzliche Wünsche verschlechtern nicht die Chancen auf den Erstwunsch.\nDie Träger entscheiden weiter selbst nach ihren Kriterien.\n\n\nDas Verfahren schafft keine neuen Plätze. Es sorgt aber dafür, dass die vorhandenen Plätze schnell und nach Bedarf vergeben werden, und es zeigt, wie viele Plätze vor Ort tatsächlich fehlen. Grundlage ist ein iteratives Deferred-Acceptance-Verfahren, das auch dezentral funktioniert.\n\n\n\nUnter dem Namen KitaMatch wird das Verfahren in mehr als zehn Kommunen in drei Bundesländern eingesetzt. 2022 zeichnete der ZEW-Förderkreis Wissenschaft und Praxis das Projekt als bestes wirtschaftspolitisches Beratungsprojekt des ZEW aus.\n\n\nseit 2024\n\n\nDie Universitätsstadt vergibt ihre Betreuungsplätze seit der Hauptvergaberunde für das Kindergartenjahr 2024/25 mit KitaMatch. Die Anmeldung läuft über eine zentrale Anmeldestelle; Eltern geben mehrere Wunscheinrichtungen in ihrer Reihenfolge an.\n\n\n\nseit 2019\n\n\nDie Stadt gehört zu den ersten Kommunen, die ihre Kitaplätze koordiniert über alle Träger vergeben.\n\n\n\nseit 2019\n\n\nIm Kreis Steinfurt läuft die Vergabe seit 2019 über KitaMatch; die Erfahrungen dort bildeten die Grundlage für den öffentlichen Leitfaden. Auch Greven und Emsdetten setzen das Verfahren ein.\n\n\n\n\n\n\n\n\nLeitfaden\n\n\nHandbuch zum Ablauf für Jugendämter, Träger und Kita-Leitungen.\nZEW, 2023\n\n\n\nLeitfaden\n\n\nWegweiser für eine schnelle, faire und transparente Kitaplatzvergabe.\nBertelsmann Stiftung, 2023\n\n\n\nFachartikel\n\n\nStatus quo und Handlungsempfehlungen.\nWirtschaftsdienst, 2024\n\n\n\nPolicy Brief\n\n\nEin Leitfaden für Kommunen.\nZEW, 2017\n\n\n\nPodcast\n\n\nSo gelingt die Kitaplatzvergabe.\nZEW-Podcast\n\n\n\nPodcast\n\n\nHow market design gets built for the public sector.\nGame Changer, Mai 2026, Englisch\n\n\n\n\n\nTagesspiegel, 08/2023Algorithmus sucht passenden KitaplatzWirtschaftsWoche, 12/2021„Kita-Match“: Ein Kitaplatz per AlgorithmusFAZ, 11/2019Gegen den Kita-Frust\nWeitere Presseberichte (4)Die Zeit, 02/2021Beitrag in Die ZeitWirtschaftsWoche, 01/2020Marktdesign: Ökonomie ohne ElfenbeinturmDie Rheinpfalz, 10/2018Beitrag in Die RheinpfalzFAZ, 06/2017Raus aus der Kita-Warteschlange\n\n\n\n\nListe anzeigen\n6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm4A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. Giegerich3Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein2Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. Riehm1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. Klein\n\n\n  Sie planen eine Umstellung oder möchten Ihr bisheriges Verfahren auswerten lassen.\n  E-Mail schreiben"
   },
   {
-    "objectID": "anwendungen/kita.html#das-problem",
-    "href": "anwendungen/kita.html#das-problem",
+    "objectID": "anwendungen/kita.html#verfahren",
+    "href": "anwendungen/kita.html#verfahren",
     "title": "Kitaplatzvergabe",
-    "section": "Das Problem",
-    "text": "Das Problem\nEltern bewerben sich bei mehreren Kitas zugleich, und jede Einrichtung vergibt ihre Plätze für sich. Manche Familien halten so mehrere Zusagen, während andere warten, obwohl Plätze frei wären. Der Mangel erscheint größer, als er ist, und Kita-Leitungen verbringen Wochen mit Nachrückverfahren."
+    "section": "",
+    "text": "Wünsche angeben. Eltern nennen über eine zentrale Anmeldung mehrere Wunsch-Kitas in ihrer Reihenfolge.\nKriterien anwenden. Jede Kita ordnet ihre Bewerbungen nach ihren eigenen Aufnahmekriterien, etwa Alter, Geschwister oder Wohnort.\nAngebote koordinieren. In mehreren Runden erhalten Familien Angebote. Jede Familie hält höchstens ein Angebot; nimmt sie ein besseres an, wird das vorige sofort frei.\nFreie Plätze weitergeben. Frei gewordene Plätze gehen in der nächsten Runde an die nächste passende Familie, bis keine Verbesserung mehr möglich ist.\n\n\nWas das Verfahren garantiert\n\nKeine Familie hält mehrere Plätze gleichzeitig.\nKein Platz bleibt frei, solange eine Familie ihn ihrem aktuellen Angebot vorzieht und nach den Kriterien der Kita Vorrang hätte.\nZusätzliche Wünsche verschlechtern nicht die Chancen auf den Erstwunsch.\nDie Träger entscheiden weiter selbst nach ihren Kriterien.\n\n\nDas Verfahren schafft keine neuen Plätze. Es sorgt aber dafür, dass die vorhandenen Plätze schnell und nach Bedarf vergeben werden, und es zeigt, wie viele Plätze vor Ort tatsächlich fehlen. Grundlage ist ein iteratives Deferred-Acceptance-Verfahren, das auch dezentral funktioniert."
   },
   {
-    "objectID": "anwendungen/kita.html#das-verfahren",
-    "href": "anwendungen/kita.html#das-verfahren",
+    "objectID": "anwendungen/kita.html#einsatz",
+    "href": "anwendungen/kita.html#einsatz",
     "title": "Kitaplatzvergabe",
-    "section": "Das Verfahren",
-    "text": "Das Verfahren\nBei einer koordinierten Vergabe behalten die Träger ihre Aufnahmekriterien. Ein gemeinsames Verfahren stimmt nur ab, welche Kita welcher Familie wann ein Angebot macht. Grundlage ist ein iteratives Deferred-Acceptance-Verfahren, das auch dezentral in mehreren Runden funktioniert.\n\nWünsche angeben. Eltern nennen über eine zentrale Anmeldung mehrere Wunsch-Kitas in ihrer Reihenfolge.\nKriterien anwenden. Jede Kita ordnet ihre Bewerbungen nach ihren eigenen Aufnahmekriterien, etwa Alter, Geschwister oder Wohnort.\nAngebote koordinieren. In mehreren Runden erhalten Familien Angebote. Jede Familie hält höchstens ein Angebot; nimmt sie ein besseres an, wird das vorige sofort frei.\nFreie Plätze weitergeben. Frei gewordene Plätze gehen in der nächsten Runde an die nächste passende Familie, bis keine Verbesserung mehr möglich ist.\n\n\nWas das Verfahren garantiert\n\nKeine Familie hält mehrere Plätze gleichzeitig.\nKein Platz bleibt frei, solange eine Familie ihn ihrem aktuellen Angebot vorzieht und nach den Kriterien der Kita Vorrang hätte.\nZusätzliche Wünsche verschlechtern nicht die Chancen auf den Erstwunsch.\nDie Träger entscheiden weiter selbst nach ihren Kriterien.\n\n\nDas Verfahren schafft keine neuen Plätze. Es sorgt aber dafür, dass die vorhandenen Plätze schnell und nach Bedarf vergeben werden, und es zeigt, wie viele Plätze vor Ort tatsächlich fehlen."
+    "section": "",
+    "text": "Unter dem Namen KitaMatch wird das Verfahren in mehr als zehn Kommunen in drei Bundesländern eingesetzt. 2022 zeichnete der ZEW-Förderkreis Wissenschaft und Praxis das Projekt als bestes wirtschaftspolitisches Beratungsprojekt des ZEW aus.\n\n\nseit 2024\n\n\nDie Universitätsstadt vergibt ihre Betreuungsplätze seit der Hauptvergaberunde für das Kindergartenjahr 2024/25 mit KitaMatch. Die Anmeldung läuft über eine zentrale Anmeldestelle; Eltern geben mehrere Wunscheinrichtungen in ihrer Reihenfolge an.\n\n\n\nseit 2019\n\n\nDie Stadt gehört zu den ersten Kommunen, die ihre Kitaplätze koordiniert über alle Träger vergeben.\n\n\n\nseit 2019\n\n\nIm Kreis Steinfurt läuft die Vergabe seit 2019 über KitaMatch; die Erfahrungen dort bildeten die Grundlage für den öffentlichen Leitfaden. Auch Greven und Emsdetten setzen das Verfahren ein."
   },
   {
-    "objectID": "anwendungen/kita.html#im-einsatz",
-    "href": "anwendungen/kita.html#im-einsatz",
+    "objectID": "anwendungen/kita.html#materialien",
+    "href": "anwendungen/kita.html#materialien",
     "title": "Kitaplatzvergabe",
-    "section": "Im Einsatz",
-    "text": "Im Einsatz\nDas Verfahren wird unter dem Namen KitaMatch in mehr als zehn Kommunen in drei Bundesländern eingesetzt. 2022 wurde das Projekt vom ZEW-Förderkreis Wissenschaft und Praxis als bestes wirtschaftspolitisches Beratungsprojekt des ZEW ausgezeichnet.\n\nTübingen\nDie Universitätsstadt vergibt ihre Betreuungsplätze seit der Hauptvergaberunde für das Kindergartenjahr 2024/25 mit KitaMatch. Die Anmeldung läuft über eine zentrale Anmeldestelle. Eltern können seither bis zu acht statt bisher drei Wunscheinrichtungen angeben; je mehr Wünsche sie nennen, desto besser ihre Chancen, ohne dass sich die Aussicht auf den Erstwunsch verschlechtert.\n\n\nKaiserslautern\nDie Stadt nutzt das Verfahren seit 2019 und gehört damit zu den ersten Kommunen, die ihre Kitaplätze koordiniert über alle Träger vergeben.\n\n\nKreis Steinfurt, Greven und Emsdetten\nIm Kreis Steinfurt läuft die Vergabe ebenfalls seit 2019 über KitaMatch; die Erfahrungen dort bildeten die Grundlage für den öffentlichen Leitfaden zur Software. Auch die Städte Greven und Emsdetten setzen das Verfahren ein."
-  },
-  {
-    "objectID": "anwendungen/kita.html#für-entscheiderinnen-und-entscheider",
-    "href": "anwendungen/kita.html#für-entscheiderinnen-und-entscheider",
-    "title": "Kitaplatzvergabe",
-    "section": "Für Entscheiderinnen und Entscheider",
-    "text": "Für Entscheiderinnen und Entscheider\n\nDie KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente Kitaplatzvergabe, Leitfaden mit Bertelsmann Stiftung, 2023\nAlleinerziehende in der Betreuungsplatzvergabe, Wirtschaftsdienst, 2024\nDezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden, ZEW Policy Brief, 2017\nSoftware und Betreuung im laufenden Betrieb: MatchingTools"
-  },
-  {
-    "objectID": "anwendungen/kita.html#zum-hören",
-    "href": "anwendungen/kita.html#zum-hören",
-    "title": "Kitaplatzvergabe",
-    "section": "Zum Hören",
-    "text": "Zum Hören\n\nThe Missing Middle – How Market Design Gets Built for the Public Sector, Game Changer, Mai 2026 (Englisch)\nOn Your Spots, Get Set, Go? How Day Care Spots Can Be Successfully Allocated, ZEW-Podcast"
+    "section": "",
+    "text": "Leitfaden\n\n\nHandbuch zum Ablauf für Jugendämter, Träger und Kita-Leitungen.\nZEW, 2023\n\n\n\nLeitfaden\n\n\nWegweiser für eine schnelle, faire und transparente Kitaplatzvergabe.\nBertelsmann Stiftung, 2023\n\n\n\nFachartikel\n\n\nStatus quo und Handlungsempfehlungen.\nWirtschaftsdienst, 2024\n\n\n\nPolicy Brief\n\n\nEin Leitfaden für Kommunen.\nZEW, 2017\n\n\n\nPodcast\n\n\nSo gelingt die Kitaplatzvergabe.\nZEW-Podcast\n\n\n\nPodcast\n\n\nHow market design gets built for the public sector.\nGame Changer, Mai 2026, Englisch\n\n\n\n\n\nTagesspiegel, 08/2023Algorithmus sucht passenden KitaplatzWirtschaftsWoche, 12/2021„Kita-Match“: Ein Kitaplatz per AlgorithmusFAZ, 11/2019Gegen den Kita-Frust\nWeitere Presseberichte (4)Die Zeit, 02/2021Beitrag in Die ZeitWirtschaftsWoche, 01/2020Marktdesign: Ökonomie ohne ElfenbeinturmDie Rheinpfalz, 10/2018Beitrag in Die RheinpfalzFAZ, 06/2017Raus aus der Kita-Warteschlange"
   },
   {
     "objectID": "anwendungen/kita.html#publikationen",
@@ -278,13 +250,6 @@
     "title": "Kitaplatzvergabe",
     "section": "",
     "text": "Liste anzeigen\n6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm4A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. Giegerich3Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein2Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. Riehm1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. Klein\n\n\n  Sie planen eine Umstellung oder möchten Ihr bisheriges Verfahren auswerten lassen.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/kita.html#in-der-presse",
-    "href": "anwendungen/kita.html#in-der-presse",
-    "title": "Kitaplatzvergabe",
-    "section": "In der Presse",
-    "text": "In der Presse\n\nAlgorithmus sucht passenden Kitaplatz, Tagesspiegel Background, August 2023\n„Kita-Match“: Ein Kitaplatz per Algorithmus, WirtschaftsWoche, Dezember 2021\nDie Zeit, Februar 2021\nMarktdesign: Ökonomie ohne Elfenbeinturm, WirtschaftsWoche, Januar 2020\nGegen den Kita-Frust, FAZ, November 2019\nDie Rheinpfalz, Oktober 2018\nRaus aus der Kita-Warteschlange, FAZ, Juni 2017\n\n\nKontakt\nSie planen eine Umstellung oder möchten Ihr bisheriges Verfahren auswerten lassen? thilo.klein@hs-pforzheim.de"
   },
   {
     "objectID": "research/index.html",
@@ -308,368 +273,11 @@
     "text": "Publikationen\nAlleKitaSchuleReferendariatLebensmittelspendenUmweltförderungEntwicklung und MikrofinanzStatistik und DatenMarktdesign allgemeinZeitschriftenartikel3School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega2The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein1A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. GiegerichDiskussionspapiere12Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega11Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara10Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara9Matching for Credit: Identifying Information Asymmetries in Joint-Liability LendingZEW Discussion Paper 24-070 (2024) · T. Klein8Analysis of Stable Matchings in R: Package matchingMarketsVignette zum R-Paket matchingMarkets (2023) · T. Klein7Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein6What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega5Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate SectorOECD Statistics Working Paper 17/01 (2017) · T. Klein, S. Verhulst4Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private LoansZEW Discussion Paper 17-073 (2017) · T. Klein3An Indicator for Statistical Literacy Based on National Newspaper ArchivesIASE 2016 Roundtable Paper (2016) · T. Klein, A. Galdin, E. Mohamedou2Making Data Portals Work for SDGs: A View on Deployment, Design and TechnologyPARIS21 Discussion Paper 8 (2016) · T. Klein et al.1Public-Private Partnerships for Statistics: Lessons Learned, Future StepsOECD Development Co-operation Working Paper 27 (2016) · N. Robin, T. Klein, J. JüttingPolicy Briefs6Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein5Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott4Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein3Matching Practices for Teaching Positions in Public Schools in GermanyMatching-in-Practice Country Profile 28 (2019) · T. Klein, P. vom Baur2Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein1Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. RiehmFachartikel8Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein7Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott4Die Regeln machen den Unterschied: MarktdesignWirtschaftswissenschaftliches Studium 48(4): 22–28 (2019) · V. Gretschko, T. Klein, A. Wambach3Matching für Mikrokredite: Finanzielle Integration durch Marktdesign-AnsätzeÖkonomenstimme (2018) · T. Klein2Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. KleinBerichte6Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm5The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.4Measuring the Value of Official StatisticsUNECE Report on the Value of Official Statistics, Kap. 5 (2017) · T. Klein, P. van de Ven3Rethinking Donor Support for Statistical Capacity DevelopmentOECD Development Co-operation Report 2017, Kap. 4 (2017) · S. Badiee, T. Klein, E. Mohamedou2The Role of National Statistical Systems in the Data RevolutionOECD Development Co-operation Report 2017, Kap. 3 (2017) · S. Badiee, J. Jütting, T. Klein1Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity DevelopmentUN Sustainable Development Solutions Network (2015) · J. Espey et al.Bücher2Why Do India’s Urban Poor Choose to Go Private? Health Policy Simulations in Slums of Hyderabadibidem, Stuttgart (2012) · T. Klein1Microfinance 2.0: Group Formation and Repayment Performance in Online Lending Platformsibidem, Stuttgart (2010) · T. Klein"
   },
   {
-    "objectID": "research/index.html#drittmittel-service-und-lehre",
-    "href": "research/index.html#drittmittel-service-und-lehre",
-    "title": "Forschung",
-    "section": "Drittmittel, Service und Lehre",
-    "text": "Drittmittel, Service und Lehre\n\n\nDrittmittel (Auswahl)\n\nMatchingTools, Bundesministerium für Wirtschaft und Energie, 2026–2027\nTafelConnect, Bundesministerium für Ernährung und Landwirtschaft, 2023–2026\nUngeduld für bessere Umweltförderung, ZEW-Förderkreis, 2023–2024\nKitaMatch, Bertelsmann Stiftung, 2021–2023\neco-Plattform, Bundesministerium für Ernährung und Landwirtschaft, 2019–2023\niLearn, Leibniz-Gemeinschaft (mit DIW Berlin), 2019–2023\nZulassungsregeln für Schulen, ZEW, 2019–2022\n\n\n\nWissenschaftlicher Service\n\nProgrammkomitees: European Matching-in-Practice Workshop 2018, 2019, 2021; Easter Workshop on School Choice 2022; Beijing-Humboldt Forum 2024\nOrganisation: UIBE Market Design Workshop, Peking 2024; Algorithmenbasierte Platzvergabe, Paderborn 2023; Easter Workshop on School Choice, Belfast 2022; European Matching-in-Practice Workshop, Mannheim 2018\nGutachten: Management Science; Studienstiftung des deutschen Volkes\n\n\n\nLehre\n\nHochschule Pforzheim, seit 2019: Analysis und Lineare Algebra, Mathematische Optimierung, Statistik, Ökonometrie, Predictive Analytics, Risikomanagement\nUniversität Mannheim: Market Design (M.Sc.)\nDHBW Mannheim, Hochschule Heilbronn, OECD, Universität Tübingen\nUniversity of Cambridge: Game Theory, Econometrics, Quantitative Methods\n\n\n\nSoftware\nmatchingMarkets. R-Paket mit Algorithmen und Schätzverfahren für Matching-Märkte, über 100.000 Downloads. Projektseite ↗, CRAN ↗. KitaMatch. Öffentlicher Leitfaden unter kitamatch.com ↗; Betrieb über MatchingTools ↗. Weitere Repositorien auf GitHub ↗."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Thilo Klein",
     "section": "",
     "text": "Continue to the English version · Zur deutschen Version"
-  },
-  {
-    "objectID": "index.html#für-kommunen-und-verwaltung",
-    "href": "index.html#für-kommunen-und-verwaltung",
-    "title": "Thilo Klein",
-    "section": "Für Kommunen und Verwaltung",
-    "text": "Für Kommunen und Verwaltung\n\n\n\n\nKitaplatzvergabe\nKoordinierte Vergabe über alle Träger: Familien halten höchstens ein Angebot, frei werdende Plätze gehen sofort weiter. Im Einsatz in mehr als zehn Kommunen, darunter Tübingen und Kaiserslautern.\nZum Verfahren\n\n\n\n\n\nSchulplatzvergabe\nWelche Verfahren Wünsche beim Übergang auf weiterführende Schulen am besten erfüllen, und was die frühe Aufteilung auf Schularten bewirkt.\nZur Forschung\n\n\n\n\n\nLebensmittelspenden\nEchtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln, damit weniger weggeworfen wird.\nZum Ansatz\n\n\n\n\n\nUmweltförderung\n…\nZum Ansatz\n\n\n\n\nForschung\n\nDiskussionspapiere\nExperimental School Choice with ParentsMit M. Freer und J. Ortega · arXiv 2603.24615, 2026Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentMit S. McNamara · ZEW Discussion Paper 25-023, 2025Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesMit M. Bach und S. McNamara · ZEW Discussion Paper 24-076, 2024Matching for Credit: Identifying Information Asymmetries in Joint-Liability LendingEinzelautor · ZEW Discussion Paper 24-070, 2024"
-  },
-  {
-    "objectID": "index.html#diskussionspapiere",
-    "href": "index.html#diskussionspapiere",
-    "title": "Thilo Klein",
-    "section": "Diskussionspapiere",
-    "text": "Diskussionspapiere\nExperimental School Choice with ParentsMit M. Freer und J. Ortega · arXiv 2603.24615, 2026Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentMit S. McNamara · ZEW Discussion Paper 25-023, 2025Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesMit M. Bach und S. McNamara · ZEW Discussion Paper 24-076, 2024Matching for Credit: Identifying Information Asymmetries in Joint-Liability LendingEinzelautor · ZEW Discussion Paper 24-070, 2024"
-  },
-  {
-    "objectID": "index.html#ausgewählte-publikationen",
-    "href": "index.html#ausgewählte-publikationen",
-    "title": "Thilo Klein",
-    "section": "Ausgewählte Publikationen",
-    "text": "Ausgewählte Publikationen\nGames and Economic BehaviorSchool Choice with Independent versus Consolidated DistrictsMit R. Aue und J. Ortega (2024)Games and Economic BehaviorThe Cost of Strategy-Proofness in School ChoiceMit J. Ortega (2023)Journal of Mechanism and Institution DesignA Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentMit T. Reischmann und S. Giegerich (2021)\nAlle Publikationen"
-  },
-  {
-    "objectID": "index.html#zum-hören",
-    "href": "index.html#zum-hören",
-    "title": "Thilo Klein",
-    "section": "Zum Hören",
-    "text": "Zum Hören\n\n\n\n\nWie werden Schulplätze vergeben?\nZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.\nAnhören ↗\n\n\n\n\n\nAuf die Plätze, fertig, los!\nZEW-Podcast. Wie KitaMatch Kitaplätze schneller und fairer vergibt.\nAnhören ↗\n\n\n\n\n\nThe Missing Middle\nGame Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitaplatzvergabe trotz guter Theorie meist unkoordiniert läuft, und was Kommunen brauchen, um Matching-Verfahren zu betreiben.\nAnhören ↗"
-  },
-  {
-    "objectID": "index.html#profil",
-    "href": "index.html#profil",
-    "title": "Thilo Klein",
-    "section": "Profil",
-    "text": "Profil\n\n\nWerdegang\n\nSeit 2019: Professor (W2) für Quantitative Wirtschaftsforschung, Hochschule Pforzheim\nSeit 2017: ZEW Mannheim, Leiter des Forschungsbereichs Design von Matching-Märkten\n2019: Professor, Hochschule Heilbronn\n2014–2017: Ökonom, OECD, Paris\n2012–2013: Carlo-Schmid-Fellow, ILO, Genf\n\n\n\nAusbildung\n\nPh.D. in Business Economics, University of Cambridge\nM.Phil. in Management Science and Operations, University of Cambridge\nDiplom in Wirtschaftspädagogik und Mathematik, Universität Jena\nCertificate in Data Science, Université Paris-Dauphine\n\n\n\nRollen und Interessenkonflikte\nForschung, Evaluation und Politikberatung führe ich an der Hochschule Pforzheim und am ZEW durch. Daneben bin ich Mitgründer, Mitglied des wissenschaftlichen Beirats und Minderheitsgesellschafter der MatchingTools GmbH, einer Ausgründung aus dem ZEW. Bei Evaluationen von Verfahren, an deren Umsetzung MatchingTools beteiligt ist, lege ich diese Verbindung offen."
-  },
-  {
-    "objectID": "anwendungen/index.html",
-    "href": "anwendungen/index.html",
-    "title": "Für Kommunen und Verwaltung",
-    "section": "",
-    "text": "Anwendungen\n\n\n\nViele öffentliche Leistungen werden nicht über Preise vergeben, sondern über Anmeldungen, Kriterien und Wartelisten. Gut gestaltete Verfahren sorgen dafür, dass vorhandene Plätze vollständig genutzt werden, Wünsche bestmöglich berücksichtigt sind und Entscheidungen nachvollziehbar bleiben.\n\n\n\n\n\n\n\n\n\n10+ Kommunen seit 2019\n\n\nKoordinierte Vergabe über alle Träger, unter anderem in Tübingen und Kaiserslautern.\nMehr\n\n\n\n\n\n\nunter 3 % statt 15 %\n\n\nWelche Verfahren Wünsche am besten erfüllen und was die frühe Aufteilung auf Schularten bewirkt.\nMehr\n\n\n\n\n\n\n\n\n\n\n\n269 Tafeln angebunden\n\n\nEchtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln.\nMehr\n\n\n\n\n\n\nWartezeit als Filter\n\n\nFörderprogramme, die gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.\nMehr\n\n\n\n\n\n\n\n\nErstgespräch. Welche Plätze werden vergeben, nach welchen Regeln, und wo liegen die Probleme?\nAnalyse. Auswertung bisheriger Vergabedaten und Simulation alternativer Regeln.\nRegeldesign. Kriterien, Quoten und Sonderfälle wie Geschwister, abgestimmt mit Trägern und Rechtsrahmen.\nUmsetzung und Evaluation. Einführung, meist zunächst als Pilot, mit begleitender Auswertung.\n\nForschung und Evaluation finden an der Hochschule Pforzheim und am ZEW statt. Software für den laufenden Betrieb bietet die MatchingTools GmbH an.\n\n  Fragen zu Vergabeverfahren in Ihrer Kommune oder Ihrem Land beantworte ich gern.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/index.html#platzvergabe-in-bildung-und-arbeitsmärkten",
-    "href": "anwendungen/index.html#platzvergabe-in-bildung-und-arbeitsmärkten",
-    "title": "Für Kommunen und Verwaltung",
-    "section": "Platzvergabe in Bildung und Arbeitsmärkten",
-    "text": "Platzvergabe in Bildung und Arbeitsmärkten\n\n\n\n\nKitaplatzvergabe\nKoordinierte Vergabe über Träger hinweg. Im Einsatz unter anderem in Tübingen und Kaiserslautern.\nMehr\n\n\n\n\n\nSchulplatzvergabe\nVerfahren und Wirkung beim Übergang auf weiterführende Schulen.\nMehr"
-  },
-  {
-    "objectID": "anwendungen/index.html#nachhaltiges-marktdesign",
-    "href": "anwendungen/index.html#nachhaltiges-marktdesign",
-    "title": "Für Kommunen und Verwaltung",
-    "section": "",
-    "text": "269 Tafeln angebunden\n\n\nEchtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln.\nMehr\n\n\n\n\n\n\nWartezeit als Filter\n\n\nFörderprogramme, die gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.\nMehr"
-  },
-  {
-    "objectID": "anwendungen/index.html#so-läuft-eine-zusammenarbeit",
-    "href": "anwendungen/index.html#so-läuft-eine-zusammenarbeit",
-    "title": "Für Kommunen und Verwaltung",
-    "section": "",
-    "text": "Erstgespräch. Welche Plätze werden vergeben, nach welchen Regeln, und wo liegen die Probleme?\nAnalyse. Auswertung bisheriger Vergabedaten und Simulation alternativer Regeln.\nRegeldesign. Kriterien, Quoten und Sonderfälle wie Geschwister, abgestimmt mit Trägern und Rechtsrahmen.\nUmsetzung und Evaluation. Einführung, meist zunächst als Pilot, mit begleitender Auswertung.\n\nForschung und Evaluation finden an der Hochschule Pforzheim und am ZEW statt. Software für den laufenden Betrieb bietet die MatchingTools GmbH an.\n\n  Fragen zu Vergabeverfahren in Ihrer Kommune oder Ihrem Land beantworte ich gern.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html",
-    "href": "anwendungen/lebensmittelspenden.html",
-    "title": "Lebensmittelspenden",
-    "section": "",
-    "text": "Anwendung\n\n\n\nWie Echtzeitdaten und Marktdesign helfen, Spenden gerechter zu verteilen und Verschwendung zu vermeiden.\n\n\n\n\n\n\n\n\n\n269 von 975\nTafeln in Deutschland sind an die eco-Plattform angebunden (2026)\n\n\n265.000 t\nLebensmittel retten die Tafeln pro Jahr\n\n\n2019–2026\nzwei vom Bundeslandwirtschaftsministerium geförderte Projekte\n\n\n\nAnsatz Projekte Materialien Publikationen\n\n\n\nAusgangslage\n\n\nDie Tafeln sind auf Spenden aus Handel und Produktion angewiesen, deren Menge und Art kaum vorhersehbar ist. Manche Ausgabestellen erhalten mehr, als sie verteilen können, während andere zu wenig haben. Was nicht rechtzeitig weitergegeben wird, verdirbt.\n\n\n\nAnsatz\n\n\nEine gemeinsame digitale Plattform macht Spendenangebote in Echtzeit sichtbar. Überschüsse lassen sich so kostenneutral zwischen Ausgabestellen umverteilen: Der Bedarf wird gerechter gedeckt, und weniger wird weggeworfen.\n\n\n\n\n\n\nAngebote melden. Handel, Hersteller und Großhandel melden überschüssige Lebensmittel, sobald sie anfallen.\nBedarf abgleichen. Die Plattform macht die Angebote für die Ausgabestellen sichtbar, die sie brauchen und abholen können.\nUmverteilen. Überschüsse gehen ohne zusätzliche Kosten dorthin, wo der Bedarf am größten ist.\n\nEin Vorbild ist die US-Organisation Feeding America: Dort bieten regionale Tafeln mit einer eigenen Verrechnungswährung auf Großspenden; die Preise zeigen, wo welche Lebensmittel gebraucht werden. Nach der Einführung stieg die Menge der Spenden deutlich.\n\n\n\n\n\n2019–2023\n\n\nMarktdesign für Lebensmittelspenden des Einzelhandels. Heute sind 269 der 975 Tafeln in Deutschland an die Plattform angebunden.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft\n\n\n\n2023–2026\n\n\nMarktdesign für Spenden von Herstellern und Großhandel.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft\n\n\n\n\n\n\n\n\nPolicy Brief\n\n\nWie digitale Plattformen die Verteilung von Spenden verbessern.\nZEW, 2023\n\n\n\nFachartikel\n\n\nMarktdesign für die Tafeln.\nWirtschaftsdienst, 2023\n\n\n\n\n\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, u. a. in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nWeitere Presseberichte (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen\n\n\n\n\nListe anzeigen\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  Ich berichte gern über Erfahrungen aus eco-Plattform und TafelConnect.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#das-problem",
-    "href": "anwendungen/lebensmittelspenden.html#das-problem",
-    "title": "Lebensmittelspenden",
-    "section": "Das Problem",
-    "text": "Das Problem\nDie Tafeln gehören zu den größten sozialen Bewegungen in Deutschland. Sie sind auf Spenden aus Handel und Produktion angewiesen, deren Menge und Art kaum vorhersehbar ist. Manche Ausgabestellen erhalten mehr, als sie verteilen können, während andere zu wenig haben. Was nicht rechtzeitig weitergegeben wird, verdirbt."
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#der-ansatz",
-    "href": "anwendungen/lebensmittelspenden.html#der-ansatz",
-    "title": "Lebensmittelspenden",
-    "section": "Der Ansatz",
-    "text": "Der Ansatz\n\n\n  Verteilung von Lebensmittelspenden: Angebote von Handel, Herstellern und Großhandel werden über eine gemeinsame Plattform in Echtzeit an die Ausgabestellen der Tafeln verteilt, die sie am dringendsten brauchen.\n  \n  HandelHerstellerGroßhandel\n  \n  Plattform\n  \n  Tafeln\n  Echtzeit-Angebote\n  Verteilung nach Bedarf\n\nSchematische Darstellung: Spendenangebote laufen über eine gemeinsame Plattform und werden nach Bedarf an die Ausgabestellen verteilt.\n\nWenn Angebote von Spendern in Echtzeit sichtbar sind, lassen sich Überschüsse kostenneutral zwischen Ausgabestellen umverteilen. So wird der Bedarf gerechter gedeckt und weniger weggeworfen. Ein Vorbild ist die US-Organisation Feeding America: Dort bieten regionale Tafeln mit einer eigenen Verrechnungswährung auf Großspenden; die Preise zeigen, wo welche Lebensmittel gebraucht werden. Nach der Einführung stieg die Menge der Spenden deutlich."
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#projekte",
-    "href": "anwendungen/lebensmittelspenden.html#projekte",
-    "title": "Lebensmittelspenden",
-    "section": "",
-    "text": "2019–2023\n\n\nMarktdesign für Lebensmittelspenden des Einzelhandels. Heute sind 269 der 975 Tafeln in Deutschland an die Plattform angebunden.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft\n\n\n\n2023–2026\n\n\nMarktdesign für Spenden von Herstellern und Großhandel.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft"
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#für-entscheiderinnen-und-entscheider",
-    "href": "anwendungen/lebensmittelspenden.html#für-entscheiderinnen-und-entscheider",
-    "title": "Lebensmittelspenden",
-    "section": "Für Entscheiderinnen und Entscheider",
-    "text": "Für Entscheiderinnen und Entscheider\n\nMit Digitalisierung gegen Lebensmittelverschwendung, ZEW Policy Brief, 2023\nEffiziente und faire Verteilung von Lebensmittelspenden, Wirtschaftsdienst, 2023"
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#publikationen",
-    "href": "anwendungen/lebensmittelspenden.html#publikationen",
-    "title": "Lebensmittelspenden",
-    "section": "",
-    "text": "Liste anzeigen\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  Ich berichte gern über Erfahrungen aus eco-Plattform und TafelConnect.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#in-der-presse",
-    "href": "anwendungen/lebensmittelspenden.html#in-der-presse",
-    "title": "Lebensmittelspenden",
-    "section": "In der Presse",
-    "text": "In der Presse\n\nDigitalplattform rettet Essen, Mannheimer Morgen, August 2023\nProjekt der Mannheimer Tafel rettet in Echtzeit Essen, Mannheimer Morgen, August 2023\nTafel-Kunden leiden unter Folgen von Inflation, dpa, Juli 2023, unter anderem in Zeit, Süddeutscher Zeitung, Welt, Focus und Stern\nKann das „Prinzip Ebay“ die Tafeln retten?, Welt am Sonntag, Juni 2018\n\n\nKontakt\nFragen zur Verteilung von Spenden: thilo.klein@hs-pforzheim.de"
-  },
-  {
-    "objectID": "anwendungen/schule.html",
-    "href": "anwendungen/schule.html",
-    "title": "Schulplatzvergabe",
-    "section": "",
-    "text": "Anwendung\n\n\n\nWelche Verfahren Wünsche am besten erfüllen, was Eltern tatsächlich tun und welche Folgen die frühe Aufteilung auf Schularten hat.\n\n\n\n\n\n\n\n\n\nunter 3 %\nstatt 15 % erst an der vierten Wunschschule oder später (Budapest)\n\n\n5 km\nGewinn gemeinsamer Vergabe, gemessen als näher gelegene Schule\n\n\n540\nEltern und Studierende im Schulwahl-Experiment\n\n\n\nErgebnisse Materialien Publikationen\n\n\n\nAusgangslage\n\n\nBeim Übergang auf weiterführende Schulen sind beliebte Schulen oft überbucht. Wie Plätze dann vergeben werden, entscheidet darüber, wie viele Familien ihre Wunschschule erhalten, ob sich taktisches Verhalten lohnt und wer am Ende benachteiligt ist.\n\n\n\nAnsatz\n\n\nVergleich von Vergabeverfahren mit Verwaltungsdaten und Experimenten, und Analyse, was die Aufteilung auf Schularten für Leistungen und Bildungschancen bedeutet.\n\n\n\n\n\n\n\nVerfahren\n\n\nDas verbreitete Deferred-Acceptance-Verfahren macht ehrliche Angaben zur besten Strategie, platziert in Budapest aber fast jedes siebte Kind erst an der vierten Wunschschule oder später. Ein Verfahren, das schlechte Platzierungen gezielt minimiert, senkt diesen Anteil auf unter drei Prozent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIm Experiment mit 324 Eltern und 216 Studierenden wurden alle Verfahren häufig strategisch genutzt, auch das als manipulationssicher geltende. Die Vorteile des effizienteren Verfahrens blieben dennoch weitgehend erhalten.\nDiskussionspapier, 2026\n\n\n\nBezirke\n\n\nLegen Schulbezirke ihre Vergabe zusammen, gewinnen im Durchschnitt alle, besonders Familien aus kleinen Bezirken mit begehrten Schulen. In Ungarn entspricht der Gewinn einer um fünf Kilometer näheren Schule.\nGames and Economic Behavior, 2024\n\n\n\nSchularten\n\n\nEin Gymnasium verbessert Leistungen und Studienpläne, für Kinder aus benachteiligten Familien mindestens so stark wie für andere. Diese gelangen aber seltener dorthin; eine frühe und strenge Aufteilung kann Ungleichheit verstärken.\nDiskussionspapiere, 2024 und 2025\n\n\n\n\n\n\n\n\nPolicy Brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025, Englisch\n\n\n\nFachartikel\n\n\nLehren aus Ungarn für das dreigliedrige Schulsystem.\nWirtschaftsdienst, 2025\n\n\n\nBericht\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW Research Report, 2020\n\n\n\nPodcast\n\n\nÜber die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.\nZEW-Podcast, September 2026\n\n\n\n\n\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Beitrag zur frühen Aufteilung auf SchulartenFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nWeitere Presseberichte (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe\n\n\n\n\nListe anzeigen\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  Gern bespreche ich, was die Forschung für Ihre Vergaberegeln bedeutet.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/schule.html#das-problem",
-    "href": "anwendungen/schule.html#das-problem",
-    "title": "Schulplatzvergabe",
-    "section": "Das Problem",
-    "text": "Das Problem\nBeim Übergang auf weiterführende Schulen sind beliebte Schulen oft überbucht. Wie Plätze dann vergeben werden, entscheidet darüber, wie viele Familien ihre Wunschschule erhalten, ob sich taktisches Verhalten lohnt und wer am Ende benachteiligt ist. Die Regeln unterscheiden sich zwischen Ländern und Kommunen stark."
-  },
-  {
-    "objectID": "anwendungen/schule.html#was-die-forschung-zeigt",
-    "href": "anwendungen/schule.html#was-die-forschung-zeigt",
-    "title": "Schulplatzvergabe",
-    "section": "Was die Forschung zeigt",
-    "text": "Was die Forschung zeigt\n\nWelches Verfahren erfüllt Wünsche am besten?\nDas international verbreitete Deferred-Acceptance-Verfahren hat einen großen Vorteil: Ehrliche Angaben sind immer die beste Strategie. Der Preis dafür ist hoch. In Budapest erhält damit fast jede siebte Bewerberin oder jeder siebte Bewerber erst die vierte Wunschschule oder eine schlechtere. Ein Verfahren, das gezielt die Zahl schlechter Platzierungen minimiert, senkt diesen Anteil auf unter drei Prozent.\n\n\n  Anteil der Bewerberinnen und Bewerber, die erst an ihrer vierten Wunschschule oder später unterkommen. Budapest, über 10.000 Schülerinnen und Schüler.\n  Zuteilung auf Wunsch 4 oder schlechter\n  Deferred Acceptance\n  \n  15 %\n  Rank-Minimizing\n  \n  unter 3 %\n\nQuelle: Ortega und Klein (2023), Games and Economic Behavior.\n\n\n\nWas Eltern tatsächlich tun\nIn einem Experiment mit 324 Eltern und 216 Studierenden wurden alle untersuchten Verfahren häufig strategisch genutzt, auch das als manipulationssicher geltende. Eltern verhielten sich dabei ähnlich wie Studierende, machten aber weniger offensichtliche Fehler. Die Vorteile des effizienteren Verfahrens blieben trotzdem weitgehend erhalten.\n\n\nGemeinsame Vergabe über Bezirksgrenzen\nWenn Schulbezirke ihre Vergabe zusammenlegen, gewinnen im Durchschnitt alle, besonders Familien aus kleinen Bezirken mit begehrten Schulen. In Ungarn entspricht der Gewinn einer um fünf Kilometer näher gelegenen Schule.\n\n\nFrühe Aufteilung auf Schularten\nDer Besuch eines Gymnasiums verbessert in Ungarn Leistungen und Studienpläne, und zwar für Kinder aus benachteiligten Familien mindestens so stark wie für andere. Diese Kinder gelangen aber seltener auf ein Gymnasium. Deutschland teilt mit etwa zehn Jahren deutlich früher auf als Ungarn mit vierzehn; eine frühe und strenge Aufteilung kann Ungleichheit deshalb verstärken."
-  },
-  {
-    "objectID": "anwendungen/schule.html#für-entscheiderinnen-und-entscheider",
-    "href": "anwendungen/schule.html#für-entscheiderinnen-und-entscheider",
-    "title": "Schulplatzvergabe",
-    "section": "Für Entscheiderinnen und Entscheider",
-    "text": "Für Entscheiderinnen und Entscheider\n\nRethinking Tracking: Lessons from Hungary for German Education Reform, ZEW Policy Brief, 2025\nFrühe Leistungsdifferenzierung und ihre Konsequenzen, Wirtschaftsdienst, 2025\nThe Implication of School Admission Rules for Segregation and Educational Inequality, ZEW Research Report, 2020"
-  },
-  {
-    "objectID": "anwendungen/schule.html#zum-hören",
-    "href": "anwendungen/schule.html#zum-hören",
-    "title": "Schulplatzvergabe",
-    "section": "Zum Hören",
-    "text": "Zum Hören\n\nWie werden Schulplätze vergeben?, ZEW-Podcast, September 2026"
-  },
-  {
-    "objectID": "anwendungen/schule.html#publikationen",
-    "href": "anwendungen/schule.html#publikationen",
-    "title": "Schulplatzvergabe",
-    "section": "",
-    "text": "Liste anzeigen\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  Gern bespreche ich, was die Forschung für Ihre Vergaberegeln bedeutet.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/schule.html#in-der-presse",
-    "href": "anwendungen/schule.html#in-der-presse",
-    "title": "Schulplatzvergabe",
-    "section": "In der Presse",
-    "text": "In der Presse\n\nFrühe Gymnasium-Wahl in Deutschland könnte schädlich sein, MDR Wissen, Februar 2026\nSüddeutsche Zeitung, März 2026\nDer Kampf um den Platz an der Wunschschule, Frankfurter Rundschau, Oktober 2023\nModell für eine gerechtere Schulplatzvergabe, Table.Media, Oktober 2023\n\n\nKontakt\nFragen zur Schulplatzvergabe in Ihrer Kommune oder Ihrem Land: thilo.klein@hs-pforzheim.de"
-  },
-  {
-    "objectID": "impressum.html",
-    "href": "impressum.html",
-    "title": "Impressum und Datenschutz",
-    "section": "",
-    "text": "Rechtliches"
-  },
-  {
-    "objectID": "impressum.html#impressum",
-    "href": "impressum.html#impressum",
-    "title": "Impressum und Datenschutz",
-    "section": "Impressum",
-    "text": "Impressum\nAngaben gemäß § 5 Digitale-Dienste-Gesetz:\nProf. Dr. Thilo Klein\nHochschule Pforzheim, Fakultät für Wirtschaft und Recht\nTiefenbronner Straße 65\n75175 Pforzheim\nE-Mail: thilo.klein@hs-pforzheim.de\nVerantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag: Prof. Dr. Thilo Klein, Anschrift wie oben.\nDies ist eine persönliche Website. Die Inhalte geben die Auffassung des Autors wieder und nicht notwendigerweise die der Hochschule Pforzheim oder des ZEW.\n\nHaftung für Links\nDiese Website enthält Links zu externen Websites. Für deren Inhalte sind ausschließlich deren Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Links umgehend entfernt."
-  },
-  {
-    "objectID": "impressum.html#datenschutz",
-    "href": "impressum.html#datenschutz",
-    "title": "Impressum und Datenschutz",
-    "section": "Datenschutz",
-    "text": "Datenschutz\n\nVerantwortlicher\nProf. Dr. Thilo Klein, Anschrift wie im Impressum.\n\n\nHosting\nDiese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Website verarbeitet GitHub technisch notwendige Verbindungsdaten, insbesondere die IP-Adresse, Datum und Uhrzeit des Abrufs sowie die abgerufene Seite, um die Website auszuliefern und ihre Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; das berechtigte Interesse liegt in einer sicheren und zuverlässigen Bereitstellung der Website. Eine Übermittlung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework, dem GitHub angehört. Weitere Informationen enthält die Datenschutzerklärung von GitHub.\n\n\nKeine Cookies, kein Tracking\nDiese Website setzt keine Cookies, verwendet keine Analyse- oder Trackingdienste und bindet keine Inhalte Dritter ein. Schriftarten werden vom eigenen Server geladen.\n\n\nKontakt per E-Mail\nWenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage verwendet und nicht ohne Ihre Einwilligung weitergegeben.\n\n\nIhre Rechte\nSie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie auf Widerspruch gegen die Verarbeitung. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, etwa beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg."
-  },
-  {
-    "objectID": "en/research/index.html",
-    "href": "en/research/index.html",
-    "title": "Research",
-    "section": "",
-    "text": "Research and publications\n\n\n\nI work on market design, matching theory and empirical methods. Working on real allocation procedures with municipalities and states generates data that allow their effects to be studied causally. I use administrative data and field experiments from Germany, Hungary and England."
-  },
-  {
-    "objectID": "en/research/index.html#research-areas",
-    "href": "en/research/index.html#research-areas",
-    "title": "Research",
-    "section": "Research areas",
-    "text": "Research areas\n\n\n\n\nSchool choice\nParents in the lab. All mechanisms are frequently manipulated, by parents about as often as by students. arXiv 2026\nEfficiency and strategy-proofness. In Budapest, the Rank-Minimizing mechanism cuts the share of poor placements from 15 to under 3 per cent. GEB 2023\nChildcare. Decentralised deferred acceptance for childcare JMID 2021.\n\n\n\n\n\nInequality\nShadow education. When children are assigned to the top track, families from the lowest socio-economic tercile increase private tutoring disproportionately. DP 2025\nEarly tracking. Academic-track schools help children of all backgrounds, but disadvantaged children are less likely to get there. DP 2024\nSchool choice across districts. When districts merge their allocation, everyone gains on average; the gain is equivalent to a school five kilometres closer. GEB 2024\n\n\n\n\n\nDevelopment economics\nMicrofinance. In Thailand, more diverse borrower groups improve repayment by ten percentage points. DP 2024\nStatistics and data. Work from my OECD years (2014–2017) on the value of official statistics and new data sources."
-  },
-  {
-    "objectID": "en/research/index.html#publications",
-    "href": "en/research/index.html#publications",
-    "title": "Research",
-    "section": "Publications",
-    "text": "Publications\nAllChildcareSchoolsTeacher traineeshipFood donationsEnvironmental subsidiesDevelopment and microfinanceStatistics and dataMarket design, generalJournal articles3School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega2The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein1A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. GiegerichWorking papers12Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega11Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara10Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara9Matching for Credit: Identifying Information Asymmetries in Joint-Liability LendingZEW Discussion Paper 24-070 (2024) · T. Klein8Analysis of Stable Matchings in R: Package matchingMarketsVignette to R package matchingMarkets (2023) · T. Klein7Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein6What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega5Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate SectorOECD Statistics Working Paper 17/01 (2017) · T. Klein, S. Verhulst4Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private LoansZEW Discussion Paper 17-073 (2017) · T. Klein3An Indicator for Statistical Literacy Based on National Newspaper ArchivesIASE 2016 Roundtable Paper (2016) · T. Klein, A. Galdin, E. Mohamedou2Making Data Portals Work for SDGs: A View on Deployment, Design and TechnologyPARIS21 Discussion Paper 8 (2016) · T. Klein et al.1Public-Private Partnerships for Statistics: Lessons Learned, Future StepsOECD Development Co-operation Working Paper 27 (2016) · N. Robin, T. Klein, J. JüttingPolicy briefs6Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein5Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott4Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein3Matching Practices for Teaching Positions in Public Schools in GermanyMatching-in-Practice Country Profile 28 (2019) · T. Klein, P. vom Baur2Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein1Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. RiehmPractitioner articles8Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein7Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott4Die Regeln machen den Unterschied: MarktdesignWirtschaftswissenschaftliches Studium 48(4): 22–28 (2019) · V. Gretschko, T. Klein, A. Wambach3Matching für Mikrokredite: Finanzielle Integration durch Marktdesign-AnsätzeÖkonomenstimme (2018) · T. Klein2Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. KleinReports6Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm5The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.4Measuring the Value of Official StatisticsUNECE Report on the Value of Official Statistics, ch. 5 (2017) · T. Klein, P. van de Ven3Rethinking Donor Support for Statistical Capacity DevelopmentOECD Development Co-operation Report 2017, ch. 4 (2017) · S. Badiee, T. Klein, E. Mohamedou2The Role of National Statistical Systems in the Data RevolutionOECD Development Co-operation Report 2017, ch. 3 (2017) · S. Badiee, J. Jütting, T. Klein1Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity DevelopmentUN Sustainable Development Solutions Network (2015) · J. Espey et al.Books2Why Do India’s Urban Poor Choose to Go Private? Health Policy Simulations in Slums of Hyderabadibidem, Stuttgart (2012) · T. Klein1Microfinance 2.0: Group Formation and Repayment Performance in Online Lending Platformsibidem, Stuttgart (2010) · T. Klein"
-  },
-  {
-    "objectID": "en/research/index.html#grants-service-and-teaching",
-    "href": "en/research/index.html#grants-service-and-teaching",
-    "title": "Research",
-    "section": "Grants, service and teaching",
-    "text": "Grants, service and teaching\n\n\nGrants (selected)\n\nMatchingTools, Federal Ministry for Economic Affairs and Energy, 2026–2027\nTafelConnect, Federal Ministry of Food and Agriculture, 2023–2026\nImpatience for better environmental subsidies, ZEW Sponsors’ Association, 2023–2024\nKitaMatch, Bertelsmann Stiftung, 2021–2023\neco-Plattform, Federal Ministry of Food and Agriculture, 2019–2023\niLearn, Leibniz Association (with DIW Berlin), 2019–2023\nSchool admission rules, ZEW, 2019–2022\n\n\n\nService\n\nProgramme committees: European Matching-in-Practice Workshop 2018, 2019, 2021; Easter Workshop on School Choice 2022; Beijing-Humboldt Forum 2024\nOrganisation: UIBE Market Design Workshop, Beijing 2024; Workshop on Algorithmic School Choice, Paderborn 2023; Easter Workshop on School Choice, Belfast 2022; European Matching-in-Practice Workshop, Mannheim 2018\nRefereeing: Management Science; German Academic Scholarship Foundation\n\n\n\nTeaching\n\nPforzheim University, since 2019: Analysis and Linear Algebra, Mathematical Optimisation, Statistics, Econometrics, Predictive Analytics, Risk Management\nUniversity of Mannheim: Market Design (MSc)\nDHBW Mannheim, Heilbronn University, OECD, University of Tübingen\nUniversity of Cambridge: Game Theory, Econometrics, Quantitative Methods\n\n\n\nSoftware\nmatchingMarkets. R package with algorithms and estimators for matching markets, downloaded more than 100,000 times. Project page ↗, CRAN ↗. KitaMatch. Public guide (in German) at kitamatch.com ↗; operation via MatchingTools ↗. Further repositories on GitHub ↗."
-  },
-  {
-    "objectID": "en/applications/food-donations.html",
-    "href": "en/applications/food-donations.html",
-    "title": "Food donations",
-    "section": "",
-    "text": "Application\n\n\n\nHow real-time data and market design help allocate donations more fairly and reduce waste.\n\n\n\n\n\n\n\n\n\n269 of 975\nfood banks in Germany are connected to the eco-Plattform (2026)\n\n\n265,000 t\nof food rescued by German food banks each year\n\n\n2019–2026\ntwo projects funded by the Federal Ministry of Food and Agriculture\n\n\n\nApproach Projects Materials Publications\n\n\n\nStarting point\n\n\nFood banks depend on donations from retailers and producers whose quantity and type are hard to predict. Some outlets receive more than they can distribute while others have too little. What is not passed on in time goes to waste.\n\n\n\nApproach\n\n\nA shared digital platform makes donation offers visible in real time. Surpluses can then be redistributed between outlets at no extra cost: needs are met more equitably and less food is wasted.\n\n\n\n\n\n\nReport offers. Retailers, manufacturers and wholesalers report surplus food as soon as it arises.\nMatch needs. The platform makes offers visible to the outlets that need them and can collect them.\nRedistribute. Surpluses go where need is greatest, at no extra cost.\n\nOne model is the US organisation Feeding America, where regional food banks bid for large donations using an internal currency; the resulting prices reveal where which foods are needed. After its introduction, total donations rose substantially.\n\n\n\n\n\n2019–2023\n\n\nMarket design for food donations from retailers. Today 269 of the 975 food banks in Germany are connected to the platform.\nFunded by the Federal Ministry of Food and Agriculture\n\n\n\n2023–2026\n\n\nMarket design for donations from producers and wholesalers.\nFunded by the Federal Ministry of Food and Agriculture\n\n\n\n\n\n\n\n\nPolicy brief\n\n\nHow digital platforms improve the allocation of donations.\nZEW, 2023, German\n\n\n\nPractitioner article\n\n\nMarket design for food banks.\nWirtschaftsdienst, 2023, German\n\n\n\n\n\nCoverage is in German.\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, also in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nMore press coverage (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen\n\n\n\n\nShow list\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  I am happy to share experience from eco-Plattform and TafelConnect.\n  Send an email"
-  },
-  {
-    "objectID": "en/applications/food-donations.html#the-problem",
-    "href": "en/applications/food-donations.html#the-problem",
-    "title": "Food donations",
-    "section": "The problem",
-    "text": "The problem\nFood banks (Tafeln) are among the largest social movements in Germany. They depend on donations from retailers and producers whose quantity and type are hard to predict. Some outlets receive more than they can distribute while others have too little. What is not passed on in time goes to waste."
-  },
-  {
-    "objectID": "en/applications/food-donations.html#the-approach",
-    "href": "en/applications/food-donations.html#the-approach",
-    "title": "Food donations",
-    "section": "The approach",
-    "text": "The approach\n\n\n  Allocation of food donations: offers from retailers, manufacturers and wholesalers are routed in real time through a shared platform to the food bank outlets that need them most.\n  \n  RetailManufacturersWholesale\n  \n  Platform\n  \n  Food banks\n  Real-time offers\n  Allocation by need\n\nSchematic: donation offers are routed through a shared platform and allocated to outlets according to need.\n\nWhen donors’ offers are visible in real time, surpluses can be redistributed between outlets at no extra cost. Needs are met more equitably and less food is wasted. One model is the US organisation Feeding America, where regional food banks bid for large donations using an internal currency; the resulting prices reveal where which foods are needed. After its introduction, total donations rose substantially."
-  },
-  {
-    "objectID": "en/applications/food-donations.html#projects",
-    "href": "en/applications/food-donations.html#projects",
-    "title": "Food donations",
-    "section": "",
-    "text": "2019–2023\n\n\nMarket design for food donations from retailers. Today 269 of the 975 food banks in Germany are connected to the platform.\nFunded by the Federal Ministry of Food and Agriculture\n\n\n\n2023–2026\n\n\nMarket design for donations from producers and wholesalers.\nFunded by the Federal Ministry of Food and Agriculture"
-  },
-  {
-    "objectID": "en/applications/food-donations.html#for-decision-makers",
-    "href": "en/applications/food-donations.html#for-decision-makers",
-    "title": "Food donations",
-    "section": "For decision-makers",
-    "text": "For decision-makers\n\nFighting food waste with digitalisation, ZEW policy brief, 2023 (German)\nEfficient and fair allocation of food donations, Wirtschaftsdienst, 2023 (German)"
-  },
-  {
-    "objectID": "en/applications/food-donations.html#publications",
-    "href": "en/applications/food-donations.html#publications",
-    "title": "Food donations",
-    "section": "",
-    "text": "Show list\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  I am happy to share experience from eco-Plattform and TafelConnect.\n  Send an email"
-  },
-  {
-    "objectID": "en/applications/food-donations.html#in-the-press",
-    "href": "en/applications/food-donations.html#in-the-press",
-    "title": "Food donations",
-    "section": "In the press",
-    "text": "In the press\nGerman-language coverage includes Mannheimer Morgen (August 2023), a dpa report carried by Die Zeit, Süddeutsche Zeitung, Welt, Focus and Stern (July 2023), and Welt am Sonntag (June 2018).\n\nContact\nQuestions about allocating donations: thilo.klein@hs-pforzheim.de"
-  },
-  {
-    "objectID": "en/applications/schools.html",
-    "href": "en/applications/schools.html",
-    "title": "School places",
-    "section": "",
-    "text": "Application\n\n\n\nWhich procedures best meet preferences, what parents actually do and what early tracking does.\n\n\n\n\n\n\n\n\n\nunder 3%\ninstead of 15% placed only at their fourth-ranked school or lower (Budapest)\n\n\n5 km\ngain from joint allocation, measured as a school that much closer\n\n\n540\nparents and students in the school choice experiment\n\n\n\nFindings Materials Publications\n\n\n\nStarting point\n\n\nAt the transition to secondary school, popular schools are often oversubscribed. How places are then allocated determines how many families get their preferred school, whether strategic behaviour pays off and who ends up disadvantaged.\n\n\n\nApproach\n\n\nA comparison of allocation mechanisms using administrative data and experiments, and an analysis of what tracking into school types means for achievement and opportunity.\n\n\n\n\n\n\n\nMechanisms\n\n\nThe widely used Deferred Acceptance mechanism makes truthful reporting the best strategy, but in Budapest places almost one child in seven at their fourth-ranked school or lower. A mechanism that explicitly minimises poor placements reduces this share to under three per cent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIn an experiment with 324 parents and 216 students, all mechanisms were frequently manipulated, including the one considered strategy-proof. The advantages of the more efficient mechanism nonetheless largely persisted.\nWorking paper, 2026\n\n\n\nDistricts\n\n\nWhen school districts merge their allocation, everyone gains on average, especially families from small districts with sought-after schools. In Hungary the gain is equivalent to a school five kilometres closer.\nGames and Economic Behavior, 2024\n\n\n\nTracking\n\n\nAttending an academic-track school improves achievement and university aspirations, at least as much for disadvantaged children as for others. These children are less likely to get there; early and rigid tracking can therefore amplify inequality.\nWorking papers, 2024 and 2025\n\n\n\n\n\n\n\n\nPolicy brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025\n\n\n\nPractitioner article\n\n\nLessons from Hungary for Germany’s three-tier school system.\nWirtschaftsdienst, 2025, German\n\n\n\nReport\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW research report, 2020\n\n\n\nPodcast\n\n\nOn early tracking, in conversation with secondary school pupils from Mannheim.\nZEW podcast, September 2026, German\n\n\n\n\n\nCoverage is in German.\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Article on early trackingFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nMore press coverage (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe\n\n\n\n\nShow list\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  I am happy to discuss what the research means for your admission rules.\n  Send an email"
-  },
-  {
-    "objectID": "en/applications/schools.html#the-problem",
-    "href": "en/applications/schools.html#the-problem",
-    "title": "School places",
-    "section": "The problem",
-    "text": "The problem\nAt the transition to secondary school, popular schools are often oversubscribed. How places are then allocated determines how many families get their preferred school, whether strategic behaviour pays off and who ends up disadvantaged. Rules differ widely between states and municipalities."
-  },
-  {
-    "objectID": "en/applications/schools.html#what-the-research-shows",
-    "href": "en/applications/schools.html#what-the-research-shows",
-    "title": "School places",
-    "section": "What the research shows",
-    "text": "What the research shows\n\nWhich procedure best meets preferences?\nThe internationally widespread Deferred Acceptance mechanism has one major advantage: truthful reporting is always the best strategy. The price is high. In Budapest, almost one applicant in seven is placed only at their fourth-ranked school or lower. A mechanism that explicitly minimises poor placements reduces this share to under three per cent.\n\n\n  Share of applicants placed only at their fourth-ranked school or lower. Budapest, more than 10,000 pupils.\n  Placed at 4th choice or lower\n  Deferred Acceptance\n  \n  15%\n  Rank-Minimizing\n  \n  below 3%\n\nSource: Ortega and Klein (2023), Games and Economic Behavior.\n\n\n\nWhat parents actually do\nIn an experiment with 324 parents and 216 students, all mechanisms studied were frequently manipulated, including the one considered strategy-proof. Parents behaved much like students but made fewer obvious mistakes. The advantages of the more efficient mechanism nonetheless largely persisted.\n\n\nJoint allocation across districts\nWhen school districts merge their allocation, everyone gains on average, especially families from small districts with sought-after schools. In Hungary the gain is equivalent to moving a school five kilometres closer.\n\n\nEarly tracking\nIn Hungary, attending an academic-track school improves achievement and university aspirations, at least as much for children from disadvantaged families as for others. These children, however, are less likely to get there. Germany tracks at around age ten, much earlier than Hungary at fourteen; early and rigid tracking can therefore amplify inequality."
-  },
-  {
-    "objectID": "en/applications/schools.html#for-decision-makers",
-    "href": "en/applications/schools.html#for-decision-makers",
-    "title": "School places",
-    "section": "For decision-makers",
-    "text": "For decision-makers\n\nRethinking Tracking: Lessons from Hungary for German Education Reform, ZEW policy brief, 2025\nEarly tracking and its consequences, Wirtschaftsdienst, 2025 (German)\nThe Implication of School Admission Rules for Segregation and Educational Inequality, ZEW research report, 2020"
-  },
-  {
-    "objectID": "en/applications/schools.html#listen",
-    "href": "en/applications/schools.html#listen",
-    "title": "School places",
-    "section": "Listen",
-    "text": "Listen\n\nHow are school places allocated?, ZEW podcast, September 2026 (German)"
-  },
-  {
-    "objectID": "en/applications/schools.html#publications",
-    "href": "en/applications/schools.html#publications",
-    "title": "School places",
-    "section": "",
-    "text": "Show list\n10Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega9Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein8Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein7Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara6Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara5School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega4The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein3Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein2The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.1What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega\n\n\n  I am happy to discuss what the research means for your admission rules.\n  Send an email"
-  },
-  {
-    "objectID": "en/applications/schools.html#in-the-press",
-    "href": "en/applications/schools.html#in-the-press",
-    "title": "School places",
-    "section": "In the press",
-    "text": "In the press\nGerman-language coverage includes MDR Wissen (February 2026), Süddeutsche Zeitung (March 2026), Frankfurter Rundschau (October 2023) and Table.Media (October 2023).\n\nContact\nQuestions about school place allocation in your municipality or region: thilo.klein@hs-pforzheim.de"
-  },
-  {
-    "objectID": "en/media.html",
-    "href": "en/media.html",
-    "title": "Media",
-    "section": "",
-    "text": "Podcasts and press\n\n\n\nPodcasts and press coverage on childcare and school place allocation, food donations and market design."
-  },
-  {
-    "objectID": "en/media.html#podcasts",
-    "href": "en/media.html#podcasts",
-    "title": "Media",
-    "section": "Podcasts",
-    "text": "Podcasts\n\n\n\n\nThe Missing Middle\nGame Changer, the podcast by TWS Partners, May 2026. Why childcare allocation in Germany is still mostly uncoordinated despite well-understood theory, and what municipalities need to run matching procedures.\nListen ↗\n\n\n\n\n\nHow are school places allocated?\nZEW podcast, September 2026, in German. On early tracking and what academic-track schools do for children from less privileged families, with secondary school pupils from Mannheim.\nListen ↗\n\n\n\n\n\nOn Your Spots, Get Set, Go?\nZEW podcast. How KitaMatch allocates childcare places faster and more fairly.\nListen ↗"
-  },
-  {
-    "objectID": "en/media.html#press",
-    "href": "en/media.html#press",
-    "title": "Media",
-    "section": "Press",
-    "text": "Press\nCoverage is in German.\n\nSchool choice\n\nMDR Wissen, February 2026\nSüddeutsche Zeitung, March 2026, on early tracking\nFrankfurter Rundschau, October 2023\nTable.Media, October 2023\n\n\n\nChildcare allocation\n\nSüddeutsche Zeitung, September 2023\nTagesspiegel Background, August 2023\nWirtschaftsWoche, December 2021\nDie Zeit, February 2021\nWirtschaftsWoche, January 2020\nFrankfurter Allgemeine Zeitung, November 2019\nDie Rheinpfalz, October 2018\nWestfälische Nachrichten, March 2018\nFrankfurter Allgemeine Zeitung, June 2017\n\n\n\nFood donations\n\nMannheimer Morgen, August 2023\nMannheimer Morgen, August 2023\nMannheimer Morgen, August 2023 (comment)\ndpa report, July 2023, carried by Die Zeit, Süddeutsche Zeitung, Welt, Focus and Stern\nWelt am Sonntag, June 2018"
-  },
-  {
-    "objectID": "en/media.html#for-journalists",
-    "href": "en/media.html#for-journalists",
-    "title": "Media",
-    "section": "For journalists",
-    "text": "For journalists\nInterview and background requests: thilo.klein@hs-pforzheim.de. A portrait photo is available here."
-  },
-  {
-    "objectID": "index.html#lehre-und-transfer",
-    "href": "index.html#lehre-und-transfer",
-    "title": "Thilo Klein",
-    "section": "Lehre und Transfer",
-    "text": "Lehre und Transfer\n\n\n\n\nAktuelle Lehre\n\nAnalysis und Lineare Algebra\nInduktive Statistik\nMultivariate Statistik\nData Analytics with R\nQuantitative Research Methodologies\n\n\n\n\n\n\nLaufende Projekte\n\nMatchingTools, EXIST-Forschungstransfer, Bundesministerium für Wirtschaft und Energie, 2026–2027\n\n\n\n\n\n\nSoftware\n\nmatchingMarkets. R-Paket mit Algorithmen für Matching-Märkte, über 100.000 Downloads. Projektseite ↗, CRAN ↗.\nKitaMatch. Öffentlicher Leitfaden unter kitamatch.com ↗; Betrieb über MatchingTools ↗.\nMatchingMarkets API ↗ ist eine Programmierschnittstelle für Matching-Algorithmen.\n\n\n\n\n\n\nForschungstransfer\n\nMitgründer und Wissenschaftlicher Berater der MatchingTools GmbH ↗, einer Ausgründung des ZEW.\nEXIST-Koordinator der Business School Pforzheim"
-  },
-  {
-    "objectID": "en/index.html#teaching-and-transfer",
-    "href": "en/index.html#teaching-and-transfer",
-    "title": "Thilo Klein",
-    "section": "Teaching and Transfer",
-    "text": "Teaching and Transfer\n\n\n\n\nCurrent teaching\n\nAnalysis and Linear Algebra\nInferential Statistics\nMultivariate Statistics\nData Analytics with R\nQuantitative Research Methodologies\n\n\n\n\n\n\nCurrent Projects\n\nMatchingTools, EXIST research transfer project, Federal Ministry of Economic Affairs and Energy, 2026–2027\nTafelConnect, Real-time allocation of surplus food to food bank, Federal Ministry of Food and Agriculture, 2023-2026.\n\n\n\n\n\n\nSoftware\n\nmatchingMarkets. R package with algorithms for matching markets, downloaded more than 100,000 times. Project page ↗, CRAN ↗.\nKitaMatch. Public guide (in German): Best practices for childcare allocation ↗; operated by MatchingTools ↗.\nMatchingMarkets API ↗ is an application programming interface for matching algorithms.\n\n\n\n\n\n\nResearch transfer\n\nCo-founder and scientific advisor at MatchingTools GmbH ↗, a ZEW spin-out. When evaluating procedures whose implementation involves MatchingTools, I disclose this connection.\nEXIST coordinator at Pforzheim Business School"
   },
   {
     "objectID": "de/index.html",
@@ -714,116 +322,11 @@
     "text": "Lehre und Transfer\n\n\n\n\nAktuelle Lehre\n\nAnalysis und Lineare Algebra\nInduktive Statistik\nMultivariate Statistik\nData Analytics with R\nQuantitative Research Methodologies\n\n\n\n\n\n\nLaufende Projekte\n\nMatchingTools, EXIST-Forschungstransfer, Bundesministerium für Wirtschaft und Energie, 2026–2027\nTafelConnect, Marktdesign für Spenden von Herstellern und Großhandel, Bundesministerium für Ernährung und Landwirtschaft, 2023-2026.\n\n\n\n\n\n\nSoftware\n\nmatchingMarkets. R-Paket mit Algorithmen für Matching-Märkte, über 100.000 Downloads. Projektseite ↗, CRAN ↗.\nKitaMatch. Öffentlicher Leitfaden: Best Practices Kitaplatzvergabe ↗; Betrieb über MatchingTools ↗.\nMatchingMarkets API ↗ ist eine Programmierschnittstelle für Matching-Algorithmen.\n\n\n\n\n\n\nForschungstransfer\n\nMitgründer und Wissenschaftlicher Berater der MatchingTools GmbH ↗, einer Ausgründung des ZEW.\nEXIST-Koordinator der Business School Pforzheim"
   },
   {
-    "objectID": "anwendungen/umweltfoerderung.html",
-    "href": "anwendungen/umweltfoerderung.html",
-    "title": "Umweltförderung",
+    "objectID": "anwendungen/index.html",
+    "href": "anwendungen/index.html",
+    "title": "Für Kommunen und Verwaltung",
     "section": "",
-    "text": "Anwendung\n\n\n\nWie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.\n\n\n\n\n\n\n\n\n\nWeniger Mitnahme\nMittel gehen seltener an Haushalte, die ohnehin gekauft hätten\n\n\nWartezeit als Filter\nohne Einkommen oder Absichten prüfen zu müssen\n\n\nMehr Wirkung\nje eingesetztem Euro bei gleichem Budget\n\n\n\nAnsatz Materialien Publikationen\n\n\n\nAusgangslage\n\n\nBund, Länder und Kommunen fördern Lastenräder, E-Bikes, Elektroautos oder energetische Sanierungen. Ein Teil der Mittel geht an Haushalte, die auch ohne Zuschuss gekauft hätten, und verdrängt jene, die nur mit Förderung kaufen.\n\n\n\nAnsatz\n\n\nWer ohnehin kaufen will, ist meist ungeduldiger und wartet ungern auf die Bewilligung. Eine längere Zeit zwischen Antrag und Auszahlung lenkt die Mittel deshalb zu den Haushalten, deren Kauf tatsächlich von der Förderung abhängt.\n\n\n\n\n\n\nAntrag stellen. Haushalte beantragen die Förderung wie bisher.\nWartezeit festlegen. Zwischen Antrag und Auszahlung liegt eine Wartezeit; eine einheitliche Wartezeit-Auktion legt sie so fest, dass möglichst viele Haushalte erreicht werden, die nur mit Förderung kaufen.\nSelbstauswahl. Wer ohnehin kaufen will, kauft oft sofort ohne Zuschuss. Die Mittel bleiben für die Haushalte, für die sie den Ausschlag geben.\n\n\n\n\n\n\n2023–2024\n\n\nUntersuchung von Verfahren, die die Ungeduld von Haushalten nutzen, um Förderprogramme zielgenauer zu machen.\nGefördert vom ZEW-Förderkreis Wissenschaft und Praxis\n\n\n\n\n\n\n\n\nPolicy Brief\n\n\nWie Wartezeiten die Effizienz von Förderprogrammen erhöhen.\nZEW, 2023, Englisch\n\n\n\nFachartikel\n\n\nDer Ansatz für die deutsche Förderpraxis.\nWirtschaftsdienst, 2025\n\n\n\n\n\n\nListe anzeigen\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  Gern bespreche ich, wie sich Wartezeiten und Auswahlregeln für Ihr Programm gestalten lassen.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#das-problem",
-    "href": "anwendungen/umweltfoerderung.html#das-problem",
-    "title": "Umweltförderung",
-    "section": "Das Problem",
-    "text": "Das Problem\nBund, Länder und Kommunen fördern den Kauf umweltfreundlicher Produkte, etwa Lastenräder, E-Bikes, Elektroautos oder energetische Sanierungen. Ein Teil der Mittel geht dabei an Haushalte, die auch ohne Zuschuss gekauft hätten. Diese Mitnahmeeffekte verdrängen Haushalte, die nur mit Förderung kaufen, und senken so die Wirkung jedes eingesetzten Euros."
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#der-ansatz",
-    "href": "anwendungen/umweltfoerderung.html#der-ansatz",
-    "title": "Umweltförderung",
-    "section": "Der Ansatz",
-    "text": "Der Ansatz\nWer ohnehin kaufen will, ist meist ungeduldiger: Er wartet ungern Wochen oder Monate auf die Bewilligung und kauft im Zweifel ohne Zuschuss. Haushalte, für die die Förderung den Ausschlag gibt, nehmen eine Wartezeit eher in Kauf. Eine längere Zeit zwischen Antrag und Auszahlung lenkt die Mittel deshalb stärker zu denjenigen, deren Kaufentscheidung tatsächlich von der Förderung abhängt.\n\nKurz gesagt\n\nDie Wartezeit wirkt als Auswahlinstrument, ohne Einkommen oder Absichten prüfen zu müssen.\nEine einheitliche Wartezeit-Auktion maximiert die Zahl der Haushalte, die nur dank der Förderung kaufen.\nBei gleichem Budget steigt die Umweltwirkung des Programms."
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#projekt",
-    "href": "anwendungen/umweltfoerderung.html#projekt",
-    "title": "Umweltförderung",
-    "section": "",
-    "text": "2023–2024\n\n\nUntersuchung von Verfahren, die die Ungeduld von Haushalten nutzen, um Förderprogramme zielgenauer zu machen.\nGefördert vom ZEW-Förderkreis Wissenschaft und Praxis"
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#für-entscheiderinnen-und-entscheider",
-    "href": "anwendungen/umweltfoerderung.html#für-entscheiderinnen-und-entscheider",
-    "title": "Umweltförderung",
-    "section": "Für Entscheiderinnen und Entscheider",
-    "text": "Für Entscheiderinnen und Entscheider\n\nTapping into People’s Impatience for Better Environmental Subsidies, ZEW Policy Brief, 2023\nMit Ungeduld zu besseren Subventionen für umweltfreundliche Produkte, Wirtschaftsdienst, 2025"
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#publikationen",
-    "href": "anwendungen/umweltfoerderung.html#publikationen",
-    "title": "Umweltförderung",
-    "section": "",
-    "text": "Liste anzeigen\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  Gern bespreche ich, wie sich Wartezeiten und Auswahlregeln für Ihr Programm gestalten lassen.\n  E-Mail schreiben"
-  },
-  {
-    "objectID": "en/applications/environmental-subsidies.html",
-    "href": "en/applications/environmental-subsidies.html",
-    "title": "Environmental subsidies",
-    "section": "",
-    "text": "Application\n\n\n\nHow subsidy programmes for eco-friendly products can better reach households that would not buy without support.\n\n\n\n\n\n\n\n\n\nLess windfall\nfunds go less often to households that would have bought anyway\n\n\nWaiting as a filter\nwithout verifying income or intentions\n\n\nMore impact\nper euro spent, with the same budget\n\n\n\nApproach Materials Publications\n\n\n\nStarting point\n\n\nGovernments subsidise cargo bikes, e-bikes, electric cars and energy-efficient retrofits. Part of the money goes to households that would have bought anyway, crowding out those who buy only when subsidised.\n\n\n\nApproach\n\n\nHouseholds that would buy anyway tend to be more impatient and reluctant to wait for approval. A longer time between application and payment therefore shifts funds towards households whose purchase actually depends on the subsidy.\n\n\n\n\n\n\nApply. Households apply for the subsidy as before.\nSet the waiting time. A waiting time separates application and payment; a uniform wait-time auction sets it so that as many households as possible are reached who buy only with support.\nSelf-selection. Those who would buy anyway often buy right away without the subsidy. The funds remain for the households for whom they make the difference.\n\n\n\n\n\n\n2023–2024\n\n\nResearch on mechanisms that use households’ impatience to make subsidy programmes better targeted.\nFunded by the ZEW Sponsors’ Association\n\n\n\n\n\n\n\n\nPolicy brief\n\n\nHow waiting times raise the efficiency of subsidy programmes.\nZEW, 2023\n\n\n\nPractitioner article\n\n\nThe approach applied to German subsidy practice.\nWirtschaftsdienst, 2025, German\n\n\n\n\n\n\nShow list\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  I am happy to discuss how waiting times and selection rules could work for your programme.\n  Send an email"
-  },
-  {
-    "objectID": "en/applications/environmental-subsidies.html#the-problem",
-    "href": "en/applications/environmental-subsidies.html#the-problem",
-    "title": "Environmental subsidies",
-    "section": "The problem",
-    "text": "The problem\nGovernments subsidise eco-friendly purchases such as cargo bikes, e-bikes, electric cars and energy-efficient building retrofits. Part of the money goes to households that would have bought anyway. These windfall gains crowd out households that buy only when subsidised, and reduce the impact of every euro spent."
-  },
-  {
-    "objectID": "en/applications/environmental-subsidies.html#the-approach",
-    "href": "en/applications/environmental-subsidies.html#the-approach",
-    "title": "Environmental subsidies",
-    "section": "The approach",
-    "text": "The approach\nHouseholds that would buy anyway tend to be more impatient: they are reluctant to wait weeks or months for approval and will often buy without the subsidy. Households for whom the subsidy is decisive are more willing to wait. A longer time between application and payment therefore shifts funds towards those whose purchase actually depends on the subsidy.\n\nIn short\n\nThe waiting time acts as a screening device without having to verify income or intentions.\nA uniform wait-time auction maximises the number of households that buy only because of the subsidy.\nWith the same budget, the programme’s environmental impact rises."
-  },
-  {
-    "objectID": "en/applications/environmental-subsidies.html#project",
-    "href": "en/applications/environmental-subsidies.html#project",
-    "title": "Environmental subsidies",
-    "section": "",
-    "text": "2023–2024\n\n\nResearch on mechanisms that use households’ impatience to make subsidy programmes better targeted.\nFunded by the ZEW Sponsors’ Association"
-  },
-  {
-    "objectID": "en/applications/environmental-subsidies.html#for-decision-makers",
-    "href": "en/applications/environmental-subsidies.html#for-decision-makers",
-    "title": "Environmental subsidies",
-    "section": "For decision-makers",
-    "text": "For decision-makers\n\nTapping into People’s Impatience for Better Environmental Subsidies, ZEW policy brief, 2023\nWith impatience to better subsidies for eco-friendly products, Wirtschaftsdienst, 2025 (German)"
-  },
-  {
-    "objectID": "en/applications/environmental-subsidies.html#publications",
-    "href": "en/applications/environmental-subsidies.html#publications",
-    "title": "Environmental subsidies",
-    "section": "",
-    "text": "Show list\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  I am happy to discuss how waiting times and selection rules could work for your programme.\n  Send an email"
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#ansatz",
-    "href": "anwendungen/umweltfoerderung.html#ansatz",
-    "title": "Umweltförderung",
-    "section": "",
-    "text": "Antrag stellen. Haushalte beantragen die Förderung wie bisher.\nWartezeit festlegen. Zwischen Antrag und Auszahlung liegt eine Wartezeit; eine einheitliche Wartezeit-Auktion legt sie so fest, dass möglichst viele Haushalte erreicht werden, die nur mit Förderung kaufen.\nSelbstauswahl. Wer ohnehin kaufen will, kauft oft sofort ohne Zuschuss. Die Mittel bleiben für die Haushalte, für die sie den Ausschlag geben."
-  },
-  {
-    "objectID": "anwendungen/umweltfoerderung.html#materialien",
-    "href": "anwendungen/umweltfoerderung.html#materialien",
-    "title": "Umweltförderung",
-    "section": "",
-    "text": "Policy Brief\n\n\nWie Wartezeiten die Effizienz von Förderprogrammen erhöhen.\nZEW, 2023, Englisch\n\n\n\nFachartikel\n\n\nDer Ansatz für die deutsche Förderpraxis.\nWirtschaftsdienst, 2025"
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#ansatz",
-    "href": "anwendungen/lebensmittelspenden.html#ansatz",
-    "title": "Lebensmittelspenden",
-    "section": "",
-    "text": "Angebote melden. Handel, Hersteller und Großhandel melden überschüssige Lebensmittel, sobald sie anfallen.\nBedarf abgleichen. Die Plattform macht die Angebote für die Ausgabestellen sichtbar, die sie brauchen und abholen können.\nUmverteilen. Überschüsse gehen ohne zusätzliche Kosten dorthin, wo der Bedarf am größten ist.\n\nEin Vorbild ist die US-Organisation Feeding America: Dort bieten regionale Tafeln mit einer eigenen Verrechnungswährung auf Großspenden; die Preise zeigen, wo welche Lebensmittel gebraucht werden. Nach der Einführung stieg die Menge der Spenden deutlich."
-  },
-  {
-    "objectID": "anwendungen/lebensmittelspenden.html#materialien",
-    "href": "anwendungen/lebensmittelspenden.html#materialien",
-    "title": "Lebensmittelspenden",
-    "section": "",
-    "text": "Policy Brief\n\n\nWie digitale Plattformen die Verteilung von Spenden verbessern.\nZEW, 2023\n\n\n\nFachartikel\n\n\nMarktdesign für die Tafeln.\nWirtschaftsdienst, 2023\n\n\n\n\n\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, u. a. in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nWeitere Presseberichte (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen"
+    "text": "Anwendungen\n\n\n\nViele öffentliche Leistungen werden nicht über Preise vergeben, sondern über Anmeldungen, Kriterien und Wartelisten. Gut gestaltete Verfahren sorgen dafür, dass vorhandene Plätze vollständig genutzt werden, Wünsche bestmöglich berücksichtigt sind und Entscheidungen nachvollziehbar bleiben.\n\n\n\n\n\n\n\n\n\n10+ Kommunen seit 2019\n\n\nKoordinierte Vergabe über alle Träger, unter anderem in Tübingen und Kaiserslautern.\nMehr\n\n\n\n\n\n\nunter 3 % statt 15 %\n\n\nWelche Verfahren Wünsche am besten erfüllen und was die frühe Aufteilung auf Schularten bewirkt.\nMehr\n\n\n\n\n\n\n\n\n\n\n\n269 Tafeln angebunden\n\n\nEchtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln.\nMehr\n\n\n\n\n\n\nWartezeit als Filter\n\n\nFörderprogramme, die gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.\nMehr\n\n\n\n\n\n\n\n\nErstgespräch. Welche Plätze werden vergeben, nach welchen Regeln, und wo liegen die Probleme?\nAnalyse. Auswertung bisheriger Vergabedaten und Simulation alternativer Regeln.\nRegeldesign. Kriterien, Quoten und Sonderfälle wie Geschwister, abgestimmt mit Trägern und Rechtsrahmen.\nUmsetzung und Evaluation. Einführung, meist zunächst als Pilot, mit begleitender Auswertung.\n\nForschung und Evaluation finden an der Hochschule Pforzheim und am ZEW statt. Software für den laufenden Betrieb bietet die MatchingTools GmbH an.\n\n  Fragen zu Vergabeverfahren in Ihrer Kommune oder Ihrem Land beantworte ich gern.\n  E-Mail schreiben"
   },
   {
     "objectID": "anwendungen/index.html#platzvergabe-in-bildung",
@@ -833,81 +336,137 @@
     "text": "10+ Kommunen seit 2019\n\n\nKoordinierte Vergabe über alle Träger, unter anderem in Tübingen und Kaiserslautern.\nMehr\n\n\n\n\n\n\nunter 3 % statt 15 %\n\n\nWelche Verfahren Wünsche am besten erfüllen und was die frühe Aufteilung auf Schularten bewirkt.\nMehr"
   },
   {
-    "objectID": "anwendungen/kita.html#verfahren",
-    "href": "anwendungen/kita.html#verfahren",
-    "title": "Kitaplatzvergabe",
+    "objectID": "anwendungen/index.html#nachhaltiges-marktdesign",
+    "href": "anwendungen/index.html#nachhaltiges-marktdesign",
+    "title": "Für Kommunen und Verwaltung",
     "section": "",
-    "text": "Wünsche angeben. Eltern nennen über eine zentrale Anmeldung mehrere Wunsch-Kitas in ihrer Reihenfolge.\nKriterien anwenden. Jede Kita ordnet ihre Bewerbungen nach ihren eigenen Aufnahmekriterien, etwa Alter, Geschwister oder Wohnort.\nAngebote koordinieren. In mehreren Runden erhalten Familien Angebote. Jede Familie hält höchstens ein Angebot; nimmt sie ein besseres an, wird das vorige sofort frei.\nFreie Plätze weitergeben. Frei gewordene Plätze gehen in der nächsten Runde an die nächste passende Familie, bis keine Verbesserung mehr möglich ist.\n\n\nWas das Verfahren garantiert\n\nKeine Familie hält mehrere Plätze gleichzeitig.\nKein Platz bleibt frei, solange eine Familie ihn ihrem aktuellen Angebot vorzieht und nach den Kriterien der Kita Vorrang hätte.\nZusätzliche Wünsche verschlechtern nicht die Chancen auf den Erstwunsch.\nDie Träger entscheiden weiter selbst nach ihren Kriterien.\n\n\nDas Verfahren schafft keine neuen Plätze. Es sorgt aber dafür, dass die vorhandenen Plätze schnell und nach Bedarf vergeben werden, und es zeigt, wie viele Plätze vor Ort tatsächlich fehlen. Grundlage ist ein iteratives Deferred-Acceptance-Verfahren, das auch dezentral funktioniert."
+    "text": "269 Tafeln angebunden\n\n\nEchtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln.\nMehr\n\n\n\n\n\n\nWartezeit als Filter\n\n\nFörderprogramme, die gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.\nMehr"
   },
   {
-    "objectID": "anwendungen/kita.html#einsatz",
-    "href": "anwendungen/kita.html#einsatz",
-    "title": "Kitaplatzvergabe",
+    "objectID": "anwendungen/index.html#so-läuft-eine-zusammenarbeit",
+    "href": "anwendungen/index.html#so-läuft-eine-zusammenarbeit",
+    "title": "Für Kommunen und Verwaltung",
     "section": "",
-    "text": "Unter dem Namen KitaMatch wird das Verfahren in mehr als zehn Kommunen in drei Bundesländern eingesetzt. 2022 zeichnete der ZEW-Förderkreis Wissenschaft und Praxis das Projekt als bestes wirtschaftspolitisches Beratungsprojekt des ZEW aus.\n\n\nseit 2024\n\n\nDie Universitätsstadt vergibt ihre Betreuungsplätze seit der Hauptvergaberunde für das Kindergartenjahr 2024/25 mit KitaMatch. Die Anmeldung läuft über eine zentrale Anmeldestelle; Eltern geben mehrere Wunscheinrichtungen in ihrer Reihenfolge an.\n\n\n\nseit 2019\n\n\nDie Stadt gehört zu den ersten Kommunen, die ihre Kitaplätze koordiniert über alle Träger vergeben.\n\n\n\nseit 2019\n\n\nIm Kreis Steinfurt läuft die Vergabe seit 2019 über KitaMatch; die Erfahrungen dort bildeten die Grundlage für den öffentlichen Leitfaden. Auch Greven und Emsdetten setzen das Verfahren ein."
+    "text": "Erstgespräch. Welche Plätze werden vergeben, nach welchen Regeln, und wo liegen die Probleme?\nAnalyse. Auswertung bisheriger Vergabedaten und Simulation alternativer Regeln.\nRegeldesign. Kriterien, Quoten und Sonderfälle wie Geschwister, abgestimmt mit Trägern und Rechtsrahmen.\nUmsetzung und Evaluation. Einführung, meist zunächst als Pilot, mit begleitender Auswertung.\n\nForschung und Evaluation finden an der Hochschule Pforzheim und am ZEW statt. Software für den laufenden Betrieb bietet die MatchingTools GmbH an.\n\n  Fragen zu Vergabeverfahren in Ihrer Kommune oder Ihrem Land beantworte ich gern.\n  E-Mail schreiben"
   },
   {
-    "objectID": "anwendungen/kita.html#materialien",
-    "href": "anwendungen/kita.html#materialien",
-    "title": "Kitaplatzvergabe",
+    "objectID": "anwendungen/lebensmittelspenden.html",
+    "href": "anwendungen/lebensmittelspenden.html",
+    "title": "Lebensmittelspenden",
     "section": "",
-    "text": "Leitfaden\n\n\nHandbuch zum Ablauf für Jugendämter, Träger und Kita-Leitungen.\nZEW, 2023\n\n\n\nLeitfaden\n\n\nWegweiser für eine schnelle, faire und transparente Kitaplatzvergabe.\nBertelsmann Stiftung, 2023\n\n\n\nFachartikel\n\n\nStatus quo und Handlungsempfehlungen.\nWirtschaftsdienst, 2024\n\n\n\nPolicy Brief\n\n\nEin Leitfaden für Kommunen.\nZEW, 2017\n\n\n\nPodcast\n\n\nSo gelingt die Kitaplatzvergabe.\nZEW-Podcast\n\n\n\nPodcast\n\n\nHow market design gets built for the public sector.\nGame Changer, Mai 2026, Englisch\n\n\n\n\n\nTagesspiegel, 08/2023Algorithmus sucht passenden KitaplatzWirtschaftsWoche, 12/2021„Kita-Match“: Ein Kitaplatz per AlgorithmusFAZ, 11/2019Gegen den Kita-Frust\nWeitere Presseberichte (4)Die Zeit, 02/2021Beitrag in Die ZeitWirtschaftsWoche, 01/2020Marktdesign: Ökonomie ohne ElfenbeinturmDie Rheinpfalz, 10/2018Beitrag in Die RheinpfalzFAZ, 06/2017Raus aus der Kita-Warteschlange"
+    "text": "Anwendung\n\n\n\nWie Echtzeitdaten und Marktdesign helfen, Spenden gerechter zu verteilen und Verschwendung zu vermeiden.\n\n\n\n\n\n\n\n\n\n269 von 975\nTafeln in Deutschland sind an die eco-Plattform angebunden (2026)\n\n\n265.000 t\nLebensmittel retten die Tafeln pro Jahr\n\n\n2019–2026\nzwei vom Bundeslandwirtschaftsministerium geförderte Projekte\n\n\n\nAnsatz Projekte Materialien Publikationen\n\n\n\nAusgangslage\n\n\nDie Tafeln sind auf Spenden aus Handel und Produktion angewiesen, deren Menge und Art kaum vorhersehbar ist. Manche Ausgabestellen erhalten mehr, als sie verteilen können, während andere zu wenig haben. Was nicht rechtzeitig weitergegeben wird, verdirbt.\n\n\n\nAnsatz\n\n\nEine gemeinsame digitale Plattform macht Spendenangebote in Echtzeit sichtbar. Überschüsse lassen sich so kostenneutral zwischen Ausgabestellen umverteilen: Der Bedarf wird gerechter gedeckt, und weniger wird weggeworfen.\n\n\n\n\n\n\nAngebote melden. Handel, Hersteller und Großhandel melden überschüssige Lebensmittel, sobald sie anfallen.\nBedarf abgleichen. Die Plattform macht die Angebote für die Ausgabestellen sichtbar, die sie brauchen und abholen können.\nUmverteilen. Überschüsse gehen ohne zusätzliche Kosten dorthin, wo der Bedarf am größten ist.\n\nEin Vorbild ist die US-Organisation Feeding America: Dort bieten regionale Tafeln mit einer eigenen Verrechnungswährung auf Großspenden; die Preise zeigen, wo welche Lebensmittel gebraucht werden. Nach der Einführung stieg die Menge der Spenden deutlich.\n\n\n\n\n\n2019–2023\n\n\nMarktdesign für Lebensmittelspenden des Einzelhandels. Heute sind 269 der 975 Tafeln in Deutschland an die Plattform angebunden.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft\n\n\n\n2023–2026\n\n\nMarktdesign für Spenden von Herstellern und Großhandel.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft\n\n\n\n\n\n\n\n\nPolicy Brief\n\n\nWie digitale Plattformen die Verteilung von Spenden verbessern.\nZEW, 2023\n\n\n\nFachartikel\n\n\nMarktdesign für die Tafeln.\nWirtschaftsdienst, 2023\n\n\n\n\n\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, u. a. in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nWeitere Presseberichte (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen\n\n\n\n\nListe anzeigen\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  Ich berichte gern über Erfahrungen aus eco-Plattform und TafelConnect.\n  E-Mail schreiben"
   },
   {
-    "objectID": "anwendungen/schule.html#ergebnisse",
-    "href": "anwendungen/schule.html#ergebnisse",
-    "title": "Schulplatzvergabe",
+    "objectID": "anwendungen/lebensmittelspenden.html#ansatz",
+    "href": "anwendungen/lebensmittelspenden.html#ansatz",
+    "title": "Lebensmittelspenden",
     "section": "",
-    "text": "Verfahren\n\n\nDas verbreitete Deferred-Acceptance-Verfahren macht ehrliche Angaben zur besten Strategie, platziert in Budapest aber fast jedes siebte Kind erst an der vierten Wunschschule oder später. Ein Verfahren, das schlechte Platzierungen gezielt minimiert, senkt diesen Anteil auf unter drei Prozent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIm Experiment mit 324 Eltern und 216 Studierenden wurden alle Verfahren häufig strategisch genutzt, auch das als manipulationssicher geltende. Die Vorteile des effizienteren Verfahrens blieben dennoch weitgehend erhalten.\nDiskussionspapier, 2026\n\n\n\nBezirke\n\n\nLegen Schulbezirke ihre Vergabe zusammen, gewinnen im Durchschnitt alle, besonders Familien aus kleinen Bezirken mit begehrten Schulen. In Ungarn entspricht der Gewinn einer um fünf Kilometer näheren Schule.\nGames and Economic Behavior, 2024\n\n\n\nSchularten\n\n\nEin Gymnasium verbessert Leistungen und Studienpläne, für Kinder aus benachteiligten Familien mindestens so stark wie für andere. Diese gelangen aber seltener dorthin; eine frühe und strenge Aufteilung kann Ungleichheit verstärken.\nDiskussionspapiere, 2024 und 2025"
+    "text": "Angebote melden. Handel, Hersteller und Großhandel melden überschüssige Lebensmittel, sobald sie anfallen.\nBedarf abgleichen. Die Plattform macht die Angebote für die Ausgabestellen sichtbar, die sie brauchen und abholen können.\nUmverteilen. Überschüsse gehen ohne zusätzliche Kosten dorthin, wo der Bedarf am größten ist.\n\nEin Vorbild ist die US-Organisation Feeding America: Dort bieten regionale Tafeln mit einer eigenen Verrechnungswährung auf Großspenden; die Preise zeigen, wo welche Lebensmittel gebraucht werden. Nach der Einführung stieg die Menge der Spenden deutlich."
   },
   {
-    "objectID": "anwendungen/schule.html#materialien",
-    "href": "anwendungen/schule.html#materialien",
-    "title": "Schulplatzvergabe",
+    "objectID": "anwendungen/lebensmittelspenden.html#projekte",
+    "href": "anwendungen/lebensmittelspenden.html#projekte",
+    "title": "Lebensmittelspenden",
     "section": "",
-    "text": "Policy Brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025, Englisch\n\n\n\nFachartikel\n\n\nLehren aus Ungarn für das dreigliedrige Schulsystem.\nWirtschaftsdienst, 2025\n\n\n\nBericht\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW Research Report, 2020\n\n\n\nPodcast\n\n\nÜber die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.\nZEW-Podcast, September 2026\n\n\n\n\n\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Beitrag zur frühen Aufteilung auf SchulartenFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nWeitere Presseberichte (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe"
+    "text": "2019–2023\n\n\nMarktdesign für Lebensmittelspenden des Einzelhandels. Heute sind 269 der 975 Tafeln in Deutschland an die Plattform angebunden.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft\n\n\n\n2023–2026\n\n\nMarktdesign für Spenden von Herstellern und Großhandel.\nGefördert vom Bundesministerium für Ernährung und Landwirtschaft"
   },
   {
-    "objectID": "en/applications/schools.html#findings",
-    "href": "en/applications/schools.html#findings",
-    "title": "School places",
+    "objectID": "anwendungen/lebensmittelspenden.html#materialien",
+    "href": "anwendungen/lebensmittelspenden.html#materialien",
+    "title": "Lebensmittelspenden",
     "section": "",
-    "text": "Mechanisms\n\n\nThe widely used Deferred Acceptance mechanism makes truthful reporting the best strategy, but in Budapest places almost one child in seven at their fourth-ranked school or lower. A mechanism that explicitly minimises poor placements reduces this share to under three per cent.\nGames and Economic Behavior, 2023\n\n\n\nExperiment\n\n\nIn an experiment with 324 parents and 216 students, all mechanisms were frequently manipulated, including the one considered strategy-proof. The advantages of the more efficient mechanism nonetheless largely persisted.\nWorking paper, 2026\n\n\n\nDistricts\n\n\nWhen school districts merge their allocation, everyone gains on average, especially families from small districts with sought-after schools. In Hungary the gain is equivalent to a school five kilometres closer.\nGames and Economic Behavior, 2024\n\n\n\nTracking\n\n\nAttending an academic-track school improves achievement and university aspirations, at least as much for disadvantaged children as for others. These children are less likely to get there; early and rigid tracking can therefore amplify inequality.\nWorking papers, 2024 and 2025"
+    "text": "Policy Brief\n\n\nWie digitale Plattformen die Verteilung von Spenden verbessern.\nZEW, 2023\n\n\n\nFachartikel\n\n\nMarktdesign für die Tafeln.\nWirtschaftsdienst, 2023\n\n\n\n\n\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, u. a. in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nWeitere Presseberichte (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen"
   },
   {
-    "objectID": "en/applications/schools.html#materials",
-    "href": "en/applications/schools.html#materials",
-    "title": "School places",
+    "objectID": "anwendungen/lebensmittelspenden.html#publikationen",
+    "href": "anwendungen/lebensmittelspenden.html#publikationen",
+    "title": "Lebensmittelspenden",
     "section": "",
-    "text": "Policy brief\n\n\nLessons from Hungary for German education reform.\nZEW, 2025\n\n\n\nPractitioner article\n\n\nLessons from Hungary for Germany’s three-tier school system.\nWirtschaftsdienst, 2025, German\n\n\n\nReport\n\n\nThe Implication of School Admission Rules for Segregation and Educational Inequality.\nZEW research report, 2020\n\n\n\nPodcast\n\n\nOn early tracking, in conversation with secondary school pupils from Mannheim.\nZEW podcast, September 2026, German\n\n\n\n\n\nCoverage is in German.\nMDR Wissen, 02/2026Frühe Gymnasium-Wahl in Deutschland könnte schädlich seinSüddeutsche Zeitung, 03/2026Article on early trackingFrankfurter Rundschau, 10/2023Der Kampf um den Platz an der Wunschschule\nMore press coverage (1)Table.Media, 10/2023Modell für eine gerechtere Schulplatzvergabe"
+    "text": "Liste anzeigen\n3Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott2Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott1Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein\n\n\n  Ich berichte gern über Erfahrungen aus eco-Plattform und TafelConnect.\n  E-Mail schreiben"
   },
   {
-    "objectID": "en/applications/food-donations.html#approach",
-    "href": "en/applications/food-donations.html#approach",
-    "title": "Food donations",
+    "objectID": "anwendungen/umweltfoerderung.html",
+    "href": "anwendungen/umweltfoerderung.html",
+    "title": "Umweltförderung",
     "section": "",
-    "text": "Report offers. Retailers, manufacturers and wholesalers report surplus food as soon as it arises.\nMatch needs. The platform makes offers visible to the outlets that need them and can collect them.\nRedistribute. Surpluses go where need is greatest, at no extra cost.\n\nOne model is the US organisation Feeding America, where regional food banks bid for large donations using an internal currency; the resulting prices reveal where which foods are needed. After its introduction, total donations rose substantially."
+    "text": "Anwendung\n\n\n\nWie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.\n\n\n\n\n\n\n\n\n\nWeniger Mitnahme\nMittel gehen seltener an Haushalte, die ohnehin gekauft hätten\n\n\nWartezeit als Filter\nohne Einkommen oder Absichten prüfen zu müssen\n\n\nMehr Wirkung\nje eingesetztem Euro bei gleichem Budget\n\n\n\nAnsatz Materialien Publikationen\n\n\n\nAusgangslage\n\n\nBund, Länder und Kommunen fördern Lastenräder, E-Bikes, Elektroautos oder energetische Sanierungen. Ein Teil der Mittel geht an Haushalte, die auch ohne Zuschuss gekauft hätten, und verdrängt jene, die nur mit Förderung kaufen.\n\n\n\nAnsatz\n\n\nWer ohnehin kaufen will, ist meist ungeduldiger und wartet ungern auf die Bewilligung. Eine längere Zeit zwischen Antrag und Auszahlung lenkt die Mittel deshalb zu den Haushalten, deren Kauf tatsächlich von der Förderung abhängt.\n\n\n\n\n\n\nAntrag stellen. Haushalte beantragen die Förderung wie bisher.\nWartezeit festlegen. Zwischen Antrag und Auszahlung liegt eine Wartezeit; eine einheitliche Wartezeit-Auktion legt sie so fest, dass möglichst viele Haushalte erreicht werden, die nur mit Förderung kaufen.\nSelbstauswahl. Wer ohnehin kaufen will, kauft oft sofort ohne Zuschuss. Die Mittel bleiben für die Haushalte, für die sie den Ausschlag geben.\n\n\n\n\n\n\n2023–2024\n\n\nUntersuchung von Verfahren, die die Ungeduld von Haushalten nutzen, um Förderprogramme zielgenauer zu machen.\nGefördert vom ZEW-Förderkreis Wissenschaft und Praxis\n\n\n\n\n\n\n\n\nPolicy Brief\n\n\nWie Wartezeiten die Effizienz von Förderprogrammen erhöhen.\nZEW, 2023, Englisch\n\n\n\nFachartikel\n\n\nDer Ansatz für die deutsche Förderpraxis.\nWirtschaftsdienst, 2025\n\n\n\n\n\n\nListe anzeigen\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  Gern bespreche ich, wie sich Wartezeiten und Auswahlregeln für Ihr Programm gestalten lassen.\n  E-Mail schreiben"
   },
   {
-    "objectID": "en/applications/food-donations.html#materials",
-    "href": "en/applications/food-donations.html#materials",
-    "title": "Food donations",
+    "objectID": "anwendungen/umweltfoerderung.html#ansatz",
+    "href": "anwendungen/umweltfoerderung.html#ansatz",
+    "title": "Umweltförderung",
     "section": "",
-    "text": "Policy brief\n\n\nHow digital platforms improve the allocation of donations.\nZEW, 2023, German\n\n\n\nPractitioner article\n\n\nMarket design for food banks.\nWirtschaftsdienst, 2023, German\n\n\n\n\n\nCoverage is in German.\nMannheimer Morgen, 08/2023Digitalplattform rettet Essendpa, 07/2023Tafel-Kunden leiden unter Folgen von Inflation (dpa, also in Zeit, SZ, Welt, Focus, Stern)Welt am Sonntag, 06/2018Kann das „Prinzip Ebay“ die Tafeln retten?\nMore press coverage (1)Mannheimer Morgen, 08/2023Projekt der Mannheimer Tafel rettet in Echtzeit Essen"
+    "text": "Antrag stellen. Haushalte beantragen die Förderung wie bisher.\nWartezeit festlegen. Zwischen Antrag und Auszahlung liegt eine Wartezeit; eine einheitliche Wartezeit-Auktion legt sie so fest, dass möglichst viele Haushalte erreicht werden, die nur mit Förderung kaufen.\nSelbstauswahl. Wer ohnehin kaufen will, kauft oft sofort ohne Zuschuss. Die Mittel bleiben für die Haushalte, für die sie den Ausschlag geben."
   },
   {
-    "objectID": "en/applications/childcare.html#procedure",
-    "href": "en/applications/childcare.html#procedure",
-    "title": "Childcare places",
+    "objectID": "anwendungen/umweltfoerderung.html#projekt",
+    "href": "anwendungen/umweltfoerderung.html#projekt",
+    "title": "Umweltförderung",
     "section": "",
-    "text": "State preferences. Parents list several preferred childcare centres in order through a central registration.\nApply priorities. Each centre ranks its applications by its own admission criteria, such as age, siblings or place of residence.\nCoordinate offers. Families receive offers over several rounds. Each family holds at most one offer; if it accepts a better one, the previous place is released immediately.\nPass on free places. Released places go to the next suitable family in the following round, until no further improvement is possible.\n\n\nWhat the procedure guarantees\n\nNo family holds more than one place at a time.\nNo place stays empty while a family prefers it to its current offer and has priority under the centre’s criteria.\nListing additional preferences does not reduce the chance of getting one’s first choice.\nProviders continue to decide according to their own criteria.\n\n\nThe procedure does not create new places. It does ensure that existing places are allocated quickly and according to need, and it shows how many places are actually missing locally. It is based on an iterative deferred acceptance mechanism that also works in a decentralised way."
+    "text": "2023–2024\n\n\nUntersuchung von Verfahren, die die Ungeduld von Haushalten nutzen, um Förderprogramme zielgenauer zu machen.\nGefördert vom ZEW-Förderkreis Wissenschaft und Praxis"
   },
   {
-    "objectID": "en/applications/childcare.html#materials",
-    "href": "en/applications/childcare.html#materials",
-    "title": "Childcare places",
+    "objectID": "anwendungen/umweltfoerderung.html#materialien",
+    "href": "anwendungen/umweltfoerderung.html#materialien",
+    "title": "Umweltförderung",
     "section": "",
-    "text": "Guide\n\n\nManual describing the process for youth welfare offices, providers and centre managers.\nZEW, 2026, German\n\n\n\nGuide\n\n\nA guide to fast, fair and transparent childcare allocation.\nBertelsmann Stiftung, 2023, German\n\n\n\nPractitioner article\n\n\nStatus quo and policy recommendations.\nWirtschaftsdienst, 2024, German\n\n\n\nPolicy brief\n\n\nA guide for municipalities.\nZEW, 2017, German\n\n\n\nPodcast\n\n\nHow childcare places can be allocated successfully.\nZEW podcast, German\n\n\n\nPodcast\n\n\nHow market design gets built for the public sector.\nGame Changer, May 2026\n\n\n\n\n\nCoverage is in German.\nTagesspiegel, 08/2023Algorithmus sucht passenden KitaplatzWirtschaftsWoche, 12/2021„Kita-Match“: Ein Kitaplatz per AlgorithmusFAZ, 11/2019Gegen den Kita-Frust\nMore press coverage (4)Die Zeit, 02/2021Article in Die ZeitWirtschaftsWoche, 01/2020Marktdesign: Ökonomie ohne ElfenbeinturmDie Rheinpfalz, 10/2018Article in Die RheinpfalzFAZ, 06/2017Raus aus der Kita-Warteschlange"
+    "text": "Policy Brief\n\n\nWie Wartezeiten die Effizienz von Förderprogrammen erhöhen.\nZEW, 2023, Englisch\n\n\n\nFachartikel\n\n\nDer Ansatz für die deutsche Förderpraxis.\nWirtschaftsdienst, 2025"
+  },
+  {
+    "objectID": "anwendungen/umweltfoerderung.html#publikationen",
+    "href": "anwendungen/umweltfoerderung.html#publikationen",
+    "title": "Umweltförderung",
+    "section": "",
+    "text": "Liste anzeigen\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  Gern bespreche ich, wie sich Wartezeiten und Auswahlregeln für Ihr Programm gestalten lassen.\n  E-Mail schreiben"
+  },
+  {
+    "objectID": "impressum.html",
+    "href": "impressum.html",
+    "title": "Impressum und Datenschutz",
+    "section": "",
+    "text": "Rechtliches"
+  },
+  {
+    "objectID": "impressum.html#impressum",
+    "href": "impressum.html#impressum",
+    "title": "Impressum und Datenschutz",
+    "section": "Impressum",
+    "text": "Impressum\nAngaben gemäß § 5 Digitale-Dienste-Gesetz:\nProf. Dr. Thilo Klein\nHochschule Pforzheim, Fakultät für Wirtschaft und Recht\nTiefenbronner Straße 65\n75175 Pforzheim\nE-Mail: thilo.klein@hs-pforzheim.de\nVerantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag: Prof. Dr. Thilo Klein, Anschrift wie oben.\nDies ist eine persönliche Website. Die Inhalte geben die Auffassung des Autors wieder und nicht notwendigerweise die der Hochschule Pforzheim oder des ZEW.\n\nHaftung für Links\nDiese Website enthält Links zu externen Websites. Für deren Inhalte sind ausschließlich deren Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Links umgehend entfernt."
+  },
+  {
+    "objectID": "impressum.html#datenschutz",
+    "href": "impressum.html#datenschutz",
+    "title": "Impressum und Datenschutz",
+    "section": "Datenschutz",
+    "text": "Datenschutz\n\nVerantwortlicher\nProf. Dr. Thilo Klein, Anschrift wie im Impressum.\n\n\nHosting\nDiese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Website verarbeitet GitHub technisch notwendige Verbindungsdaten, insbesondere die IP-Adresse, Datum und Uhrzeit des Abrufs sowie die abgerufene Seite, um die Website auszuliefern und ihre Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; das berechtigte Interesse liegt in einer sicheren und zuverlässigen Bereitstellung der Website. Eine Übermittlung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework, dem GitHub angehört. Weitere Informationen enthält die Datenschutzerklärung von GitHub.\n\n\nKeine Cookies, kein Tracking\nDiese Website setzt keine Cookies, verwendet keine Analyse- oder Trackingdienste und bindet keine Inhalte Dritter ein. Schriftarten werden vom eigenen Server geladen.\n\n\nKontakt per E-Mail\nWenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage verwendet und nicht ohne Ihre Einwilligung weitergegeben.\n\n\nIhre Rechte\nSie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie auf Widerspruch gegen die Verarbeitung. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, etwa beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg."
+  },
+  {
+    "objectID": "en/research/index.html",
+    "href": "en/research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Research and publications\n\n\n\nI work on market design, matching theory and empirical methods. Working on real allocation procedures with municipalities and states generates data that allow their effects to be studied causally. I use administrative data and field experiments from Germany, Hungary and England."
+  },
+  {
+    "objectID": "en/research/index.html#research-areas",
+    "href": "en/research/index.html#research-areas",
+    "title": "Research",
+    "section": "Research areas",
+    "text": "Research areas\n\n\n\n\nSchool choice\nParents in the lab. All mechanisms are frequently manipulated, by parents about as often as by students. arXiv 2026\nEfficiency and strategy-proofness. In Budapest, the Rank-Minimizing mechanism cuts the share of poor placements from 15 to under 3 per cent. GEB 2023\nChildcare. Decentralised deferred acceptance for childcare JMID 2021.\n\n\n\n\n\nInequality\nShadow education. When children are assigned to the top track, families from the lowest socio-economic tercile increase private tutoring disproportionately. DP 2025\nEarly tracking. Academic-track schools help children of all backgrounds, but disadvantaged children are less likely to get there. DP 2024\nSchool choice across districts. When districts merge their allocation, everyone gains on average; the gain is equivalent to a school five kilometres closer. GEB 2024\n\n\n\n\n\nDevelopment economics\nMicrofinance. In Thailand, more diverse borrower groups improve repayment by ten percentage points. DP 2024\nStatistics and data. Work from my OECD years (2014–2017) on the value of official statistics and new data sources."
+  },
+  {
+    "objectID": "en/research/index.html#publications",
+    "href": "en/research/index.html#publications",
+    "title": "Research",
+    "section": "Publications",
+    "text": "Publications\nAllChildcareSchoolsTeacher traineeshipFood donationsEnvironmental subsidiesDevelopment and microfinanceStatistics and dataMarket design, generalJournal articles3School Choice with Independent versus Consolidated DistrictsGames and Economic Behavior 147: 170–205 (2024) · T. Klein, R. Aue, J. Ortega2The Cost of Strategy-Proofness in School ChoiceGames and Economic Behavior 141: 515–528 (2023) · J. Ortega, T. Klein1A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare AssignmentJournal of Mechanism and Institution Design 6(1): 59–100 (2021) · T. Reischmann, T. Klein, S. GiegerichWorking papers12Experimental School Choice with ParentsarXiv 2603.24615 (2026) · M. Freer, T. Klein, J. Ortega11Sorting, Status, and Shadow Education: How Track Placement Shapes Parental InvestmentZEW Discussion Paper 25-023 (2025) · T. Klein, S. McNamara10Access, Achievements, and Aspirations: The Impacts of School Tracking on Student OutcomesZEW Discussion Paper 24-076 (2024) · M. Bach, T. Klein, S. McNamara9Matching for Credit: Identifying Information Asymmetries in Joint-Liability LendingZEW Discussion Paper 24-070 (2024) · T. Klein8Analysis of Stable Matchings in R: Package matchingMarketsVignette to R package matchingMarkets (2023) · T. Klein7Improving Efficiency and Equality in School ChoiceZEW Discussion Paper 22-046 (2022) · J. Ortega, T. Klein6What Happens when Separate and Unequal School Districts Merge?ZEW Discussion Paper 20-032 (2020) · R. Aue, T. Klein, J. Ortega5Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate SectorOECD Statistics Working Paper 17/01 (2017) · T. Klein, S. Verhulst4Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private LoansZEW Discussion Paper 17-073 (2017) · T. Klein3An Indicator for Statistical Literacy Based on National Newspaper ArchivesIASE 2016 Roundtable Paper (2016) · T. Klein, A. Galdin, E. Mohamedou2Making Data Portals Work for SDGs: A View on Deployment, Design and TechnologyPARIS21 Discussion Paper 8 (2016) · T. Klein et al.1Public-Private Partnerships for Statistics: Lessons Learned, Future StepsOECD Development Co-operation Working Paper 27 (2016) · N. Robin, T. Klein, J. JüttingPolicy briefs6Rethinking Tracking: Lessons from Hungary for German Education ReformZEW Policy Brief 10/2025 (2025) · S. McNamara, T. Klein5Mit Digitalisierung gegen LebensmittelverschwendungZEW Policy Brief 9/2023 (2023) · T. Klein, M. Ott4Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein3Matching Practices for Teaching Positions in Public Schools in GermanyMatching-in-Practice Country Profile 28 (2019) · T. Klein, P. vom Baur2Matching Practices for Childcare in GermanyMatching-in-Practice Country Profile 26 (2018) · S. Herzog, T. Klein1Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein LeitfadenZEW Policy Brief 4/2017 (2017) · N. Fugger, T. Klein, T. RiehmPractitioner articles8Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige SchulsystemWirtschaftsdienst 09/2025 (2025) · S. McNamara, T. Klein7Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein6Alleinerziehende in der Betreuungsplatzvergabe: Status quo und HandlungsempfehlungenWirtschaftsdienst 05/2024 (2024) · H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober5Effiziente und faire Verteilung von LebensmittelspendenWirtschaftsdienst 08/2023 (2023) · T. Klein, M. Ott4Die Regeln machen den Unterschied: MarktdesignWirtschaftswissenschaftliches Studium 48(4): 22–28 (2019) · V. Gretschko, T. Klein, A. Wambach3Matching für Mikrokredite: Finanzielle Integration durch Marktdesign-AnsätzeÖkonomenstimme (2018) · T. Klein2Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassenÖkonomenstimme (2018) · T. Klein1Wie Städte dem Ansturm auf Kindertagesstätten begegnen könnenÖkonomenstimme (2017) · T. KleinReports6Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente KitaplatzvergabeBertelsmann Stiftung (2023) · G. Caspari, S. Greshake, T. Klein, T. Riehm5The Implication of School Admission Rules for Segregation and Educational InequalityZEW Research Report (2020) · R. Aue et al.4Measuring the Value of Official StatisticsUNECE Report on the Value of Official Statistics, ch. 5 (2017) · T. Klein, P. van de Ven3Rethinking Donor Support for Statistical Capacity DevelopmentOECD Development Co-operation Report 2017, ch. 4 (2017) · S. Badiee, T. Klein, E. Mohamedou2The Role of National Statistical Systems in the Data RevolutionOECD Development Co-operation Report 2017, ch. 3 (2017) · S. Badiee, J. Jütting, T. Klein1Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity DevelopmentUN Sustainable Development Solutions Network (2015) · J. Espey et al.Books2Why Do India’s Urban Poor Choose to Go Private? Health Policy Simulations in Slums of Hyderabadibidem, Stuttgart (2012) · T. Klein1Microfinance 2.0: Group Formation and Repayment Performance in Online Lending Platformsibidem, Stuttgart (2010) · T. Klein"
+  },
+  {
+    "objectID": "en/applications/environmental-subsidies.html",
+    "href": "en/applications/environmental-subsidies.html",
+    "title": "Environmental subsidies",
+    "section": "",
+    "text": "Application\n\n\n\nHow subsidy programmes for eco-friendly products can better reach households that would not buy without support.\n\n\n\n\n\n\n\n\n\nLess windfall\nfunds go less often to households that would have bought anyway\n\n\nWaiting as a filter\nwithout verifying income or intentions\n\n\nMore impact\nper euro spent, with the same budget\n\n\n\nApproach Materials Publications\n\n\n\nStarting point\n\n\nGovernments subsidise cargo bikes, e-bikes, electric cars and energy-efficient retrofits. Part of the money goes to households that would have bought anyway, crowding out those who buy only when subsidised.\n\n\n\nApproach\n\n\nHouseholds that would buy anyway tend to be more impatient and reluctant to wait for approval. A longer time between application and payment therefore shifts funds towards households whose purchase actually depends on the subsidy.\n\n\n\n\n\n\nApply. Households apply for the subsidy as before.\nSet the waiting time. A waiting time separates application and payment; a uniform wait-time auction sets it so that as many households as possible are reached who buy only with support.\nSelf-selection. Those who would buy anyway often buy right away without the subsidy. The funds remain for the households for whom they make the difference.\n\n\n\n\n\n\n2023–2024\n\n\nResearch on mechanisms that use households’ impatience to make subsidy programmes better targeted.\nFunded by the ZEW Sponsors’ Association\n\n\n\n\n\n\n\n\nPolicy brief\n\n\nHow waiting times raise the efficiency of subsidy programmes.\nZEW, 2023\n\n\n\nPractitioner article\n\n\nThe approach applied to German subsidy practice.\nWirtschaftsdienst, 2025, German\n\n\n\n\n\n\nShow list\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  I am happy to discuss how waiting times and selection rules could work for your programme.\n  Send an email"
   },
   {
     "objectID": "en/applications/environmental-subsidies.html#approach",
@@ -917,6 +476,13 @@
     "text": "Apply. Households apply for the subsidy as before.\nSet the waiting time. A waiting time separates application and payment; a uniform wait-time auction sets it so that as many households as possible are reached who buy only with support.\nSelf-selection. Those who would buy anyway often buy right away without the subsidy. The funds remain for the households for whom they make the difference."
   },
   {
+    "objectID": "en/applications/environmental-subsidies.html#project",
+    "href": "en/applications/environmental-subsidies.html#project",
+    "title": "Environmental subsidies",
+    "section": "",
+    "text": "2023–2024\n\n\nResearch on mechanisms that use households’ impatience to make subsidy programmes better targeted.\nFunded by the ZEW Sponsors’ Association"
+  },
+  {
     "objectID": "en/applications/environmental-subsidies.html#materials",
     "href": "en/applications/environmental-subsidies.html#materials",
     "title": "Environmental subsidies",
@@ -924,10 +490,66 @@
     "text": "Policy brief\n\n\nHow waiting times raise the efficiency of subsidy programmes.\nZEW, 2023\n\n\n\nPractitioner article\n\n\nThe approach applied to German subsidy practice.\nWirtschaftsdienst, 2025, German"
   },
   {
+    "objectID": "en/applications/environmental-subsidies.html#publications",
+    "href": "en/applications/environmental-subsidies.html#publications",
+    "title": "Environmental subsidies",
+    "section": "",
+    "text": "Show list\n2Mit Ungeduld zu besseren Subventionen für umweltfreundliche ProdukteWirtschaftsdienst 06/2025 (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein1Tapping into People’s Impatience for Better Environmental SubsidiesZEW Policy Brief 4/2023 (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein\n\n\n  I am happy to discuss how waiting times and selection rules could work for your programme.\n  Send an email"
+  },
+  {
+    "objectID": "en/applications/index.html",
+    "href": "en/applications/index.html",
+    "title": "For municipalities and government",
+    "section": "",
+    "text": "Applications\n\n\n\nMany public services are allocated not by price but through applications, priorities and waiting lists. Well-designed procedures ensure that available places are fully used, preferences are met as far as possible and decisions remain transparent.\n\n\n\n\n\n\n\n\n\n10+ municipalities since 2019\n\n\nCoordinated allocation across all providers, including in Tübingen and Kaiserslautern.\nMore\n\n\n\n\n\n\nunder 3% instead of 15%\n\n\nWhich procedures best meet preferences, and what early tracking does.\nMore\n\n\n\n\n\n\n\n\n\n\n\n269 food banks connected\n\n\nReal-time allocation of surplus food to food bank outlets.\nMore\n\n\n\n\n\n\nWaiting as a filter\n\n\nSubsidy programmes that better reach households that would not buy without support.\nMore\n\n\n\n\n\n\n\n\nInitial conversation. Which places are allocated, under which rules, and where the problems lie.\nAnalysis. Evaluation of past allocation data and simulation of alternative rules.\nRule design. Priorities, quotas and special cases such as siblings, agreed with providers and within the legal framework.\nImplementation and evaluation. Introduction, usually as a pilot first, with accompanying evaluation.\n\nResearch and evaluation take place at Pforzheim University and ZEW. Software for day-to-day operation is provided by MatchingTools GmbH.\n\n  I am happy to answer questions about allocation procedures in your municipality or region.\n  Send an email"
+  },
+  {
     "objectID": "en/applications/index.html#allocation-in-education",
     "href": "en/applications/index.html#allocation-in-education",
     "title": "For municipalities and government",
     "section": "",
     "text": "10+ municipalities since 2019\n\n\nCoordinated allocation across all providers, including in Tübingen and Kaiserslautern.\nMore\n\n\n\n\n\n\nunder 3% instead of 15%\n\n\nWhich procedures best meet preferences, and what early tracking does.\nMore"
+  },
+  {
+    "objectID": "en/applications/index.html#sustainable-market-design",
+    "href": "en/applications/index.html#sustainable-market-design",
+    "title": "For municipalities and government",
+    "section": "",
+    "text": "269 food banks connected\n\n\nReal-time allocation of surplus food to food bank outlets.\nMore\n\n\n\n\n\n\nWaiting as a filter\n\n\nSubsidy programmes that better reach households that would not buy without support.\nMore"
+  },
+  {
+    "objectID": "en/applications/index.html#how-we-work-together",
+    "href": "en/applications/index.html#how-we-work-together",
+    "title": "For municipalities and government",
+    "section": "",
+    "text": "Initial conversation. Which places are allocated, under which rules, and where the problems lie.\nAnalysis. Evaluation of past allocation data and simulation of alternative rules.\nRule design. Priorities, quotas and special cases such as siblings, agreed with providers and within the legal framework.\nImplementation and evaluation. Introduction, usually as a pilot first, with accompanying evaluation.\n\nResearch and evaluation take place at Pforzheim University and ZEW. Software for day-to-day operation is provided by MatchingTools GmbH.\n\n  I am happy to answer questions about allocation procedures in your municipality or region.\n  Send an email"
+  },
+  {
+    "objectID": "en/media.html",
+    "href": "en/media.html",
+    "title": "Media",
+    "section": "",
+    "text": "Podcasts and press\n\n\n\nPodcasts and press coverage on childcare and school place allocation, food donations and market design."
+  },
+  {
+    "objectID": "en/media.html#podcasts",
+    "href": "en/media.html#podcasts",
+    "title": "Media",
+    "section": "Podcasts",
+    "text": "Podcasts\n\n\n\n\nThe Missing Middle\nGame Changer, the podcast by TWS Partners, May 2026. Why childcare allocation in Germany is still mostly uncoordinated despite well-understood theory, and what municipalities need to run matching procedures.\nListen ↗\n\n\n\n\n\nHow are school places allocated?\nZEW podcast, September 2026, in German. On early tracking and what academic-track schools do for children from less privileged families, with secondary school pupils from Mannheim.\nListen ↗\n\n\n\n\n\nOn Your Spots, Get Set, Go?\nZEW podcast. How KitaMatch allocates childcare places faster and more fairly.\nListen ↗"
+  },
+  {
+    "objectID": "en/media.html#press",
+    "href": "en/media.html#press",
+    "title": "Media",
+    "section": "Press",
+    "text": "Press\nCoverage is in German.\n\nSchool choice\n\nMDR Wissen, February 2026\nSüddeutsche Zeitung, March 2026, on early tracking\nFrankfurter Rundschau, October 2023\nTable.Media, October 2023\n\n\n\nChildcare allocation\n\nSüddeutsche Zeitung, September 2023\nTagesspiegel Background, August 2023\nWirtschaftsWoche, December 2021\nDie Zeit, February 2021\nWirtschaftsWoche, January 2020\nFrankfurter Allgemeine Zeitung, November 2019\nDie Rheinpfalz, October 2018\nWestfälische Nachrichten, March 2018\nFrankfurter Allgemeine Zeitung, June 2017\n\n\n\nFood donations\n\nMannheimer Morgen, August 2023\nMannheimer Morgen, August 2023\nMannheimer Morgen, August 2023 (comment)\ndpa report, July 2023, carried by Die Zeit, Süddeutsche Zeitung, Welt, Focus and Stern\nWelt am Sonntag, June 2018"
+  },
+  {
+    "objectID": "en/media.html#for-journalists",
+    "href": "en/media.html#for-journalists",
+    "title": "Media",
+    "section": "For journalists",
+    "text": "For journalists\nInterview and background requests: thilo.klein@hs-pforzheim.de. A portrait photo is available here."
   }
 ]

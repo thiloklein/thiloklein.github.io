@@ -1,6 +1,6 @@
 ---
 pagetitle: "Applications"
-description: "Allocation procedures for childcare and schools, and market design for food donations and environmental subsidies."
+description: "Allocation procedures for childcare and schools, market design for food donations and environmental subsidies: applications, key figures and collaboration."
 ---
 
 ::: {.app}

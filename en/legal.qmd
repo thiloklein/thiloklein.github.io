@@ -1,5 +1,6 @@
 ---
-pagetitle: "Legal notice and privacy – Thilo Klein"
+pagetitle: "Legal notice and privacy"
+description: "Legal notice and privacy policy for the website of Prof. Dr. Thilo Klein, Pforzheim University: provider details, hosting on GitHub Pages, no cookies."
 ---
 ::: {.page-head}
 [Legal]{.eyebrow}
