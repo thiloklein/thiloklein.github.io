@@ -34,7 +34,7 @@ website:
   site-url: "https://klein.uk"
   description: "Marktdesign für die öffentliche Hand: Vergabe von Kita- und Schulplätzen, nachhaltiges Marktdesign. Prof. Dr. Thilo Klein, Hochschule Pforzheim und ZEW Mannheim."
   open-graph:
-    image: assets/img/portrait.jpg
+    image: https://klein.uk/assets/img/portrait.jpg
   page-navigation: false
   search: false
   navbar:

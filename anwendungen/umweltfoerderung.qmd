@@ -1,5 +1,5 @@
 ---
-pagetitle: "Umweltförderung – Thilo Klein"
+pagetitle: "Umweltförderung"
 description: "Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden."
 ---
 
@@ -17,7 +17,7 @@ Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte err
 :::
 
 ::: {.app-head-img}
-![](/assets/img/cards/traffic.png){fig-alt=""}
+![](/assets/img/cards/traffic.jpg){fig-alt=""}
 :::
 :::
 ::: {.kpis .statements}

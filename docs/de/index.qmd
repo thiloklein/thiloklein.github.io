@@ -45,7 +45,7 @@ description: "Vergabe von Kita-, Schul- und Referendariatsplätzen und nachhalti
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Kitaplatzvergabe
@@ -71,7 +71,7 @@ Welche Verfahren Wünsche beim Übergang auf weiterführende Schulen am besten e
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.png){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img}
 
 ::: {.card-body}
 ### Lebensmittelspenden
@@ -84,7 +84,7 @@ Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafe
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.png){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img}
 
 ::: {.card-body}
 ### Umweltförderung
@@ -132,7 +132,7 @@ ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten, im Gesp
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Auf die Plätze, fertig, los! 
@@ -165,7 +165,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/literacy.png){.card-img}
+![](/assets/img/cards/literacy.jpg){.card-img}
 
 ::: {.card-body}
 ### Aktuelle Lehre
@@ -180,7 +180,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/aidflows.png){.card-img}
+![](/assets/img/cards/aidflows.jpg){.card-img}
 
 ::: {.card-body}
 ### Laufende Projekte
@@ -190,7 +190,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/implementation.png){.card-img}
+![](/assets/img/cards/implementation.jpg){.card-img}
 
 ::: {.card-body}
 ### Software
@@ -203,7 +203,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/exist.png){.card-img}
+![](/assets/img/cards/exist.jpg){.card-img}
 
 ::: {.card-body}
 ### Forschungstransfer

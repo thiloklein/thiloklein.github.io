@@ -40,7 +40,7 @@ ZEW podcast, September 2026, in German. On early tracking and what academic-trac
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### On Your Spots, Get Set, Go?

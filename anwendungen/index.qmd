@@ -1,5 +1,5 @@
 ---
-pagetitle: "Anwendungen – Thilo Klein"
+pagetitle: "Anwendungen"
 description: "Vergabeverfahren für Kitas und Schulen sowie Marktdesign für Lebensmittelspenden und Umweltförderung."
 ---
 
@@ -19,7 +19,7 @@ Viele öffentliche Leistungen werden nicht über Preise vergeben, sondern über 
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 [10+ Kommunen seit 2019]{.tag}
@@ -52,7 +52,7 @@ Welche Verfahren Wünsche am besten erfüllen und was die frühe Aufteilung auf 
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.png){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img}
 
 ::: {.card-body}
 [269 Tafeln angebunden]{.tag}
@@ -66,7 +66,7 @@ Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafe
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.png){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img}
 
 ::: {.card-body}
 [Wartezeit als Filter]{.tag}

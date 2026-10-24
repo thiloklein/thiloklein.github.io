@@ -30,7 +30,7 @@ Ich arbeite zu Marktdesign, Matching-Theorie und empirischen Methoden. Die Arbei
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Ungleichheit

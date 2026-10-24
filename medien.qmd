@@ -29,7 +29,7 @@ ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten und was 
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Auf die Plätze, fertig, los! 

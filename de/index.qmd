@@ -1,6 +1,21 @@
 ---
-pagetitle: "Thilo Klein – Marktdesign für die öffentliche Hand"
+pagetitle: "Marktdesign für die öffentliche Hand"
 description: "Vergabe von Kita- und Schulplätzen und nachhaltiges Marktdesign: Forschung, Evaluation und Umsetzung mit Kommunen und Ländern."
+format:
+  html:
+    include-in-header:
+      text: |
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"Person","name":"Thilo Klein","honorificPrefix":"Prof. Dr.",
+         "jobTitle":"Professor of Quantitative Economics","url":"https://klein.uk/","image":"https://klein.uk/assets/img/portrait.jpg",
+         "email":"mailto:thilo.klein@hs-pforzheim.de",
+         "worksFor":[{"@type":"CollegeOrUniversity","name":"Hochschule Pforzheim","url":"https://www.hs-pforzheim.de"},
+                     {"@type":"ResearchOrganization","name":"ZEW – Leibniz-Zentrum für Europäische Wirtschaftsforschung","url":"https://www.zew.de"}],
+         "alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Cambridge"},{"@type":"CollegeOrUniversity","name":"Friedrich-Schiller-Universität Jena"}],
+         "knowsAbout":["Market design","Matching markets","School choice","Childcare allocation","Economics of education"],
+         "sameAs":["https://orcid.org/0000-0002-5185-3690","https://ideas.repec.org/e/pkl153.html","https://github.com/thiloklein",
+                   "https://www.zew.de/team/tkn","https://www.hs-pforzheim.de/profile/thiloklein"]}
+        </script>
 ---
 
 ```{=html}
@@ -45,7 +60,7 @@ description: "Vergabe von Kita- und Schulplätzen und nachhaltiges Marktdesign: 
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Kitaplatzvergabe
@@ -71,7 +86,7 @@ Welche Verfahren Wünsche beim Übergang auf weiterführende  Schulen am besten 
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.png){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img}
 
 ::: {.card-body}
 ### Lebensmittelspenden
@@ -84,7 +99,7 @@ Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafe
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.png){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img}
 
 ::: {.card-body}
 ### Umweltförderung
@@ -133,7 +148,7 @@ ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten, im Gesp
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Auf die Plätze, fertig, los! 
@@ -166,7 +181,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/literacy.png){.card-img}
+![](/assets/img/cards/literacy.jpg){.card-img}
 
 ::: {.card-body}
 ### Aktuelle Lehre
@@ -181,7 +196,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/aidflows.png){.card-img}
+![](/assets/img/cards/aidflows.jpg){.card-img}
 
 ::: {.card-body}
 ### Laufende Projekte
@@ -192,7 +207,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/implementation.png){.card-img}
+![](/assets/img/cards/implementation.jpg){.card-img}
 
 ::: {.card-body}
 ### Software
@@ -205,7 +220,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/exist.png){.card-img}
+![](/assets/img/cards/exist.jpg){.card-img}
 
 ::: {.card-body}
 ### Forschungstransfer

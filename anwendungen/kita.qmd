@@ -1,5 +1,5 @@
 ---
-pagetitle: "Kitaplatzvergabe – Thilo Klein"
+pagetitle: "Kitaplatzvergabe"
 description: "Koordinierte Kitaplatzvergabe über Träger hinweg: weniger Mehrfachzusagen, schnellere Besetzung, transparente Kriterien. Verfahren, Einsatz in Kommunen, Materialien."
 ---
 
@@ -17,7 +17,7 @@ Koordinierte Vergabe über alle Träger: weniger Mehrfachzusagen, schnellere Bes
 :::
 
 ::: {.app-head-img}
-![](/assets/img/cards/kita.png){fig-alt=""}
+![](/assets/img/cards/kita.jpg){fig-alt=""}
 :::
 :::
 ::: {.kpis}

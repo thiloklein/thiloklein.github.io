@@ -31,7 +31,7 @@ I work on market design, matching theory and empirical methods. Working on real 
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Inequality

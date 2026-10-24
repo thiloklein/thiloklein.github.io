@@ -1,6 +1,21 @@
 ---
-pagetitle: "Thilo Klein – Market design for the public sector"
+pagetitle: "Market design for the public sector"
 description: "Allocation of childcare and school places, and sustainable market design: research, evaluation and implementation with municipalities and states."
+format:
+  html:
+    include-in-header:
+      text: |
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"Person","name":"Thilo Klein","honorificPrefix":"Prof. Dr.",
+         "jobTitle":"Professor of Quantitative Economics","url":"https://klein.uk/","image":"https://klein.uk/assets/img/portrait.jpg",
+         "email":"mailto:thilo.klein@hs-pforzheim.de",
+         "worksFor":[{"@type":"CollegeOrUniversity","name":"Hochschule Pforzheim","url":"https://www.hs-pforzheim.de"},
+                     {"@type":"ResearchOrganization","name":"ZEW – Leibniz-Zentrum für Europäische Wirtschaftsforschung","url":"https://www.zew.de"}],
+         "alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Cambridge"},{"@type":"CollegeOrUniversity","name":"Friedrich-Schiller-Universität Jena"}],
+         "knowsAbout":["Market design","Matching markets","School choice","Childcare allocation","Economics of education"],
+         "sameAs":["https://orcid.org/0000-0002-5185-3690","https://ideas.repec.org/e/pkl153.html","https://github.com/thiloklein",
+                   "https://www.zew.de/team/tkn","https://www.hs-pforzheim.de/profile/thiloklein"]}
+        </script>
 ---
 
 ```{=html}
@@ -45,7 +60,7 @@ description: "Allocation of childcare and school places, and sustainable market 
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### Childcare places
@@ -71,7 +86,7 @@ Which procedures best meet preferences at the transition to secondary school, an
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.png){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img}
 
 ::: {.card-body}
 ### Food donations
@@ -83,7 +98,7 @@ Real-time allocation of surplus food to food bank outlets, so that less goes to 
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.png){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img}
 
 ::: {.card-body}
 ### Environmental subsidies
@@ -143,7 +158,7 @@ ZEW podcast, September 2026, in German. On early tracking, in conversation with 
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.png){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img}
 
 ::: {.card-body}
 ### On Your Spots, Get Set, Go?
@@ -163,7 +178,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/literacy.png){.card-img}
+![](/assets/img/cards/literacy.jpg){.card-img}
 
 ::: {.card-body}
 ### Current teaching
@@ -177,7 +192,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/aidflows.png){.card-img}
+![](/assets/img/cards/aidflows.jpg){.card-img}
 
 ::: {.card-body}
 ### Current Projects
@@ -188,7 +203,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/implementation.png){.card-img}
+![](/assets/img/cards/implementation.jpg){.card-img}
 
 ::: {.card-body}
 ### Software
@@ -200,7 +215,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/exist.png){.card-img}
+![](/assets/img/cards/exist.jpg){.card-img}
 
 ::: {.card-body}
 ### Research transfer

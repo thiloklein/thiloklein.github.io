@@ -1,5 +1,5 @@
 ---
-pagetitle: "Childcare places – Thilo Klein"
+pagetitle: "Childcare places"
 description: "Coordinated allocation of childcare places across providers: fewer multiple offers, faster placement, transparent criteria. Procedure, municipalities, materials."
 ---
 
@@ -17,7 +17,7 @@ Coordinated allocation across all providers: fewer multiple offers, faster place
 :::
 
 ::: {.app-head-img}
-![](/assets/img/cards/kita.png){fig-alt=""}
+![](/assets/img/cards/kita.jpg){fig-alt=""}
 :::
 :::
 ::: {.kpis}

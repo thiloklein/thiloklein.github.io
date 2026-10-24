@@ -1,5 +1,5 @@
 ---
-pagetitle: "Schulplatzvergabe – Thilo Klein"
+pagetitle: "Schulplatzvergabe"
 description: "Welche Vergabeverfahren Wünsche am besten erfüllen, was Eltern tatsächlich tun und welche Folgen die frühe Aufteilung auf Schularten hat."
 ---
 

@@ -62,8 +62,9 @@ console.log(`${n} Weiterleitungen angelegt.`);
 // 5 Suchmaschinen: Weiterleitungsseite aus der Sitemap nehmen, hreflang statisch eintragen
 const sm = join(docs, "sitemap.xml");
 if (existsSync(sm)) {
-  Deno.writeTextFileSync(sm, Deno.readTextFileSync(sm)
-    .replace(/\s*<url>\s*<loc>https:\/\/klein\.uk\/(index\.html)?<\/loc>[\s\S]*?<\/url>/, ""));
+    Deno.writeTextFileSync(sm, Deno.readTextFileSync(sm)
+    .replace(/\s*<url>\s*<loc>https:\/\/klein\.uk\/(index\.html)?<\/loc>[\s\S]*?<\/url>/, "")
+    .replaceAll("/index.html</loc>", "/</loc>"));
 }
 const PAIRS: [string, string][] = [
   ["de/index.html", "en/index.html"],
@@ -88,3 +89,23 @@ for (const [de, enp] of PAIRS) {
     if (!html.includes('hreflang="x-default"')) Deno.writeTextFileSync(file, html.replace("</head>", tags + "</head>"));
   }
 }
+
+
+// 6 Suchmaschinen: canonical, og:url und og:locale auf jeder echten Seite
+function* walk(dir: string): Generator<string> {
+  for (const e of Deno.readDirSync(dir)) {
+    const p = join(dir, e.name);
+    if (e.isDirectory && e.name !== "site_libs") yield* walk(p);
+    else if (e.isFile && e.name.endsWith(".html")) yield p;
+  }
+}
+for (const file of walk(docs)) {
+  const html = Deno.readTextFileSync(file);
+  if (html.includes('rel="canonical"') || html.includes('http-equiv="refresh"')) continue;
+  const rel = file.slice(docs.length + 1).replaceAll("\\", "/").replace(/index\.html$/, "");
+  const href = "https://klein.uk/" + rel;
+  const locale = rel.startsWith("en/") ? "en_GB" : "de_DE";
+  const tags = `<link rel="canonical" href="${href}">\n<meta property="og:url" content="${href}">\n<meta property="og:locale" content="${locale}">\n`;
+  Deno.writeTextFileSync(file, html.replace("</head>", tags + "</head>"));
+}
+

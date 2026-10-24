@@ -1,5 +1,5 @@
 ---
-pagetitle: "Environmental subsidies – Thilo Klein"
+pagetitle: "Environmental subsidies"
 description: "How subsidy programmes for eco-friendly products can better reach households that would not buy without support."
 ---
 
@@ -17,7 +17,7 @@ How subsidy programmes for eco-friendly products can better reach households tha
 :::
 
 ::: {.app-head-img}
-![](/assets/img/cards/traffic.png){fig-alt=""}
+![](/assets/img/cards/traffic.jpg){fig-alt=""}
 :::
 :::
 ::: {.kpis .statements}

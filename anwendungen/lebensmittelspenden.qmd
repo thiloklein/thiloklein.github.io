@@ -1,5 +1,5 @@
 ---
-pagetitle: "Lebensmittelspenden – Thilo Klein"
+pagetitle: "Lebensmittelspenden"
 description: "Wie Echtzeitdaten und Marktdesign helfen, Lebensmittelspenden gerechter zu verteilen und Verschwendung zu vermeiden."
 ---
 
@@ -17,7 +17,7 @@ Wie Echtzeitdaten und Marktdesign helfen, Spenden gerechter zu verteilen und Ver
 :::
 
 ::: {.app-head-img}
-![](/assets/img/cards/truck.png){fig-alt=""}
+![](/assets/img/cards/truck.jpg){fig-alt=""}
 :::
 :::
 ::: {.kpis}
