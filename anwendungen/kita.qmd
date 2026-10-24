@@ -1,0 +1,215 @@
+---
+pagetitle: "Kitaplatzvergabe – Thilo Klein"
+description: "Koordinierte Kitaplatzvergabe über Träger hinweg: weniger Mehrfachzusagen, schnellere Besetzung, transparente Kriterien. Verfahren, Einsatz in Kommunen, Materialien."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Anwendung]{.eyebrow}
+
+# Kitaplatzvergabe
+
+::: {.lead}
+Koordinierte Vergabe über alle Träger: weniger Mehrfachzusagen, schnellere Besetzung, transparente Kriterien.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/kita.png){fig-alt=""}
+:::
+:::
+::: {.kpis}
+::: {.kpi}
+10+
+
+Kommunen nutzen das Verfahren
+:::
+
+::: {.kpi}
+3
+
+Bundesländer
+:::
+
+::: {.kpi}
+seit 2019
+
+im Einsatz
+:::
+
+::: {.kpi}
+1 Woche
+
+für die koordinierte Vergabe
+:::
+
+:::
+::: {.jumpnav}
+[Verfahren](#verfahren) [Im Einsatz](#einsatz) [Materialien](#materialien) [Publikationen](#publikationen)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Ausgangslage]{.tag}
+
+### Das Problem
+
+Eltern bewerben sich bei mehreren Kitas zugleich, und jede Einrichtung vergibt ihre Plätze für sich. Manche Familien halten mehrere Zusagen, andere warten, obwohl Plätze frei wären. Der Mangel erscheint größer, als er ist, und Kita-Leitungen verbringen Wochen mit Nachrückverfahren.
+:::
+
+::: {.card-c}
+[Ansatz]{.tag}
+
+### Die Lösung
+
+Ein gemeinsames Verfahren stimmt ab, welche Kita welcher Familie wann ein Angebot macht. Die Träger behalten ihre Aufnahmekriterien; das Verfahren sorgt nur dafür, dass Angebote nicht blockiert werden und frei werdende Plätze sofort weitergehen.
+:::
+
+:::
+
+## Das Verfahren {#verfahren}
+
+```{=html}
+<ol class="steps">
+<li><strong>Wünsche angeben.</strong> Eltern nennen über eine zentrale Anmeldung mehrere Wunsch-Kitas in ihrer Reihenfolge.</li>
+<li><strong>Kriterien anwenden.</strong> Jede Kita ordnet ihre Bewerbungen nach ihren eigenen Aufnahmekriterien, etwa Alter, Geschwister oder Wohnort.</li>
+<li><strong>Angebote koordinieren.</strong> In mehreren Runden erhalten Familien Angebote. Jede Familie hält höchstens ein Angebot; nimmt sie ein besseres an, wird das vorige sofort frei.</li>
+<li><strong>Freie Plätze weitergeben.</strong> Frei gewordene Plätze gehen in der nächsten Runde an die nächste passende Familie, bis keine Verbesserung mehr möglich ist.</li>
+</ol>
+```
+
+::: {.facts}
+**Was das Verfahren garantiert**
+
+- Keine Familie hält mehrere Plätze gleichzeitig.
+- Kein Platz bleibt frei, solange eine Familie ihn ihrem aktuellen Angebot vorzieht und nach den Kriterien der Kita Vorrang hätte.
+- Zusätzliche Wünsche verschlechtern nicht die Chancen auf den Erstwunsch.
+- Die Träger entscheiden weiter selbst nach ihren Kriterien.
+:::
+
+Das Verfahren schafft keine neuen Plätze. Es sorgt aber dafür, dass die vorhandenen Plätze schnell und nach Bedarf vergeben werden, und es zeigt, wie viele Plätze vor Ort tatsächlich fehlen. Grundlage ist ein iteratives Deferred-Acceptance-Verfahren, das auch dezentral funktioniert.
+
+## Im Einsatz {#einsatz}
+
+Unter dem Namen KitaMatch wird das Verfahren in mehr als zehn Kommunen in drei Bundesländern eingesetzt. 2022 zeichnete der ZEW-Förderkreis Wissenschaft und Praxis das Projekt als bestes wirtschaftspolitisches Beratungsprojekt des ZEW aus.
+
+::: {.cards .three}
+::: {.card-c}
+[seit 2024]{.tag}
+
+### Tübingen
+
+Die Universitätsstadt vergibt ihre Betreuungsplätze seit der Hauptvergaberunde für das Kindergartenjahr 2024/25 mit KitaMatch. Die Anmeldung läuft über eine zentrale Anmeldestelle; Eltern geben mehrere Wunscheinrichtungen in ihrer Reihenfolge an.
+:::
+
+::: {.card-c}
+[seit 2019]{.tag}
+
+### Kaiserslautern
+
+Die Stadt gehört zu den ersten Kommunen, die ihre Kitaplätze koordiniert über alle Träger vergeben.
+:::
+
+::: {.card-c}
+[seit 2019]{.tag}
+
+### Kreis Steinfurt, Greven und Emsdetten
+
+Im Kreis Steinfurt läuft die Vergabe seit 2019 über KitaMatch; die Erfahrungen dort bildeten die Grundlage für den öffentlichen Leitfaden. Auch Greven und Emsdetten setzen das Verfahren ein.
+:::
+
+:::
+
+## Materialien {#materialien}
+
+::: {.cards .three}
+::: {.card-c}
+[Leitfaden]{.tag}
+
+### [Best Practices Kitaplatzvergabe](https://matchingtools.de/wp-content/uploads/2026/02/BestPractices_Kitaplatzvergabe_Manual.pdf)
+
+Handbuch zum Ablauf für Jugendämter, Träger und Kita-Leitungen.
+
+[ZEW, 2023]{.meta}
+:::
+
+::: {.card-c}
+[Leitfaden]{.tag}
+
+### [Die KitaMatch-Software](https://rsm-bst-live.bertelsmann-stiftung.de/fileadmin/files/user_upload/KitaMatchSoftware_2023_final.pdf)
+
+Wegweiser für eine schnelle, faire und transparente Kitaplatzvergabe.
+
+[Bertelsmann Stiftung, 2023]{.meta}
+:::
+
+::: {.card-c}
+[Fachartikel]{.tag}
+
+### [Alleinerziehende in der Betreuungsplatzvergabe](https://www.wirtschaftsdienst.eu/inhalt/jahr/2024/heft/5/beitrag/alleinerziehende-in-der-betreuungsplatzvergabe-status-quo-und-handlungsempfehlungen.html)
+
+Status quo und Handlungsempfehlungen.
+
+[Wirtschaftsdienst, 2024]{.meta}
+:::
+
+::: {.card-c}
+[Policy Brief]{.tag}
+
+### [Dezentrale Kitaplatzvergabe ohne Warteschlange](https://ftp.zew.de/pub/zew-docs/policybrief/pb04-17.pdf)
+
+Ein Leitfaden für Kommunen.
+
+[ZEW, 2017]{.meta}
+:::
+
+::: {.card-c}
+[Podcast]{.tag}
+
+### [Auf die Plätze, fertig, los!](https://www.zew.de/publikationen/prof-dr-thilo-klein-auf-die-plaetze-fertig-los-so-gelingt-die-kitaplatzvergabe)
+
+So gelingt die Kitaplatzvergabe.
+
+[ZEW-Podcast]{.meta}
+:::
+
+::: {.card-c}
+[Podcast]{.tag}
+
+### [The Missing Middle](https://tws-gamechanger.libsyn.com/the-missing-middle-how-market-design-gets-built-for-the-public-sector-with-thilo-klein)
+
+How market design gets built for the public sector.
+
+[Game Changer, Mai 2026, Englisch]{.meta}
+:::
+
+:::
+
+### In der Presse
+
+```{=html}
+<ul class="press"><li><span class="src">Tagesspiegel, 08/2023</span><span><a href="https://background.tagesspiegel.de/smart-city/algorithmus-sucht-passenden-kitaplatz">Algorithmus sucht passenden Kitaplatz</a></span></li><li><span class="src">WirtschaftsWoche, 12/2021</span><span><a href="https://www.wiwo.de/politik/deutschland/hilfreiche-software-kita-match-ein-kitaplatz-per-algorithmus/27890190.html">„Kita-Match“: Ein Kitaplatz per Algorithmus</a></span></li><li><span class="src">FAZ, 11/2019</span><span><a href="https://www.faz.net/aktuell/wirtschaft/wie-ein-algorithmus-kitaplaetze-fairer-vergeben-soll-16510418.html">Gegen den Kita-Frust</a></span></li></ul>
+<details class="fold"><summary>Weitere Presseberichte (4)</summary><ul class="press"><li><span class="src">Die Zeit, 02/2021</span><span><a href="https://www.zeit.de/2021/06/kuenstliche-intelligenz-kita-anwendung-regulierung-gesellschaft-technologie">Beitrag in Die Zeit</a></span></li><li><span class="src">WirtschaftsWoche, 01/2020</span><span><a href="https://www.wiwo.de/my/politik/konjunktur/vwl-marktdesign-oekonomie-ohne-elfenbeinturm/25470414.html">Marktdesign: Ökonomie ohne Elfenbeinturm</a></span></li><li><span class="src">Die Rheinpfalz, 10/2018</span><span><a href="https://www.rheinpfalz.de/lokal/rhein-pfalz-kreis_artikel,-pers%C3%B6nliche-anmeldung-bleibt-_arid,1296219.html">Beitrag in Die Rheinpfalz</a></span></li><li><span class="src">FAZ, 06/2017</span><span><a href="http://www.faz.net/aktuell/wirtschaft/neue-runde-im-kita-streit-raus-aus-der-kita-warteschlange-15053793.html">Raus aus der Kita-Warteschlange</a></span></li></ul></details>
+```
+
+## Publikationen {#publikationen}
+
+```{=html}
+<details class="fold"><summary>Liste anzeigen</summary>
+```
+
+{{< include ../_partials/topic-kita.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Kitaplatzvergabe in Ihrer Kommune?</h2><p>Sie planen eine Umstellung oder möchten Ihr bisheriges Verfahren auswerten lassen.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">E-Mail schreiben</a>
+</div></div>
+```
+
+:::

@@ -1,0 +1,155 @@
+---
+pagetitle: "Food donations – Thilo Klein"
+description: "How real-time data and market design help allocate food donations more fairly and reduce waste."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Application]{.eyebrow}
+
+# Food donations
+
+::: {.lead}
+How real-time data and market design help allocate donations more fairly and reduce waste.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/truck.png){fig-alt=""}
+:::
+:::
+::: {.kpis}
+::: {.kpi}
+269 of 975
+
+food banks in Germany are connected to the eco-Plattform (2026)
+:::
+
+::: {.kpi}
+265,000\ t
+
+of food rescued by German food banks each year
+:::
+
+::: {.kpi}
+2019–2026
+
+two projects funded by the Federal Ministry of Food and Agriculture
+:::
+
+:::
+::: {.jumpnav}
+[Approach](#approach) [Projects](#projects) [Materials](#materials) [Publications](#publications)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Starting point]{.tag}
+
+### The problem
+
+Food banks depend on donations from retailers and producers whose quantity and type are hard to predict. Some outlets receive more than they can distribute while others have too little. What is not passed on in time goes to waste.
+:::
+
+::: {.card-c}
+[Approach]{.tag}
+
+### The solution
+
+A shared digital platform makes donation offers visible in real time. Surpluses can then be redistributed between outlets at no extra cost: needs are met more equitably and less food is wasted.
+:::
+
+:::
+
+## The approach {#approach}
+
+```{=html}
+<ol class="steps">
+<li><strong>Report offers.</strong> Retailers, manufacturers and wholesalers report surplus food as soon as it arises.</li>
+<li><strong>Match needs.</strong> The platform makes offers visible to the outlets that need them and can collect them.</li>
+<li><strong>Redistribute.</strong> Surpluses go where need is greatest, at no extra cost.</li>
+</ol>
+```
+
+One model is the US organisation Feeding America, where regional food banks bid for large donations using an internal currency; the resulting prices reveal where which foods are needed. After its introduction, total donations rose substantially.
+
+## Projects {#projects}
+
+::: {.cards .two}
+::: {.card-c}
+[2019–2023]{.tag}
+
+### eco-Plattform
+
+Market design for food donations from retailers. Today 269 of the 975 food banks in Germany are connected to the platform.
+
+[Funded by the Federal Ministry of Food and Agriculture]{.meta}
+:::
+
+::: {.card-c}
+[2023–2026]{.tag}
+
+### TafelConnect
+
+Market design for donations from producers and wholesalers.
+
+[Funded by the Federal Ministry of Food and Agriculture]{.meta}
+:::
+
+:::
+
+## Materials {#materials}
+
+::: {.cards .two}
+::: {.card-c}
+[Policy brief]{.tag}
+
+### [Fighting food waste with digitalisation](https://ftp.zew.de/pub/zew-docs/policybrief/de/pb09-23.pdf)
+
+How digital platforms improve the allocation of donations.
+
+[ZEW, 2023, German]{.meta}
+:::
+
+::: {.card-c}
+[Practitioner article]{.tag}
+
+### [Efficient and fair allocation of food donations](https://www.wirtschaftsdienst.eu/inhalt/jahr/2023/heft/8/beitrag/effiziente-und-faire-verteilung-von-lebensmittelspenden.html)
+
+Market design for food banks.
+
+[Wirtschaftsdienst, 2023, German]{.meta}
+:::
+
+:::
+
+### In the press
+
+Coverage is in German.
+
+```{=html}
+<ul class="press"><li><span class="src">Mannheimer Morgen, 08/2023</span><span><a href="https://www.mannheimer-morgen.de/deutschland-welt_artikel,-thema-des-tages-digitalplattform-rettet-essen-_arid,2116601.html">Digitalplattform rettet Essen</a></span></li><li><span class="src">dpa, 07/2023</span><span><a href="https://www.zeit.de/news/2023-07/06/tafel-kunden-leiden-unter-folgen-von-inflation">Tafel-Kunden leiden unter Folgen von Inflation (dpa, also in Zeit, SZ, Welt, Focus, Stern)</a></span></li><li><span class="src">Welt am Sonntag, 06/2018</span><span><a href="https://www.welt.de/wirtschaft/article176970890/Umgang-mit-Lebensmittelspenden-Kann-das-Prinzip-Ebay-die-Tafeln-retten.html">Kann das „Prinzip Ebay“ die Tafeln retten?</a></span></li></ul>
+<details class="fold"><summary>More press coverage (1)</summary><ul class="press"><li><span class="src">Mannheimer Morgen, 08/2023</span><span><a href="https://www.mannheimer-morgen.de/orte/mannheim_artikel,-mannheim-projekt-der-mannheimer-tafel-rettet-in-echtzeit-essen-_arid,2116569.html">Projekt der Mannheimer Tafel rettet in Echtzeit Essen</a></span></li></ul></details>
+```
+
+## Publications {#publications}
+
+```{=html}
+<details class="fold"><summary>Show list</summary>
+```
+
+{{< include ../_partials/topic-tafel.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Questions about allocating donations?</h2><p>I am happy to share experience from eco-Plattform and TafelConnect.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">Send an email</a>
+</div></div>
+```
+
+:::

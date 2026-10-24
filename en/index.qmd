@@ -1,0 +1,213 @@
+---
+pagetitle: "Thilo Klein – Market design for the public sector"
+description: "Allocation of childcare and school places, and sustainable market design: research, evaluation and implementation with municipalities and states."
+---
+
+```{=html}
+<div class="hero">
+  <div>
+    <span class="eyebrow">Market design · Matching markets · Economics of education</span>
+    <h1>Thilo Klein</h1>
+    <div class="statement">
+      <p>I study how scarce resources can be allocated with algorithms, and what allocation procedures achieve in practice.</p>
+      <p>I design and evaluate these procedures together with municipalities.</p>
+    </div>
+    <ul class="roles">
+      <li>Professor · Pforzheim University</li>
+      <li>Senior Researcher · ZEW Mannheim</li>
+    </ul>
+    <div class="btns">
+      <a class="btn-line" href="../research/cv_ThiloKLEIN_.pdf">CV</a>
+      <a class="btn-line" href="applications/index.html">For municipalities</a>
+      <a class="btn-line" href="research/index.html">All publications</a>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="portrait-box"><img src="/assets/img/portrait.jpg" alt="Portrait of Thilo Klein" width="549" height="366"></div>
+    <ul class="side-links">
+      <li><a href="mailto:thilo.klein@hs-pforzheim.de">thilo.klein@hs-pforzheim.de</a></li>
+      <li><a href="https://orcid.org/0000-0002-5185-3690">ORCID</a></li>
+      <li><a href="https://ideas.repec.org/e/pkl153.html">RePEc</a></li>
+      <li><a href="https://github.com/thiloklein">GitHub</a></li>
+    </ul>
+  </div>
+</div>
+<div class="band"><div class="band-inner">
+  <div><strong>Published in</strong><p>Games and Economic Behavior, Journal of Mechanism and Institution Design, Administrative Sciences</p></div>
+  <div><strong>Featured by</strong><p>Frankfurter Allgemeine Zeitung, Süddeutsche Zeitung, Die Zeit, WirtschaftsWoche, Tagesspiegel, Welt, Frankfurter Rundschau and MDR</p></div>
+</div></div>
+```
+
+::: {.block}
+[Applications]{.eyebrow}
+
+## For municipalities and government
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### Childcare places
+
+Coordinated allocation across all providers: families hold at most one offer, and released places are passed on immediately. In use in more than ten municipalities, including Tübingen and Kaiserslautern.
+
+[The procedure](applications/childcare.qmd){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### School places
+
+Which procedures best meet preferences at the transition to secondary school, and what early tracking does.
+
+[The research](applications/schools.qmd){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/truck.png){.card-img}
+
+::: {.card-body}
+### Food donations
+
+Real-time allocation of surplus food to food bank outlets, so that less goes to waste.
+
+[The approach](applications/food-donations.qmd){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/traffic.png){.card-img}
+
+::: {.card-body}
+### Environmental subsidies
+
+How subsidy programmes for eco-friendly products can better reach households that would not buy without support.
+
+[The approach](applications/environmental-subsidies.qmd){.more}
+:::
+:::
+:::
+:::
+
+::: {.block}
+[Research]{.eyebrow}
+
+## Working papers
+
+{{< include _partials/papers.md >}}
+:::
+
+::: {.block}
+## Selected publications
+
+{{< include _partials/selected.md >}}
+
+[All publications](research/index.qmd){.more}
+:::
+
+::: {.block}
+[Media]{.eyebrow}
+
+## Listen
+
+::: {.cards .three}
+::: {.card-c .has-img}
+![](/assets/img/cards/tws2.jpg){.card-img}
+
+::: {.card-body}
+### The Missing Middle
+
+Game Changer, May 2026. How market design actually gets built for the public sector, using childcare allocation as the example.
+
+[Listen ↗](https://tws-gamechanger.libsyn.com/the-missing-middle-how-market-design-gets-built-for-the-public-sector-with-thilo-klein){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### How are school places allocated?
+
+ZEW podcast, September 2026, in German. On early tracking, in conversation with secondary school pupils from Mannheim.
+
+[Listen ↗](https://www.zew.de/en/zew/news/how-are-school-places-allocated){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### On Your Spots, Get Set, Go?
+
+ZEW podcast, in German. How KitaMatch allocates childcare places faster and more fairly.
+
+[Listen ↗](https://www.zew.de/AM8540-1){.more}
+:::
+:::
+:::
+:::
+
+::: {.block #profile}
+[Profile]{.eyebrow}
+
+## Teaching and Transfer
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/literacy.png){.card-img}
+
+::: {.card-body}
+### Current teaching
+- Analysis and Linear Algebra
+- Inferential Statistics
+- Multivariate Statistics
+- Data Analytics with R
+- Quantitative Research Methodologies
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/aidflows.png){.card-img}
+
+::: {.card-body}
+### Current Projects
+
+- MatchingTools, EXIST research transfer project, Federal Ministry of Economic Affairs and Energy, 2026–2027
+- TafelConnect, Real-time allocation of surplus food to food bank, Federal Ministry of Food and Agriculture, 2023-2026.
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/implementation.png){.card-img}
+
+::: {.card-body}
+### Software
+
+- **matchingMarkets.** R package with algorithms for matching markets, downloaded more than 100,000 times. [Project page ↗](https://matchingmarkets.org), [CRAN ↗](https://cran.r-project.org/web/packages/matchingMarkets/). 
+- **KitaMatch.** Public guide (in German): [Best practices for childcare allocation ↗](https://matchingtools.de/wp-content/uploads/2026/02/BestPractices_Kitaplatzvergabe_Manual.pdf); operated by [MatchingTools ↗](https://matchingtools.de).
+- [MatchingMarkets API ↗](https://api.matchingmarkets.org/) is an application programming interface for matching algorithms.
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/exist.png){.card-img}
+
+::: {.card-body}
+### Research transfer
+
+- Co-founder and scientific advisor at [MatchingTools GmbH ↗](https://matchingtools.de), a ZEW spin-out. When evaluating procedures whose implementation involves MatchingTools, I disclose this connection.
+- EXIST coordinator at Pforzheim Business School 
+:::
+:::
+:::
+:::

@@ -1,0 +1,134 @@
+---
+pagetitle: "Environmental subsidies – Thilo Klein"
+description: "How subsidy programmes for eco-friendly products can better reach households that would not buy without support."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Application]{.eyebrow}
+
+# Environmental subsidies
+
+::: {.lead}
+How subsidy programmes for eco-friendly products can better reach households that would not buy without support.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/traffic.png){fig-alt=""}
+:::
+:::
+::: {.kpis .statements}
+::: {.kpi}
+Less windfall
+
+funds go less often to households that would have bought anyway
+:::
+
+::: {.kpi}
+Waiting as a filter
+
+without verifying income or intentions
+:::
+
+::: {.kpi}
+More impact
+
+per euro spent, with the same budget
+:::
+
+:::
+::: {.jumpnav}
+[Approach](#approach) [Materials](#materials) [Publications](#publications)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Starting point]{.tag}
+
+### The problem
+
+Governments subsidise cargo bikes, e-bikes, electric cars and energy-efficient retrofits. Part of the money goes to households that would have bought anyway, crowding out those who buy only when subsidised.
+:::
+
+::: {.card-c}
+[Approach]{.tag}
+
+### The solution
+
+Households that would buy anyway tend to be more impatient and reluctant to wait for approval. A longer time between application and payment therefore shifts funds towards households whose purchase actually depends on the subsidy.
+:::
+
+:::
+
+## The approach {#approach}
+
+```{=html}
+<ol class="steps">
+<li><strong>Apply.</strong> Households apply for the subsidy as before.</li>
+<li><strong>Set the waiting time.</strong> A waiting time separates application and payment; a uniform wait-time auction sets it so that as many households as possible are reached who buy only with support.</li>
+<li><strong>Self-selection.</strong> Those who would buy anyway often buy right away without the subsidy. The funds remain for the households for whom they make the difference.</li>
+</ol>
+```
+
+## Project
+
+::: {.cards .two}
+::: {.card-c}
+[2023–2024]{.tag}
+
+### Tapping into people’s impatience for better environmental subsidies
+
+Research on mechanisms that use households’ impatience to make subsidy programmes better targeted.
+
+[Funded by the ZEW Sponsors’ Association]{.meta}
+:::
+
+:::
+
+## Materials {#materials}
+
+::: {.cards .two}
+::: {.card-c}
+[Policy brief]{.tag}
+
+### [Tapping into People’s Impatience for Better Environmental Subsidies](https://ftp.zew.de/pub/zew-docs/policybrief/en/pb04-23.pdf)
+
+How waiting times raise the efficiency of subsidy programmes.
+
+[ZEW, 2023]{.meta}
+:::
+
+::: {.card-c}
+[Practitioner article]{.tag}
+
+### [Mit Ungeduld zu besseren Subventionen für umweltfreundliche Produkte](https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/6.html)
+
+The approach applied to German subsidy practice.
+
+[Wirtschaftsdienst, 2025, German]{.meta}
+:::
+
+:::
+
+## Publications {#publications}
+
+```{=html}
+<details class="fold"><summary>Show list</summary>
+```
+
+{{< include ../_partials/topic-umwelt.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Planning a subsidy programme?</h2><p>I am happy to discuss how waiting times and selection rules could work for your programme.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">Send an email</a>
+</div></div>
+```
+
+:::

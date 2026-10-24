@@ -1,0 +1,314 @@
+# Einzige Quelle für alle Publikationslisten (DE und EN).
+# Felder: authors, year, title, venue, url, topic, type
+#   topic: kita | schule | referendariat | tafel | umwelt | entwicklung | statistik | marktdesign
+#   type:  article | wp | policy | practice | report | book
+#   selected: true  -> Startseite, „Ausgewählte Publikationen“ (mit journal: Kurzname)
+#   current: true   -> Startseite, „Diskussionspapiere“ als Karten (Reihenfolge wie hier)
+# Neuer Eintrag: irgendwo einfügen, Sortierung erfolgt automatisch nach Jahr.
+# Danach: ./build.sh
+
+- authors: "T. Klein, R. Aue, J. Ortega"
+  year: 2024
+  title: "School Choice with Independent versus Consolidated Districts"
+  venue: "Games and Economic Behavior 147: 170–205"
+  url: "https://doi.org/10.1016/j.geb.2024.07.003"
+  topic: schule
+  type: article
+  selected: true
+  journal: "Games and Economic Behavior"
+
+- authors: "J. Ortega, T. Klein"
+  year: 2023
+  title: "The Cost of Strategy-Proofness in School Choice"
+  venue: "Games and Economic Behavior 141: 515–528"
+  url: "https://doi.org/10.1016/j.geb.2023.07.008"
+  topic: schule
+  type: article
+  selected: true
+  journal: "Games and Economic Behavior"
+
+- authors: "T. Reischmann, T. Klein, S. Giegerich"
+  year: 2021
+  title: "A Deferred Acceptance Mechanism for Decentralized, Fast and Fair Childcare Assignment"
+  venue: "Journal of Mechanism and Institution Design 6(1): 59–100"
+  url: "http://www.mechanism-design.org/arch/v006-1/p_03.pdf"
+  topic: kita
+  type: article
+  selected: true
+  journal: "Journal of Mechanism and Institution Design"
+
+- authors: "M. Freer, T. Klein, J. Ortega"
+  year: 2026
+  title: "Experimental School Choice with Parents"
+  venue: "arXiv 2603.24615"
+  url: "https://arxiv.org/abs/2603.24615"
+  topic: schule
+  type: wp
+  current: true
+
+- authors: "T. Klein, S. McNamara"
+  year: 2025
+  title: "Sorting, Status, and Shadow Education: How Track Placement Shapes Parental Investment"
+  venue: "ZEW Discussion Paper 25-023"
+  url: "https://ftp.zew.de/pub/zew-docs/dp/dp25023.pdf"
+  topic: schule
+  type: wp
+  current: true
+
+- authors: "M. Bach, T. Klein, S. McNamara"
+  year: 2024
+  title: "Access, Achievements, and Aspirations: The Impacts of School Tracking on Student Outcomes"
+  venue: "ZEW Discussion Paper 24-076"
+  url: "https://ftp.zew.de/pub/zew-docs/dp/dp24076.pdf"
+  topic: schule
+  type: wp
+  current: true
+
+- authors: "T. Klein"
+  year: 2024
+  title: "Matching for Credit: Identifying Information Asymmetries in Joint-Liability Lending"
+  venue: "ZEW Discussion Paper 24-070"
+  url: "https://ftp.zew.de/pub/zew-docs/dp/dp24070.pdf"
+  topic: entwicklung
+  type: wp
+  current: true
+
+- authors: "T. Klein"
+  year: 2023
+  title: "Analysis of Stable Matchings in R: Package matchingMarkets"
+  venue: "Vignette zum R-Paket matchingMarkets"
+  url: "https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf"
+  topic: marktdesign
+  type: wp
+
+- authors: "J. Ortega, T. Klein"
+  year: 2022
+  title: "Improving Efficiency and Equality in School Choice"
+  venue: "ZEW Discussion Paper 22-046"
+  url: "https://www.zew.de/publikationen/improving-efficiency-and-equality-in-school-choice"
+  topic: schule
+  type: wp
+
+- authors: "R. Aue, T. Klein, J. Ortega"
+  year: 2020
+  title: "What Happens when Separate and Unequal School Districts Merge?"
+  venue: "ZEW Discussion Paper 20-032"
+  url: "https://www.zew.de/publikationen/what-happens-when-separate-and-unequal-school-districts-merge"
+  topic: schule
+  type: wp
+
+- authors: "T. Klein"
+  year: 2017
+  title: "Intermediation in Peer-to-Peer Markets: Evidence from Auctions for Private Loans"
+  venue: "ZEW Discussion Paper 17-073"
+  url: "http://www.zew.de/de/publikationen/intermediation-in-peer-to-peer-markets-evidence-from-auctions-for-personal-loans/"
+  topic: entwicklung
+  type: wp
+
+- authors: "T. Klein, S. Verhulst"
+  year: 2017
+  title: "Access to New Data Sources for Statistics: Business Models and Incentives for the Corporate Sector"
+  venue: "OECD Statistics Working Paper 17/01"
+  url: "http://www.oecd-ilibrary.org/economics/access-to-new-data-sources-for-statistics_9a1fa77f-en"
+  topic: statistik
+  type: wp
+
+- authors: "N. Robin, T. Klein, J. Jütting"
+  year: 2016
+  title: "Public-Private Partnerships for Statistics: Lessons Learned, Future Steps"
+  venue: "OECD Development Co-operation Working Paper 27"
+  url: "http://www.oecd-ilibrary.org/development/public-private-partnerships-for-statistics-lessons-learned-future-steps_5jm3nqp1g8wf-en"
+  topic: statistik
+  type: wp
+
+- authors: "T. Klein et al."
+  year: 2016
+  title: "Making Data Portals Work for SDGs: A View on Deployment, Design and Technology"
+  venue: "PARIS21 Discussion Paper 8"
+  url: "http://www.paris21.org/sites/default/files/Paper_on_Data_Portals%20wcover_WEB.pdf"
+  topic: statistik
+  type: wp
+
+- authors: "T. Klein, A. Galdin, E. Mohamedou"
+  year: 2016
+  title: "An Indicator for Statistical Literacy Based on National Newspaper Archives"
+  venue: "IASE 2016 Roundtable Paper"
+  url: "http://iase-web.org/documents/papers/rt2016/Klein.pdf"
+  topic: statistik
+  type: wp
+
+- authors: "S. McNamara, T. Klein"
+  year: 2025
+  title: "Rethinking Tracking: Lessons from Hungary for German Education Reform"
+  venue: "ZEW Policy Brief 10/2025"
+  url: "https://www.zew.de/fileadmin/FTP/policybrief/en/pb10-25.pdf"
+  topic: schule
+  type: policy
+
+- authors: "A. Atayev, G. Caspari, A. Hillenbrand, T. Klein"
+  year: 2023
+  title: "Tapping into People’s Impatience for Better Environmental Subsidies"
+  venue: "ZEW Policy Brief 4/2023"
+  url: "https://ftp.zew.de/pub/zew-docs/policybrief/en/pb04-23.pdf"
+  topic: umwelt
+  type: policy
+
+- authors: "T. Klein, M. Ott"
+  year: 2023
+  title: "Mit Digitalisierung gegen Lebensmittelverschwendung"
+  venue: "ZEW Policy Brief 9/2023"
+  url: "https://ftp.zew.de/pub/zew-docs/policybrief/de/pb09-23.pdf"
+  topic: tafel
+  type: policy
+
+- authors: "T. Klein, P. vom Baur"
+  year: 2019
+  title: "Matching Practices for Teaching Positions in Public Schools in Germany"
+  venue: "Matching-in-Practice Country Profile 28"
+  url: "https://www.matching-in-practice.eu/matching-practices-for-trainee-teachers-germany/"
+  topic: referendariat
+  type: policy
+
+- authors: "S. Herzog, T. Klein"
+  year: 2018
+  title: "Matching Practices for Childcare in Germany"
+  venue: "Matching-in-Practice Country Profile 26"
+  url: "https://www.matching-in-practice.eu/matching-practices-for-childcare-germany/"
+  topic: kita
+  type: policy
+
+- authors: "N. Fugger, T. Klein, T. Riehm"
+  year: 2017
+  title: "Dezentrale Kitaplatzvergabe ohne Warteschlange: Ein Leitfaden"
+  venue: "ZEW Policy Brief 4/2017"
+  url: "https://ftp.zew.de/pub/zew-docs/policybrief/pb04-17.pdf"
+  topic: kita
+  type: policy
+
+- authors: "S. McNamara, T. Klein"
+  year: 2025
+  title: "Frühe Leistungsdifferenzierung und ihre Konsequenzen: Lehren aus Ungarn für das dreigliedrige Schulsystem"
+  venue: "Wirtschaftsdienst 09/2025"
+  url: "https://www.wirtschaftsdienst.eu/archiv/jahr/2025/heft/9.html"
+  topic: schule
+  type: practice
+
+- authors: "A. Atayev, G. Caspari, A. Hillenbrand, T. Klein"
+  year: 2025
+  title: "Mit Ungeduld zu besseren Subventionen für umweltfreundliche Produkte"
+  venue: "Wirtschaftsdienst 06/2025"
+  url: "https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/6.html"
+  topic: umwelt
+  type: practice
+
+- authors: "H. Steinberg, S. Schüller, Y. Öztürk, T. Klein, P. Schober"
+  year: 2024
+  title: "Alleinerziehende in der Betreuungsplatzvergabe: Status quo und Handlungsempfehlungen"
+  venue: "Wirtschaftsdienst 05/2024"
+  url: "https://www.wirtschaftsdienst.eu/inhalt/jahr/2024/heft/5/beitrag/alleinerziehende-in-der-betreuungsplatzvergabe-status-quo-und-handlungsempfehlungen.html"
+  topic: kita
+  type: practice
+
+- authors: "T. Klein, M. Ott"
+  year: 2023
+  title: "Effiziente und faire Verteilung von Lebensmittelspenden"
+  venue: "Wirtschaftsdienst 08/2023"
+  url: "https://www.wirtschaftsdienst.eu/inhalt/jahr/2023/heft/8/beitrag/effiziente-und-faire-verteilung-von-lebensmittelspenden.html"
+  topic: tafel
+  type: practice
+
+- authors: "V. Gretschko, T. Klein, A. Wambach"
+  year: 2019
+  title: "Die Regeln machen den Unterschied: Marktdesign"
+  venue: "Wirtschaftswissenschaftliches Studium 48(4): 22–28"
+  url: "https://elibrary.vahlen.de/10.15358/0340-1650-2019-4-22/die-regeln-machen-den-unterschied-marktdesign-jahrgang-48-2019-heft-4"
+  topic: marktdesign
+  type: practice
+
+- authors: "T. Klein"
+  year: 2018
+  title: "Matching für Mikrokredite: Finanzielle Integration durch Marktdesign-Ansätze"
+  venue: "Ökonomenstimme"
+  url: "http://www.oekonomenstimme.org/artikel/2018/12/matching-fuer-mikrokredite--marktdesign-ansaetze-fuer-finanzielle-integration/"
+  topic: entwicklung
+  type: practice
+
+- authors: "T. Klein"
+  year: 2018
+  title: "Wie sich Lebensmittelspenden mittels Marktdesign effizienter gestalten lassen"
+  venue: "Ökonomenstimme"
+  url: "http://www.oekonomenstimme.org/artikel/2018/05/wie-sich-lebensmittelspenden-mittels-marktdesign-effizienter-gestalten-lassen"
+  topic: tafel
+  type: practice
+
+- authors: "T. Klein"
+  year: 2017
+  title: "Wie Städte dem Ansturm auf Kindertagesstätten begegnen können"
+  venue: "Ökonomenstimme"
+  url: "http://www.oekonomenstimme.org/artikel/2017/06/wie-staedte-dem-ansturm-auf-kindertagesstaetten-begegnen-koennen/"
+  topic: kita
+  type: practice
+
+- authors: "G. Caspari, S. Greshake, T. Klein, T. Riehm"
+  year: 2023
+  title: "Die KitaMatch-Software: Wegweiser für eine schnelle, faire und transparente Kitaplatzvergabe"
+  venue: "Bertelsmann Stiftung"
+  url: "https://rsm-bst-live.bertelsmann-stiftung.de/fileadmin/files/user_upload/KitaMatchSoftware_2023_final.pdf"
+  topic: kita
+  type: report
+
+- authors: "R. Aue et al."
+  year: 2020
+  title: "The Implication of School Admission Rules for Segregation and Educational Inequality"
+  venue: "ZEW Research Report"
+  url: "https://ftp.zew.de/pub/zew-docs/gutachten/iLearn_ZEWResearchReport2020.pdf"
+  topic: schule
+  type: report
+
+- authors: "S. Badiee, J. Jütting, T. Klein"
+  year: 2017
+  title: "The Role of National Statistical Systems in the Data Revolution"
+  venue: "OECD Development Co-operation Report 2017, Kap. 3"
+  url: "http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en"
+  topic: statistik
+  type: report
+
+- authors: "S. Badiee, T. Klein, E. Mohamedou"
+  year: 2017
+  title: "Rethinking Donor Support for Statistical Capacity Development"
+  venue: "OECD Development Co-operation Report 2017, Kap. 4"
+  url: "http://www.oecd-ilibrary.org/development/development-co-operation-report-2017_dcr-2017-en"
+  topic: statistik
+  type: report
+
+- authors: "T. Klein, P. van de Ven"
+  year: 2017
+  title: "Measuring the Value of Official Statistics"
+  venue: "UNECE Report on the Value of Official Statistics, Kap. 5"
+  url: "http://www.unece.org/statistics/statstos/task-force-on-the-value-of-official-statistics.html"
+  topic: statistik
+  type: report
+
+- authors: "J. Espey et al."
+  year: 2015
+  title: "Data for Development: A Needs Assessment for SDG Monitoring and Statistical Capacity Development"
+  venue: "UN Sustainable Development Solutions Network"
+  url: "https://resources.unsdsn.org/data-for-development-a-needs-assessment-for-sdg-monitoring-and-statistical-capacity-development"
+  topic: statistik
+  type: report
+
+- authors: "T. Klein"
+  year: 2012
+  title: "Why Do India’s Urban Poor Choose to Go Private? Health Policy Simulations in Slums of Hyderabad"
+  venue: "ibidem, Stuttgart"
+  url: ""
+  topic: entwicklung
+  type: book
+
+- authors: "T. Klein"
+  year: 2010
+  title: "Microfinance 2.0: Group Formation and Repayment Performance in Online Lending Platforms"
+  venue: "ibidem, Stuttgart"
+  url: ""
+  topic: entwicklung
+  type: book

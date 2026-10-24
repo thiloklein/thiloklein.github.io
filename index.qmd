@@ -1,0 +1,13 @@
+---
+pagetitle: "Thilo Klein"
+description: "Market design for the public sector. Prof. Dr. Thilo Klein, Pforzheim University and ZEW Mannheim."
+lang: en-GB
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta http-equiv="refresh" content="0; url=en/">
+        <link rel="canonical" href="https://klein.uk/en/">
+---
+
+[Continue to the English version](en/index.qmd) · [Zur deutschen Version](de/index.qmd)

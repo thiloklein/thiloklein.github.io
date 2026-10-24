@@ -1,0 +1,3 @@
+```{=html}
+<ol class="publist"><li><span class="n">2</span><div><a class="t" href="https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/6.html">Mit Ungeduld zu besseren Subventionen für umweltfreundliche Produkte</a><div class="meta"><em>Wirtschaftsdienst 06/2025</em> (2025) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein</div></div></li><li><span class="n">1</span><div><a class="t" href="https://ftp.zew.de/pub/zew-docs/policybrief/en/pb04-23.pdf">Tapping into People’s Impatience for Better Environmental Subsidies</a><div class="meta"><em>ZEW Policy Brief 4/2023</em> (2023) · A. Atayev, G. Caspari, A. Hillenbrand, T. Klein</div></div></li></ol>
+```

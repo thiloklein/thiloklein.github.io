@@ -1,0 +1,153 @@
+---
+pagetitle: "Lebensmittelspenden – Thilo Klein"
+description: "Wie Echtzeitdaten und Marktdesign helfen, Lebensmittelspenden gerechter zu verteilen und Verschwendung zu vermeiden."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Anwendung]{.eyebrow}
+
+# Lebensmittelspenden
+
+::: {.lead}
+Wie Echtzeitdaten und Marktdesign helfen, Spenden gerechter zu verteilen und Verschwendung zu vermeiden.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/truck.png){fig-alt=""}
+:::
+:::
+::: {.kpis}
+::: {.kpi}
+269 von 975
+
+Tafeln in Deutschland sind an die eco-Plattform angebunden (2026)
+:::
+
+::: {.kpi}
+265.000\ t
+
+Lebensmittel retten die Tafeln pro Jahr
+:::
+
+::: {.kpi}
+2019–2026
+
+zwei vom Bundeslandwirtschaftsministerium geförderte Projekte
+:::
+
+:::
+::: {.jumpnav}
+[Ansatz](#ansatz) [Projekte](#projekte) [Materialien](#materialien) [Publikationen](#publikationen)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Ausgangslage]{.tag}
+
+### Das Problem
+
+Die Tafeln sind auf Spenden aus Handel und Produktion angewiesen, deren Menge und Art kaum vorhersehbar ist. Manche Ausgabestellen erhalten mehr, als sie verteilen können, während andere zu wenig haben. Was nicht rechtzeitig weitergegeben wird, verdirbt.
+:::
+
+::: {.card-c}
+[Ansatz]{.tag}
+
+### Die Lösung
+
+Eine gemeinsame digitale Plattform macht Spendenangebote in Echtzeit sichtbar. Überschüsse lassen sich so kostenneutral zwischen Ausgabestellen umverteilen: Der Bedarf wird gerechter gedeckt, und weniger wird weggeworfen.
+:::
+
+:::
+
+## Der Ansatz {#ansatz}
+
+```{=html}
+<ol class="steps">
+<li><strong>Angebote melden.</strong> Handel, Hersteller und Großhandel melden überschüssige Lebensmittel, sobald sie anfallen.</li>
+<li><strong>Bedarf abgleichen.</strong> Die Plattform macht die Angebote für die Ausgabestellen sichtbar, die sie brauchen und abholen können.</li>
+<li><strong>Umverteilen.</strong> Überschüsse gehen ohne zusätzliche Kosten dorthin, wo der Bedarf am größten ist.</li>
+</ol>
+```
+
+Ein Vorbild ist die US-Organisation Feeding America: Dort bieten regionale Tafeln mit einer eigenen Verrechnungswährung auf Großspenden; die Preise zeigen, wo welche Lebensmittel gebraucht werden. Nach der Einführung stieg die Menge der Spenden deutlich.
+
+## Projekte {#projekte}
+
+::: {.cards .two}
+::: {.card-c}
+[2019–2023]{.tag}
+
+### eco-Plattform
+
+Marktdesign für Lebensmittelspenden des Einzelhandels. Heute sind 269 der 975 Tafeln in Deutschland an die Plattform angebunden.
+
+[Gefördert vom Bundesministerium für Ernährung und Landwirtschaft]{.meta}
+:::
+
+::: {.card-c}
+[2023–2026]{.tag}
+
+### TafelConnect
+
+Marktdesign für Spenden von Herstellern und Großhandel.
+
+[Gefördert vom Bundesministerium für Ernährung und Landwirtschaft]{.meta}
+:::
+
+:::
+
+## Materialien {#materialien}
+
+::: {.cards .two}
+::: {.card-c}
+[Policy Brief]{.tag}
+
+### [Mit Digitalisierung gegen Lebensmittelverschwendung](https://ftp.zew.de/pub/zew-docs/policybrief/de/pb09-23.pdf)
+
+Wie digitale Plattformen die Verteilung von Spenden verbessern.
+
+[ZEW, 2023]{.meta}
+:::
+
+::: {.card-c}
+[Fachartikel]{.tag}
+
+### [Effiziente und faire Verteilung von Lebensmittelspenden](https://www.wirtschaftsdienst.eu/inhalt/jahr/2023/heft/8/beitrag/effiziente-und-faire-verteilung-von-lebensmittelspenden.html)
+
+Marktdesign für die Tafeln.
+
+[Wirtschaftsdienst, 2023]{.meta}
+:::
+
+:::
+
+### In der Presse
+
+```{=html}
+<ul class="press"><li><span class="src">Mannheimer Morgen, 08/2023</span><span><a href="https://www.mannheimer-morgen.de/deutschland-welt_artikel,-thema-des-tages-digitalplattform-rettet-essen-_arid,2116601.html">Digitalplattform rettet Essen</a></span></li><li><span class="src">dpa, 07/2023</span><span><a href="https://www.zeit.de/news/2023-07/06/tafel-kunden-leiden-unter-folgen-von-inflation">Tafel-Kunden leiden unter Folgen von Inflation (dpa, u. a. in Zeit, SZ, Welt, Focus, Stern)</a></span></li><li><span class="src">Welt am Sonntag, 06/2018</span><span><a href="https://www.welt.de/wirtschaft/article176970890/Umgang-mit-Lebensmittelspenden-Kann-das-Prinzip-Ebay-die-Tafeln-retten.html">Kann das „Prinzip Ebay“ die Tafeln retten?</a></span></li></ul>
+<details class="fold"><summary>Weitere Presseberichte (1)</summary><ul class="press"><li><span class="src">Mannheimer Morgen, 08/2023</span><span><a href="https://www.mannheimer-morgen.de/orte/mannheim_artikel,-mannheim-projekt-der-mannheimer-tafel-rettet-in-echtzeit-essen-_arid,2116569.html">Projekt der Mannheimer Tafel rettet in Echtzeit Essen</a></span></li></ul></details>
+```
+
+## Publikationen {#publikationen}
+
+```{=html}
+<details class="fold"><summary>Liste anzeigen</summary>
+```
+
+{{< include ../_partials/topic-tafel.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Fragen zur Verteilung von Spenden?</h2><p>Ich berichte gern über Erfahrungen aus eco-Plattform und TafelConnect.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">E-Mail schreiben</a>
+</div></div>
+```
+
+:::

@@ -1,0 +1,3 @@
+```{=html}
+<ol class="publist"><li><span class="n">2</span><div><a class="t" href="https://cran.r-project.org/web/packages/matchingMarkets/vignettes/matching.pdf">Analysis of Stable Matchings in R: Package matchingMarkets</a><div class="meta"><em>Vignette zum R-Paket matchingMarkets</em> (2023) · T. Klein</div></div></li><li><span class="n">1</span><div><a class="t" href="https://elibrary.vahlen.de/10.15358/0340-1650-2019-4-22/die-regeln-machen-den-unterschied-marktdesign-jahrgang-48-2019-heft-4">Die Regeln machen den Unterschied: Marktdesign</a><div class="meta"><em>Wirtschaftswissenschaftliches Studium 48(4): 22–28</em> (2019) · V. Gretschko, T. Klein, A. Wambach</div></div></li></ol>
+```

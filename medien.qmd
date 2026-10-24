@@ -1,0 +1,88 @@
+---
+pagetitle: "Medien – Thilo Klein"
+description: "Podcasts und Presseberichte zu Kita- und Schulplatzvergabe, Lebensmittelspenden und Marktdesign."
+---
+::: {.page-head}
+[Podcasts und Presse]{.eyebrow}
+
+# Medien
+
+::: {.lead}
+Podcasts und Presseberichte zu Kita- und Schulplatzvergabe, Lebensmittelspenden und Marktdesign.
+:::
+:::
+
+## Podcasts
+
+::: {.cards}
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### Wie werden Schulplätze vergeben?
+
+ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten und was ein Gymnasium für Kinder aus weniger privilegierten Familien bewirkt, im Gespräch mit Mannheimer Schülerinnen und Schülern.
+
+[Anhören ↗](https://www.zew.de/das-zew/aktuelles/wie-werden-schulplaetze-vergeben){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### Auf die Plätze, fertig, los! 
+
+ZEW-Podcast. Wie KitaMatch Kitaplätze schneller und fairer vergibt.
+
+[Anhören ↗](https://www.zew.de/publikationen/prof-dr-thilo-klein-auf-die-plaetze-fertig-los-so-gelingt-die-kitaplatzvergabe){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/tws2.jpg){.card-img}
+
+::: {.card-body}
+### The Missing Middle
+
+Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitaplatzvergabe trotz guter Theorie meist unkoordiniert läuft, und was Kommunen brauchen, um Matching-Verfahren zu betreiben.
+
+[Anhören ↗](https://tws-gamechanger.libsyn.com/the-missing-middle-how-market-design-gets-built-for-the-public-sector-with-thilo-klein){.more}
+:::
+:::
+:::
+
+## Presse
+
+### Schulwahl
+
+- [Frühe Gymnasium-Wahl in Deutschland könnte schädlich sein](https://www.mdr.de/wissen/bildung/fruehe-gymnasium-wahl-in-deutschland-koennte-schaedlich-sein-100.html), MDR Wissen, Februar 2026
+- [Wenn Eltern nicht mehr entscheiden dürfen, auf welche Schule ihr Kind kommt](https://www.sueddeutsche.de/politik/schuluebertritt-grundschule-gymnasium-druck-li.3451811), Süddeutsche Zeitung, März 2026
+- [Der Kampf um den Platz an der Wunschschule](https://www.fr.de/politik/schule-weiterfuehrend-modell-gerechtere-schulplatzvergabe-wechsel-wunschschule-tbl-zr-92568351.html), Frankfurter Rundschau, Oktober 2023
+- [Modell für eine gerechtere Schulplatzvergabe](https://table.media/bildung/news/modell-fuer-eine-gerechtere-schulplatzvergabe/), Table.Media, Oktober 2023
+
+
+### Kitaplatzvergabe 
+
+- [Bürokratie: Das kann weg](https://www.sueddeutsche.de/projekte/artikel/wirtschaft/buerokratie-olaf-scholz-verwaltung-e836159/?reduced=true), Süddeutsche Zeitung, September 2023
+- [Algorithmus sucht passenden Kitaplatz](https://background.tagesspiegel.de/smart-city/algorithmus-sucht-passenden-kitaplatz), Tagesspiegel Background, August 2023
+- [„Kita-Match“: Ein Kitaplatz per Algorithmus](https://www.wiwo.de/politik/deutschland/hilfreiche-software-kita-match-ein-kitaplatz-per-algorithmus/27890190.html), WirtschaftsWoche, Dezember 2021
+- [Die Zeit, Februar 2021](https://www.zeit.de/2021/06/kuenstliche-intelligenz-kita-anwendung-regulierung-gesellschaft-technologie)
+- [Marktdesign: Ökonomie ohne Elfenbeinturm](https://www.wiwo.de/my/politik/konjunktur/vwl-marktdesign-oekonomie-ohne-elfenbeinturm/25470414.html), WirtschaftsWoche, Januar 2020
+- [Gegen den Kita-Frust](https://www.faz.net/aktuell/wirtschaft/wie-ein-algorithmus-kitaplaetze-fairer-vergeben-soll-16510418.html), FAZ, November 2019
+- [Die Rheinpfalz, Oktober 2018](https://www.rheinpfalz.de/lokal/rhein-pfalz-kreis_artikel,-pers%C3%B6nliche-anmeldung-bleibt-_arid,1296219.html)
+- [Verdruss bei der Kitaplatz-Vergabe](http://www.wn.de/Muenster/3203115-Verdruss-bei-der-Kitaplatz-Vergabe-Eltern-drohen-mit-weiteren-Klagen), Westfälische Nachrichten, März 2018
+- [Raus aus der Kita-Warteschlange](http://www.faz.net/aktuell/wirtschaft/neue-runde-im-kita-streit-raus-aus-der-kita-warteschlange-15053793.html), FAZ, Juni 2017
+
+### Lebensmittelspenden
+
+- [Digitalplattform rettet Essen](https://www.mannheimer-morgen.de/deutschland-welt_artikel,-thema-des-tages-digitalplattform-rettet-essen-_arid,2116601.html), Mannheimer Morgen, August 2023
+- [Projekt der Mannheimer Tafel rettet in Echtzeit Essen](https://www.mannheimer-morgen.de/orte/mannheim_artikel,-mannheim-projekt-der-mannheimer-tafel-rettet-in-echtzeit-essen-_arid,2116569.html), Mannheimer Morgen, August 2023
+- [Ehrenamt muss sexy werden](https://www.mannheimer-morgen.de/meinung/kommentare_artikel,-kommentar-ehrenamt-muss-sexy-werden-_arid,2116556.html), Mannheimer Morgen, August 2023
+- [Tafel-Kunden leiden unter Folgen von Inflation](https://www.zeit.de/news/2023-07/06/tafel-kunden-leiden-unter-folgen-von-inflation), dpa, Juli 2023, unter anderem in [Süddeutsche Zeitung](https://www.sueddeutsche.de/wirtschaft/soziales-mannheim-tafel-kunden-leiden-unter-folgen-von-inflation-dpa.urn-newsml-dpa-com-20090101-230706-99-300913), [Welt](https://www.welt.de/regionales/baden-wuerttemberg/article246243510/Tafel-Kunden-leiden-unter-Folgen-von-Inflation.html), [Focus](https://www.focus.de/regional/baden-wuerttemberg/armut-tafel-kunden-leiden-unter-folgen-von-inflation_id_198333474.html) und [Stern](https://www.stern.de/gesellschaft/regional/baden-wuerttemberg/armut--tafel-kunden-leiden-unter-folgen-von-inflation-33624102.html)
+- [Kann das „Prinzip Ebay“ die Tafeln retten?](https://www.welt.de/wirtschaft/article176970890/Umgang-mit-Lebensmittelspenden-Kann-das-Prinzip-Ebay-die-Tafeln-retten.html), Welt am Sonntag, Juni 2018
+
+## Für Redaktionen
+
+Anfragen zu Interviews und Hintergrundgesprächen: [thilo.klein@hs-pforzheim.de](mailto:thilo.klein@hs-pforzheim.de). Ein Porträtfoto steht [hier](/assets/img/portrait.jpg) zur Verfügung.

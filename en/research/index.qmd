@@ -1,0 +1,63 @@
+---
+pagetitle: "Research – Thilo Klein"
+description: "Design and impact of allocation procedures in education and labour markets, and sustainable market design: research areas, publications, grants, teaching."
+---
+::: {.page-head}
+[Research and publications]{.eyebrow}
+
+# Research
+
+::: {.lead}
+I work on market design, matching theory and empirical methods. Working on real allocation procedures with municipalities and states generates data that allow their effects to be studied causally. I use administrative data and field experiments from Germany, Hungary and England.
+:::
+:::
+
+## Research areas
+
+::: {.cards .three}
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### School choice
+
+**Parents in the lab.** All mechanisms are frequently manipulated, by parents about as often as by students. [arXiv 2026](https://arxiv.org/abs/2603.24615)
+
+**Efficiency and strategy-proofness.** In Budapest, the Rank-Minimizing mechanism cuts the share of poor placements from 15 to under 3 per cent. [GEB 2023](https://doi.org/10.1016/j.geb.2023.07.008)
+
+**Childcare.** Decentralised deferred acceptance for childcare [JMID 2021](http://www.mechanism-design.org/arch/v006-1/p_03.pdf).
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### Inequality
+
+**Shadow education.** When children are assigned to the top track, families from the lowest socio-economic tercile increase private tutoring disproportionately. [DP 2025](https://ftp.zew.de/pub/zew-docs/dp/dp25023.pdf)
+
+**Early tracking.** Academic-track schools help children of all backgrounds, but disadvantaged children are less likely to get there. [DP 2024](https://ftp.zew.de/pub/zew-docs/dp/dp24076.pdf)
+
+**School choice across districts.** When districts merge their allocation, everyone gains on average; the gain is equivalent to a school five kilometres closer. [GEB 2024](https://doi.org/10.1016/j.geb.2024.07.003)
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/esaf.jpg){.card-img}
+
+::: {.card-body}
+### Development economics
+
+**Microfinance.** In Thailand, more diverse borrower groups improve repayment by ten percentage points. [DP 2024](https://ftp.zew.de/pub/zew-docs/dp/dp24070.pdf)
+
+**Statistics and data.** Work from my OECD years (2014–2017) on the value of official statistics and new data sources.
+:::
+:::
+:::
+
+## Publications
+
+{{< include ../_partials/all.md >}}
+

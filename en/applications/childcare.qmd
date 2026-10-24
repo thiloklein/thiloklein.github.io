@@ -1,0 +1,217 @@
+---
+pagetitle: "Childcare places – Thilo Klein"
+description: "Coordinated allocation of childcare places across providers: fewer multiple offers, faster placement, transparent criteria. Procedure, municipalities, materials."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Application]{.eyebrow}
+
+# Childcare places
+
+::: {.lead}
+Coordinated allocation across all providers: fewer multiple offers, faster placement, transparent criteria.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/kita.png){fig-alt=""}
+:::
+:::
+::: {.kpis}
+::: {.kpi}
+10+
+
+municipalities use the procedure
+:::
+
+::: {.kpi}
+3
+
+German states
+:::
+
+::: {.kpi}
+since 2019
+
+in operation
+:::
+
+::: {.kpi}
+1 week
+
+for the coordinated allocation
+:::
+
+:::
+::: {.jumpnav}
+[Procedure](#procedure) [In use](#in-use) [Materials](#materials) [Publications](#publications)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Starting point]{.tag}
+
+### The problem
+
+Parents apply to several childcare centres at once, and each centre allocates its places on its own. Some families hold several offers while others wait, even though places would be available. The shortage looks larger than it is, and centre managers spend weeks working through waiting lists.
+:::
+
+::: {.card-c}
+[Approach]{.tag}
+
+### The solution
+
+A shared procedure coordinates which centre makes an offer to which family, and when. Providers keep their own admission criteria; the procedure only ensures that offers are not blocked and that released places are passed on immediately.
+:::
+
+:::
+
+## The procedure {#procedure}
+
+```{=html}
+<ol class="steps">
+<li><strong>State preferences.</strong> Parents list several preferred childcare centres in order through a central registration.</li>
+<li><strong>Apply priorities.</strong> Each centre ranks its applications by its own admission criteria, such as age, siblings or place of residence.</li>
+<li><strong>Coordinate offers.</strong> Families receive offers over several rounds. Each family holds at most one offer; if it accepts a better one, the previous place is released immediately.</li>
+<li><strong>Pass on free places.</strong> Released places go to the next suitable family in the following round, until no further improvement is possible.</li>
+</ol>
+```
+
+::: {.facts}
+**What the procedure guarantees**
+
+- No family holds more than one place at a time.
+- No place stays empty while a family prefers it to its current offer and has priority under the centre’s criteria.
+- Listing additional preferences does not reduce the chance of getting one’s first choice.
+- Providers continue to decide according to their own criteria.
+:::
+
+The procedure does not create new places. It does ensure that existing places are allocated quickly and according to need, and it shows how many places are actually missing locally. It is based on an iterative deferred acceptance mechanism that also works in a decentralised way.
+
+## In use {#in-use}
+
+Under the name KitaMatch, the procedure is used in more than ten municipalities in three German states. In 2022 the ZEW Sponsors’ Association recognised the project as the best economic policy advisory project at ZEW.
+
+::: {.cards .three}
+::: {.card-c}
+[since 2024]{.tag}
+
+### Tübingen
+
+The university city has allocated its childcare places with KitaMatch since the main allocation round for the 2024/25 year. Registration runs through a central office; parents list several preferred centres in order.
+:::
+
+::: {.card-c}
+[since 2019]{.tag}
+
+### Kaiserslautern
+
+The city was among the first municipalities to allocate childcare places in a coordinated way across all providers.
+:::
+
+::: {.card-c}
+[since 2019]{.tag}
+
+### Steinfurt district, Greven and Emsdetten
+
+Allocation in the Steinfurt district has run on KitaMatch since 2019; experience there formed the basis of the public guide. Greven and Emsdetten use the procedure as well.
+:::
+
+:::
+
+## Materials {#materials}
+
+::: {.cards .three}
+::: {.card-c}
+[Guide]{.tag}
+
+### [Best practices for childcare allocation](https://matchingtools.de/wp-content/uploads/2026/02/BestPractices_Kitaplatzvergabe_Manual.pdf)
+
+Manual describing the process for youth welfare offices, providers and centre managers.
+
+[ZEW, 2026, German]{.meta}
+:::
+
+::: {.card-c}
+[Guide]{.tag}
+
+### [The KitaMatch software](https://rsm-bst-live.bertelsmann-stiftung.de/fileadmin/files/user_upload/KitaMatchSoftware_2023_final.pdf)
+
+A guide to fast, fair and transparent childcare allocation.
+
+[Bertelsmann Stiftung, 2023, German]{.meta}
+:::
+
+::: {.card-c}
+[Practitioner article]{.tag}
+
+### [Single parents in childcare allocation](https://www.wirtschaftsdienst.eu/inhalt/jahr/2024/heft/5/beitrag/alleinerziehende-in-der-betreuungsplatzvergabe-status-quo-und-handlungsempfehlungen.html)
+
+Status quo and policy recommendations.
+
+[Wirtschaftsdienst, 2024, German]{.meta}
+:::
+
+::: {.card-c}
+[Policy brief]{.tag}
+
+### [Decentralised childcare allocation without queues](https://ftp.zew.de/pub/zew-docs/policybrief/pb04-17.pdf)
+
+A guide for municipalities.
+
+[ZEW, 2017, German]{.meta}
+:::
+
+::: {.card-c}
+[Podcast]{.tag}
+
+### [On Your Spots, Get Set, Go?](https://www.zew.de/AM8540-1)
+
+How childcare places can be allocated successfully.
+
+[ZEW podcast, German]{.meta}
+:::
+
+::: {.card-c}
+[Podcast]{.tag}
+
+### [The Missing Middle](https://tws-gamechanger.libsyn.com/the-missing-middle-how-market-design-gets-built-for-the-public-sector-with-thilo-klein)
+
+How market design gets built for the public sector.
+
+[Game Changer, May 2026]{.meta}
+:::
+
+:::
+
+### In the press
+
+Coverage is in German.
+
+```{=html}
+<ul class="press"><li><span class="src">Tagesspiegel, 08/2023</span><span><a href="https://background.tagesspiegel.de/smart-city/algorithmus-sucht-passenden-kitaplatz">Algorithmus sucht passenden Kitaplatz</a></span></li><li><span class="src">WirtschaftsWoche, 12/2021</span><span><a href="https://www.wiwo.de/politik/deutschland/hilfreiche-software-kita-match-ein-kitaplatz-per-algorithmus/27890190.html">„Kita-Match“: Ein Kitaplatz per Algorithmus</a></span></li><li><span class="src">FAZ, 11/2019</span><span><a href="https://www.faz.net/aktuell/wirtschaft/wie-ein-algorithmus-kitaplaetze-fairer-vergeben-soll-16510418.html">Gegen den Kita-Frust</a></span></li></ul>
+<details class="fold"><summary>More press coverage (4)</summary><ul class="press"><li><span class="src">Die Zeit, 02/2021</span><span><a href="https://www.zeit.de/2021/06/kuenstliche-intelligenz-kita-anwendung-regulierung-gesellschaft-technologie">Article in Die Zeit</a></span></li><li><span class="src">WirtschaftsWoche, 01/2020</span><span><a href="https://www.wiwo.de/my/politik/konjunktur/vwl-marktdesign-oekonomie-ohne-elfenbeinturm/25470414.html">Marktdesign: Ökonomie ohne Elfenbeinturm</a></span></li><li><span class="src">Die Rheinpfalz, 10/2018</span><span><a href="https://www.rheinpfalz.de/lokal/rhein-pfalz-kreis_artikel,-pers%C3%B6nliche-anmeldung-bleibt-_arid,1296219.html">Article in Die Rheinpfalz</a></span></li><li><span class="src">FAZ, 06/2017</span><span><a href="http://www.faz.net/aktuell/wirtschaft/neue-runde-im-kita-streit-raus-aus-der-kita-warteschlange-15053793.html">Raus aus der Kita-Warteschlange</a></span></li></ul></details>
+```
+
+## Publications {#publications}
+
+```{=html}
+<details class="fold"><summary>Show list</summary>
+```
+
+{{< include ../_partials/topic-kita.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Childcare allocation in your municipality?</h2><p>Planning a change or want your current procedure evaluated? Get in touch.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">Send an email</a>
+</div></div>
+```
+
+:::

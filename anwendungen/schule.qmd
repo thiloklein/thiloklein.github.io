@@ -1,0 +1,181 @@
+---
+pagetitle: "Schulplatzvergabe – Thilo Klein"
+description: "Welche Vergabeverfahren Wünsche am besten erfüllen, was Eltern tatsächlich tun und welche Folgen die frühe Aufteilung auf Schularten hat."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Anwendung]{.eyebrow}
+
+# Schulplatzvergabe
+
+::: {.lead}
+Welche Verfahren Wünsche am besten erfüllen, was Eltern tatsächlich tun und welche Folgen die frühe Aufteilung auf Schularten hat.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/harvard.jpg){fig-alt=""}
+:::
+:::
+::: {.kpis}
+::: {.kpi}
+unter 3 %
+
+statt 15 % erst an der vierten Wunschschule oder später (Budapest)
+:::
+
+::: {.kpi}
+5 km
+
+Gewinn gemeinsamer Vergabe, gemessen als näher gelegene Schule
+:::
+
+::: {.kpi}
+540
+
+Eltern und Studierende im Schulwahl-Experiment
+:::
+
+:::
+::: {.jumpnav}
+[Ergebnisse](#ergebnisse) [Materialien](#materialien) [Publikationen](#publikationen)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Ausgangslage]{.tag}
+
+### Das Problem
+
+Beim Übergang auf weiterführende Schulen sind beliebte Schulen oft überbucht. Wie Plätze dann vergeben werden, entscheidet darüber, wie viele Familien ihre Wunschschule erhalten, ob sich taktisches Verhalten lohnt und wer am Ende benachteiligt ist.
+:::
+
+::: {.card-c}
+[Ansatz]{.tag}
+
+### Was die Forschung beiträgt
+
+Vergleich von Vergabeverfahren mit Verwaltungsdaten und Experimenten, und Analyse, was die Aufteilung auf Schularten für Leistungen und Bildungschancen bedeutet.
+:::
+
+:::
+
+## Was die Forschung zeigt {#ergebnisse}
+
+::: {.cards .two}
+::: {.card-c}
+[Verfahren]{.tag}
+
+### Welches Verfahren erfüllt Wünsche am besten?
+
+Das verbreitete Deferred-Acceptance-Verfahren macht ehrliche Angaben zur besten Strategie, platziert in Budapest aber fast jedes siebte Kind erst an der vierten Wunschschule oder später. Ein Verfahren, das schlechte Platzierungen gezielt minimiert, senkt diesen Anteil auf unter drei Prozent.
+
+[Games and Economic Behavior, 2023]{.meta}
+:::
+
+::: {.card-c}
+[Experiment]{.tag}
+
+### Was Eltern tatsächlich tun
+
+Im Experiment mit 324 Eltern und 216 Studierenden wurden alle Verfahren häufig strategisch genutzt, auch das als manipulationssicher geltende. Die Vorteile des effizienteren Verfahrens blieben dennoch weitgehend erhalten.
+
+[Diskussionspapier, 2026]{.meta}
+:::
+
+::: {.card-c}
+[Bezirke]{.tag}
+
+### Gemeinsame Vergabe über Bezirksgrenzen
+
+Legen Schulbezirke ihre Vergabe zusammen, gewinnen im Durchschnitt alle, besonders Familien aus kleinen Bezirken mit begehrten Schulen. In Ungarn entspricht der Gewinn einer um fünf Kilometer näheren Schule.
+
+[Games and Economic Behavior, 2024]{.meta}
+:::
+
+::: {.card-c}
+[Schularten]{.tag}
+
+### Frühe Aufteilung auf Schularten
+
+Ein Gymnasium verbessert Leistungen und Studienpläne, für Kinder aus benachteiligten Familien mindestens so stark wie für andere. Diese gelangen aber seltener dorthin; eine frühe und strenge Aufteilung kann Ungleichheit verstärken.
+
+[Diskussionspapiere, 2024 und 2025]{.meta}
+:::
+
+:::
+
+## Materialien {#materialien}
+
+::: {.cards .two}
+::: {.card-c}
+[Policy Brief]{.tag}
+
+### [Rethinking Tracking](https://www.zew.de/fileadmin/FTP/policybrief/en/pb10-25.pdf)
+
+Lessons from Hungary for German education reform.
+
+[ZEW, 2025, Englisch]{.meta}
+:::
+
+::: {.card-c}
+[Fachartikel]{.tag}
+
+### [Frühe Leistungsdifferenzierung und ihre Konsequenzen](https://www.wirtschaftsdienst.eu/archiv/jahr/2025/heft/9.html)
+
+Lehren aus Ungarn für das dreigliedrige Schulsystem.
+
+[Wirtschaftsdienst, 2025]{.meta}
+:::
+
+::: {.card-c}
+[Bericht]{.tag}
+
+### [Zulassungsregeln, Segregation und Bildungsungleichheit](https://ftp.zew.de/pub/zew-docs/gutachten/iLearn_ZEWResearchReport2020.pdf)
+
+The Implication of School Admission Rules for Segregation and Educational Inequality.
+
+[ZEW Research Report, 2020]{.meta}
+:::
+
+::: {.card-c}
+[Podcast]{.tag}
+
+### [Wie werden Schulplätze vergeben?](https://www.zew.de/das-zew/aktuelles/wie-werden-schulplaetze-vergeben)
+
+Über die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.
+
+[ZEW-Podcast, September 2026]{.meta}
+:::
+
+:::
+
+### In der Presse
+
+```{=html}
+<ul class="press"><li><span class="src">MDR Wissen, 02/2026</span><span><a href="https://www.mdr.de/wissen/bildung/fruehe-gymnasium-wahl-in-deutschland-koennte-schaedlich-sein-100.html">Frühe Gymnasium-Wahl in Deutschland könnte schädlich sein</a></span></li><li><span class="src">Süddeutsche Zeitung, 03/2026</span><span>Beitrag zur frühen Aufteilung auf Schularten</span></li><li><span class="src">Frankfurter Rundschau, 10/2023</span><span><a href="https://www.fr.de/politik/schule-weiterfuehrend-modell-gerechtere-schulplatzvergabe-wechsel-wunschschule-tbl-zr-92568351.html">Der Kampf um den Platz an der Wunschschule</a></span></li></ul>
+<details class="fold"><summary>Weitere Presseberichte (1)</summary><ul class="press"><li><span class="src">Table.Media, 10/2023</span><span><a href="https://table.media/bildung/news/modell-fuer-eine-gerechtere-schulplatzvergabe/">Modell für eine gerechtere Schulplatzvergabe</a></span></li></ul></details>
+```
+
+## Publikationen {#publikationen}
+
+```{=html}
+<details class="fold"><summary>Liste anzeigen</summary>
+```
+
+{{< include ../_partials/topic-schule.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Schulplatzvergabe in Ihrer Kommune oder Ihrem Land?</h2><p>Gern bespreche ich, was die Forschung für Ihre Vergaberegeln bedeutet.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">E-Mail schreiben</a>
+</div></div>
+```
+
+:::

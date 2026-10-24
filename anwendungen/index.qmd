@@ -1,0 +1,104 @@
+---
+pagetitle: "Anwendungen – Thilo Klein"
+description: "Vergabeverfahren für Kitas und Schulen sowie Marktdesign für Lebensmittelspenden und Umweltförderung."
+---
+
+::: {.app}
+
+::: {.page-head}
+[Anwendungen]{.eyebrow}
+
+# Für Kommunen und Verwaltung
+
+::: {.lead}
+Viele öffentliche Leistungen werden nicht über Preise vergeben, sondern über Anmeldungen, Kriterien und Wartelisten. Gut gestaltete Verfahren sorgen dafür, dass vorhandene Plätze vollständig genutzt werden, Wünsche bestmöglich berücksichtigt sind und Entscheidungen nachvollziehbar bleiben.
+:::
+:::
+
+## Platzvergabe in Bildung
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+[10+ Kommunen seit 2019]{.tag}
+
+### Kitaplatzvergabe
+
+Koordinierte Vergabe über alle Träger, unter anderem in Tübingen und Kaiserslautern.
+
+[Mehr](kita.qmd){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+[unter 3 % statt 15 %]{.tag}
+
+### Schulplatzvergabe
+
+Welche Verfahren Wünsche am besten erfüllen und was die frühe Aufteilung auf Schularten bewirkt.
+
+[Mehr](schule.qmd){.more}
+:::
+:::
+
+:::
+
+## Nachhaltiges Marktdesign
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/truck.png){.card-img}
+
+::: {.card-body}
+[269 Tafeln angebunden]{.tag}
+
+### Lebensmittelspenden
+
+Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln.
+
+[Mehr](lebensmittelspenden.qmd){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/traffic.png){.card-img}
+
+::: {.card-body}
+[Wartezeit als Filter]{.tag}
+
+### Umweltförderung
+
+Förderprogramme, die gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.
+
+[Mehr](umweltfoerderung.qmd){.more}
+:::
+:::
+
+:::
+
+## So läuft eine Zusammenarbeit
+
+```{=html}
+<ol class="timeline">
+<li><strong>Erstgespräch.</strong> Welche Plätze werden vergeben, nach welchen Regeln, und wo liegen die Probleme?</li>
+<li><strong>Analyse.</strong> Auswertung bisheriger Vergabedaten und Simulation alternativer Regeln.</li>
+<li><strong>Regeldesign.</strong> Kriterien, Quoten und Sonderfälle wie Geschwister, abgestimmt mit Trägern und Rechtsrahmen.</li>
+<li><strong>Umsetzung und Evaluation.</strong> Einführung, meist zunächst als Pilot, mit begleitender Auswertung.</li>
+</ol>
+```
+
+Forschung und Evaluation finden an der Hochschule Pforzheim und am ZEW statt. Software für den laufenden Betrieb bietet die MatchingTools GmbH an.
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Ein Vergabeverfahren in Ihrer Kommune?</h2><p>Fragen zu Vergabeverfahren in Ihrer Kommune oder Ihrem Land beantworte ich gern.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">E-Mail schreiben</a>
+</div></div>
+```
+
+:::

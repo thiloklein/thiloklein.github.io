@@ -1,0 +1,134 @@
+---
+pagetitle: "Umweltförderung – Thilo Klein"
+description: "Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Anwendung]{.eyebrow}
+
+# Umweltförderung
+
+::: {.lead}
+Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/traffic.png){fig-alt=""}
+:::
+:::
+::: {.kpis .statements}
+::: {.kpi}
+Weniger Mitnahme
+
+Mittel gehen seltener an Haushalte, die ohnehin gekauft hätten
+:::
+
+::: {.kpi}
+Wartezeit als Filter
+
+ohne Einkommen oder Absichten prüfen zu müssen
+:::
+
+::: {.kpi}
+Mehr Wirkung
+
+je eingesetztem Euro bei gleichem Budget
+:::
+
+:::
+::: {.jumpnav}
+[Ansatz](#ansatz) [Materialien](#materialien) [Publikationen](#publikationen)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Ausgangslage]{.tag}
+
+### Das Problem
+
+Bund, Länder und Kommunen fördern Lastenräder, E-Bikes, Elektroautos oder energetische Sanierungen. Ein Teil der Mittel geht an Haushalte, die auch ohne Zuschuss gekauft hätten, und verdrängt jene, die nur mit Förderung kaufen.
+:::
+
+::: {.card-c}
+[Ansatz]{.tag}
+
+### Die Lösung
+
+Wer ohnehin kaufen will, ist meist ungeduldiger und wartet ungern auf die Bewilligung. Eine längere Zeit zwischen Antrag und Auszahlung lenkt die Mittel deshalb zu den Haushalten, deren Kauf tatsächlich von der Förderung abhängt.
+:::
+
+:::
+
+## Der Ansatz {#ansatz}
+
+```{=html}
+<ol class="steps">
+<li><strong>Antrag stellen.</strong> Haushalte beantragen die Förderung wie bisher.</li>
+<li><strong>Wartezeit festlegen.</strong> Zwischen Antrag und Auszahlung liegt eine Wartezeit; eine einheitliche Wartezeit-Auktion legt sie so fest, dass möglichst viele Haushalte erreicht werden, die nur mit Förderung kaufen.</li>
+<li><strong>Selbstauswahl.</strong> Wer ohnehin kaufen will, kauft oft sofort ohne Zuschuss. Die Mittel bleiben für die Haushalte, für die sie den Ausschlag geben.</li>
+</ol>
+```
+
+## Projekt
+
+::: {.cards .two}
+::: {.card-c}
+[2023–2024]{.tag}
+
+### Ungeduld nutzen für bessere Umweltförderprogramme
+
+Untersuchung von Verfahren, die die Ungeduld von Haushalten nutzen, um Förderprogramme zielgenauer zu machen.
+
+[Gefördert vom ZEW-Förderkreis Wissenschaft und Praxis]{.meta}
+:::
+
+:::
+
+## Materialien {#materialien}
+
+::: {.cards .two}
+::: {.card-c}
+[Policy Brief]{.tag}
+
+### [Tapping into People’s Impatience for Better Environmental Subsidies](https://ftp.zew.de/pub/zew-docs/policybrief/en/pb04-23.pdf)
+
+Wie Wartezeiten die Effizienz von Förderprogrammen erhöhen.
+
+[ZEW, 2023, Englisch]{.meta}
+:::
+
+::: {.card-c}
+[Fachartikel]{.tag}
+
+### [Mit Ungeduld zu besseren Subventionen für umweltfreundliche Produkte](https://www.wirtschaftsdienst.eu/inhalt/jahr/2025/heft/6.html)
+
+Der Ansatz für die deutsche Förderpraxis.
+
+[Wirtschaftsdienst, 2025]{.meta}
+:::
+
+:::
+
+## Publikationen {#publikationen}
+
+```{=html}
+<details class="fold"><summary>Liste anzeigen</summary>
+```
+
+{{< include ../_partials/topic-umwelt.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>Förderprogramm in Planung?</h2><p>Gern bespreche ich, wie sich Wartezeiten und Auswahlregeln für Ihr Programm gestalten lassen.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">E-Mail schreiben</a>
+</div></div>
+```
+
+:::

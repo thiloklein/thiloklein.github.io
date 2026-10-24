@@ -1,0 +1,183 @@
+---
+pagetitle: "School places – Thilo Klein"
+description: "Which allocation procedures best meet preferences, what parents actually do, and the consequences of early tracking."
+---
+
+::: {.app}
+
+::: {.app-head}
+::: {}
+[Application]{.eyebrow}
+
+# School places
+
+::: {.lead}
+Which procedures best meet preferences, what parents actually do and what early tracking does.
+:::
+:::
+
+::: {.app-head-img}
+![](/assets/img/cards/harvard.jpg){fig-alt=""}
+:::
+:::
+::: {.kpis}
+::: {.kpi}
+under 3%
+
+instead of 15% placed only at their fourth-ranked school or lower (Budapest)
+:::
+
+::: {.kpi}
+5 km
+
+gain from joint allocation, measured as a school that much closer
+:::
+
+::: {.kpi}
+540
+
+parents and students in the school choice experiment
+:::
+
+:::
+::: {.jumpnav}
+[Findings](#findings) [Materials](#materials) [Publications](#publications)
+:::
+::: {.cards .two}
+::: {.card-c}
+[Starting point]{.tag}
+
+### The problem
+
+At the transition to secondary school, popular schools are often oversubscribed. How places are then allocated determines how many families get their preferred school, whether strategic behaviour pays off and who ends up disadvantaged.
+:::
+
+::: {.card-c}
+[Approach]{.tag}
+
+### What the research contributes
+
+A comparison of allocation mechanisms using administrative data and experiments, and an analysis of what tracking into school types means for achievement and opportunity.
+:::
+
+:::
+
+## What the research shows {#findings}
+
+::: {.cards .two}
+::: {.card-c}
+[Mechanisms]{.tag}
+
+### Which mechanism best meets preferences?
+
+The widely used Deferred Acceptance mechanism makes truthful reporting the best strategy, but in Budapest places almost one child in seven at their fourth-ranked school or lower. A mechanism that explicitly minimises poor placements reduces this share to under three per cent.
+
+[Games and Economic Behavior, 2023]{.meta}
+:::
+
+::: {.card-c}
+[Experiment]{.tag}
+
+### What parents actually do
+
+In an experiment with 324 parents and 216 students, all mechanisms were frequently manipulated, including the one considered strategy-proof. The advantages of the more efficient mechanism nonetheless largely persisted.
+
+[Working paper, 2026]{.meta}
+:::
+
+::: {.card-c}
+[Districts]{.tag}
+
+### Joint allocation across districts
+
+When school districts merge their allocation, everyone gains on average, especially families from small districts with sought-after schools. In Hungary the gain is equivalent to a school five kilometres closer.
+
+[Games and Economic Behavior, 2024]{.meta}
+:::
+
+::: {.card-c}
+[Tracking]{.tag}
+
+### Early tracking
+
+Attending an academic-track school improves achievement and university aspirations, at least as much for disadvantaged children as for others. These children are less likely to get there; early and rigid tracking can therefore amplify inequality.
+
+[Working papers, 2024 and 2025]{.meta}
+:::
+
+:::
+
+## Materials {#materials}
+
+::: {.cards .two}
+::: {.card-c}
+[Policy brief]{.tag}
+
+### [Rethinking Tracking](https://www.zew.de/fileadmin/FTP/policybrief/en/pb10-25.pdf)
+
+Lessons from Hungary for German education reform.
+
+[ZEW, 2025]{.meta}
+:::
+
+::: {.card-c}
+[Practitioner article]{.tag}
+
+### [Early tracking and its consequences](https://www.wirtschaftsdienst.eu/archiv/jahr/2025/heft/9.html)
+
+Lessons from Hungary for Germany’s three-tier school system.
+
+[Wirtschaftsdienst, 2025, German]{.meta}
+:::
+
+::: {.card-c}
+[Report]{.tag}
+
+### [School admission rules, segregation and inequality](https://ftp.zew.de/pub/zew-docs/gutachten/iLearn_ZEWResearchReport2020.pdf)
+
+The Implication of School Admission Rules for Segregation and Educational Inequality.
+
+[ZEW research report, 2020]{.meta}
+:::
+
+::: {.card-c}
+[Podcast]{.tag}
+
+### [How are school places allocated?](https://www.zew.de/en/zew/news/how-are-school-places-allocated)
+
+On early tracking, in conversation with secondary school pupils from Mannheim.
+
+[ZEW podcast, September 2026, German]{.meta}
+:::
+
+:::
+
+### In the press
+
+Coverage is in German.
+
+```{=html}
+<ul class="press"><li><span class="src">MDR Wissen, 02/2026</span><span><a href="https://www.mdr.de/wissen/bildung/fruehe-gymnasium-wahl-in-deutschland-koennte-schaedlich-sein-100.html">Frühe Gymnasium-Wahl in Deutschland könnte schädlich sein</a></span></li><li><span class="src">Süddeutsche Zeitung, 03/2026</span><span>Article on early tracking</span></li><li><span class="src">Frankfurter Rundschau, 10/2023</span><span><a href="https://www.fr.de/politik/schule-weiterfuehrend-modell-gerechtere-schulplatzvergabe-wechsel-wunschschule-tbl-zr-92568351.html">Der Kampf um den Platz an der Wunschschule</a></span></li></ul>
+<details class="fold"><summary>More press coverage (1)</summary><ul class="press"><li><span class="src">Table.Media, 10/2023</span><span><a href="https://table.media/bildung/news/modell-fuer-eine-gerechtere-schulplatzvergabe/">Modell für eine gerechtere Schulplatzvergabe</a></span></li></ul></details>
+```
+
+## Publications {#publications}
+
+```{=html}
+<details class="fold"><summary>Show list</summary>
+```
+
+{{< include ../_partials/topic-schule.md >}}
+
+```{=html}
+</details>
+```
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>School place allocation in your region?</h2><p>I am happy to discuss what the research means for your admission rules.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">Send an email</a>
+</div></div>
+```
+
+:::

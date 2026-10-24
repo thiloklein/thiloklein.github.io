@@ -1,0 +1,88 @@
+---
+pagetitle: "Media – Thilo Klein"
+description: "Podcasts and press coverage on childcare and school place allocation, food donations and market design."
+---
+::: {.page-head}
+[Podcasts and press]{.eyebrow}
+
+# Media
+
+::: {.lead}
+Podcasts and press coverage on childcare and school place allocation, food donations and market design.
+:::
+:::
+
+## Podcasts
+
+::: {.cards}
+::: {.card-c .has-img}
+![](/assets/img/cards/tws2.jpg){.card-img}
+
+::: {.card-body}
+### The Missing Middle
+
+Game Changer, the podcast by TWS Partners, May 2026. Why childcare allocation in Germany is still mostly uncoordinated despite well-understood theory, and what municipalities need to run matching procedures.
+
+[Listen ↗](https://tws-gamechanger.libsyn.com/the-missing-middle-how-market-design-gets-built-for-the-public-sector-with-thilo-klein){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### How are school places allocated?
+
+ZEW podcast, September 2026, in German. On early tracking and what academic-track schools do for children from less privileged families, with secondary school pupils from Mannheim.
+
+[Listen ↗](https://www.zew.de/en/zew/news/how-are-school-places-allocated){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### On Your Spots, Get Set, Go?
+
+ZEW podcast. How KitaMatch allocates childcare places faster and more fairly.
+
+[Listen ↗](https://www.zew.de/AM8540-1){.more}
+:::
+:::
+:::
+
+## Press
+
+Coverage is in German.
+
+### School choice
+
+- [MDR Wissen](https://www.mdr.de/wissen/bildung/fruehe-gymnasium-wahl-in-deutschland-koennte-schaedlich-sein-100.html), February 2026
+- [Süddeutsche Zeitung](https://www.sueddeutsche.de/politik/schuluebertritt-grundschule-gymnasium-druck-li.3451811), March 2026, on early tracking
+- [Frankfurter Rundschau](https://www.fr.de/politik/schule-weiterfuehrend-modell-gerechtere-schulplatzvergabe-wechsel-wunschschule-tbl-zr-92568351.html), October 2023
+- [Table.Media](https://table.media/bildung/news/modell-fuer-eine-gerechtere-schulplatzvergabe/), October 2023
+
+### Childcare allocation
+
+- [Süddeutsche Zeitung](https://www.sueddeutsche.de/projekte/artikel/wirtschaft/buerokratie-olaf-scholz-verwaltung-e836159/?reduced=true), September 2023
+- [Tagesspiegel Background](https://background.tagesspiegel.de/smart-city/algorithmus-sucht-passenden-kitaplatz), August 2023
+- [WirtschaftsWoche](https://www.wiwo.de/politik/deutschland/hilfreiche-software-kita-match-ein-kitaplatz-per-algorithmus/27890190.html), December 2021
+- [Die Zeit](https://www.zeit.de/2021/06/kuenstliche-intelligenz-kita-anwendung-regulierung-gesellschaft-technologie), February 2021
+- [WirtschaftsWoche](https://www.wiwo.de/my/politik/konjunktur/vwl-marktdesign-oekonomie-ohne-elfenbeinturm/25470414.html), January 2020
+- [Frankfurter Allgemeine Zeitung](https://www.faz.net/aktuell/wirtschaft/wie-ein-algorithmus-kitaplaetze-fairer-vergeben-soll-16510418.html), November 2019
+- [Die Rheinpfalz](https://www.rheinpfalz.de/lokal/rhein-pfalz-kreis_artikel,-pers%C3%B6nliche-anmeldung-bleibt-_arid,1296219.html), October 2018
+- [Westfälische Nachrichten](http://www.wn.de/Muenster/3203115-Verdruss-bei-der-Kitaplatz-Vergabe-Eltern-drohen-mit-weiteren-Klagen), March 2018
+- [Frankfurter Allgemeine Zeitung](http://www.faz.net/aktuell/wirtschaft/neue-runde-im-kita-streit-raus-aus-der-kita-warteschlange-15053793.html), June 2017
+
+### Food donations
+
+- [Mannheimer Morgen](https://www.mannheimer-morgen.de/deutschland-welt_artikel,-thema-des-tages-digitalplattform-rettet-essen-_arid,2116601.html), August 2023
+- [Mannheimer Morgen](https://www.mannheimer-morgen.de/orte/mannheim_artikel,-mannheim-projekt-der-mannheimer-tafel-rettet-in-echtzeit-essen-_arid,2116569.html), August 2023
+- [Mannheimer Morgen](https://www.mannheimer-morgen.de/meinung/kommentare_artikel,-kommentar-ehrenamt-muss-sexy-werden-_arid,2116556.html), August 2023 (comment)
+- dpa report, July 2023, carried by [Die Zeit](https://www.zeit.de/news/2023-07/06/tafel-kunden-leiden-unter-folgen-von-inflation), [Süddeutsche Zeitung](https://www.sueddeutsche.de/wirtschaft/soziales-mannheim-tafel-kunden-leiden-unter-folgen-von-inflation-dpa.urn-newsml-dpa-com-20090101-230706-99-300913), [Welt](https://www.welt.de/regionales/baden-wuerttemberg/article246243510/Tafel-Kunden-leiden-unter-Folgen-von-Inflation.html), [Focus](https://www.focus.de/regional/baden-wuerttemberg/armut-tafel-kunden-leiden-unter-folgen-von-inflation_id_198333474.html) and [Stern](https://www.stern.de/gesellschaft/regional/baden-wuerttemberg/armut--tafel-kunden-leiden-unter-folgen-von-inflation-33624102.html)
+- [Welt am Sonntag](https://www.welt.de/wirtschaft/article176970890/Umgang-mit-Lebensmittelspenden-Kann-das-Prinzip-Ebay-die-Tafeln-retten.html), June 2018
+
+## For journalists
+
+Interview and background requests: [thilo.klein@hs-pforzheim.de](mailto:thilo.klein@hs-pforzheim.de). A portrait photo is available [here](/assets/img/portrait.jpg).

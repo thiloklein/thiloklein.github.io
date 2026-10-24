@@ -1,0 +1,33 @@
+---
+pagetitle: "Legal notice and privacy – Thilo Klein"
+---
+::: {.page-head}
+[Legal]{.eyebrow}
+
+# Legal notice and privacy
+:::
+
+The legally binding version of this notice is the [German version](https://klein.uk/impressum.html).
+
+## Legal notice
+
+Information pursuant to Section 5 of the German Digital Services Act (DDG):
+
+Prof. Dr. Thilo Klein\
+Pforzheim University, Faculty of Business and Law\
+Tiefenbronner Straße 65\
+75175 Pforzheim, Germany
+
+Email: [thilo.klein@hs-pforzheim.de](mailto:thilo.klein@hs-pforzheim.de)
+
+Responsible for content under Section 18(2) of the German Interstate Media Treaty (MStV): Prof. Dr. Thilo Klein, address as above.
+
+This is a personal website. Its content reflects the author’s views and not necessarily those of Pforzheim University or ZEW.
+
+## Privacy
+
+This website is hosted on GitHub Pages, a service of GitHub Inc., San Francisco, USA. When you visit the site, GitHub processes technically necessary connection data, in particular your IP address, the time of access and the page requested, in order to deliver the site and keep it secure. The legal basis is Art. 6(1)(f) GDPR. Transfers to the USA take place under the EU-US Data Privacy Framework, in which GitHub participates.
+
+This website sets no cookies, uses no analytics or tracking services and embeds no third-party content. Fonts are served from this site.
+
+You have the right to access, rectify, erase and restrict the processing of your data and to object to processing, as well as the right to lodge a complaint with a data protection supervisory authority.

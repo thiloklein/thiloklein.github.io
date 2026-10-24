@@ -1,0 +1,218 @@
+---
+pagetitle: "Thilo Klein – Marktdesign für die öffentliche Hand"
+description: "Vergabe von Kita- und Schulplätzen und nachhaltiges Marktdesign: Forschung, Evaluation und Umsetzung mit Kommunen und Ländern."
+---
+
+```{=html}
+<div class="hero">
+  <div>
+    <span class="eyebrow">Marktdesign · Matching-Märkte · Bildungsökonomik</span>
+    <h1>Thilo Klein</h1>
+    <div class="statement">
+      <p>Ich untersuche, wie knappe Ressourcen per Algorithmus vergeben werden können, und was Vergabeverfahren in der Praxis bewirken.</p>
+      <p>Die Verfahren entwickle und evaluiere ich gemeinsam mit Kommunen.</p>
+    </div>
+    <ul class="roles">
+      <li>Professor · Hochschule Pforzheim</li>
+      <li>Senior Researcher · ZEW Mannheim</li>
+    </ul>
+    <div class="btns">
+      <a class="btn-line" href="../research/cv_ThiloKLEIN_.pdf">CV</a>
+      <a class="btn-line" href="../anwendungen/index.html">Für Kommunen</a>
+      <a class="btn-line" href="../research/index.html">Alle Publikationen</a>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="portrait-box"><img src="/assets/img/portrait.jpg" alt="Porträt Thilo Klein" width="549" height="366"></div>
+    <ul class="side-links">
+      <li><a href="mailto:thilo.klein@hs-pforzheim.de">thilo.klein@hs-pforzheim.de</a></li>
+      <li><a href="https://orcid.org/0000-0002-5185-3690">ORCID</a></li>
+      <li><a href="https://ideas.repec.org/e/pkl153.html">RePEc</a></li>
+      <li><a href="https://github.com/thiloklein">GitHub</a></li>
+    </ul>
+  </div>
+</div>
+<div class="band"><div class="band-inner">
+  <div><strong>Veröffentlicht in</strong><p>Games and Economic Behavior, Journal of Mechanism and Institution Design, Administrative Sciences</p></div>
+  <div><strong>Berichterstattung</strong><p>FAZ, Süddeutsche Zeitung, Die Zeit, WirtschaftsWoche, Tagesspiegel, Welt, Frankfurter Rundschau und MDR</p></div>
+</div></div>
+```
+
+::: {.block}
+[Anwendungen]{.eyebrow}
+
+## Für Kommunen und Verwaltung
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### Kitaplatzvergabe
+
+Koordinierte Vergabe über alle Träger: Familien halten höchstens ein Angebot, frei werdende Plätze gehen sofort weiter. Im Einsatz in mehr als zehn Kommunen, darunter Tübingen und Kaiserslautern.
+
+[Zum Verfahren](../anwendungen/kita.qmd){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### Schulplatzvergabe
+
+Welche Verfahren Wünsche beim Übergang auf weiterführende  Schulen am besten erfüllen, und was die frühe Aufteilung auf Schularten bewirkt.
+
+[Zur Forschung](../anwendungen/schule.qmd){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/truck.png){.card-img}
+
+::: {.card-body}
+### Lebensmittelspenden
+
+Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafeln, damit weniger weggeworfen wird.
+
+[Zum Ansatz](../anwendungen/lebensmittelspenden.qmd){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/traffic.png){.card-img}
+
+::: {.card-body}
+### Umweltförderung
+
+Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte erreichen, die ohne Zuschuss nicht kaufen würden.
+
+[Zum Ansatz](../anwendungen/umweltfoerderung.qmd){.more}
+:::
+:::
+:::
+:::
+
+::: {.block}
+[Forschung]{.eyebrow}
+
+## Diskussionspapiere
+
+{{< include ../_partials/papers.md >}}
+:::
+
+::: {.block}
+## Ausgewählte Publikationen
+
+{{< include ../_partials/selected.md >}}
+
+[Alle Publikationen](../research/index.qmd){.more}
+:::
+
+::: {.block}
+[Medien]{.eyebrow}
+
+## Zum Hören
+
+::: {.cards .three}
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### Wie werden Schulplätze vergeben?
+
+ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten, im Gespräch mit Mannheimer Schülerinnen und Schülern.
+
+[Anhören ↗](https://www.zew.de/das-zew/aktuelles/wie-werden-schulplaetze-vergeben){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### Auf die Plätze, fertig, los! 
+
+ZEW-Podcast. Wie KitaMatch Kitaplätze schneller und fairer vergibt.
+
+[Anhören ↗](https://www.zew.de/publikationen/prof-dr-thilo-klein-auf-die-plaetze-fertig-los-so-gelingt-die-kitaplatzvergabe){.more}
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/tws2.jpg){.card-img}
+
+::: {.card-body}
+### The Missing Middle
+
+Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitaplatzvergabe trotz guter Theorie meist unkoordiniert läuft, und was Kommunen brauchen, um Matching-Verfahren zu betreiben.
+
+[Anhören ↗](https://tws-gamechanger.libsyn.com/the-missing-middle-how-market-design-gets-built-for-the-public-sector-with-thilo-klein){.more}
+:::
+:::
+:::
+:::
+
+::: {.block #profil}
+[Profil]{.eyebrow}
+
+## Lehre und Transfer
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/literacy.png){.card-img}
+
+::: {.card-body}
+### Aktuelle Lehre
+
+- Analysis und Lineare Algebra
+- Induktive Statistik 
+- Multivariate Statistik
+- Data Analytics with R
+- Quantitative Research Methodologies
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/aidflows.png){.card-img}
+
+::: {.card-body}
+### Laufende Projekte
+
+- MatchingTools, EXIST-Forschungstransfer, Bundesministerium für Wirtschaft und Energie, 2026–2027
+- TafelConnect, Marktdesign für Spenden von Herstellern und Großhandel, Bundesministerium für Ernährung und Landwirtschaft, 2023-2026.
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/implementation.png){.card-img}
+
+::: {.card-body}
+### Software
+
+- **matchingMarkets.** R-Paket mit Algorithmen für Matching-Märkte, über 100.000 Downloads. [Projektseite ↗](https://matchingmarkets.org), [CRAN ↗](https://cran.r-project.org/web/packages/matchingMarkets/). 
+- **KitaMatch.** Öffentlicher Leitfaden: [Best Practices Kitaplatzvergabe ↗](https://matchingtools.de/wp-content/uploads/2026/02/BestPractices_Kitaplatzvergabe_Manual.pdf); Betrieb über [MatchingTools ↗](https://matchingtools.de). 
+- [MatchingMarkets API ↗](https://api.matchingmarkets.org/) ist eine Programmierschnittstelle für Matching-Algorithmen.
+:::
+:::
+
+
+::: {.card-c .has-img}
+![](/assets/img/cards/exist.png){.card-img}
+
+::: {.card-body}
+### Forschungstransfer
+
+- Mitgründer und Wissenschaftlicher Berater der [MatchingTools GmbH ↗](https://matchingtools.de), einer Ausgründung des ZEW. 
+- EXIST-Koordinator der Business School Pforzheim
+:::
+:::
+:::
+:::

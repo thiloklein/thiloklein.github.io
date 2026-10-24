@@ -1,0 +1,76 @@
+project:
+  type: website
+  output-dir: docs
+  pre-render: scripts/gen_pubs.ts
+  post-render: scripts/post_render.ts
+  render:
+    - index.qmd
+    - de/index.qmd
+    - research/index.qmd
+    - anwendungen/*.qmd
+    - medien.qmd
+    - impressum.qmd
+    - en/index.qmd
+    - en/research/index.qmd
+    - en/applications/*.qmd
+    - en/media.qmd
+    - en/legal.qmd
+  resources:
+    - assets/img/**
+    - assets/fonts/*
+    - assets/lang.js
+    - research/cv_ThiloKLEIN_.pdf
+    - CNAME
+    - baidu_verify_cJo4B6C4W3.html
+    - yandex_67df98b06c6f8a98.html
+    - google35b57ea92dc89a3f.html
+    - BingSiteAuth.xml
+    
+
+lang: de-DE
+
+website:
+  title: "Thilo Klein"
+  site-url: "https://klein.uk"
+  description: "Marktdesign für die öffentliche Hand: Vergabe von Kita- und Schulplätzen, nachhaltiges Marktdesign. Prof. Dr. Thilo Klein, Hochschule Pforzheim und ZEW Mannheim."
+  open-graph:
+    image: assets/img/portrait.jpg
+  page-navigation: false
+  search: false
+  navbar:
+    pinned: true
+    title: false
+    right:
+      - text: "Startseite"
+        href: de/index.qmd
+      - text: "Forschung"
+        href: research/index.qmd
+      - text: "Anwendungen"
+        menu:
+          - text: "Überblick"
+            href: anwendungen/index.qmd
+          - text: "---"
+          - text: "Kitaplatzvergabe"
+            href: anwendungen/kita.qmd
+          - text: "Schulplatzvergabe"
+            href: anwendungen/schule.qmd
+          - text: "---"
+          - text: "Lebensmittelspenden"
+            href: anwendungen/lebensmittelspenden.qmd
+          - text: "Umweltförderung"
+            href: anwendungen/umweltfoerderung.qmd
+      - text: "Medien"
+        href: medien.qmd
+      - text: "Kontakt"
+        href: "#kontakt"
+
+format:
+  html:
+    theme: [cosmo, assets/theme.scss]
+    css: assets/site.css
+    include-after-body: assets/footer.html
+    page-layout: full
+    toc: false
+    anchor-sections: false
+    smooth-scroll: false
+    link-external-newwindow: false

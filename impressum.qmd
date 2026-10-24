@@ -1,0 +1,49 @@
+---
+pagetitle: "Impressum und Datenschutz – Thilo Klein"
+---
+::: {.page-head}
+[Rechtliches]{.eyebrow}
+
+# Impressum und Datenschutz
+:::
+
+## Impressum
+
+Angaben gemäß § 5 Digitale-Dienste-Gesetz:
+
+Prof. Dr. Thilo Klein\
+Hochschule Pforzheim, Fakultät für Wirtschaft und Recht\
+Tiefenbronner Straße 65\
+75175 Pforzheim
+
+E-Mail: [thilo.klein@hs-pforzheim.de](mailto:thilo.klein@hs-pforzheim.de)
+
+Verantwortlich für den Inhalt nach § 18 Abs. 2 Medienstaatsvertrag: Prof. Dr. Thilo Klein, Anschrift wie oben.
+
+Dies ist eine persönliche Website. Die Inhalte geben die Auffassung des Autors wieder und nicht notwendigerweise die der Hochschule Pforzheim oder des ZEW.
+
+### Haftung für Links
+
+Diese Website enthält Links zu externen Websites. Für deren Inhalte sind ausschließlich deren Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Links umgehend entfernt.
+
+## Datenschutz
+
+### Verantwortlicher
+
+Prof. Dr. Thilo Klein, Anschrift wie im Impressum.
+
+### Hosting
+
+Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Website verarbeitet GitHub technisch notwendige Verbindungsdaten, insbesondere die IP-Adresse, Datum und Uhrzeit des Abrufs sowie die abgerufene Seite, um die Website auszuliefern und ihre Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; das berechtigte Interesse liegt in einer sicheren und zuverlässigen Bereitstellung der Website. Eine Übermittlung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework, dem GitHub angehört. Weitere Informationen enthält die [Datenschutzerklärung von GitHub](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement).
+
+### Keine Cookies, kein Tracking
+
+Diese Website setzt keine Cookies, verwendet keine Analyse- oder Trackingdienste und bindet keine Inhalte Dritter ein. Schriftarten werden vom eigenen Server geladen.
+
+### Kontakt per E-Mail
+
+Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage verwendet und nicht ohne Ihre Einwilligung weitergegeben.
+
+### Ihre Rechte
+
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie auf Widerspruch gegen die Verarbeitung. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, etwa beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg.

@@ -1,0 +1,104 @@
+---
+pagetitle: "Applications – Thilo Klein"
+description: "Allocation procedures for childcare and schools, and market design for food donations and environmental subsidies."
+---
+
+::: {.app}
+
+::: {.page-head}
+[Applications]{.eyebrow}
+
+# For municipalities and government
+
+::: {.lead}
+Many public services are allocated not by price but through applications, priorities and waiting lists. Well-designed procedures ensure that available places are fully used, preferences are met as far as possible and decisions remain transparent.
+:::
+:::
+
+## Allocation in education
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+[10+ municipalities since 2019]{.tag}
+
+### Childcare places
+
+Coordinated allocation across all providers, including in Tübingen and Kaiserslautern.
+
+[More](childcare.qmd){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+[under 3% instead of 15%]{.tag}
+
+### School places
+
+Which procedures best meet preferences, and what early tracking does.
+
+[More](schools.qmd){.more}
+:::
+:::
+
+:::
+
+## Sustainable market design
+
+::: {.cards .two}
+::: {.card-c .has-img}
+![](/assets/img/cards/truck.png){.card-img}
+
+::: {.card-body}
+[269 food banks connected]{.tag}
+
+### Food donations
+
+Real-time allocation of surplus food to food bank outlets.
+
+[More](food-donations.qmd){.more}
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/traffic.png){.card-img}
+
+::: {.card-body}
+[Waiting as a filter]{.tag}
+
+### Environmental subsidies
+
+Subsidy programmes that better reach households that would not buy without support.
+
+[More](environmental-subsidies.qmd){.more}
+:::
+:::
+
+:::
+
+## How we work together
+
+```{=html}
+<ol class="timeline">
+<li><strong>Initial conversation.</strong> Which places are allocated, under which rules, and where the problems lie.</li>
+<li><strong>Analysis.</strong> Evaluation of past allocation data and simulation of alternative rules.</li>
+<li><strong>Rule design.</strong> Priorities, quotas and special cases such as siblings, agreed with providers and within the legal framework.</li>
+<li><strong>Implementation and evaluation.</strong> Introduction, usually as a pilot first, with accompanying evaluation.</li>
+</ol>
+```
+
+Research and evaluation take place at Pforzheim University and ZEW. Software for day-to-day operation is provided by MatchingTools GmbH.
+
+```{=html}
+<div class="cta-band"><div class="cta-inner">
+  <div><h2>An allocation procedure in your municipality?</h2><p>I am happy to answer questions about allocation procedures in your municipality or region.</p></div>
+  <a class="cta-btn" href="mailto:thilo.klein@hs-pforzheim.de">Send an email</a>
+</div></div>
+```
+
+:::

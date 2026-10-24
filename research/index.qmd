@@ -1,0 +1,64 @@
+---
+pagetitle: "Forschung – Thilo Klein"
+description: "Design und Wirkung von Vergabeverfahren in Bildung und Arbeitsmärkten sowie nachhaltiges Marktdesign: Schwerpunkte, Publikationen, Drittmittel, Lehre."
+---
+::: {.page-head}
+[Forschung und Publikationen]{.eyebrow}
+
+# Forschung
+
+::: {.lead}
+Ich arbeite zu Marktdesign, Matching-Theorie und empirischen Methoden. Die Arbeit an konkreten Vergabeverfahren mit Kommunen und Ländern liefert Daten, mit denen sich ihre Wirkung kausal untersuchen lässt. Dazu nutze ich Verwaltungsdaten und Feldexperimente aus Deutschland, Ungarn und England.
+:::
+:::
+
+## Schwerpunkte
+
+::: {.cards .three}
+::: {.card-c .has-img}
+![](/assets/img/cards/harvard.jpg){.card-img}
+
+::: {.card-body}
+### Schulwahl
+
+**Eltern im Experiment.** Alle Verfahren werden häufig strategisch genutzt, Eltern ähnlich oft wie Studierende. [arXiv 2026](https://arxiv.org/abs/2603.24615)
+
+**Effizienz und Strategiesicherheit.** Das Rank-Minimizing-Verfahren senkt in Budapest den Anteil schlechter Platzierungen von 15 auf unter 3 Prozent. [GEB 2023](https://doi.org/10.1016/j.geb.2023.07.008)
+
+**Kita.** Dezentrales Deferred Acceptance für Kitas [JMID 2021](http://www.mechanism-design.org/arch/v006-1/p_03.pdf).
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/kita.png){.card-img}
+
+::: {.card-body}
+### Ungleichheit
+
+**Nachhilfe und Schulzuweisung.** Kommen Kinder in den obersten Schulzweig, investieren vor allem Familien mit geringerem sozioökonomischem Status deutlich mehr in private Nachhilfe. [DP 2025](https://ftp.zew.de/pub/zew-docs/dp/dp25023.pdf)
+
+**Frühe Aufteilung auf Schularten.** Gymnasien helfen Kindern aller Herkunft, aber benachteiligte Kinder gelangen seltener dorthin. [DP 2024](https://ftp.zew.de/pub/zew-docs/dp/dp24076.pdf)
+
+**Schulwahl über Bezirksgrenzen.** Legen Schulbezirke ihre Vergabe zusammen, gewinnen im Durchschnitt alle; der Gewinn entspricht einer um fünf Kilometer näheren Schule. [GEB 2024](https://doi.org/10.1016/j.geb.2024.07.003)
+:::
+:::
+
+::: {.card-c .has-img}
+![](/assets/img/cards/esaf.jpg){.card-img}
+
+::: {.card-body}
+### Entwicklungsökonomik
+
+**Mikrofinanz.** Vielfältiger zusammengesetzte Kreditgruppen zahlen in Thailand um zehn Prozentpunkte häufiger zurück. [DP 2024](https://ftp.zew.de/pub/zew-docs/dp/dp24070.pdf)
+
+**Statistik und Daten.** Arbeiten aus der OECD-Zeit (2014–2017) zum Wert amtlicher Statistik und zu neuen Datenquellen.
+:::
+:::
+:::
+
+
+## Publikationen
+
+{{< include ../_partials/all.md >}}
+
+
