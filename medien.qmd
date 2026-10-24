@@ -1,5 +1,5 @@
 ---
-pagetitle: "Medien – Thilo Klein"
+pagetitle: "Medien"
 description: "Podcasts und Presseberichte zu Kita- und Schulplatzvergabe, Lebensmittelspenden und Marktdesign mit Prof. Dr. Thilo Klein (Hochschule Pforzheim, ZEW)."
 ---
 ::: {.page-head}

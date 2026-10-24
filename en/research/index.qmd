@@ -1,5 +1,5 @@
 ---
-pagetitle: "Research – Thilo Klein"
+pagetitle: "Research"
 description: "Design and impact of allocation procedures in education and labour markets, and sustainable market design: research areas, publications, grants, teaching."
 ---
 ::: {.page-head}

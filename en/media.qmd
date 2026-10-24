@@ -1,5 +1,5 @@
 ---
-pagetitle: "Media – Thilo Klein"
+pagetitle: "Media"
 description: "Podcasts and press coverage on childcare and school place allocation, food donations and market design featuring Prof. Thilo Klein (Pforzheim University, ZEW)."
 ---
 ::: {.page-head}

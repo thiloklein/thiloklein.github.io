@@ -1,5 +1,5 @@
 ---
-pagetitle: "Forschung – Thilo Klein"
+pagetitle: "Forschung"
 description: "Design und Wirkung von Vergabeverfahren in Bildung und Arbeitsmärkten sowie nachhaltiges Marktdesign: Schwerpunkte, Publikationen, Drittmittel, Lehre."
 ---
 ::: {.page-head}
