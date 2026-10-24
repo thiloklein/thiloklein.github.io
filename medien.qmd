@@ -16,7 +16,7 @@ Podcasts und Presseberichte zu Kita- und Schulplatzvergabe, Lebensmittelspenden 
 
 ::: {.cards}
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Wie werden Schulplätze vergeben?
@@ -29,7 +29,7 @@ ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten und was 
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Auf die Plätze, fertig, los! 
@@ -41,7 +41,7 @@ ZEW-Podcast. Wie KitaMatch Kitaplätze schneller und fairer vergibt.
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/tws2.jpg){.card-img}
+![](/assets/img/cards/tws2.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### The Missing Middle

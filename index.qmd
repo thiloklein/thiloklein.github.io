@@ -10,4 +10,6 @@ format:
         <link rel="canonical" href="https://klein.uk/en/">
 ---
 
+# Thilo Klein
+
 [Continue to the English version](en/index.qmd) · [Zur deutschen Version](de/index.qmd)

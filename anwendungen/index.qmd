@@ -19,7 +19,7 @@ Viele öffentliche Leistungen werden nicht über Preise vergeben, sondern über 
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [10+ Kommunen seit 2019]{.tag}
@@ -33,7 +33,7 @@ Koordinierte Vergabe über alle Träger, unter anderem in Tübingen und Kaisersl
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [unter 3 % statt 15 %]{.tag}
@@ -52,7 +52,7 @@ Welche Verfahren Wünsche am besten erfüllen und was die frühe Aufteilung auf 
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.jpg){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [269 Tafeln angebunden]{.tag}
@@ -66,7 +66,7 @@ Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafe
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.jpg){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [Wartezeit als Filter]{.tag}

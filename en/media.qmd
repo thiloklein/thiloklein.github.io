@@ -16,7 +16,7 @@ Podcasts and press coverage on childcare and school place allocation, food donat
 
 ::: {.cards}
 ::: {.card-c .has-img}
-![](/assets/img/cards/tws2.jpg){.card-img}
+![](/assets/img/cards/tws2.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### The Missing Middle
@@ -28,7 +28,7 @@ Game Changer, the podcast by TWS Partners, May 2026. Why childcare allocation in
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### How are school places allocated?
@@ -40,7 +40,7 @@ ZEW podcast, September 2026, in German. On early tracking and what academic-trac
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### On Your Spots, Get Set, Go?

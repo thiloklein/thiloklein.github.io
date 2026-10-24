@@ -16,7 +16,7 @@ I work on market design, matching theory and empirical methods. Working on real 
 
 ::: {.cards .three}
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### School choice
@@ -31,7 +31,7 @@ I work on market design, matching theory and empirical methods. Working on real 
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Inequality
@@ -45,7 +45,7 @@ I work on market design, matching theory and empirical methods. Working on real 
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/esaf.jpg){.card-img}
+![](/assets/img/cards/esaf.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Development economics

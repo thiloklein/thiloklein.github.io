@@ -1,5 +1,6 @@
 ---
-pagetitle: "Marktdesign für die öffentliche Hand"
+pagetitle: "Thilo Klein – Ökonom"
+title-prefix: ""
 description: "Vergabe von Kita- und Schulplätzen und nachhaltiges Marktdesign: Forschung, Evaluation und Umsetzung mit Kommunen und Ländern."
 format:
   html:
@@ -60,7 +61,7 @@ format:
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Kitaplatzvergabe
@@ -73,7 +74,7 @@ Koordinierte Vergabe über alle Träger: Familien halten höchstens ein Angebot,
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Schulplatzvergabe
@@ -86,7 +87,7 @@ Welche Verfahren Wünsche beim Übergang auf weiterführende  Schulen am besten 
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.jpg){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Lebensmittelspenden
@@ -99,7 +100,7 @@ Echtzeit-Verteilung überschüssiger Lebensmittel an die Ausgabestellen der Tafe
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.jpg){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Umweltförderung
@@ -135,7 +136,7 @@ Wie Förderprogramme für umweltfreundliche Produkte gezielter die Haushalte err
 
 ::: {.cards .three}
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Wie werden Schulplätze vergeben?
@@ -148,7 +149,7 @@ ZEW-Podcast, September 2026. Über die frühe Aufteilung auf Schularten, im Gesp
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Auf die Plätze, fertig, los! 
@@ -161,7 +162,7 @@ ZEW-Podcast. Wie KitaMatch Kitaplätze schneller und fairer vergibt.
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/tws2.jpg){.card-img}
+![](/assets/img/cards/tws2.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### The Missing Middle
@@ -181,7 +182,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/literacy.jpg){.card-img}
+![](/assets/img/cards/literacy.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Aktuelle Lehre
@@ -196,7 +197,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/aidflows.jpg){.card-img}
+![](/assets/img/cards/aidflows.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Laufende Projekte
@@ -207,7 +208,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/implementation.jpg){.card-img}
+![](/assets/img/cards/implementation.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Software
@@ -220,7 +221,7 @@ Game Changer, Podcast von TWS Partners, Mai 2026, auf Englisch. Warum die Kitapl
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/exist.jpg){.card-img}
+![](/assets/img/cards/exist.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Forschungstransfer

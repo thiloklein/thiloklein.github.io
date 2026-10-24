@@ -1,5 +1,6 @@
 ---
-pagetitle: "Market design for the public sector"
+pagetitle: "Thilo Klein – Economist"
+title-prefix: ""
 description: "Allocation of childcare and school places, and sustainable market design: research, evaluation and implementation with municipalities and states."
 format:
   html:
@@ -60,7 +61,7 @@ format:
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Childcare places
@@ -73,7 +74,7 @@ Coordinated allocation across all providers: families hold at most one offer, an
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### School places
@@ -86,7 +87,7 @@ Which procedures best meet preferences at the transition to secondary school, an
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.jpg){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Food donations
@@ -98,7 +99,7 @@ Real-time allocation of surplus food to food bank outlets, so that less goes to 
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.jpg){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Environmental subsidies
@@ -134,7 +135,7 @@ How subsidy programmes for eco-friendly products can better reach households tha
 
 ::: {.cards .three}
 ::: {.card-c .has-img}
-![](/assets/img/cards/tws2.jpg){.card-img}
+![](/assets/img/cards/tws2.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### The Missing Middle
@@ -146,7 +147,7 @@ Game Changer, May 2026. How market design actually gets built for the public sec
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### How are school places allocated?
@@ -158,7 +159,7 @@ ZEW podcast, September 2026, in German. On early tracking, in conversation with 
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### On Your Spots, Get Set, Go?
@@ -178,7 +179,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/literacy.jpg){.card-img}
+![](/assets/img/cards/literacy.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Current teaching
@@ -192,7 +193,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/aidflows.jpg){.card-img}
+![](/assets/img/cards/aidflows.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Current Projects
@@ -203,7 +204,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/implementation.jpg){.card-img}
+![](/assets/img/cards/implementation.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Software
@@ -215,7 +216,7 @@ ZEW podcast, in German. How KitaMatch allocates childcare places faster and more
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/exist.jpg){.card-img}
+![](/assets/img/cards/exist.jpg){.card-img alt=""}
 
 ::: {.card-body}
 ### Research transfer

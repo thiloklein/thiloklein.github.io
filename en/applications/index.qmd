@@ -19,7 +19,7 @@ Many public services are allocated not by price but through applications, priori
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/kita.jpg){.card-img}
+![](/assets/img/cards/kita.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [10+ municipalities since 2019]{.tag}
@@ -33,7 +33,7 @@ Coordinated allocation across all providers, including in Tübingen and Kaisersl
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/harvard.jpg){.card-img}
+![](/assets/img/cards/harvard.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [under 3% instead of 15%]{.tag}
@@ -52,7 +52,7 @@ Which procedures best meet preferences, and what early tracking does.
 
 ::: {.cards .two}
 ::: {.card-c .has-img}
-![](/assets/img/cards/truck.jpg){.card-img}
+![](/assets/img/cards/truck.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [269 food banks connected]{.tag}
@@ -66,7 +66,7 @@ Real-time allocation of surplus food to food bank outlets.
 :::
 
 ::: {.card-c .has-img}
-![](/assets/img/cards/traffic.jpg){.card-img}
+![](/assets/img/cards/traffic.jpg){.card-img alt=""}
 
 ::: {.card-body}
 [Waiting as a filter]{.tag}
