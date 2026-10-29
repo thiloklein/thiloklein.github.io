@@ -64,6 +64,7 @@ website:
         href: medien.qmd
       - text: "Kontakt"
         href: "#kontakt"
+        rel: nofollow
 
 format:
   html:

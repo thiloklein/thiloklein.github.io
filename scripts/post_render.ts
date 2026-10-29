@@ -110,3 +110,10 @@ for (const file of walk(docs)) {
   Deno.writeTextFileSync(file, html.replace("</head>", tags + "</head>"));
 }
 
+// 7 Windows-Pfade korrigieren: Quarto erzeugt unter Windows teils "..\assets" statt "../assets"
+for (const file of walk(docs)) {
+  const html = Deno.readTextFileSync(file);
+  const fixed = html.replace(/(src|href)="([^"]*\\[^"]*)"/g, (_m, a, v) => `${a}="${v.replaceAll("\\", "/")}"`);
+  if (fixed !== html) Deno.writeTextFileSync(file, fixed);
+}
+
